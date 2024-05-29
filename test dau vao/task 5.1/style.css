@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.flex-container {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+    gap: 5px;
+}
+
+.left-content, .right-content {
+    flex: 50%;
+}
+
+.left-content {
+    display: flex;
+}
+
+.left-content img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.left-inner-left {
+    flex: 2;
+    margin-right: 5px;
+}
+
+.left-inner-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.left-inner-right img {
+    width: 80%;
+}
+
+.right-content {
+    text-align: right;
+    padding: 30px;
+}
+
+.shopping {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.shopping .session {
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.shopping img {
+    width: 25px;
+    height: 25px;
+}
+
+.description {
+    padding-top: 111px;
+}
+
+.description .name {
+    font-size: 32px;
+    font-weight: 200;
+}
+
+.description .prize {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.description .tag {
+    font-size: 14px;
+    color: #828282;
+    font-weight: 200;
+    padding: 30px 0;
+}
+
+.description .text{
+    font-size: 14px;
+    line-height: 18px;
+    display: block;
+}
+
+.sizes {
+    display: flex;
+    justify-content: right;
+    padding-top: 20px;
+}
+
+.sizes .size {
+    border: solid black 1px;
+    font-size: 14px;
+    padding: 10px 0;
+    margin: 0 3px;
+}
+
+.sizes .size:nth-child(1), 
+.sizes .size:nth-child(5) {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.sizes .size:nth-child(2), 
+.sizes .size:nth-child(3),
+.sizes .size:nth-child(4) {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.guide {
+    display: block;
+    color: black;
+    text-decoration: underline;
+    font-size: 12px;
+    margin-bottom: 70px;
+    margin-top: 5px;
+}
+
+.add {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 200;
+    background-color: black;
+    color: white;
+    padding: 22px 115px;
+}
+
+.favorite, .calculate {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 15px;
+    color: #828282;
+}
+
+.favorite {
+    margin-top: 40px;
+    display: block;
+}

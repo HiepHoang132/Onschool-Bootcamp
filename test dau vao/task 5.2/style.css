@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100vh;
+}
+
+.flex-image {
+    flex: 3;
+    background-color: black;
+}
+
+.flex-image img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.flex-form { 
+    padding: 55px;
+    background-color: #f7f7f7;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.credential {
+    font-size: 18px;
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    border: solid black .5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.credential:focus::placeholder {
+    color: transparent;
+}
+
+.utilities {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.utilities a {
+    text-decoration: none;
+    color: black;
+}
+
+.checkbox {
+    display: flex;
+    gap: 5px;
+}
+
+.btn {
+    font-size: 14px;
+    height: 60px;
+    margin: 10px 0;
+    background-color: #5C88C4;
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
+
+.sign-up {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+}
+
+.sign-up img {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    mix-blend-mode: multiply;
+}
