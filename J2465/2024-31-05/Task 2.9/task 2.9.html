@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>2.9</title>
+    <style>
+        /* Tải Roboto font từ Google Fonts. */
+        @import url("https://fonts.googleapis.com/css?family=Roboto:400");
+
+        /* Thiết lập font chữ cho toàn bộ phần tử thành font 'Roboto' */
+        * {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            background-color: #263238;
+        }
+
+        /* Định dạng cho các phần tử có class container */
+        .container {
+            padding: 12px 24px 24px 24px;
+            margin: 48px 12px;
+            border-radius: 4px;
+            background-color: #E3F2FD;
+        }
+
+        .container h3 {
+            text-align: center;
+        }
+
+        /* Định dạng cho các thẻ label */
+        label {
+            margin-left: 12px;
+            font-size: 0.85em;
+        }
+
+        /* Định dạng cho các ô nhập input và ô nhập textarea */
+        input[type=text],
+        input[type=email],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        /*Định dạng cho nút */
+        button {
+            margin: 0 auto;
+            outline: 0;
+            border: 0;
+            padding: 12px 24px;
+            border-radius: 4px;
+            position: relative;
+            display: inline-block;
+            color: white;
+            background-color: #64B5F6;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Contact Form</h3>
+        <div>
+            <label for="first_name">First Name</label>
+            <input name="first_name" type="text" required placeholder="John" />
+            <br>
+
+            <label for="last_name">Last Name</label>
+            <input name="last_name" type="text" required placeholder="Doe" />
+            <br>
+
+            <label for="email">Email</label>
+            <input name="email" type="email" required placeholder="you@domain.com" />
+            <br>
+
+            <label for="message">Message</label><br>
+            <textarea name="message" cols="30" rows="10" placeholder="Enter your message here ..."></textarea>
+
+            <div class="center">
+                <button>Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
