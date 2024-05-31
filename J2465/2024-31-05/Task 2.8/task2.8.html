@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Html css</title>
+    <style>
+        /* 1 - Lớp định dạng cho thẻ div có class container */
+        div.container {
+            border: 1px solid red;
+            padding: 10px;
+            width: 30rem;
+        }
+
+        /* 2 - Lớp định dạng các thẻ p bên trong thẻ div có class container */
+        div.container p {
+            color: white;
+            background-color: purple;
+            font-size: 20px;
+        }
+        
+        /* định dạng cho class car-container */
+        .car-container {
+            margin-top: 1rem;
+        }
+
+        /* 3 & 4: Bạn hãy tạo thêm các lớp định dạng bên dưới đây */
+        #p-description {
+            color: blue;
+            background-color: aqua;
+            font-size: 18px;
+        }
+
+        .references {
+            color: white;
+            background-color: #bdb76b;
+            font-size: 1.5em;
+        }
+
+        #cars {
+            color: purple;
+            background-color: aqua;
+            width: 15rem;
+            height: 1.5rem;
+        }
+    </style>
+</head> 
+
+<body>
+    <h1> select children - select element con - cháu -selector nâng cao </h1>
+    <div class="container">div (parrent div)
+        <p>p (child 1 )</p>
+        <p>p (child 2)</p>
+        <p>p (child 3)</p>
+        <p id="p-description">p (child 4)</p>
+        <p>p (child 5)</p>
+    </div>
+
+    <div class="car-container">
+       <label for="cars">Chọn ô tô:</label>
+       <select name="cars" id="cars">
+            <option value="vinfast">Vinfast</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+       </select>
+    </div>
+
+    <div class="references">
+        <p>Tham khảo thêm về <strong>selector</strong> tại bài viết 
+            <a href="https://www.w3schools.com/cssref/css_selectors.php" target="_blank">CSS Selectors</a>
+        </p>
+    </div>
+</body>
+
+</html>
