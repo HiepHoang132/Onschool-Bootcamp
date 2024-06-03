@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <title>Task 3.4</title>
+</head>
+
+<style>
+    .div-position {
+        width: 200px;
+        height: 100px;
+        background-color: gray;
+        border: 2px solid black;
+        padding: 30px;
+        margin: 10px; 
+    }
+
+    #div-relative {
+        position: relative;
+        left: 100px;
+        top: 50px;
+    }
+
+    #div-absolute {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    #div-fixed {
+        position: fixed;
+        top: 0;
+        left: 350px;
+    }
+
+</style>
+<body>
+    <div class="div-position"></div>
+    <div class="div-position" id="div-relative"></div>
+    <div class="div-position"></div>
+    <div class="div-position" id="div-fixed"></div>
+    <div class="div-position" id="div-absolute"></div>
+</body>
+</html>

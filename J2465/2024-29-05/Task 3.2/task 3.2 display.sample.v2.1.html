@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>task 19.80</title>
+  <style>
+    .d-inline {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      border: 1px solid blue;
+      background-color: yellow;
+      display: inline;
+    }
+
+    .d-block {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      border: 1px solid blue;
+      background-color: orange;
+      display: block;
+    }
+
+    .d-inline-block {
+      width: 100px;
+      height: 100px;
+      padding: 5px;
+      border: 1px solid blue;
+      background-color: yellow;
+      display: inline-block;
+    }
+
+    .ts-18 {
+      font-size: 18px;
+      line-height: 25px;
+    }
+  </style>
+</head>
+
+<body> ​
+  <h2>display: inline</h2>
+  <div class="ts-18"> display: inline sẽ không ngắt dòng
+    <div class="d-inline">Nội dung 1</div>
+    <div class="d-inline">Nội dung 2</div>
+    <div class="d-inline">Nội dung 3</div>.
+    Bạn không thể đặt chiều rộng và chiều cao của chúng bằng CSS
+  </div>
+  <h2>display: inline-block</h2>
+  <div class="ts-18">Kiểu display: inline-block là sự kết hợp giữa inline và block. Phần tử inline-block sẽ không ngắt
+    dòng và sẽ luôn hiển thị thành 1 khối.
+    <div class="d-inline-block">Nội dung 4</div>
+    <div class="d-inline-block">Nội dung 5</div>
+    <div class="d-inline-block">Nội dung 6</div>.
+    Điểm khác biệt so với inline là inline-block có thể thay đổi chiều rộng và chiều cao của chúng bằng CSS.
+  </div>
+
+  <h2>display: block</h2>
+  <div class="ts-18">
+    display: block sẽ tạo một dòng mới và mặc định sẽ có độ rộng bằng độ rộng phần tử cha.
+    <div class="d-block">Nội dung 6</div>
+    <div class="d-block">Nội dung 7</div>
+    phần tử block sẽ đứng một dòng độc lập so với thành phần trước và sau nó.
+  </div>
+</body>
+
+</html>
