@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <title>Task 4.5</title>
+</head>
+
+<style>
+    body {
+        font-family: sans-serif;
+    }
+
+    .flex-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .flex-form {
+        width: 360px;
+        padding: 45px;
+        background-color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .flex-form h2 {
+        font-weight: 300;
+        text-align: left;
+    }
+
+    .flex-form input {
+        background-color: #f2f2f2;
+        border: none;
+        padding: 15px;
+        font-size: 14px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .flex-form button {
+        background-color: #0d6efd;
+        border: none;
+        padding: 15px;
+        font-size: 14px;
+        width: 100%;
+        margin-top: 10px;
+        color: white;
+    }
+
+    .flex-image {
+        background-image: url(background.jpg);
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; 
+    }
+</style>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-form">
+            <h2>Sign In</h2>
+            <input type="text" name="user" id="user" placeholder="Username">
+            <input type="password" name="pass" id="pass" placeholder="Password">
+            <button type="submit">Log in</button>
+        </div>
+        <div class="flex-image"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <title>Task 4.3</title>
+</head>
+
+<style>
+    body {
+        background-color: rgb(141,194,111);
+        margin: 0;
+        padding: 0;
+    }
+
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: transparent;
+    }
+
+    .flex-form {
+        width: 360px;
+        padding: 45px; 
+        background-color: white;
+        text-align: center;
+        box-shadow: 10px 10px 30px gray;
+    }
+
+    .flex-form input {
+        background-color: #f2f2f2;
+        padding: 15px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        border: none;
+    }
+
+    .flex-form button {
+        background-color: #4caf50;
+        color: white;
+        padding: 15px;
+        font-size: 14px;
+        border: none;
+        width: 100%;
+    }
+
+    .color1 {
+        color: #b3b3b3;
+    }
+
+    .color2 {
+        color: #4caf50;
+    }
+</style>
+<body>
+    <div class="flex-container">
+        <div class="flex-form">
+            <input type="text" name="user" id="user" placeholder="username">
+            <input type="text" name="pass" id="pass" placeholder="password">
+            <button type="submit">LOGIN</button>
+            <p>
+                <span class="color1">Not registered?</span>
+                <span class="color2">Create an account</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

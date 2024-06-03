@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Example</title>
+    <style>
+        /* Đặt các kiểu CSS cho toàn bộ trang */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container chính sử dụng flexbox */
+        .container {
+            display: flex; /* Kích hoạt flexbox */
+            flex-direction: row; /* Xếp các phần tử con theo hàng ngang */
+            justify-content: space-around; /* Phân phối đều các phần tử con với khoảng cách xung quanh */
+            align-items: center; /* Căn giữa các phần tử con theo chiều dọc */
+            height: 100vh; /* Chiều cao của container chiếm toàn bộ chiều cao viewport */
+            background-color: #f0f0f0; /* Màu nền của container */
+            padding: 20px; /* Khoảng cách bên trong container */
+        }
+
+        /* Các phần tử con của container */
+        .box {
+            background-color: #64B5F6; /* Màu nền của box */
+            color: white; /* Màu chữ */
+            padding: 20px; /* Khoảng cách bên trong box */
+            border-radius: 4px; /* Bo tròn các góc */
+            width: 100px; /* Chiều rộng của box */
+            text-align: center; /* Căn giữa văn bản bên trong box */
+        }
+    </style>
+</head>
+<body>
+    <!-- Container chính chứa các box -->
+    <div class="container">
+        <!-- Box 1 -->
+        <div class="box">Box 1</div>
+        <!-- Box 2 -->
+        <div class="box">Box 2</div>
+        <!-- Box 3 -->
+        <div class="box">Box 3</div>
+    </div>
+</body>
+</html>
