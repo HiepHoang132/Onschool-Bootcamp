@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <title>Flexbox card</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .flex-container {
+        margin: 20px 10px;
+        height: 94vh;
+        display: flex;
+        gap: 20px;
+    }
+
+    .flex-item {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 5px 5px 10px grey;
+        color: white;
+        font-size: 2.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-item p {
+        width: 100%;
+        height: 15%;
+        /* background-color: black;
+        opacity: 0.5; */
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-item:nth-of-type(1){
+        background-image: url("images/img1.jpg");
+    }
+
+    .flex-item:nth-of-type(2){
+        background-image: url("images/img2.jpg");
+    }
+
+    .flex-item:nth-of-type(3){
+        background-image: url("images/img3.jpg");
+    }
+
+    .flex-item:nth-of-type(4){
+        background-image: url("images/img4.jpg");
+    }
+</style>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>1</p>
+        </div>
+        <div class="flex-item">
+            <p>2</p>
+        </div>
+        <div class="flex-item">
+            <p>3</p>
+        </div>
+        <div class="flex-item">
+            <p>4</p>
+        </div>
+    </div>
+</body>
+</html>
