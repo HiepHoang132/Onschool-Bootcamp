@@ -24,63 +24,62 @@
     .item {
         height: 100%;
         flex-grow: 1;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat; 
+        color: white;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .item:nth-of-type(1) {
         background-image: url("images/1.jpeg");
+        animation-name: scaleUp;
     }
 
     .item:nth-of-type(2) {
         background-image: url("images/2.jpeg");
+        animation-name: scaleUp;
     }
 
     .item:nth-of-type(3) {
         background-image: url("images/3.jpeg");
+        animation-name: scaleUp;
     }
 
     .item:nth-of-type(4) {
         background-image: url("images/4.jpeg");
+        animation-name: scaleUp;
     }
 
     .item:nth-of-type(5) {
         background-image: url("images/5.jpeg");
-    }
-
-    .item {
-        color: white;
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    .item p {
-        transition: all 1s ease;
+        animation-name: scaleUp;
     }
 
     .item:hover {
         flex-grow: 2;
+        transition-duration:0.5s;
+        animation-timing-function: ease;
     }
 
     .item:hover p {
-    color: black;
-    letter-spacing: 10px;
-    background-color: whitesmoke;
-    width: auto;
-    margin: auto; /* Center horizontally */
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 6px;
-    border-radius: 5px;
-    text-align: center; /* Center text horizontally within the paragraph */
-}
+        color: black;
+        letter-spacing: 10px;
+        background-color: whitesmoke;
+        width: auto;
+        margin: auto; /* Center horizontally */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 6px;
+        border-radius: 15%;
+        text-align: center; /* Center text horizontally within the paragraph */
+    }
 
-
+    @keyframes scaleUp {
+        0% {flex-grow: 1}
+        100% {flex-grow: 2}
+    }
 </style>
 <body>
     <div class="container">

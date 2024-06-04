@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <title>Task 5.2 - Sign-in Page</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+        font-family: "Montserrat", sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    .flex-container {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .flex-image {
+        flex-grow: 3;
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        
+    }
+
+    .flex-form {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 55px;
+        background-color: #f7f7f7;
+    }
+
+    .heading {
+        font-size: 30px;
+    }
+
+    .flex-form #email, .flex-form #pass {
+        width: 80%;
+        margin: 5px 0;
+        padding: 30px 20px;
+        font-size: 18px;
+        height: 50px;
+        border-radius: 5px;
+        border: 0.5px solid gray;
+        box-sizing: border-box;
+    }
+
+    .utilities {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        width: 80%;
+    }
+
+    .utilities .checkbox {
+        display: flex;
+        align-items: center;
+    }
+
+    .utilities a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .flex-form button {
+        font-size: 14px;
+        height: 60px;
+        width: 80%;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: none;
+        margin: 30px 0;
+        color: white;
+        background-color: #7469B6;
+    }
+
+    .signup {
+        margin-top: 20px;
+        font-size: 13px;
+    }
+
+    .social-media {
+        display: flex;
+    }
+
+    .social-media img {
+        height: 36px;
+        width: 36px;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-image"></div>
+
+        <div class="flex-form">
+            <p class="heading">Login to continue</p>
+            <input type="email" placeholder="Email" id="email" required>
+            <input type="password" placeholder="Password" id="pass" required>
+
+            <div class="utilities">
+                <div class="checkbox">
+                    <input type="checkbox"> Remember me
+                </div>
+                <a href="#">Forgot Password?</a>    
+            </div>
+
+            <button type="submit">LOGIN</button>
+            <p class="signup">or sign up using</p>
+
+            <div class="social-media">
+                <img src="images/facebook.png" alt="">
+                <img src="images/twitter.png" alt="">    
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

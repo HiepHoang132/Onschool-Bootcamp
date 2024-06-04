@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6.2</title>
+    <style>
+        @keyframes scaleUp {
+            50% { flex-grow: 1 }
+            100% { flex-grow: 2 }
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flex-item {
+            background-color: tomato;
+            width: 120px;
+            height: 150px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2em;
+            line-height: 150px;
+            /* margin: 10px; */
+            /* padding: 5px; */
+            flex-grow: 1;
+        }
+        .flex-item:first-child{
+            background-image: url(images/1.jpeg);
+            animation-name: scaleUp;
+            /* animation-duration : 0.5s;
+            animation-delay:0.5s; */
+        }
+        .flex-item:nth-child(2){
+            background-image: url(images/2.jpeg);
+            animation-name: scaleUp;
+            /* animation-duration : 0.5s;
+            animation-delay:1s; */
+        }
+        .flex-item:nth-child(3){
+            background-image: url(images/3.jpeg);
+            animation-name: scaleUp;
+            /* animation-duration : 0.5s;
+            animation-delay:1.5s; */
+        }
+        .flex-item:nth-child(4){
+            background-image: url(images/4.jpeg);
+            animation-name: scaleUp;
+            /* animation-duration : 0.5s;
+            animation-delay:2s; */
+        }
+        .flex-item:nth-child(5){
+            background-image: url(images/5.jpeg);
+            animation-name: scaleUp;
+            /* animation-duration : 0.5s;
+            animation-delay:2.5s; */
+        }
+        .flex-item:hover{
+            background-color: #d418d9;
+            color: chartreuse;
+            flex-grow: 2;
+            transition-duration:0.5s;
+            animation-timing-function:ease;
+        }
+        .flex-item:hover span{
+            background-color: white;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item"><span>ONE</span></div>
+        <div class="flex-item"><span>TWO</span></div>
+        <div class="flex-item"><span>THREE</span></div>
+        <div class="flex-item"><span>FOUR</span></div>
+        <div class="flex-item"><span>FIVE</span></div>
+    </div>
+</body>
+</html>

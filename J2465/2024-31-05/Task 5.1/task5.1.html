@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <title>Task 5.1 - Fashion E-commerce Product Page</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .flex-container {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .left-content, .right-content {
+        flex: 50%;
+    }
+
+    .left-content {
+        display: flex;
+        gap: 5px;
+    }
+
+    .left-content .left{
+        flex-grow: 2;
+        background-image: url("images/image1.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .left-content .right{
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .small-image {
+        width: 85%;
+        height: 25%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .small-image:nth-of-type(1){
+        background-image: url("images/image2.png");
+    }
+
+    .small-image:nth-of-type(2){
+        background-image: url("images/image3.png");
+    }
+
+    .small-image:nth-of-type(3){
+        background-image: url("images/image4.png");
+    }
+
+    .small-image:nth-of-type(4){
+        background-image: url("images/image5.png");
+    }
+
+    .right-content {
+        display: flex;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+        padding: 30px;
+        text-align: right;
+    }
+
+    .top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+
+    .top p {
+        font-size: 14px;
+    }
+
+    .top img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .bottom .item-name {
+        margin-top: 90px;
+        font-size: 32px;
+        font-weight: 200;
+    }
+
+    .bottom .prize {
+        font-size: 22px;
+        font-weight: 200;
+    }
+
+    .bottom .item-code {
+        font-size: 14px;
+        color: #828282;
+        margin: 30px 0;
+    }
+
+    .bottom .desc {
+        font-size: 14px;
+        line-height: 18px;
+        float: right;
+    }
+
+    .sizes {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+
+    .size {
+        font-size: 14px;
+        padding: 5px;
+        margin: 3px;
+        width: 42px;
+        height: 42px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .size-guide {
+        text-align: right;
+        text-decoration: underline;
+        font-size: 12px;
+        color: black;
+    }
+    
+    .btn-container {
+        text-align: right;
+    }
+
+    .btn {
+        font-size: 18px;
+        font-weight: 100;
+        padding: 22px 115px;
+        background-color: black;
+        color: white;
+        margin-top: 50px;
+        width: 50%;
+        cursor: pointer;
+    }
+
+    .add {
+        margin-top: 20px;
+    }
+
+    .add, .calculate{
+        font-size: 12px;
+        text-decoration: none;
+        color: #828282;
+        line-height: 15px;
+    }
+</style>
+<body>
+    <div class="flex-container">
+        <div class="left-content">
+            <div class="left"></div>
+            <div class="right">
+                <div class="small-image"></div>
+                <div class="small-image"></div>
+                <div class="small-image"></div>
+                <div class="small-image"></div>
+            </div>
+        </div>
+        <div class="right-content">
+            <div class="top">
+                <p>BEGIN SESSION</p>
+                <img src="images/Card.png" alt="">
+            </div>
+            <div class="bottom">
+                <div class="item-name">TRACK BUTTONS</div>
+                <div class="prize">$199,99</div>
+                <div class="item-code">IVORY WHITE | 7272/337</div>
+                <div class="desc">
+                    We work with our suppliers, unions, and <br>
+                    international bodies to develop a supply chain where human <br>
+                    rights are promoted and respected, contributing to the <br>
+                    United Nations Sustainable Development Goals.
+                </div>
+            </div>
+            <div class="sizes">
+                <div class="size">EP</div>
+                <div class="size">P</div>
+                <div class="size">M</div>
+                <div class="size">G</div>
+                <div class="size">EG</div>
+            </div>
+            <a href="#" class="size-guide">SIZE GUIDE</a>
+            <div class="btn-container">
+                <button class="btn">ADD TO BAG</button>
+            </div>
+
+            <a href="#" class="add">ADD TO FAVORITES</a>
+            <a href="#" class="calculate">CALCULATE SHIPPING AND DELIVERY</a>        
+        </div>
+    </div>
+</body>
+</html>
