@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body { 
+    font-family: "Open Sans", sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: plum;
+}
+
+.flex-container {
+    width: 1000px;
+    height: 400px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    display: flex;
+}
+
+.left-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 400px;
+    height: 100%;
+    background-color: #BCD1FF;
+    border-radius: 16px 0px 0px 16px;
+}
+
+.left-content .icon {
+    background-image: url("assets/images/laptop.png");
+    width: 240px;
+    height: 240px;
+}
+
+.right-content {
+    width: 600px;
+    border-radius: 0px 16px 16px 0px;
+}
+
+.right-content .content {
+    margin: 10px 30px;
+}
+
+.content .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    color: #6E798C;
+}
+
+.content .type {
+    width: 143px;
+    height: 27px;
+    top: 32px;
+    left: 435px;
+    font-size: 20px;
+    line-height: 27.24px;
+}
+
+.content .time {
+    width: 90px;
+    height: 25px;
+    top: 32px;
+    left: 872px;
+    font-size: 18px;
+    line-height: 24.51px;
+}
+
+.content .heading {
+    width: 527px;
+    height: 92px;
+    top: 84px;
+    left: 435px;
+    font-size: 40px;
+    line-height: 46px;
+    color: #081F32; 
+    font-family: "DM Serif Display", sans-serif;
+    margin-top: -30px;
+}
+
+.content .desc {
+    width: 527px;
+    height: 108px;
+    top: 191px;
+    left: 435px;
+    font-size: 18px;
+    line-height: 27px;
+    color: #374A59;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info .avatar{
+    width: 44px;
+    height: 44px;
+    top: 324px;
+    left: 435px;
+    background-image: url("assets/images/avatar.jpeg");
+    border-radius: 50%;
+    background-size: 250%;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.user-info .name {
+    width: 119px;
+    height: 25px;
+    top: 334px;
+    left: 491px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24.51px;
+    color: #007AE9;
+}
+
+.footer .read-more {
+    width: 114px;
+    height: 25px;
+    top: 334px;
+    left: 848px;
+}
+
+.footer .read-more a {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24.51px;
+    text-decoration: none;
+}
+
+.footer .read-more a:link {
+    color:#007AE9;
+}
+
+.footer .read-more a:visited {
+    color:#007AE9;
+}

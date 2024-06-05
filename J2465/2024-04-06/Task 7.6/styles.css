@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Slabo+13px&display=swap');
+
+body {
+    font-family: "Kodchasan", sans-serif;;
+    padding: 0;
+    margin: 0;
+    background-color: #F4F2DD;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: .5px solid black;
+    border-bottom: .5px solid black;
+    padding: 40px;
+}
+
+.header .heading {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 52px;
+    margin-bottom: 10px;
+}
+
+.header .slogan {
+    font-family: "Slabo 13px", serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29.54px;
+}
+
+.products {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    gap: 50px;
+    border-bottom: .5px solid black;
+}
+
+.product {
+    height: auto;
+    border-radius: 5px;
+    background-color: #CCC9A3;
+}
+
+.product .info {
+    padding: 10px;
+}
+
+.product img {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.info .title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title .name {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 31.2px;
+}
+
+.title .price {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16.9px;
+}
+
+.info .desc {
+    font-family: "Slabo 13px", serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24.62px;
+    margin: 10px 0;
+}
+
+.product .shop {
+    margin: 10px;    
+}
+
+.product .shop .btn {
+    font-family: "Kodchasan", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #000000;
+    width: 100%;
+    background-color: #B2AE7F;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 0;
+    cursor: pointer;
+}
+

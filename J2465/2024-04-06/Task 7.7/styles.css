@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F2DD;
+    height: 100vh;
+    font-family: "Kodchasan", serif;
+}
+
+.flex-container {
+    display: flex;
+    height: 85%;
+    width: 1200px;
+    border-top: 0.5px solid black;
+    border-bottom: 0.5px solid black;
+    padding: 15px 0;
+    gap: 10px;
+}
+
+
+.container {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#c1 {
+    background-image: url("assets/images/image1.png");
+}
+
+#c2 {
+    background-image: url("assets/images/image2.png");
+}
+
+#c3 {
+    background-image: url("assets/images/image3.png");
+}
+
+.container .text {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #B2AE7F66;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+font-size: 24px;
+font-weight: 400;
+line-height: 31.2px;
+text-align: left;
+
+}
