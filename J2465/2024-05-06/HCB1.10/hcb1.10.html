@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HCB1.10. CSS Checkbox review</title>
+</head>
+
+<style>
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .checkbox-container input {
+        display: none;
+    }
+
+    #customCB {
+        width: 16px;
+        height: 16px;
+        border: 2px solid #e7e6e6;
+        border-radius: 10px;
+    }
+    
+</style>
+<body>
+    <div class="checkbox-container">
+        <input type="checkbox" id="customCB">
+        <label for="customCB">Complete the task</label>
+    </div>
+</body>
+</html>

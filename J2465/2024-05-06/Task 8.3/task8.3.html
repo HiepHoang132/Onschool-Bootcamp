@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <tittle>8.3 Background changer</tittle>
+</head>
+
+<style>
+    @media (min-width: 320px){
+        p {
+            color: blue;
+        }
+    }
+
+    @media (min-width: 768px){
+        p {
+            color: green;
+        }
+    }
+
+    @media (min-width: 1024px){
+        p {
+            color: yellow;
+        }
+    }
+
+    @media (min-width: 1224px){
+        p {
+            color: orange;
+        }
+    }
+
+    @media (min-width: 1824px){
+        p {
+            color: aqua;
+        }
+    }
+
+    @media (min-width: 850px) and (max-width: 950px){
+        p {
+            color: purple;
+        }
+    }
+</style>
+<body>
+    <h1>CSS Media Queries</h1>
+    <p>Sử dụng CSS thay đổi màu nền khi kích thước thay đổi (Xem mô tả bên dưới).</p>
+    <hr/>
+  
+    <h3>Smartphones - <span class="details">from 320px and up </span>(min-width: 320px)</h3>
+    <p>BLUE</p>
+    <br>
+    <h3>Tablets, iPads (portrait) - <span class="details">from 768px and up</span> (min-width: 768px)</h3>
+    <p>GREEN</p>
+    <br>
+  
+    <h3>Tablets, iPads (landscape) - <span class="details">from 1024px and up  </span>(min-width: 1024px)</h3>
+    <p>YELLOW</p>
+    <br>
+  
+    <h3>Desktops and laptops  - <span class="details">from 1224px and up </span>(min-width: 1224px)</h3>
+    <p>ORANGE</p>
+    <br>
+  
+    <h3>Large screens  - <span class="details">from 1824px and up </span>(min-width: 1824px)</h3>
+    <p>AQUA</p>
+    <br>
+  
+    <h3>Custom media query - <span class="details">from 850px and up, until 950px </span>(min-width: 850px) and (max-width: 950px)</h3>
+    <p>	PURPLE</p>
+    <br>
+</body>
+</html>

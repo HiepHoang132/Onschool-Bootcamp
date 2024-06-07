@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+    
+    <title>Custom Checkbox Example</title>
+</head>
+
+<style>
+    /* Reset and base styles */
+body, html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Checkbox container styling */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hide the default checkbox */
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+/* Custom checkbox styling */
+.checkbox-container label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+}
+
+/* Custom checkbox appearance */
+.checkbox-container label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #e7e6e6;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Checked state styling */
+.checkbox-container input[type="checkbox"]:checked + label:before {
+    background-color: #2f9ff7;
+    border-color: #2f9ff7;
+    content: '✔';
+    color: #f9f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Checked state label styling */
+.checkbox-container input[type="checkbox"]:checked + label {
+    color: #2f9ff7;
+    text-decoration: line-through;
+}
+
+</style>
+<body>
+    <div class="checkbox-container">
+        <input type="checkbox" id="customCheckbox">
+        <label for="customCheckbox">Label</label>
+    </div>
+</body>
+</html>
