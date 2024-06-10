@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    const yourArray = [1, 2, 3, 4, 5, 5, 12];
+
+    const uniqueArray = [...new Set(yourArray)];
+
+    let duplicates = [...yourArray];
+
+    for(var index = 0; index < uniqueArray.length; index ++) {
+        var i = duplicates.indexOf( uniqueArray[index] );
+        duplicates = duplicates.slice(0, i).concat(duplicates.slice(i + 1, duplicates.length));
+    }
+
+    console.log(duplicates);
+</script>
+</html>

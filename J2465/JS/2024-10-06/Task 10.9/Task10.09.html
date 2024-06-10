@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 10.09 - Truy xuất thẻ HTML</title>
+</head>
+<body>
+    <h3>BÀI THỰC HÀNH 10.09</h3>
+    <p id="time">
+        Cửa hàng Pizza365 có 3 kích cỡ bánh và 4 loại Pizza. 
+        Ba kích cỡ bao gồm S, M và L. 
+        Ba loại bánh bao gồm Hải sản, Thịt hun khói và Bò phô mai
+    </p>
+    <div id="description"></div>
+</body>
+
+<script>
+    var paragraph = document.getElementById("time")
+    document.getElementById("description").innerHTML = paragraph.innerHTML
+    paragraph.innerHTML = "Pizza365 Xin chào. Cửa hàng mở cửa từ 9:00 đến 21:00."
+</script>
+
+</html>
