@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Kaisei+Decol&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+.flex-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/images/landing.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .icon {
+    width: 90px;
+    height: 50px;
+    background-image: url("assets/images/icon.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container .brand {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    color: #000000;
+}
+
+.container .menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu .text {
+    font-size: 32px;
+    font-weight: 400;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.home-made {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    margin: 25px 0;
+}
+
+.home-made .left-content {
+    width: 500px;
+    background-image: url("assets/images/linden-tea.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.right-content {
+    flex-grow: 1;
+    background-color: #9CAB70;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-content .heading {
+    font-family: "Kaisei Decol", serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 30px 0;
+}
+
+.right-content .desc {
+    width: 660px;
+    font-family: "Kaisei Decol", serif;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 50px;
+}
+
+.third {
+    height: 100%;
+    margin: 25px 0;
+    background-color: #EEEEEE;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.third .heading {
+    font-family: "Kaisei Decol", serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    margin-top: 50px;
+    margin-bottom: 120px;
+}
+
+.third .products {
+    display: flex;
+    gap: 80px;
+    height: 450px;
+}
+
+.products .product {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 275px;
+}
+
+.product .tea {
+    width: 195px;
+    height: 195px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.product #t1 {
+    background-image: url("assets/images/tea1.jpeg");
+}
+
+.product #t2 {
+    background-image: url("assets/images/tea2.jpeg");
+}
+
+.product #t3 {
+    background-image: url("assets/images/tea3.jpeg");
+}
+
+.product #t4 {
+    background-image: url("assets/images/tea4.jpeg");
+}
+
+.product .name {
+    font-family: "Jost", sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.product .desc {
+    font-family: "Kaisei Decol", serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+@media (max-width: 1350px) {
+    .third .products {
+        gap: 60px;
+    }
+
+    .third .heading {
+        font-size: 32px;
+        margin-bottom: 80px;
+    }
+
+    .products .product {
+        width: 200px;
+    }
+
+    .product .tea {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .right-content .heading {
+        font-size: 40px;
+    }
+
+    .right-content .desc {
+        width: 90%;
+        font-size: 28px;
+    }
+
+    .home-made {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .home-made .left-content {
+        width: 100%;
+        height: 300px;
+    }
+
+    .third {
+        height: 2200px;
+        display: flex;
+        align-items: center;
+    }
+
+    .third .products {
+        flex-direction: column;
+    }
+
+    .products .product {
+        width: 400px;
+        height: 600px;
+    }
+
+    .product .tea {
+        width: 100px;
+        height: 100px;
+    }
+
+    .third .heading {
+        font-size: 30px;
+        margin-bottom: 60px;
+    }
+
+    .product .name {
+        font-size: 35px;
+    }
+
+    .product .desc {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu .text {
+        font-size: 20px;
+    }
+
+    .home-made .left-content {
+        width: 100%;
+        height: 250px;
+    }
+
+    .right-content .heading {
+        font-size: 36px;
+    }
+
+    .right-content .desc {
+        width: 90%;
+        font-size: 24px;
+    }
+
+    .third {
+        height: 2300px;
+        display: flex;
+        align-items: center;
+    }
+
+    .product .tea {
+        width: 100px;
+        height: 100px;
+    }
+
+    .products .product {
+        height: 600px;
+    }
+
+    .product .desc {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu .text {
+        font-size: 16px;
+    }
+
+    .container .brand {
+        font-size: 20px;
+    }
+
+    .home-made .left-content {
+        width: 100%;
+        height: 200px;
+    }
+
+    .right-content .heading {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .right-content .desc {
+        width: 90%;
+        font-size: 20px;
+    }
+
+    .third {
+        height: 1950px;
+    }
+
+    .products .product {
+        width: 300px;
+        height: 500px;
+    }
+
+    .third .heading {
+        font-size: 25px;
+        margin-bottom: 60px;
+    }
+
+    .product .name { 
+        font-size: 25px;
+    }
+
+    .product .desc {
+        font-size: 20px;
+    }
+}
