@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Task 11.07 Các bài toán xử lý với chuỗi</h3>
+</body>
+<script>
+    // Task 1
+    function reversed(word){
+        var reversed = ""
+        for(var i = word.length - 1; i >= 0; i--){
+            reversed += word[i]
+        }
+
+        return reversed
+    }
+
+    console.log(reversed("AaBbc"))
+
+    // Task 2 
+    function countWordOneParam(word){
+        var count = 0
+        var n = "e"
+        for(var i = 0; i < word.length; i++){
+            if(n === word[i]) count += 1
+        }
+
+        return count
+    }
+
+    console.log(countWordOneParam("DCresource: JavaScript Exercises"))
+
+    // Task 3
+    function countWordTwoParams(word, n){
+        var words = word.split(" ")
+        var count = 0
+        for(var i = 0; i < words.length; i++){
+            if(n === words[i]) count += 1
+        }
+
+        return count
+    }
+
+    console.log(countWordTwoParams("the quick brown fox jumps over the lazy dog", "the"))
+</script>
+</html>

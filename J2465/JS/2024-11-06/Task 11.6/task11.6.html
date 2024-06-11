@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Task 11.06 Các bài toán xử lý với chuỗi</h3>
+</body>
+
+<script>
+    // Task 1
+    function isString(input){
+        if(typeof(input) == 'string'){
+            return true
+        } 
+        return false
+    }
+
+    console.log(isString("Devcamp"))
+    console.log(isString(100))
+    console.log(isString(true))
+
+    // Task 2
+    function getFirstNCharacters(str, n){
+        if(n > str.length) return str
+
+        // str.slice(0, n)
+        return str.substring(0, n)
+    }
+
+    console.log(getFirstNCharacters("Hello Devcamp", 7))
+
+    // Task 3
+    function capitalizedWords(text){
+        const words = text.split(" ")
+        var newWord = ""
+        
+        for(var i = 0; i < words.length; i++){
+            newWord += words[i].charAt(0).toUpperCase() + words[i].slice(1) + " "
+        }
+
+        return newWord
+    }
+
+    console.log(capitalizedWords("js string exercises"))
+
+    // Task 4
+    function wordTrimmed(word){
+        return word.trim()
+    }
+
+    console.log(wordTrimmed('dcresource '))
+    console.log(wordTrimmed(' dcresource'))
+    console.log(wordTrimmed(' dcresource '))
+</script>
+</html>
