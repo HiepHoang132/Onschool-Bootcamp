@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Task 12.01 - 3B1 Mảng (Array) và vòng lặp For</h3>
+</body>
+<script>
+    var numbers = [-1,  10, -10, 4, 8, 2, 9]
+    var words = ["Cộng hòa", "Việt Nam", "Xin chào", "Hello"]
+
+    console.log(numbers[2])
+    console.log(numbers[6])
+
+    for(word of words){
+        console.log(word)
+    }
+
+    for(var i = 0; i < numbers.length; i++){
+        numbers[i] += 2
+    }
+
+    console.log(numbers.join(" "))
+</script>
+</html>

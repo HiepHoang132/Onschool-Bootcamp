@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+    <h3>Task 12.06 Các bài toán xử lý với mảng</h3>
+</body>
+<script>
+  // Task 1
+  function findNum(numbers, index) {
+    console.log(numbers[index])
+  }
+
+  console.log("Task 1")
+  findNum([1, 2, 3, 4, 5, 6], 3)
+  findNum([7, 10, 6, 4, 9, 8], 6)
+
+  // Task 2
+  function sortArray(array){
+    return array.sort(
+        function(a, b){
+            return a-b
+        }
+    )
+  }
+
+  console.log("Task 2")
+  console.log(sortArray([3, 8, 7, 6, 5, -4, -3, 2, 1]))
+
+  // Task 3
+  function mergeArray(array1, array2){
+    // var array3 = []
+    // for(n of array1){
+    //     array3.push(n)
+    // }
+
+    // for(n of array2){
+    //     array3.push(n)
+    // }
+
+    // return array3
+
+    return array1.concat(array2)
+  }
+
+  console.log("Task 3")
+  console.log(mergeArray([10, 7, 3], [4, 8, 6]))
+
+  // Task 4
+  function onlyNumbers(array){
+    return array.filter(item => typeof item === 'number' && !isNaN(item))
+  }
+
+  console.log("Task 4")
+  console.log(onlyNumbers([NaN, 0, 15, false, -22, '',undefined, 47, null]))
+  
+  // Task 5
+  function eliminate(array, number){
+    return array.filter(item => item !== number)
+  }
+
+  console.log("Task 5")
+  console.log(eliminate([2, 5, 9, 6], 5))  
+  console.log(eliminate([2, 9, 6], 5))
+  console.log(eliminate([2, 5, 9, 6], 6))
+
+  // Task 6
+  function filterEven(array){
+    return array.filter(item => item % 2 === 0)
+  }
+
+  console.log("Task 5")
+  console.log(filterEven([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+</script>
+
+</html>
