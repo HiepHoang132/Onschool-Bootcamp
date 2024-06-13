@@ -1,0 +1,134 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: grey;
+}
+
+.flex-container {
+    height: 100vh;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-container .container {
+    height: 88%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 0 70px;
+    border-radius: 20px;
+}
+
+.container h3 {
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.container #greetingForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#greetingForm .form-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container label {
+    width: 150px;
+}
+
+.form-container input {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.form-container textarea {
+    width: 100%;
+    font-size: 20px; 
+    padding-left: 20px;
+    padding-top: 130px;
+}
+
+.form-container #message {
+    height: 150px;
+}
+
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.form-container textarea::placeholder {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+}
+
+#greetingForm button {
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    background-color: #81A263;
+    width: 18%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.logos {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+}
+
+.logo {
+    width: 80px;
+    height: 100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.logos #logo1 {
+    background-image: url("assets/images/google.png");
+}
+
+.logos #logo2 {
+    background-image: url("assets/images/netflix.png");
+}
+
+.logos #logo3 {
+    background-image: url("assets/images/airbnb.png");
+}
+
+.logos #logo4 {
+    background-image: url("assets/images/airbnb.png");
+}
+
+.logos #logo5 {
+    background-image: url("assets/images/facebook.png");
+}
+
+.logos #logo6 {
+    background-image: url("assets/images/grab-logo.png");
+}

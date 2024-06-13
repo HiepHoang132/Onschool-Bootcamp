@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+    padding-top: 2rem;
+}
+
+.container {
+    height: 528px;
+    width: 360px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}
+
+.top {
+    height: 216px;
+    border-radius: 16px 16px 0px 0px;
+    background-image: url("images/no-image.png");
+    position: relative;
+}
+
+.top__info {
+    position: absolute;
+    right: 24px;
+    top: 16px;
+}
+
+.bottom {
+    padding: 32px 24px;
+}
+
+.bottom__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header-left {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 25px;
+    /* identical to box height, or 104% */
+    letter-spacing: 0.01em;
+    /* Heading text */
+    color: #081F32;
+}
+
+.header-right img:last-child {
+    margin-left: 9px;
+}
+
+.bottom__des {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 24px;
+    /* Additional text */
+
+    color: #6E798C;
+}
+
+.bottom__detail {
+    margin-bottom: 33px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom__detail div {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    color: #A5ADBB;
+}
+
+.bottom__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+}
+
+.discount-price {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 25px;
+    color: #081F32;
+    margin-right: 8px;
+}
+
+.original-price {
+    font-family: 'DM Serif Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    text-decoration-line: line-through;
+    color: #F8593B;
+}
+
+.footer__button {
+    background: #2ECC71;
+    border-radius: 4px;
+    width: 114px;
+    box-sizing: border-box;
+    padding: 9px;
+    cursor: pointer;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.18em;
+    color: white;
+}

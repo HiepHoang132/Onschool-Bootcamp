@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Infor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@300&display=swap"
+        rel="stylesheet">
+    <script>
+        // Đối tượng pizza chứa các thông tin
+        var pizzaObj = {
+            coverImg: "images/Pizza.png",
+            pizzaname: "Perreroni Pizza",
+            pizzaDescription: "Premium pepperoni and cheese is made with real mozzarella on original hand-tossed crust.",
+            inforDetail: {
+                calo: "265 Cal",
+                size: "P/F/C: 12/10/31",
+                tempCel: "53.8 °C",
+            },
+            price: {
+                originalPrice: 29.90,
+                discountPrice: 23.90
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container" id="content">
+
+    </div>
+</body>
+
+<script>
+    var pizzaContent = `
+        <div class="top" id="top">
+            <div class="top__info">
+                <img src="images/Info.png" alt="">
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="bottom__header">
+                <div class="header-left">${pizzaObj.pizzaname}</div>
+                <div class="header-right">
+                    <img class="icon" src="images/Hot.png" alt="">
+                    <img class="icon" src="images/Wheat.png" alt="">
+                </div>
+            </div>
+            <div class="bottom__des">
+                ${pizzaObj.pizzaDescription}
+            </div>
+            <div class="bottom__detail">
+                <div class="calo">${pizzaObj.inforDetail.calo}</div>
+                <div class="size">${pizzaObj.inforDetail.size}</div>
+                <div class="temp-cel">${pizzaObj.inforDetail.tempCel}</div>
+            </div>
+            <div class="bottom__footer">
+                <div class="price">
+                    <div class="discount-price">${pizzaObj.price.discountPrice}</div>
+                    <div class="original-price">${pizzaObj.price.originalPrice}</div>
+                </div>
+                <div class="footer__button"> ORDER </div>
+            </div>
+        </div>
+    `
+
+    var divContent = document.getElementById("content")
+    divContent.innerHTML = pizzaContent
+    
+    var pizzaContentTop = document.getElementById("top")
+    pizzaContentTop.style.backgroundImage = `url(${pizzaObj.coverImg})`
+</script>
+</html>

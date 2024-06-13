@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Alert messsage </title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            --font-size: 1.1rem;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 97%;
+            height: 97vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: white;
+            width: 30rem;
+            height: 16rem;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 2rem;
+        }
+        h3 {
+            color: dodgerblue;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .form-group {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+        .form-right {
+            justify-content: flex-end;
+        }
+        label {
+            flex: 30%;
+            font-size: var(--font-size);
+        }
+        input[type="text"] {
+            flex: 70%;
+            padding: 0.6rem;
+            border-radius: 0.25rem;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: var(--font-size);
+        }
+        button {
+            padding: 0.8rem;
+            border-radius: 0.25rem;
+            background-color: dodgerblue;
+            color: white;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            width: 7rem;
+            font-size: var(--font-size);
+        }
+    </style>
+</head>
+
+<body onload="onPageLoading()">
+    <div class="container">
+        <h3> TDD - Welcome to Devcamp </h3>
+        <div class="form-group">
+            <label for="">Message</label>
+            <input type="text" class="form-control" id="input" placeholder="Type your message">
+        </div>
+        <div class="form-group form-right">
+            <button onclick="buttonClick()">Send</button>
+        </div>
+    </div>
+</body>
+<script>
+    // Bạn viết code Javascript xuống dưới đây
+    function onPageLoading(){
+        console.log(document.getElementById("input").placeholder)
+    }
+
+    function buttonClick(){
+        console.log("Nút Send vừa được ấn!")
+        var inputElement = document.getElementById("input")
+        var inputMessage = inputElement.value
+        alert(inputMessage)
+    }
+</script>
+
+</html>

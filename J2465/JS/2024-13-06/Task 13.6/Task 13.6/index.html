@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Fashion E-commerce Product Page</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // đối tượng sản phẩm thời trang. Hãy load đối tượng vào trang web
+    var fashionProductObj = {
+      images: {
+        // ảnh cover (ảnh to)
+        coverImg: "images/cover.png",
+        // các ảnh nhỏ bên phải. Có bao nhiêu ảnh load ra từng đó ảnh (dùng vòng lặp for)
+        detailImages: ["images/image2.png", "images/image3.png", "images/image4.png", "images/image5.png"]
+      },
+      // tên sản phẩm
+      productName: "WHITE SUIT FOR LADY",
+      // giá sản phẩm
+      price: "$ 159.89",
+      // type sản phẩm (thay ở chỗ PRODUCT-TYPE-HERE)
+      type: "IVORY WHITE | 09162/135",
+      // mô tả (thay ở chỗ description-here)
+      description: "We work with our suppliers, workers, unions and international bodies to develop a supply chain where human rights are promoted and respected, contributing to the United Nations Sustainable Development Goals.",
+      // các loại cỡ (dùng for để load ra, mỗi size là 1 thẻ p)
+      size: ["EP", "P", "M", "G", "L", "EG"]
+    };
+
+    // viết code xuống dưới đây
+  </script>
+</head>
+
+<body>
+  <div class="flex-container" id="flex-container"></div>
+</body>
+
+<script>
+  var content = `        
+        <div class="left-content">
+            <div id="img-1"></div>
+            <div id="img-detail">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="right-content">
+            <div id="card-ss">
+                <p class="card-title">BEGIN SESSION  </p>
+                <image class="img-card" src="images/Card.png" alt="card"></image>
+            </div>
+            <div id="product-infor">
+                <div id="name-price">
+                    <p id="p-product-name">${fashionProductObj.productName} </p>
+                    <p id="p-product-price">${fashionProductObj.price}</p>
+                </div>
+                <div>
+                    <p id="p-product-type">${fashionProductObj.type}</p>
+                </div>
+                <div>
+                    <p id="p-description">${fashionProductObj.description}</p>
+                </div>
+                <div>
+                    <div id="product-size">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    
+                    <p class="size-guide">SIZE GUIDE</p>
+                </div>
+                <div  >
+                    <button id="btn-add">ADD TO BAG</button>
+                </div>
+                <div>
+                    <p class="footer-action">ADD TO FAVORITE <br> CACULATE SHOPING AND DELIVERY</p>
+                </div>   
+            </div>
+        </div>
+    `
+
+  var container = document.getElementById("flex-container")
+  container.innerHTML = content
+  document.getElementById("img-1").style.backgroundImage = `url(${fashionProductObj.images.coverImg})`
+
+  const smallImages = document.querySelectorAll("#img-detail div")
+  for(var i = 0; i < smallImages.length; i++){
+    smallImages[i].style.backgroundImage = `url(${fashionProductObj.images.detailImages[i]})`
+  }
+
+  const sizes = document.querySelectorAll("#product-size p")
+  for(var i = 0; i < sizes.length; i++){
+    sizes[i].innerHTML = `${fashionProductObj.size[i]}`
+  }
+</script>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Show objects </title>
+    <style>
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+            color: blueviolet;
+        }
+        button {
+            padding: 0.8rem;
+            margin-right: 0.5rem;
+            border-radius: 4px;
+            background-color: blueviolet;
+            color: white;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h3> Hiển thị thông tin đối tượng khi ấn nút </h3>
+    <button onclick = "showCar()">Hiển thị Car</button>
+    <button onclick = "showProduct()">Hiển thị Product</button>
+    <button onclick = "showPerson()">Hiển thị Person</button>
+</body>
+<script>
+    // Bạn viết code Javascript xuống dưới đây
+    var car = {
+        make: "Toyota",
+        model: "Corolla",
+        year: 2018,
+        color: "Silver",
+        vID: "DN-2318"
+    }
+
+    var product = {
+        code: "LG101",
+        name: "TV LG101", 
+        category: "dientu",
+        country: "US",
+        price: 300
+    }
+
+    var person = {
+        firstname: "Ngô Văn", 
+        lastname: "Nam", 
+        country: "VN", 
+        gender: "Nam",
+        age: 21
+    }
+
+    function showCar(){
+        for(key of Object.keys(car)){
+            console.log(`${key}: ${car[key]}`)
+        }
+    }
+
+    function showProduct(){
+        for(key in product){
+            console.log(`${key}: ${product[key]}`)
+        }
+    }
+
+    function showPerson(){
+        var entries = Object.entries(person)
+        for(var i = 0; i < entries.length; i++){
+            let [key, value] = entries[i]
+            console.log(`${key}: ${value}`)
+        }
+    }
+</script>
+
+</html>
