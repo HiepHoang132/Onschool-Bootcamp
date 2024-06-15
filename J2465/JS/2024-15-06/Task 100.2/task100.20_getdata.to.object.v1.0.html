@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Get data form and map to object</title>
+</head>
+<script>
+  function saveData() {
+    // TODO 1 - Bổ sung thêm thông tin VID vào đối tượng ô tô
+    var carObj = {
+      brand: "",
+      model: "",
+      year: 0, 
+      VID: ""
+    };
+    // TODO 2 - Hãy truy xuất thêm phần tử ô text VID
+    var inputBrand= document.getElementById("input-brand");
+    var inputModel = document.getElementById("input-model");
+    var inputYear = document.getElementById("input-year");
+    var inputCarVID = document.getElementById("input-car-vid");
+
+    // TODO 3 - Hãy lấy thêm giá trị VID trên form và bổ sung vào đối tượng carObj
+    carObj.brand= inputBrand.value.trim();
+    carObj.model = inputModel.value.trim();
+    carObj.year =  parseInt(inputYear.value);
+    carObj.vid = inputCarVID.value.trim();
+
+    // ghi đối tượng ra console
+    console.log(carObj);
+  }
+
+</script>
+
+<body>
+  <div class="container jumbotron p-5 mt-5">
+    <div class="text-center mb-4">
+      <h4>Quản lý ô tô</h4>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label">Hãng</label>
+      <div class="col-sm-4">
+        <input type="text" id="input-brand" placeholder="Hãng xe .." class="form-control">
+      </div>
+
+      <label class="col-sm-2 col-form-label">Model</label>
+      <div class="col-sm-4">
+        <input type="text" id="input-model" placeholder="Model .." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label">Năm sản xuất</label>
+      <div class="col-sm-4">
+        <input type="number" id="input-year" placeholder="year .." class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label">VID</label>
+      <div class="col-sm-4">
+        <input type="text" id="input-car-vid" placeholder="Biển số vid ..." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group text-right">
+      <div class="col-sm-12">
+        <button class="btn btn-info px-4" onclick="saveData()"> Lưu Ô tô </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
