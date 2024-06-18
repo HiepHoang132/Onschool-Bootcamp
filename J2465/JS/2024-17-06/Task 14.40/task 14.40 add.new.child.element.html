@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title> task 6.50b new child image</title> 
+</head>
+
+<body>
+    <div class="container jumbotron">
+        <button type="button" class="btn btn-primary" onclick="onAddChildImagesClick()">Thêm 1 child (image) </button>
+        <div id="div-image-parent">Thẻ Div dùng làm nơi chứa thẻ img mới</div>
+    </div>
+    <div class="container jumbotron">
+        <button type="button" class="btn btn-primary" onclick="onAddChildParagraphsClick()">Thêm 01 child (paragraph) </button>
+        <div id="div-paragraph-parent">Thẻ div dùng để chứa các thẻ p mới</div>
+    </div>
+
+    <!-- bạn hãy thêm các vùng div mới xuống dưới đây để làm bài -->
+    <div class="container jumbotron">
+        <button type="button" class="btn btn-primary" onclick="onAddChildHeadingsClick()">Thêm 01 child (heading) </button>
+        <div id="div-heading-parent">Thẻ div dùng để chứa các thẻ h1 mới</div>
+    </div>
+
+    <div class="container jumbotron">
+        <button type="button" class="btn btn-primary" onclick="onAddChildButtonsClick()">Thêm 01 child (button) </button>
+        <div id="div-button-parent"></div>
+    </div>
+</body>
+<script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+    /*** REGION 2 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    // Hàm thêm 01 phần tử Img con
+    function onAddChildImagesClick() {
+        // tạo phần tử image (thẻ img)
+        var vNewImage = document.createElement("img");
+        vNewImage.src = "https://cdn-icons-png.flaticon.com/512/320/320368.png"; // gán địa chỉ src của ảnh
+        vNewImage.style.width = "100px"; //chỉnh độ rộng của ảnh là 200px
+
+        // Truy xuất phần tử thẻ div cha, chứa các images con
+        var vDiv = document.getElementById("div-image-parent");
+        // gắn phần tử image vừa tạo vào thẻ div cha
+        vDiv.appendChild(vNewImage);
+    }
+
+    // Hàm thêm 01 phần tử paragraph (thẻ p) con
+    function onAddChildParagraphsClick() {
+        // tạo phần tử paragraph (thẻ p) con
+        var vNewParagraph = document.createElement("p"); // tạo mới phần tử paragraph
+        vNewParagraph.innerHTML = "Đây là paragraph mới";
+        vNewParagraph.style.color = "blue";
+        // Truy xuất phần tử thẻ div cha, chứa các paragraph con
+        var vDiv = document.getElementById("div-paragraph-parent");
+        // gắn thẻ p mới tạo vào thẻ div cha
+        vDiv.appendChild(vNewParagraph);
+    }
+
+    // Hàm thêm 01 phần tử heading (thẻ h1) con
+    function onAddChildHeadingsClick() {
+        // tạo phần tử paragraph (thẻ p) con
+        var vNewHeading = document.createElement("h1"); // tạo mới phần tử paragraph
+        vNewHeading.innerHTML = "Đây là heading mới";
+        vNewHeading.style.color = "red";
+        // Truy xuất phần tử thẻ div cha, chứa các paragraph con
+        var vDiv = document.getElementById("div-heading-parent");
+        // gắn thẻ p mới tạo vào thẻ div cha
+        vDiv.appendChild(vNewHeading);
+    }
+
+    // Hàm thêm 01 phần tử button (thẻ button) con
+    function onAddChildButtonsClick() {
+        // tạo button (thẻ button) con
+        var vNewButton = document.createElement("button"); // tạo mới phần tử button
+        vNewButton.innerHTML = "New button";
+        // Truy xuất phần tử thẻ div cha, chứa các paragraph con
+        var vDiv = document.getElementById("div-button-parent");
+        // gắn thẻ p mới tạo vào thẻ div cha
+        vDiv.appendChild(vNewButton);
+    }
+    /*** REGION 3 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+
+</script>
+</div>
+</html>

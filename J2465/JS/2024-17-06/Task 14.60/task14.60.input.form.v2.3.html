@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container jumbotron p-5 mt-4">
+    <div class="text-center mb-5">
+      <h2>Responsive Register Form</h2>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label" for="inp-fname">First Name</label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-fname" name="firstname" placeholder="Your name.." class="form-control">
+      </div>
+      
+      <label class="col-sm-2 col-form-label" for="inp-lname">Last Name</label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-lname" name="lastname" placeholder="Your last name.." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-4">
+        <select id="select-country" name="country" class="form-control">
+          <option value="01-au">Australia</option>
+          <option value="02-ca">Canada</option>
+          <option value="03-us">USA</option>
+          <option value="04-cn">China</option>
+        </select>
+      </div>
+      <label class="col-sm-2 col-form-label">Region</label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-region" name="regioninput" placeholder="Your region.." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label">Gender</label>
+      <div class="col-sm-4">
+        <select id="select-gender" name="gender" class="form-control">
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+      </div>
+      <label class="col-sm-2 col-form-label">Age</label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-age" name="ageinput" placeholder="Your age.." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label">Purpose</label>
+      <div class="col-sm-4">
+        <select id="select-purpose" name="purpose" class="form-control">
+          <option value="01-B">Business</option>
+          <option value="02-P">Private</option>
+          <option value="03-T">Tourist</option>
+          <option value="04-M">Medical</option>
+        </select>
+      </div>
+      <label class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-address" name="addressinput" placeholder="Your address.." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group text-right">
+      <div class="col-sm-12">
+        <button class="btn btn-info px-4" id="btn-send" onclick="onButtonSendClick()">Send</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+  var person = {
+    firstName: "",
+    lastName: "",
+    country: "",
+    region: "",
+    gender: "",
+    age: 0,
+    purpose: "",
+    address: "",
+  }
+  /*** REGION 2 - Vùng gán / thực thi hàm xử lý sự kiện cho các elements */
+  var firstNameEle = document.getElementById("inp-fname")
+  var lastNameEle = document.getElementById("inp-lname")
+  var countryEle = document.getElementById("select-country")
+  var regionEle = document.getElementById("inp-region")
+  var genderEle = document.getElementById("select-gender")
+  var ageEle = document.getElementById("inp-age")
+  var purposeEle = document.getElementById("select-purpose")
+  var addressEle = document.getElementById("inp-address")
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  function onButtonSendClick(){
+    person.firstName = firstNameEle.value
+    person.lastName = lastNameEle.value
+    person.country = countryEle.options[countryEle.selectedIndex].text
+    person.region = regionEle.value
+    person.gender = genderEle.options[genderEle.selectedIndex].text
+    person.age = parseInt(ageEle.value, 10)
+    person.purpose = purposeEle.options[purposeEle.selectedIndex].text
+    person.address = addressEle.value
+    console.log(person)
+  }
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+
+</script>
+
+</html>

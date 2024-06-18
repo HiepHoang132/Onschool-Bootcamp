@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Task 14.50</title>
+</head>
+<body onload="onPageLoading()">
+    <div class="flex-container">
+        <div class="container">
+            <div class="left-content"></div>
+            <div class="right-content">
+                <div class="content">
+                    <h1>message to me -  a future developer</h1>
+                    <div class="box-message">
+                        <label for="message">Lời nhắn gửi tới bạn</label>
+                        <input type="text" id="message" name="message" placeholder="Nhập lời nhắn gửi tới cho bạn">    
+                    </div>    
+                    <div class="btn">
+                        <button onclick="onButtonSendClick()">Gửi lời nhắn</button>
+                    </div>
+                    <div class="display">
+                        <div id="div-message-display"></div>
+                        <img src="assets/images/like-yellow-icon.png" alt="" id="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function onPageLoading(){
+        var inputEle = document.getElementById("message")
+        console.log(inputEle.id)
+
+        var messageDisplayEle = document.getElementById("div-message-display")
+        console.log(messageDisplayEle.id)
+
+        var imgELe = document.getElementById("image")
+        console.log(imgELe.src)
+    }
+
+    function onButtonSendClick(){
+        console.log("Send message to me")
+        var inputEle = document.getElementById("message")
+        console.log(inputEle.value)
+
+        var messageDisplayEle = document.getElementById("div-message-display")
+        var paragraph = document.createElement("p")
+        paragraph.innerHTML = inputEle.value
+        paragraph.style.fontSize = "20px"
+        paragraph.style.color = "blue"
+        messageDisplayEle.appendChild(paragraph)
+
+        var imgELe = document.getElementById("image")
+        imgELe.style.visibility = "visible"
+    }
+</script>
+</html>

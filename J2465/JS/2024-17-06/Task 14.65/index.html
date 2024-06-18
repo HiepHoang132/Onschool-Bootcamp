@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Hoang Hua Hiep">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Task 14.65</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Giải phương trình bậc hai</h1>
+        <p>Phương trình bậc 2 có 3 tham số a, b, và c</p>
+        
+        <div>
+            <label for="soA">Số a</label>
+            <input type="text" id="soA" name="soA" placeholder="Nhập số a">    
+        </div>
+    
+        <div>
+            <label for="soB">Số b</label>
+            <input type="text" id="soB" name="soB" placeholder="Nhập số b">    
+        </div>
+    
+        <div>
+            <label for="soC">Số c</label>
+            <input type="text" id="soC" name="soC" placeholder="Nhập số c">    
+        </div>    
+
+        <button onclick="onButtonClick()">Tìm nghiệm</button>
+        <div id="display"></div>
+    </div>
+
+    <script>
+        var values = {}
+        var roots = {}
+
+        function onButtonClick(){
+            document.getElementById("display").innerHTML = ""
+            calculation()
+        }
+
+        function getValues(){
+            values.a = parseInt(document.getElementById("soA").value, 10)
+            values.b = parseInt(document.getElementById("soB").value, 10)
+            values.c = parseInt(document.getElementById("soC").value, 10)
+            values.delta = values.b * values.b - 4 * values.a * values.c
+        }
+
+        function twoRoots(){
+            roots.x1 = (-values.b + Math.sqrt(values.delta)) / (2 * values.a)
+            roots.x2 = (-values.b - Math.sqrt(values.delta)) / (2 * values.a)
+        }
+
+        function doubleRoot(){
+            return -values.b / (2 * values.a)
+        }
+
+        function calculation(){
+            getValues()
+            if(values.delta > 0) {
+                twoRoots()
+                displayResult(`Phương trình có 2 nghiệm <br> ${roots.x1} <br> ${roots.x2}`, "green")
+            } else if (values.delta === 0){
+                const root = doubleRoot()
+                displayResult(`Phương trình có nghiệm kép: x = ${root}`, "blue")
+            } else {
+                displayResult("Phương trình vô nghiệm", "red")
+            }
+  
+        }
+
+        function displayResult(message, color){
+            var paragraph = document.createElement("p")
+            paragraph.innerHTML = message
+            paragraph.style.color = color
+            document.getElementById("display").appendChild(paragraph)
+        }
+    </script>
+</body>
+</html>

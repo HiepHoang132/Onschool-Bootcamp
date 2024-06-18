@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: left;
+      margin: 2px;
+
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      margin: 0 1rem;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+
+      .col-25,
+      .col-75 {
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body onload="onPageLoading()">
+  <h2>Register Form </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="firstName" name="firstName" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lastName" name="lastName" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select name="country" id="select-country">
+          <option value="01-au">Australia</option>
+          <option value="02-ca">Canada</option>
+          <option value="03-us">USA</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Subject</label>
+      </div>
+      <div class="col-75">
+        <textarea name="subject" id="subject" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <button class="button" onclick="onButtonSendClick()"> Send data </button>
+    </div>
+  </div>
+
+  <script>    
+    var formData = {}
+
+    var firstNameElement = document.getElementById("firstName")
+    var lastNameElement = document.getElementById("lastName")
+    var countryElement = document.getElementById("select-country")
+    var subjectElement = document.getElementById("subject")
+
+    function onPageLoading() {
+      getIdAndPlaceholder();
+    }
+
+    function getIdAndPlaceholder() {
+      console.log(`Id: ${firstNameElement.id}`)
+      console.log(`Placeholder: ${firstNameElement.placeholder}`)
+
+      console.log(`Id: ${lastNameElement.id}`)
+      console.log(`Placeholder: ${lastNameElement.placeholder}`)
+
+      console.log(`Id: ${countryElement.id}`)
+      console.log(`Placeholder: ${countryElement.placeholder}`)
+
+      console.log(`Id: ${subjectElement.id}`)
+      console.log(`Placeholder: ${subjectElement.placeholder}`)
+    }
+
+    function onButtonSendClick() {
+      console.log("Nút Send data vừa được ấn")
+      formData.firstName = firstNameElement.value
+      formData.lastName = lastNameElement.value
+      formData.country = countryElement.options[countryElement.selectedIndex].text
+      formData.subject = subjectElement.value
+      console.log(formData)
+    }
+  </script>
+</body>
+
+</html>

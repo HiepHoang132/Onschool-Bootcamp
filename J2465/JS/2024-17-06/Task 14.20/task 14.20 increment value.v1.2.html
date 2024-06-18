@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Value</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <script>
+        "use strict";
+        /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+        /*** REGION 2 - Vùng gán / gọi hàm xử lý sự kiện cho các elements */
+
+        /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+        function incrementvalue() {
+
+            var valuetoincrement = parseInt(document.getElementById('number').value, 10);
+            valuetoincrement = isNaN(valuetoincrement) ? 0 : valuetoincrement;
+            const incrementUnit = 1;
+            var newvalue = valuetoincrement + incrementUnit;
+            document.getElementById('number').value = newvalue;
+        }
+
+        /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+
+    </script>
+</head>
+
+<body>
+    <div class="container jumbotron">
+        <p> Đây là form thử code; Nút Increment Value sẽ nâng giá trị trong ô input 01 đơn vị</p>
+        <input class="form-control w-25 m-md-2" type="number" id="number" value="0" />
+        <button class="btn btn-success m-md-2" onclick="incrementvalue()"> Increment Value</button>
+    </div>
+</body>
+
+</html>

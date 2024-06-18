@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title> Devcamp.KT 15 phút </title>
+</head>
+<body class="p-4">
+    <h2> Kiểm tra biển số xe hợp lệ </h2>
+    <div class=""></div>
+    <div class="row form-group">
+        <label for="input-bien-so" class="col-sm-1 col-form-label">Điền biển số </label>
+        <div class="col-sm-4">
+            <input type="text" id="input-bien-so" class="form-control" placeholder="Điền biển số để kiểm tra">
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-primary" onclick="onBtnKiemTraBienSoClick()">  Kiểm tra biển số </button>
+        </div>
+    </div>
+    <div class="bg-warning form-group w-50 p-4">
+        <div>Ví dụ 1 số biển số hợp lệ: 89A-92992, 30M-13456, 34H-56091</div> <br>
+        <div class="font-weight-bold">Biển số hợp lệ cần thỏa mãn các điều kiện sau:</div>
+        <div>1. Độ dài từ 8 đến 10 ký tự</div>
+        <div>2. Ký tự đầu phải là số</div>
+        <div>3. Ký tự cuối cùng phải là số</div>
+    </div>
+</body>
+<script >
+    // gọi khi nào: click nút Kiểm tra biển số
+    function onBtnKiemTraBienSoClick() {
+        var inputBienSo = document.getElementById("input-bien-so");
+        var vBienSo = inputBienSo.value.trim();
+        var ketQuaKiemTra = kiemTraBienSo(vBienSo);
+        if(ketQuaKiemTra) {
+            alert("Biển hợp lệ: " + vBienSo);
+        }
+    }
+
+    /* Hàm thực hiện việc kiểm tra biển số.
+     đầu vào: biển số cần kiểm tra
+     đầu ra: trả về true nếu biển số thỏa mãn cả 3 điều kiện
+     trả về false nếu biển số vi phạm dù chỉ 1 điều kiện
+     */
+    function kiemTraBienSo(bienSoCanKiemTra) {
+        // kiểm tra điều kiện 1. Độ dài từ 8 đến 10 ký tự
+        if(bienSoCanKiemTra.length < 8 || bienSoCanKiemTra.length > 10) {
+            alert("Biển số phải có độ dài từ 8 đến 10 ký tự");
+            return false;
+        }
+
+        /* Tham khảo cách viết kiểm tra điều kiện 1, bạn hãy kiểm tra tiếp các điều kiện 2 & 3 */
+        // Kiểm tra điều kiện 2. Ký tự đầu phải là số
+        var soDau = bienSoCanKiemTra[0]
+        if(isNaN(soDau)){
+            alert("Biển số ký tự đầu phải là số")
+            return false;
+        }
+        
+        // Kiểm tra điều kiện 3. Ký tự cuối cùng phải là số
+        var soCuoi = bienSoCanKiemTra[bienSoCanKiemTra.length - 1]
+        if(isNaN(soCuoi)){
+            alert("Biển số ký tự cuối cùng phải là số")
+            return false;
+        }
+
+        // Nếu tất cả các điều kiện hợp lệ thì hàm trả về true (biển số hợp lệ)
+        return true;
+    }
+</script>
+</html>
