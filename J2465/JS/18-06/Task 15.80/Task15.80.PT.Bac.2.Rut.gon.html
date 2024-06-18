@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 15.80 - basic version (rút gọn)</title>
+    <style>
+        body {
+            padding: 0.5rem;
+        }
+        div {
+            margin-bottom: 1rem;
+        }
+    </style>
+    <script>
+        function onBtnTimNghiemClick() {
+            debugger
+            var vInputSoA = document.getElementById("input-number-a");
+            var vInputSoB = document.getElementById("input-number-b");
+            var vInputSoC = document.getElementById("input-number-c");
+
+            var vSoA = parseFloat(vInputSoA.value);
+            var vSoB = parseFloat(vInputSoB.value);
+            var vSoC = parseFloat(vInputSoC.value);
+            
+            // tính Delta = b*b - 4*a*c
+            var vDelta = vSoB * vSoB - 4 * vSoA * vSoC;
+            
+            // Dựa vào delta để xét nghiệm
+            if(vDelta > 0) {
+                console.log("Phương trình có 2 nghiệm phân biệt");
+                console.log("x1 = " + (-vSoB + Math.sqrt(vDelta))/(2 * vSoA) );
+                console.log("x2 = " + (-vSoB - Math.sqrt(vDelta))/(2 * vSoA) );
+            }
+            else if(vDelta == 0) {
+                console.log("Phương trình có 1 nghiệm duy nhất");
+                console.log("x1 = x2 = " + -vSoB/(2 * vSoA) );
+            }
+            else {
+                console.log("Phương trình vô nghiệm");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Giải phương trình bậc 2</h2>
+    <p>Phương trình bậc 2 có 3 tham số a, b, và c</p>
+    <div>
+        <span>Số a</span>
+        <input type="number" id="input-number-a" placeholder="Nhập số a">
+    </div>
+    <div>
+        <span>Số b</span>
+        <input type="number" id="input-number-b" placeholder="Nhập số b">
+    </div>
+    <div>
+        <span>Số c</span>
+        <input type="number" id="input-number-c" placeholder="Nhập số c">
+    </div>
+    <div>
+        <button onclick="onBtnTimNghiemClick()">Tìm nghiệm</button>
+    </div>
+</body>
+</html>

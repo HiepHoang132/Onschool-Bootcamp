@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="styles/style.css" rel="stylesheet" type="text/css">
+  <title>Sửa code theo coding convention</title>
+</head>
+
+<body onload="onPageLoading()">
+
+  <h2>Responsive Form - Form mẫu </h2>
+  <p>Hãy refactoring để code đạt chuẩn Coding Convention</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-25">
+        <label for="fName">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fName" name="first-name" placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lName">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lName" name="last-name" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="select-country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="select-country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="txtarea-subject">Subject</label>
+      </div>
+      <div class="col-75">
+        <textarea id="txtarea-subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <button id="btn-send-data" onclick="onButtonSendClick()" class="button"> Send data </button>
+    </div>
+  </div>
+</body>
+
+<script>
+  /*
+    || Vùng 1: định nghĩa global variable, dùng suốt quá trình, dùng trong cả file
+  */
+  var gFirstName = document.getElementById("fName");
+  var gLastName = document.getElementById("lName");
+  var gCountry = document.getElementById("select-country");
+  var gSubject = document.getElementById("txtarea-subject");
+
+  /*
+    || Vùng 2: event handlers - xử lý sự kiện
+  */
+
+  // Hàm xử lý sự kiện onload của trang (khi trang được tải)
+  function onPageLoading() {
+    console.log("SubTask 1:load page - Khi load ghi id, và placeholder của tất cả input ra console");
+    console.log("first-name ID: " + gFirstName.id + " ;placeholder: " + gFirstName.placeholder);
+    console.log("last-name ID: " + gLastName.id + " ;placeholder: " + gLastName.placeholder);
+    console.log("select-country ID = " + gCountry.id + " ;Value: " + gCountry.value);
+    console.log("txtarea-subject ID = " + gSubject.id + " ; placeholder: " + gSubject.placeholder);
+  }
+  // Hàm xử lý sự kiện ấn nút send data
+  function onButtonSendClick() {
+    console.log("Nút send data vừa được ấn");
+    console.log("SubTask 3: Khi ấn nút, ghi tất cả value đọc được từ 04 input ra console");
+    console.log("first-name: " + gFirstName.value);
+    console.log("last-name: " + gLastName.value);
+    console.log("select-country: " + gCountry.value);
+    console.log("txtarea-subject: " + gSubject.value);
+  }
+  /*
+  || Vùng 3: function (hàm) dùng chung
+  */
+</script>
+
+</html>

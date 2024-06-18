@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Tìm và sửa lỗi</title>
+</head>
+<body>
+    <h3>Bài thực hành với biến trong JavaScript</h3>
+    <p id="p-demo-paragraph">Đoạn văn</p>
+</body>
+
+<script>
+    'use strict';
+    // Sửa lỗi code Javascript bên dưới
+    
+    /* 1. Làm việc với số number */
+    var diceNumber = 1;
+    if(diceNumber > 6) {
+        Console.lg("Số mặt xúc xắc phải từ 1 đến 6");
+    }
+    else {
+        console.log(diceNumber);
+    } 
+
+    /* 2. Làm việc với đối tượng Object */
+    var vPersonJohn = {
+        "firstname": "John",
+        "lastname": "Doe",
+        "age": 46,
+        "fullname": function() {
+            return this.firstname + ' ' + this.lastname;
+        }
+    };
+
+    console.log(vPersonJohn.fullname());
+
+    /* Làm việc với DOM  */
+    var thePDoanVan = document.getElementById("p-demo-paragraph");
+    // dòng code bên dưới cũng có lỗi đó nhé. Chú ý chính tả viết hoa thường
+    thePDoanVan.innerHTML = "Mở console để hiển thị kết quả";
+</script>
+</html>

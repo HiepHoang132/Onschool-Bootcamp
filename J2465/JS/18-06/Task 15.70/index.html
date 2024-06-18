@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" name="Hoang Hua Hiep">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Task 15.7</title>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="container">
+            <h1 id="heading">Đổi màu tiêu đề theo nút tương ứng</h1>
+            <p id="paragraph">Hello Devcamp 120. Chúc bạn thành công trên con đường developer!</p>
+            <div class="btns">
+                <button id="red" onclick="onButtonChangeColorCLick('red')">To Red</button>
+                <button id="blue" onclick="onButtonChangeColorCLick('blue')">To Blue</button>
+                <button id="green" onclick="onButtonChangeColorCLick('green')">To Green</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function onButtonChangeColorCLick(color){
+            document.getElementById("paragraph").style.color = color
+        }
+    </script>
+</body>
+</html>

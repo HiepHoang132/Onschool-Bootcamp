@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> sua loi </title>
+    <style>
+        body {
+            padding: 0 0.5rem;
+        }
+        p {
+            color:red; 
+            font-size: 1.3rem; 
+            line-height: 1.5rem;
+        }
+        button {
+            padding: 0.4rem 1.5rem;
+            background-color: green;
+            color: white;
+            border-radius: 0.25rem;
+            outline: none;
+            border: 0;
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+        input {
+            padding: 0.3rem;
+            border: 1px solid #999;
+            width: 15rem;
+        }
+        label {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body onload = "onLoadPage()">
+    <h1 id = "h1-chao-mung"> Chào mừng tới Devcamp</h1>
+    <label> Message: </label>
+    <input type = "text" id = "inp-message-to-display" placeholder="...">
+    <button onclick="khiNutSendDuocAn()"> Send </button>
+</body>
+
+<script>
+ 'use strict';
+ //function xử lý sự kiện onload của body
+ function onLoadPage() {
+    console.log("Function xử lý sự kiện onload ....");
+    var vInputMessageElement = document.getElementById("inp-message-to-display"); // truy vấn element
+    console.log( " input element id = " + vInputMessageElement.id);
+    console.log( " input element placeholder = " + vInputMessageElement.placeholder);
+    
+ }  
+ // function xử lý sự kiện ấn nút Send
+ function khiNutSendDuocAn() {
+    console.log("Function xử lý sự kiện onClick....")
+    var vInputMessageElement = document.getElementById("inp-message-to-display"); //truy vấn element
+    alert( vInputMessageElement.value); //hiện cửa sổ cảnh báo có message
+
+ } 
+</script>
+</html>
