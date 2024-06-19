@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Hoang Hua Hiep">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>7.4 Figma course card</title>
+</head>
+
+<body onload="onPageLoading()">
+  <div class="flex-container">
+    <div class="container">
+      <div class="find-course">
+        <h1>Danh sách khoá học</h1>
+        <div class="inp-container">
+          <label for="inp-course-id">Nhập mã khoá học</label>
+          <input type="text" name="course-id" id="inp-course-id" placeholder="Nhập mã khoá học bạn cần tìm kiếm">
+          <button onclick="onButtonFindCourseClick()">Tìm kiếm</button>
+        </div>
+      </div>
+
+      <div class="list-courses"></div>
+
+    </div>
+  </div>
+</body>
+
+</html>

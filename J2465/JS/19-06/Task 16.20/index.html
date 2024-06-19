@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIST OF CARS</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+
+<body onload="onPageLoading()">
+  <div class="search-section">
+    <div class="search__title">
+      ỨNG DỤNG TÌM KIẾM Ô TÔ
+    </div>
+    <div class="search-box">
+      <div class="search__label">Nhập VID</div>
+      <div class="search__input">
+        <input type="text" placeholder="Nhập biển số ..." id="input-search-vid">
+      </div>
+      <div class="search__button">
+        <button onclick="onBtnSearchCarClick()">Tìm kiếm</button>
+      </div>
+    </div>
+  </div>
+  <div class="list-cars" id="div-list-cars"></div>
+  <div class="not-found" id="div-not-found">
+    <img src="images/not-found.png" width="15%" alt="">
+    <div class="not-found__text">
+      Không tìm thấy ô tô nào với VID đã nhập
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title> Javascript Object with Methods</title>
+</head>
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // hàm xử lý sự kiện clear HTML Log
+  function onBtnClearHTMLLogClick() {
+    var vElementInputParagraph = document.getElementById("p-inner-html-log");
+    vElementInputParagraph.innerHTML = ">";
+  }
+
+  // hàm xử lý sự kiện submit persondata
+  function onBtnSubmitPersonClick() {
+    // khai báo đối tượng có thuộc tính và phương thức
+    var vPersonInput = {
+      // thuộc tính (properties)
+      firstName: "",
+      lastName: "",
+      age: 0,
+      gender: "",
+      citizenId: "",
+      address: "",
+      // method (phương thức) fullName
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      },
+      // phương thức kiểm tra tuổi
+      isAgeValid: function() {
+        if (isNaN(this.age)) {
+          return false;
+        }
+        if (this.age < 0 || this.age > 220) {
+          return false;
+        }
+
+        return true;
+      },
+      // method displayInHTMLLog -- hiện thị ra luôn trên web
+      displayInHTMLLog: function() {
+        // gọi phương thức để kiểm tra tuổi, nếu tuổi hợp lệ thì mới hiển thị thông tin ra
+        if (this.isAgeValid() == true) {
+          // write to HTML log
+          writeToHTMLLog("First Name: " + this.firstName);
+          writeToHTMLLog("Last Name: " + this.lastName);
+          writeToHTMLLog("Full Name: " + this.fullName())
+          writeToHTMLLog("Age: " + this.age);
+          writeToHTMLLog("Gender: " + this.gender)
+          writeToHTMLLog("Citizen ID: " + this.citizenId)
+          writeToHTMLLog("Address: " + this.address)
+        } // tuổi ko hợp lệ thì ghi ra là không hợp lệ
+        else {
+          writeToHTMLLog("Tuổi nhập vào không hợp lệ!");
+        }
+      }
+    };
+
+    // Lấy thông tin từ form và cho vào đối tượng
+    var vFirstNameInputElement = document.getElementById("inp-first-name");
+    var vLastNameInputElement = document.getElementById("inp-last-name");
+    var vAgeElement = document.getElementById("inp-age");
+    var vGenderElement = document.getElementById("select-gender");
+    var vCitizenIDElement = document.getElementById("inp-citizenID")
+    var vAddressElement = document.getElementById("inp-address")
+
+    vPersonInput.firstName = vFirstNameInputElement.value;
+    vPersonInput.lastName = vLastNameInputElement.value;
+    vPersonInput.age = parseInt(vAgeElement.value);
+    vPersonInput.gender = vGenderElement.value;
+    vPersonInput.citizenId = vCitizenIDElement.value;
+    vPersonInput.address = vAddressElement.value;
+
+    // Gọi phương thức hiển thị thông tin đối tượng ra HTML Log
+    vPersonInput.displayInHTMLLog();
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+  // write to HTML Log thay vì ghi vào Console
+  function writeToHTMLLog(paramStrToWrite) {
+    var vElementInputParagraph = document.getElementById("p-inner-html-log");
+    vElementInputParagraph.innerHTML += paramStrToWrite + "<br>" + ">";
+  }
+</script>
+
+<body>
+  <div class="container jumbotron p-4">
+    <div class="form-group mb-5">
+      <h4> Test Page for Javascript Tasks. Nhập dữ liệu và click Submit Data & Clear HTML Log để test</h4>
+    </div>
+    <div class="row form-group">
+      <label for="inp-first-name" class="col-sm-2 col-form-label"> First Name: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-first-name" placeholder="FirstName ...">
+      </div>
+      <label for="inp-last-name" class="col-sm-2 col-form-label"> Last Name: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-last-name" placeholder="LastName ...">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label for="inp-age" class="col-sm-2 col-form-label"> Age: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="number" id="inp-age" placeholder="Age ...">
+      </div>
+      <label for="inp-citizenID" class="col-sm-2 col-form-label"> Citizen ID: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-citizenID" placeholder="Citizen ID ...">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label for="select-gender" class="col-sm-2 col-form-label"> Gender: </label>
+      <div class="col-sm-4">
+        <select class="form-control" id="select-gender">
+          <option value="Nam">Nam</option>
+          <option value="Nu">Nữ</option>
+        </select>
+      </div>
+      <label for="inp-address" class="col-sm-2 col-form-label"> Address: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-address" placeholder="Address ...">
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-primary mr-4" onclick="onBtnSubmitPersonClick()"> Submit Data </button>
+        <button type="button" class="btn btn-success" onclick="onBtnClearHTMLLogClick()"> Clear HTML Log </button>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <p id="p-inner-html-log"> </p>
+    </div>
+  </div>
+</body>
+
+</html>

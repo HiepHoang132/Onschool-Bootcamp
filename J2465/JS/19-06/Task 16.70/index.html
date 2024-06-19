@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title> Javascript Object with Methods</title>
+</head>
+
+<body>
+  <div class="container jumbotron p-4 d-flex flex-column align-items-center">
+    <div class="form-group mb-5 text-center">
+      <h4> THÊM VÀ TÌM KIẾM PERSON</h4>
+    </div>
+
+    <div class="row form-group col-6">
+      <label for="inp-first-name" class="col-sm-3 col-form-label"> First Name: </label>
+      <div class="col-sm-8">
+        <input class="form-control" type="text" id="inp-first-name" placeholder="FirstName ...">
+      </div>
+    </div>
+
+    <div class="row form-group col-6">
+      <label for="inp-last-name" class="col-sm-3 col-form-label"> Last Name: </label>
+      <div class="col-sm-8">
+        <input class="form-control" type="text" id="inp-last-name" placeholder="LastName ...">
+      </div>
+
+    </div>
+
+    <div class="row form-group col-6">
+      <label for="inp-age" class="col-sm-3 col-form-label"> Age: </label>
+      <div class="col-sm-8">
+        <input class="form-control" type="number" id="inp-age" placeholder="Age ...">
+      </div>
+    </div>
+    
+    <div class="row form-group col-6">
+      <label for="inp-citizenID" class="col-sm-3 col-form-label"> Citizen ID: </label>
+      <div class="col-sm-8">
+        <input class="form-control" type="text" id="inp-citizenID" placeholder="Citizen ID ...">
+      </div>
+    </div>
+    
+    <div class="row form-group col-6 ml-5">
+      <div class="col-sm-10">
+        <button type="button" class="btn btn-primary" onclick="onBtnFindPersonClick()"> Tìm (theo citizenID) </button>
+        <button type="button" class="btn btn-success" onclick="onBtnListPersonClick()"> List </button>
+        <button type="button" class="btn btn-success" onclick="onBtnAddPersonClick()"> Add/Thêm </button>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <p id="p-inner-html-log"> </p>
+    </div>
+  </div>
+</body>
+
+</html>

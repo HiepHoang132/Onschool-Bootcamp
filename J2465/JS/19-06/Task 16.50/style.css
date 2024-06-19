@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #EEEEEE;
+}
+
+.flex-container {
+    height: 100vh;
+    width: 100%;
+    gap: 10px;
+}
+
+.flex-container .container {
+    width: 100%;
+    height: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.find-course {
+    width: 880px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.find-course h1 {
+    text-transform: uppercase;
+    margin: 30px 0;
+    font-size: 25px;
+}
+
+.find-course .container {
+    width: 89%;
+    display: flex;
+    align-items: center;
+}
+
+.inp-container label {
+    font-size: 16px;
+    font-weight: 500;
+    width: 150px;
+}
+
+.inp-container input {
+    margin-left: 20px;
+    width: 450px;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.inp-container input::placeholder {
+    font-size: 16px;
+}
+
+.inp-container button {
+    width: 140px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 30px;
+    font-size: 20px;
+    background-color: #B6C7AA;
+    color: white;
+    cursor: pointer;;
+}
+
+.list-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.course-card {
+    width: 880px;
+    height: 230px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 50px;
+}
+
+.course-card .course-image {
+    width: 128px;
+    height: 144px;
+    top: 40px;
+    left: 40px;
+}
+
+.course-card .course-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.course-card .course-text {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-left: 40px;
+    margin-right: 100px;
+}
+
+.course-text .title {
+    font-family: "DM Serif Display", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #081F32;
+    margin-bottom: 10px;
+}
+
+.course-text .author {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #A5ADBB;
+    margin-bottom: 10px;
+}
+
+.course-text .description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #6E798C;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.clock, .lesson, .level {
+    display: flex;
+    gap: 20px;
+}
+
+.course-info .icon {
+    width: 24px;
+    height: 24px;
+    padding: 0px 0.24px 0.24px 0px;
+}
+
+.course-info .text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 25px;
+}
+
+.course-info .text span {
+    font-weight: 400;
+    color: #6E798C;
+}

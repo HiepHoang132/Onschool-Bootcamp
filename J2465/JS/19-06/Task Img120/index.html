@@ -1,0 +1,115 @@
+<html>
+<header>
+  <title> Task: kỹ năng căn bản - tag - IMG - 120</title>
+</header>
+
+<body>
+  <h1> Kỹ năng xử lý tag IMG - phần tử ảnh </h1>
+  <!-- hiện thị ảnh thông thường, cỡ tự nhiên; subtask 1-->
+  <img id="img-mountain100" src="images/mountain.100.jpeg" alt="ảnh mẫu" />
+  <!-- hiện thị ảnh thông thường, cỡ có chỉnh; subtask 2-->
+  <img id="img-mountain100-sized" src="images/mountain.100.jpeg" alt="ảnh mẫu" width="400" />
+
+  <hr>
+  <!-- các nút để truy vấn, đọc nguồn, đổi nguồn, ẩn hiện, đổi cỡ  -->
+  <button onclick="onBtnTruyVanPhanTuImgClick()"> 1. Truy vấn phần tử IMG</button>
+  <button onclick="onBtnDocNguonCoAnhClick()"> 2. Đọc nguồn (src), cỡ </button>
+  <button onclick="onBtnDoiNguonAnhClick()"> 3. Đổi nguồn ảnh </button>
+  <button onclick="onBtnAnAnhClick()"> 4. Ẩn ảnh </button>
+  <button onclick="onBtnHienAnhClick()"> 5. Hiện ảnh </button>
+  <button onclick="onBtnDoiCoAnhClick()"> 6. Đổi cỡ ảnh </button>
+  <hr>
+  <!-- hiện thị có chỉnh kích cỡ, ;-->
+  <img id="img-girl-sized" src="images/img_girl.jpg" alt="ảnh mẫu" width="400" />
+  <img id="img-girl" src="images/img_girl.jpg" alt="" />
+
+
+</body>
+<script>
+  // 1. truy vấn phần tử img và ghi ra console
+  function onBtnTruyVanPhanTuImgClick() {
+    //truy vấn phần tử img-mountain100
+    var vImgMountain100 = document.getElementById("img-mountain100");
+    var vImgGirlSized = document.getElementById("img-girl-sized");
+
+    console.log("subtask 1: Phần tử img-mountain100 :....");
+    console.log(vImgMountain100);
+
+    console.log("subtask 1: Phần tử img-girl-sized :....");
+    console.log(vImgGirlSized);
+  }
+
+  // 2. function phần tử img và ghi nguồn ảnh, kich cơ ra console
+  function onBtnDocNguonCoAnhClick() {
+    //truy vấn phần tử img-mountain100
+    var vImgMountain100 = document.getElementById("img-mountain100");
+    var vImgGirlSized = document.getElementById("img-girl-sized");
+
+    console.log("subtask 2: Phần tử img-mountain100 nguồn, cỡ (width, heigh)");
+    console.log("src = " + vImgMountain100.src);
+    console.log("chiều rộng, width = " + vImgMountain100.width);
+    console.log("chiều cao, height = " + vImgMountain100.height);
+
+    console.log("subtask 2: Phần tử img-girl-sized nguồn, cỡ (width, heigh)");
+    console.log("src = " + vImgGirlSized.src);
+    console.log("chiều rộng, width = " + vImgGirlSized.width);
+    console.log("chiều cao, height = " + vImgGirlSized.height);
+  }
+
+  // 3. function đổi nguồn ảnh
+  function onBtnDoiNguonAnhClick() {
+    //truy vấn phần tử img-mountain100
+    var vImgMountain100 = document.getElementById("img-mountain100");
+    var vImgGirlSized = document.getElementById("img-girl-sized");
+
+    console.log("subtask 3: Phần tử img-mountain100 đổi nguồn");
+    // đổi nguồn ảnh bằng cách đổi thuộc tính src thành đường dẫn vào ảnh khác
+    vImgMountain100.src = "images/mountain.200.jpeg";
+
+    console.log("subtask 3: Phần tử img-girl-sized đổi nguồn");
+    vImgGirlSized.src = "images/img_girl_front.jpeg";
+  }
+
+  // 4. function ẩn ảnh
+  function onBtnAnAnhClick() {
+    //truy vấn phần tử img-mountain100
+    var vImgMountain100 = document.getElementById("img-mountain100");
+    var vImgGirlSized = document.getElementById("img-girl-sized");
+
+    console.log("subtask 4: Phần tử img-mountain100 ẩn ảnh");
+    //ẩn ảnh bằng cách đổi thuộc tính style.display thành None
+    vImgMountain100.style.display = "None";
+
+    console.log("subtask 4: Phần tử img-girl-sized ẩn ảnh");
+    vImgGirlSized.style.display = "None";
+  }
+  // 5. function hiện ảnh
+  function onBtnHienAnhClick() {
+    //truy vấn phần tử img-mountain100
+    var vImgMountain100 = document.getElementById("img-mountain100");
+    var vImgGirlSized = document.getElementById("img-girl-sized");
+
+    console.log("subtask 5: Phần tử img-mountain100 hiện ảnh");
+    // hiện ảnh bằng cách đổi thuộc tính style.display bằng "inline-block"
+    vImgMountain100.style.display = "inline-block";
+
+    console.log("subtask 5: Phần tử img-girl-sized hiện ảnh");
+    vImgGirlSized.style.display = "inline-block";
+  }
+
+  // 6. function đổi cỡ ảnh
+  function onBtnDoiCoAnhClick() {
+    //truy vấn phần tử img-mountain100
+    var vImgMountain100 = document.getElementById("img-mountain100");
+    var vImgGirlSized = document.getElementById("img-girl-sized");
+
+    console.log("subtask 6: Phần tử img-mountain100 đổi cỡ ảnh");
+    // đổi nguồn ảnh bằng cách đổi thuộc tính width (chiều rộng) thành 600 pixel
+    vImgMountain100.width = "600";
+
+    console.log("subtask 6: Phần tử img-girl-sized đổi cỡ ảnh");
+    vImgGirlSized.width = "600";
+  }
+</script>
+
+</html>

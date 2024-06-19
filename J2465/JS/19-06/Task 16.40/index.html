@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="script.js" defer></script>
+  <title> Javascript Object with Methods</title>
+</head>
+
+
+<body onload="onPageLoading()">
+  <div class="container jumbotron p-4">
+    <div class="form-group mb-5">
+      <h4> Test Page for Javascript Tasks. Nhập dữ liệu và click Submit Data & Clear HTML Log để test</h4>
+    </div>
+    <div class="row form-group">
+      <label for="inp-first-name" class="col-sm-2 col-form-label"> First Name: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-first-name" placeholder="FirstName ...">
+      </div>
+      <label for="inp-last-name" class="col-sm-2 col-form-label"> Last Name: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-last-name" placeholder="LastName ...">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label for="inp-age" class="col-sm-2 col-form-label"> Age: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="number" id="inp-age" placeholder="Age ...">
+      </div>
+      <label for="inp-citizenID" class="col-sm-2 col-form-label"> Citizen ID: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-citizenID" placeholder="Citizen ID ...">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label for="select-gender" class="col-sm-2 col-form-label"> Gender: </label>
+      <div class="col-sm-4">
+        <select class="form-control" id="select-gender">
+          <option value="Nam">Nam</option>
+          <option value="Nu">Nữ</option>
+        </select>
+      </div>
+      <label for="inp-address" class="col-sm-2 col-form-label"> Address: </label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="inp-address" placeholder="Address ...">
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-primary mr-4" onclick="onBtnSubmitPersonClick()"> Submit Data </button>
+        <button type="button" class="btn btn-success" onclick="onBtnClearHTMLLogClick()"> Clear HTML Log </button>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <p id="p-inner-html-log"> </p>
+    </div>
+  </div>
+</body>
+
+</html>
