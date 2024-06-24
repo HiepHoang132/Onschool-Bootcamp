@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Đánh dấu nút click - change button color</title>
+  <style>
+    .btn-green {
+      color: #fff;
+      background-color: #28a745;
+      border-color: #28a745;
+      display: inline-block;
+      width: 100%;
+      font-weight: 400;
+      text-align: center;
+      border-radius: .25rem;
+      line-height: 1.5;
+      cursor: pointer;
+      padding: .375rem .75rem;
+      font-family: inherit;
+      border: 1px solid transparent;
+      outline: none;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    }
+
+    .btn-green:hover {
+      color: #fff;
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+
+    .btn-yellow {
+      color: #212529;
+      background-color: #e0a800;
+      border-color: #d39e00;
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      width: 100%;
+      border-radius: .25rem;
+      line-height: 1.5;
+      cursor: pointer;
+      padding: .375rem .75rem;
+      font-family: inherit;
+      border: 1px solid transparent;
+      outline: none;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    }
+
+    .btn-yellow:hover {
+      color: #212529;
+      background-color: #e0a800;
+      border-color: #d39e00;
+    }
+
+    button:hover,
+    button:active,
+    button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+  const gPAC_NET1_BASIC = "NET1-BASIC";
+  const gPAC_NET3_PLUS = "NET3-PLUS";
+  const gPAC_FAST50 = "FAST50";
+
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+
+  // hàm xử lý khi chọn contact Net 1 - Basic
+  function onBtnNet1Click() {
+    markSelectedButton(gPAC_NET1_BASIC)
+  }
+
+  // hàm xử lý khi chọn contact Net 3 - Plus
+  function onBtnNet3Click() {
+    markSelectedButton(gPAC_NET3_PLUS)
+  }
+
+  // hàm xử lý khi chọn contact Fast 50
+  function onBtnFast50Click() {
+    markSelectedButton(gPAC_FAST50)
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình */
+  function markSelectedButton(paramButton) {
+    var vNet1 = document.getElementById("btn-package-net1-basic")
+    var vNet3 = document.getElementById("btn-package-net3-plus")
+    var vFast50 = document.getElementById("btn-package-fast50")
+
+    if (paramButton === gPAC_NET1_BASIC) {
+      vNet1.className = "btn-yellow"
+      vNet3.className = "btn-green"
+      vFast50.className = "btn-green"
+    } else if (paramButton === gPAC_NET3_PLUS) {
+      vNet1.className = "btn-green"
+      vNet3.className = "btn-yellow"
+      vFast50.className = "btn-green"
+    } else if (paramButton === gPAC_FAST50) {
+      vNet1.className = "btn-green"
+      vNet3.className = "btn-green"
+      vFast50.className = "btn-yellow"
+    }
+  }
+</script>
+
+<body>
+  <div class="container">
+    <table class="table">
+      <tbody>
+        <tr class="text-center">
+          <th colspan="4">
+            <h2><b class="p-1">Đăng ký gói cước viễn thông</b></h2>
+            <p><span class="p-2">Choose a pricing package that fits your needs - chọn gói đăng ký</span></p>
+          </th>
+        </tr>
+        <tr class="text-center">
+          <td>
+            Gói
+          </td>
+          <td>
+            <b>Net 1 Basic</b>
+          </td>
+          <td>
+            <b>Net 3 Plus</b>
+          </td>
+          <td>
+            <b>Fast 50</b>
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td>
+            Băng thông trong nước
+          </td>
+          <td>
+            30 Mbps
+          </td>
+          <td>
+            80 Mbps
+          </td>
+          <td>
+            200 Mbps
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td>
+            Băng thông quốc tế
+          </td>
+          <td>
+            10 Mbps
+          </td>
+          <td>
+            20 Mbps
+          </td>
+          <td>
+            40 Mbps
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td>
+            Truyền hình
+          </td>
+          <td>
+            20 kênh
+          </td>
+          <td>
+            20 kênh
+          </td>
+          <td>
+            20 kênh
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td>
+            Giá theo tháng (VND)
+          </td>
+          <td>
+            200 000
+          </td>
+          <td>
+            250 000
+          </td>
+          <td>
+            300 000
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td>
+          </td>
+          <td>
+            <button id="btn-package-net1-basic" class="btn-green" onclick="onBtnNet1Click()">Đăng ký gói</button>
+          </td>
+          <td>
+            <button id="btn-package-net3-plus" class="btn-green" onclick="onBtnNet3Click()">Đăng ký gói</button>
+          </td>
+          <td>
+            <button id="btn-package-fast50" class="btn-green" onclick="onBtnFast50Click()">Đăng ký gói</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>

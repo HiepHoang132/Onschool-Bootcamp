@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Refactoring correct the code </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body onload="onPageLoading()">
+    <div class="container">
+        <h1> Test Page for Devcamp Javascrip Tasks </h1>
+        <p> Press F5 to run code. Don't forget to Save your code before running. (Ctrl+S). </p>
+    </div>
+</body>
+<script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+    
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    function onPageLoading() {
+        var maxNumberIndex = getMaxNumberIndex([6, 3, 11, 2, 6]);
+        console.log("max number index 1: " + maxNumberIndex);
+
+        maxNumberIndex = getMaxNumberIndex([]);
+        if(maxNumberIndex === -1){
+            console.log("Mảng truyền vào không có phần tử nào")
+        } else {
+            console.log("max number index 2: " + maxNumberIndex);
+        }
+    }
+
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    var indexResult = 0;
+
+    function getMaxNumberIndex(inputArrayOfNumbers) {
+        if(inputArrayOfNumbers.length === 0) return indexResult = -1
+
+        var maxNumber = inputArrayOfNumbers[indexResult];
+        for (var iterator = 0; iterator < inputArrayOfNumbers.length; iterator++) {
+            if (maxNumber < inputArrayOfNumbers[iterator]) {
+                indexResult = iterator
+            }
+        }
+        return indexResult;
+    }
+
+</script>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Hoang Hua Hiep">
+
+  <title>Task 733.35 Nhập hàng</title>
+</head>
+
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .flex-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .select-container,
+  .input-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .select-container {
+    margin-bottom: 20px;
+  }
+
+  .select-container select {
+    width: 55%;
+    margin-left: 20px;
+    font-size: 16px;
+  }
+
+  .input-container input {
+    width: 53%;
+    margin-left: 15px;
+    font-size: 16px;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  .container button {
+    width: 40%;
+    border: none;
+    background-color: cadetblue;
+    color: white;
+    font-size: 20px;
+    padding: 5px 0;
+    position: absolute;
+    bottom: 37%;
+    left: 48%;
+  }
+</style>
+
+<body onload="onPageLoading()">
+  <div class="flex-container">
+    <div class="container">
+      <div class="select-container">
+        <label for="select-maHang">Mã hàng</label>
+        <select name="maHang" id="select-maHang">
+          <option value="0">chọn mã hàng</option>
+          <option value="10">TVSamsung 4K Crystal UHD 55 inch UA55AU8100</option>
+          <option value="20">Android Tivi QLED TCL 4K 55 inch 55Q726</option>
+          <option value="30">Smart Tivi LG 4K 55 inch 55UP7750PTB</option>
+          <option value="40">Android Tivi Casper 32 inch 32HG5200</option>
+          <option value="50">Máy lọc nước RO AOSmith C1 4 lõi</option>
+          <option value="60">Quạt điều hòa Kangaroo KG50F79N</option>
+        </select>
+      </div>
+
+      <div class="input-container">
+        <label for="inp-soLuong">Số lượng</label>
+        <input type="text" name="soLuong" id="inp-soLuong" placeholder="... điền số nguyên dương ...">
+      </div>
+
+      <button onclick="onBtnSaveDataClick()">Lưu dữ liệu</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  var gHangHoa = []
+
+  function onPageLoading() {
+    var vSelectElement = document.getElementById("select-maHang")
+    var vInputElement = document.getElementById("inp-soLuong")
+    console.log(`Select value: ${vSelectElement.value}`)
+    console.log(`Select id: ${vSelectElement.id}`)
+    console.log(`Input id: ${vInputElement.id}`)
+    console.log(`Input placeholder: ${vInputElement.placeholder}`)
+  }
+
+  function onBtnSaveDataClick() {
+    addDataToObject()
+    console.log(gHangHoa)
+  }
+
+  function validateData() {
+    var vSelectElement = document.getElementById("select-maHang")
+    var vInputElement = document.getElementById("inp-soLuong")
+
+    if (isNaN(vInputElement.value)) {
+      console.log("Số lượng phải là 1 số nguyên dương")
+      return false
+    }
+
+    var vSelect = vSelectElement.value
+    var vInput = Number(vInputElement.value)
+
+    if (vSelect === "0") {
+      console.log("Mã hàng phải được chọn")
+      return false
+    }
+
+    if (vInput <= 0) {
+      console.log("Số lượng phải lớn hơn 0")
+      return false
+    }
+
+    var vSelectText = vSelectElement.options[vSelectElement.selectedIndex].text
+
+    return {
+      vSelectText,
+      vInput
+    }
+  }
+
+  function addDataToObject() {
+    console.log(validateData())
+
+    if (validateData() === false) {
+      alert("Kiểm tra dữ liệu nhập")
+    } else {
+      var hang = validateData()
+      gHangHoa.push(hang)
+    }
+  }
+</script>
+
+</html>

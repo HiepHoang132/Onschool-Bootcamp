@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title> Review Debugger, Add Watch </title>
+</head>
+
+<body onload="onPageLoading()">
+    <div class="container jumbotron">
+        <div class="form-group">
+            <h1 id="h1-welcome-msg"> Welcome to Devcamp !</h1>
+        </div>
+        <div class="form-group">
+            <label id="lbl-new-color"> New color: </label>
+            <select id="select-new-color" class="form-control w-25">
+                <option value="all"> Select 01 color</option>
+                <option value="red"> Red </option>
+                <option value="blue"> Blue </option>
+                <option value="green"> Green </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info" onclick="onBtnChangeColorClick()" id="btn-change-color"> Change color </button>
+        </div>
+    </div>
+</body>
+<script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+    
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    function onPageLoading() {
+        var vElementWelcomeMsg = document.getElementById("h1-welcome-msg");
+        var vElementLabelNewColor = document.getElementById("lbl-new-color");
+        var vElementSelectColor = document.getElementById("select-new-color");
+        var vElementBtnChangeColor = document.getElementById("btn-change-color");
+        debugger;
+    }
+
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    // Hàm xử lý sự kiện nút Change color click
+    function onBtnChangeColorClick() {
+        debugger; // TDD subTask 2, function có được call
+        var vElementSelectColor = document.getElementById("select-new-color");
+        var vElementWelcomeMsg = document.getElementById("h1-welcome-msg");
+        // nếu đã chọn 1 màu nào đó thì đổi màu co tiêu đề là màu đc chọn
+        if (vElementSelectColor.value !== "all") {
+            vElementWelcomeMsg.style.color = vElementSelectColor.value;
+        }
+        else { // còn không thì cảnh báo cần chọn 1 màu
+            alert("Hãy chọn một màu trong danh sách!!");
+            console.assert(false, "User did not select any color.");
+        }
+    }
+</script>
+
+</html>

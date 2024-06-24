@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Đánh dấu nút click - change button color</title>
+  <style>
+    .btn-green {
+      color: #fff;
+      background-color: #28a745;
+      border-color: #28a745;
+      display: inline-block;
+      width: 100%;
+      font-weight: 400;
+      text-align: center;
+      border-radius: .25rem;
+      line-height: 1.5;
+      cursor: pointer;
+      padding: .375rem .75rem;
+      font-family: inherit;
+      border: 1px solid transparent;
+      outline: none;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    }
+
+    .btn-green:hover {
+      color: #fff;
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+
+    .btn-yellow {
+      color: #212529;
+      background-color: #e0a800;
+      border-color: #d39e00;
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      width: 100%;
+      border-radius: .25rem;
+      line-height: 1.5;
+      cursor: pointer;
+      padding: .375rem .75rem;
+      font-family: inherit;
+      border: 1px solid transparent;
+      outline: none;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    }
+
+    .btn-yellow:hover {
+      color: #212529;
+      background-color: #e0a800;
+      border-color: #d39e00;
+    }
+
+    button:hover,
+    button:active,
+    button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+  const gCONTACT_CEO = "CEO";
+  const gCONTACT_ART_DIRECTOR = "AD";
+  const gCONTACT_CTO = "CTO";
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // hàm xử lý khi chọn contact CEO & Founder
+  function onBtnCeoFounderClick() {
+    markSelectedContact(gCONTACT_CEO);
+  }
+
+  // hàm xử lý khi chọn contact Art Director
+  function onBtnArtDirectorClick() {
+    markSelectedContact(gCONTACT_ART_DIRECTOR);
+  }
+
+  // hàm xử lý khi chọn contact CTO
+  function onBtnCTOClick() {
+    markSelectedContact(gCONTACT_CTO);
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+  function markSelectedContact(paramContact) {
+    var vCeoButton = document.getElementById("btn-ceo-founder");
+    var vArtDirectorButton = document.getElementById("btn-art-director");
+    var vCtoButton = document.getElementById("btn-cto");
+
+    // nếu lựa chọn contact với CEO thì đổi màu nút CEO sang màu vàng với class .btn-yellow
+    // 2 nút còn lại chuyển sang màu xanh, với class .btn-green
+    if (paramContact == gCONTACT_CEO) {
+      vCeoButton.className = "btn-yellow";
+      vArtDirectorButton.className = "btn-green";
+      vCtoButton.className = "btn-green";
+    }
+    // làm tiếp tương tự với 2 lựa chọn còn lại
+    else if (paramContact == gCONTACT_ART_DIRECTOR) {
+      vCeoButton.className = "btn-green";
+      vArtDirectorButton.className = "btn-yellow";
+      vCtoButton.className = "btn-green";
+    } else if (paramContact == gCONTACT_CTO) {
+      vCeoButton.className = "btn-green";
+      vArtDirectorButton.className = "btn-green";
+      vCtoButton.className = "btn-yellow";
+    }
+  }
+</script>
+
+<body>
+  <div id="about" class="container">
+    <div class="text-center p-4 mt-4">
+      <h2><b class="p-2 border-bottom">Who we are</b></h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card w-100">
+          <div class="card-body">
+            <h3>Jane Doe</h3>
+            <p>CEO & Founder</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+            </p>
+            <p>
+              <button class="btn-green" id="btn-ceo-founder" onclick="onBtnCeoFounderClick()">
+                Contact
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card w-100">
+          <div class="card-body">
+            <h3>Mike Ross</h3>
+            <p>Art Director</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+            </p>
+            <p>
+              <button class="btn-green" id="btn-art-director" onclick="onBtnArtDirectorClick()">
+                Contact
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card w-100">
+          <div class="card-body">
+            <h3>John Doe</h3>
+            <p>CTO</p>
+            <p>
+              Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+            </p>
+            <p>
+              <button class="btn-green" id="btn-cto" onclick="onBtnCTOClick()">
+                Contact
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

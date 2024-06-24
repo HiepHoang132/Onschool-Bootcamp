@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Refactorin theo Coding Convention</title>
+</head>
+
+<body class="bg bg-light">
+  <div class="container jumbotron">
+    <h1> Test Page for Devcamp Javascrip Tasks </h1>
+    <p> Press F5 to run code. Don't forget to Save your code before running. (Ctrl+S). </p>
+  </div>
+</body>
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // mảng chứa danh sách các đối tượng users
+  const listUsers = [{
+      userCode: "100-lelah",
+      userFullName: "Lelah Nichols",
+      userAddress: "Troy, MI"
+    },
+    {
+      userCode: "110-jesus",
+      userFullName: "Jesus Weiss",
+      userAddress: "Fort Worth, TX"
+    },
+    {
+      userCode: "120-annie",
+      userFullName: "Annie Rice",
+      userAddress: "Austin, TX"
+    },
+    {
+      userCode: "130-robert",
+      userFullName: "Robert Brower",
+      userAddress: "Cincinnati, OH"
+    },
+    {
+      userCode: "140-amy",
+      userFullName: "Amy Campbell",
+      userAddress: "Warrior, AL"
+    },
+    {
+      userCode: "150-anthony",
+      userFullName: "Anthony S. Morin",
+      userAddress: "Lyndhurst, NJ"
+    }
+  ];
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+
+  // return a user obj in the given index
+  function getUserbyIndex(indexOfUser) {
+    //if the input index not in the invalid range
+    if (indexOfUser < 0 || indexOfUser > listUsers.length - 1) {
+      return null;
+    }
+    return listUsers[indexOfUser];
+  }
+  // bạn hãy tham khảo code để test getUserbyIndex
+  var user1 = getUserbyIndex(2);
+  console.log(user1.userCode);
+  console.log(user1.userFullName);
+  console.log(user1.userAddress);
+
+  // hàm tìm kiếm đối tượng user theo usercode. hãy hoàn thiện
+  function getUserByUserCode(inputUsercode) {
+    for (var user of listUsers) {
+      if (user["userCode"] === inputUsercode) {
+        return user;
+      }
+    }
+
+    return null;
+  }
+
+  //đây là code chay thử của function getUserByUserCode
+  // ban hãy viết ra console.log 1 số đặc tính
+  var user2 = getUserByUserCode("100-lelah");
+  console.log(user2.userCode);
+  console.log(user2.userFullName);
+  console.log(user2.userAddress);
+
+  // các vấn bạn thấy trong code là 
+  // if-else bị lồng quá nhiều
+  // nhiều return
+  // tab lùi ra vào không hợp lý
+  // một số vấn đề đặt tên
+  function GetPresentByDice(input_dice) {
+    if (input_dice == 1) return "voucher 5%";
+    if (input_dice == 2) return "voucher 15%";
+    if (input_dice == 3) return "voucher 20%"
+    if (input_dice == 4) return "voucher 30%";
+    if (input_dice == 5) return "voucher 40%"
+    if (input_dice == 6) return "voucher 100%";
+             
+    return "no present founnd";
+ 
+  }
+
+  // code test thử hàm GetPresentByDice()
+  var myPresent = GetPresentByDice(4);
+  console.log(myPresent);
+</script>
+
+</html>

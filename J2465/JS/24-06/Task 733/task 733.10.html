@@ -1,0 +1,166 @@
+<html>
+<header>
+  <title> Task 733.10: kỹ năng căn bản - tag - Select </title>
+</header>
+
+<body>
+  <h1> Kỹ năng xử lý tag Select - phần tử chọn - phần MẪU</h1>
+
+  <select id="select-color">
+    <option selected>Open this select menu - Chọn màu</option>
+    <option value="1">Đỏ</option>
+    <option value="2">Đen</option>
+    <option value="3">Bạc</option>
+  </select>
+  <hr>
+
+  <button onclick="onBtnTruyVanPhanTuSelectClick()">(mẫu a) Truy vấn phần tử select</button>
+  <button onclick="onBtnDocValueTextDuocChonPhanTuSelectClick()">(mẫu b) Đọc value (giá trị) được chọn</button>
+  <button onclick="onBtnVietValuePhanTuSelectClick()">(mẫu c) Viết value (giá trị) vào</button>
+  <button onclick="onBtnDoDuLieuVaoPhanTuSelectClick()">(mẫu d) Đổ thêm dữ liệu vào Select, từ mảng (array)</button>
+
+  <hr>
+  <h1> Kỹ năng xử lý tag Select - phần tử chọn - làm theo mẫu </h1>
+  <select id="select-month-exercise">
+    <option selected>Open Months menu - chọn tháng</option>
+    <option value="Jan">Tháng 1</option> <!-- hãy cho value là Jan, Feb, Mar, ...và cho thêm đến tháng 12-->
+    <option value="Feb">Tháng 2</option>
+    <option value="Mar">Tháng 3</option>
+  </select>
+  <pre>
+        Bạn hãy làm 04 phần 733.10 a) b) c) d) theo mẫu trên
+    </pre>
+
+  <button onclick="onBtnGetElementSelectClick()">Truy vấn phần tử select</button>
+  <button onclick="onBtnGetSelectedValueSelectClick()">Đọc value (giá trị) được chọn</button>
+  <button onclick="onBtnWriteValueSelectClick()">Viết value (giá trị) vào</button>
+  <button onclick="onBtnAddArraySelectClick()">Đổ thêm dữ liệu vào Select, từ mảng (array)</button>
+
+
+</body>
+<script>
+  // VÙNG 2: XỬ LÝ SỰ KIỆN
+  //truy vấn phần tử select và ghi ra console
+  function onBtnTruyVanPhanTuSelectClick() {
+    var vSelect = document.getElementById("select-color");
+    console.log("Phần tử Select :....");
+    console.log(vSelect);
+  }
+  
+  //Đọc Value Text được chọn phần tử Select
+  function onBtnDocValueTextDuocChonPhanTuSelectClick() {
+    var vSelect = document.getElementById("select-color");
+    console.log("%cValue Phần tử Select :....", "color:purple");
+    console.log("Value Select (giá trị được chọn)= " + vSelect.value);
+  }
+  
+  //Viết value phần tử Select
+  function onBtnVietValuePhanTuSelectClick() {
+    var vSelect = document.getElementById("select-color");
+    console.log("%cViết value Phần tử Select : cho bằng 2....", "color:orange");
+    vSelect.value = "2";
+  }
+ 
+  //VÙNG 4: HÀM DÙNG CHUNG 
+  //Đổ (thêm) dữ liệu option vào thẻ Select
+  function onBtnDoDuLieuVaoPhanTuSelectClick() {
+    var vSelect = document.getElementById("select-color");
+    console.log("%cĐổ option vào Phần tử Select (Sẽ thêm 03 lựa chọn) :....", "color:blue");
+    var vArrayLuaChon = [{
+        value: 4,
+        text: "Xanh"
+      },
+      {
+        value: 5,
+        text: "Tím"
+      },
+      {
+        value: 6,
+        text: "Hồng"
+      },
+    ]
+    //thêm các lựa chọn vào SELECT    
+    for (var bViTriHienTai = 0; bViTriHienTai < vArrayLuaChon.length; bViTriHienTai++) {
+      var bOptionObj = vArrayLuaChon[bViTriHienTai];
+
+      var bOptionElement = document.createElement("option");
+      bOptionElement.text = bOptionObj.text;
+      bOptionElement.value = bOptionObj.value;
+
+      vSelect.add(bOptionElement);
+    }
+  }
+
+  function onBtnGetElementSelectClick(){
+    var vSelect = document.getElementById("select-month-exercise")
+    console.log("Phần tử Select :....");
+    console.log(vSelect);
+  }
+
+  function onBtnGetSelectedValueSelectClick() {
+    var vSelect = document.getElementById("select-month-exercise")
+    console.log("%cValue Phần tử Select :....", "color:purple");
+    console.log("Value Select (giá trị được chọn)= " + vSelect.value);
+  }
+
+  function onBtnWriteValueSelectClick() {
+    var vSelect = document.getElementById("select-month-exercise");
+    console.log("%cViết value Phần tử Select : cho bằng Mar....", "color:orange");
+    vSelect.value = "Mar";
+  }
+
+  function onBtnAddArraySelectClick() {
+    var vSelect = document.getElementById("select-month-exercise")
+    console.log("%cĐổ option vào Phần tử Select (Sẽ thêm 09 lựa chọn) :....", "color:blue");
+    var vArrayLuaChon = [{
+        value: "Apr",
+        text: "Tháng 4"
+      },
+      {
+        value: "May",
+        text: "Tháng 5"
+      },
+      {
+        value: "Jun",
+        text: "Tháng 6"
+      },
+      {
+        value: "Jul",
+        text: "Tháng 7"
+      },
+      {
+        value: "Aug",
+        text: "Tháng 8"
+      },
+      {
+        value: "Sep",
+        text: "Tháng 9"
+      },
+      {
+        value: "Oct",
+        text: "Tháng 10"
+      },
+      {
+        value: "Nov",
+        text: "Tháng 11"
+      },
+      {
+        value: "Dec",
+        text: "Tháng 12"
+      },
+    ]
+    //thêm các lựa chọn vào SELECT    
+    for (var bViTriHienTai = 0; bViTriHienTai < vArrayLuaChon.length; bViTriHienTai++) {
+      var bOptionObj = vArrayLuaChon[bViTriHienTai];
+
+      var bOptionElement = document.createElement("option");
+      bOptionElement.text = bOptionObj.text;
+      bOptionElement.value = bOptionObj.value;
+
+      vSelect.add(bOptionElement);
+    }
+  }
+
+</script>
+
+</html>

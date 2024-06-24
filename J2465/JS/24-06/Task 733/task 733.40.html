@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Hoang Hua Hiep">
+
+  <title>Task 733.40 Thông tin học sinh</title>
+</head>
+
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .flex-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  label {
+    font-size: 1.5rem
+  }
+
+  input,
+  select {
+    font-size: 18px;
+  }
+
+  .container input {
+    width: 50%;
+  }
+
+  #inp-namSinh {
+    margin-left: 40px;
+  }
+
+  #inp-hoVaTen {
+    margin-left: 43px;
+  }
+
+  #select-lop {
+    width: 51.5%;
+    margin-left: 95px;
+  }
+
+  #select-gioiTinh {
+    width: 51.5%;
+    margin-left: 47px;
+  }
+
+  .container button {
+    border: 4px solid black;
+    background-color: gray;
+    width: 51.5%;
+    margin-left: 144px;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 18px;
+  }
+</style>
+
+<body onload="onPageLoading()">
+  <div class="flex-container">
+    <div class="container">
+      <div class="input-container">
+        <label for="inp-hoVaTen">Họ và tên</label> 
+        <input type="text" name="hoVaTen" id="inp-hoVaTen" placeholder="...ví dụ Nguyễn Thị Nga...">
+      </div>
+
+      <div class="input-container">
+        <label for="inp-namSinh">Năm Sinh</label> 
+        <input type="text" name="namSinh" id="inp-namSinh" placeholder="...ví dụ 2009...">
+      </div>
+
+      <div class="select-container">
+        <label for="select-lop">Lớp</label> 
+        <select name="lop" id="select-lop">
+          <option value="0">chọn lớp</option>
+          <option value="1">Lớp 1</option>
+          <option value="2">Lớp 2</option>
+          <option value="3">Lớp 3</option>
+          <option value="4">Lớp 4</option>
+          <option value="5">Lớp 5</option>
+          <option value="6">Lớp 6</option>
+          <option value="7">Lớp 7</option>
+          <option value="8">Lớp 8</option>
+          <option value="9">Lớp 9</option>
+          <option value="10">Lớp 10</option>
+          <option value="11">Lớp 11</option>
+          <option value="12">Lớp 12</option>
+        </select>
+      </div>
+
+      <div class="select-container">
+        <label for="select-gioiTinh">Giới tính</label> 
+        <select name="gioiTinh" id="select-gioiTinh">
+          <option value="0">Chọn giới tính</option>
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+        </select>
+      </div>
+
+      <button onclick="onBtnSaveDataClick()">Gửi dữ liệu</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  var persons = []
+
+  function onPageLoading() {
+    var vSelectLop = document.getElementById("select-lop")
+    var vSelectGioiTinh = document.getElementById("select-gioiTinh")
+
+    var vInputHoTen = document.getElementById("inp-hoVaTen")
+    var vInputNamSinh = document.getElementById("inp-namSinh")
+
+    console.log(`Select value: ${vSelectLop.value}`)
+    console.log(`Select id: ${vSelectLop.id}`)
+
+    console.log(`Select value: ${vSelectGioiTinh.value}`)
+    console.log(`Select id: ${vSelectGioiTinh.id}`)
+
+    console.log(`Input id: ${vInputHoTen.id}`)
+    console.log(`Input placeholder: ${vInputHoTen.placeholder}`)
+
+    console.log(`Input id: ${vInputNamSinh.id}`)
+    console.log(`Input placeholder: ${vInputNamSinh.placeholder}`)
+  }
+
+  function onBtnSaveDataClick() {
+    addDataToObject()
+  }
+
+  function validateData() {
+    var vSelectLop = document.getElementById("select-lop")
+    var vSelectGioiTinh = document.getElementById("select-gioiTinh")
+
+    var vInputHoTen = document.getElementById("inp-hoVaTen")
+    var vInputNamSinh = document.getElementById("inp-namSinh")
+
+    var vLop = vSelectLop.value
+    var vGioiTinh = vSelectGioiTinh.value
+    var vHoTen = vInputHoTen.value
+    var vNamSinh = vInputNamSinh.value
+
+    if (vHoTen === "" || vNamSinh === "" || vLop === "0" || vGioiTinh === "0") {
+      console.log("Dữ liệu nhập vào trống")
+      return false
+    }
+
+    if (vNamSinh < 1990) {
+      console.log("Năm sinh phải lớn hơn 1990")
+      return false
+    }
+
+    return {
+      vHoTen,
+      vNamSinh,
+      vLop,
+      vGioiTinh
+    }
+  }
+
+  function addDataToObject() {
+    if (validateData() === false) {
+      alert("Kiểm tra dữ liệu nhập vào")
+    } else {
+      var hocSinh = validateData()
+      persons.push(hocSinh)
+      console.log(persons)
+    }
+  }
+</script>
+
+</html>

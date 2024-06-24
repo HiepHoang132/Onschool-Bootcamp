@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validate form input data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // hàm thực thi khi ấn nút Kiểm tra số điện thoại được click
+  // code để tham khảo
+  function onCheckPhoneNumberClick() {
+    // 01 truy vấn ô text myInputPhoneNumberString và lấy ra value
+    var vPhoneNumberInput = document.getElementById("my-input-phone-number-string");
+    var vPhoneNumber = vPhoneNumberInput.value.trim(); // đọc text ở ô input
+
+    // 02 kiểm tra xem số điện thoại nhập có đúng định dạng ko?
+    if (kiemTraPhoneNumber(vPhoneNumber) == false) {
+      writeToHTMLLog(vPhoneNumber + " không phải là số điện thoại")
+    }
+    // 03 nếu đúng định dạng thì viết thông tin số diện thoại ra
+    else {
+      writeToHTMLLog("Số điện thoại điền vào là: " + vPhoneNumber);
+    }
+  }
+
+  // hàm thực thi khi ấn nút Kiểm tra email được click
+  function onCheckEmailClick() {
+    var vEmailInput = document.getElementById("my-input-email-string");
+    var vEmail = vEmailInput.value.trim(); // đọc text ở ô input
+
+    // 02 kiểm tra xem số điện thoại nhập có đúng định dạng ko?
+    if (kiemTraEmail(vEmail) == false) {
+      writeToHTMLLog("Email vừa nhập không đúng định dạng")
+    }
+    // 03 nếu đúng định dạng thì viết thông tin số diện thoại ra
+    else {
+      writeToHTMLLog("Email đã nhập là: " + vEmail);
+    }
+  }
+
+  // hàm thực thi khi ấn clear log
+  function onClearHTMLLogClick() {
+    var vElementInputParagraph = document.getElementById("p-output-message");
+    vElementInputParagraph.innerHTML = ">";
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+  //write to HTML Log instead of to console.log
+  function writeToHTMLLog(paramStrToWrite) {
+    var vElementInputParagraph = document.getElementById("p-output-message");
+    vElementInputParagraph.innerHTML += paramStrToWrite + "<br>" + ">";
+  }
+
+  /* Hàm kiểm tra định dạng số điện thoại
+   Số điện thoại đúng định dạng cần thỏa mãn: là số, có dấu + hoặc số 0 ở đầu, từ 10 đến 12 ký tự
+   return true nếu thỏa mãn tất cả các điều kiện
+   return false nếu vi phạm 1 trong các điều kiện trên 
+   */
+  function kiemTraPhoneNumber(paramPhoneNumber) {
+    // kiểm tra điều kiện phải nhập vào là số
+    if (isNaN(paramPhoneNumber)) {
+      console.log("Số điện thoại nhập vào phải là số");
+      return false;
+    }
+
+    // kiểm tra điều kiện có dấu + hoặc số 0 ở đầu
+    if (paramPhoneNumber.charAt(0) != "+" && paramPhoneNumber.charAt(0) != "0") {
+      console.log("Số điện thoại phải có số 0 hoặc dấu + ở đầu");
+      return false;
+    }
+
+    // kiểm tra điều kiện từ 10 đến 12 ký tự
+    if (paramPhoneNumber.length < 10 || paramPhoneNumber.length > 12) {
+      console.log("Số điện thoại phải từ 10 đến 12 ký tự");
+      return false;
+    }
+
+    // nếu thỏa mãn tất cả thì return true
+    return true;
+  }
+
+  /* Hàm kiểm tra định dạng email
+  Email đúng định dạng cần thoả mãn: có chứa @ và dấu . (dấu chấm)
+  return true nếu thỏa mãn tất cả các điều kiện
+  return false nếu vi phạm 1 trong các điều kiện trên 
+  */
+  function kiemTraEmail(paramEmail) {
+    if (paramEmail === "") {
+      console.log("Email nhập vào trống")
+      return false;
+    }
+
+    if (!paramEmail.includes("@") || !paramEmail.includes(".")) {
+      console.log("Email nhập vào phải có @ hoặc dấu chấm")
+      return false;
+    }
+
+    return true;
+  }
+</script>
+
+<body>
+  <div class="container jumbotron p-4">
+    <p id="cmt2dev">
+      Test Page for Javascript Tasks. Press F5 to run code.
+      Don't forget to Save your code before running. (Ctrl+S). </p>
+    <label id="labelinputphonenumber"> Số điện thoại (chỉ điền số) </label>
+    <div class="form-group">
+      <input class="form-control w-75" type="text" id="my-input-phone-number-string" placeholder="So dien thoai ...">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary w-75" onclick="onCheckPhoneNumberClick()">Kiểm tra Số điện thoại !</button>
+    </div>
+    <hr>
+    <label> email: (ví dụ hoant10@gmail.com) </label>
+    <div class="form-group">
+      <input class="form-control w-75" type="text" id="my-input-email-string" placeholder="Email ...">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success w-75" onclick="onCheckEmailClick()">Kiểm tra Email !</button> <!-- bạn phải viết code cho nút này -->
+    </div>
+    <hr>
+    <button class="btn btn-warning w-75" onclick="onClearHTMLLogClick()">Clear HTML Log !</button>
+    <p id="p-output-message"> > </p>
+  </div>
+</body>
+
+</html>

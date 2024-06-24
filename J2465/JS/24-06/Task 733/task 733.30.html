@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Hoang Hua Hiep">
+
+  <title>Task 733.30 Đổi màu theo lựa chọn</title>
+</head>
+
+<style>
+  body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+  .flex-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #paragraph {
+    text-align: center;
+    font-size: 20px;
+    margin-left: 42px;
+  }
+
+  .select-container select {
+    width: 60%;
+    margin-left: 40px;
+    font-size: 16px;
+  }
+
+  .container button {
+    border: 4px solid black;
+    background-color: gray;
+    width: 60%;
+    margin-left: 118px;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 16px;
+  }
+</style>
+
+<body onload="onPageLoading()">
+  <div class="flex-container">
+    <div class="container">
+      <p id="paragraph">Paragraph cần đổi màu</p>
+
+      <div class="select-container">
+        <label for="select-color">Chọn màu</label>
+        <select name="colors" id="select-color">
+          <option value="red">Đỏ</option>
+          <option value="orange">Cam</option>
+          <option value="blue">Xanh Dương</option>
+          <option value="purple">Tím</option>
+        </select>
+      </div>
+
+      <button onclick="onBtnChangeColorClick()">Đổi màu</button>
+    </div>
+  </div>
+
+</body>
+
+<script>
+  function onPageLoading() {
+    var vPara = document.getElementById("paragraph")
+    var vSelect = document.getElementById("select-color")
+    console.log(vPara)
+    console.log(vSelect)
+    console.log(vSelect.value)
+  }
+
+  function onBtnChangeColorClick() {
+    var vPara = document.getElementById("paragraph")
+    var vSelect = document.getElementById("select-color")
+    vPara.style.color = vSelect.value
+  }
+</script>
+
+</html>
