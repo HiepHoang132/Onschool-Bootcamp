@@ -102,11 +102,12 @@
       vCtoButton.className = "btn-green";
     }
     // làm tiếp tương tự với 2 lựa chọn còn lại
-    else if (paramContact == gCONTACT_ART_DIRECTOR) {
+    if (paramContact == gCONTACT_ART_DIRECTOR) {
       vCeoButton.className = "btn-green";
       vArtDirectorButton.className = "btn-yellow";
       vCtoButton.className = "btn-green";
-    } else if (paramContact == gCONTACT_CTO) {
+    }
+    if (paramContact == gCONTACT_CTO) {
       vCeoButton.className = "btn-green";
       vArtDirectorButton.className = "btn-green";
       vCtoButton.className = "btn-yellow";

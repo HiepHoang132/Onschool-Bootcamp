@@ -75,40 +75,17 @@
 
   /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
 
-  // hàm xử lý khi chọn contact Net 1 - Basic
-  function onBtnNet1Click() {
-    markSelectedButton(gPAC_NET1_BASIC)
-  }
-
-  // hàm xử lý khi chọn contact Net 3 - Plus
-  function onBtnNet3Click() {
-    markSelectedButton(gPAC_NET3_PLUS)
-  }
-
-  // hàm xử lý khi chọn contact Fast 50
-  function onBtnFast50Click() {
-    markSelectedButton(gPAC_FAST50)
-  }
-
   /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình */
-  function markSelectedButton(paramButton) {
+  function onBtnChangeColorClick(buttonId) {
     var vNet1 = document.getElementById("btn-package-net1-basic")
     var vNet3 = document.getElementById("btn-package-net3-plus")
     var vFast50 = document.getElementById("btn-package-fast50")
 
-    if (paramButton === gPAC_NET1_BASIC) {
-      vNet1.className = "btn-yellow"
-      vNet3.className = "btn-green"
-      vFast50.className = "btn-green"
-    } else if (paramButton === gPAC_NET3_PLUS) {
-      vNet1.className = "btn-green"
-      vNet3.className = "btn-yellow"
-      vFast50.className = "btn-green"
-    } else if (paramButton === gPAC_FAST50) {
-      vNet1.className = "btn-green"
-      vNet3.className = "btn-green"
-      vFast50.className = "btn-yellow"
-    }
+    vNet1.className = "btn-green"
+    vNet3.className = "btn-green"
+    vFast50.className = "btn-green"
+
+    document.getElementById(buttonId).className = "btn-yellow"
   }
 </script>
 
@@ -196,13 +173,13 @@
           <td>
           </td>
           <td>
-            <button id="btn-package-net1-basic" class="btn-green" onclick="onBtnNet1Click()">Đăng ký gói</button>
+            <button id="btn-package-net1-basic" class="btn-green" onclick="onBtnChangeColorClick('btn-package-net1-basic')">Đăng ký gói</button>
           </td>
           <td>
-            <button id="btn-package-net3-plus" class="btn-green" onclick="onBtnNet3Click()">Đăng ký gói</button>
+            <button id="btn-package-net3-plus" class="btn-green" onclick="onBtnChangeColorClick('btn-package-net3-plus')">Đăng ký gói</button>
           </td>
           <td>
-            <button id="btn-package-fast50" class="btn-green" onclick="onBtnFast50Click()">Đăng ký gói</button>
+            <button id="btn-package-fast50" class="btn-green" onclick="onBtnChangeColorClick('btn-package-fast50')">Đăng ký gói</button>
           </td>
         </tr>
       </tbody>
