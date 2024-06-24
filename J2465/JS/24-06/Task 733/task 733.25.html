@@ -97,7 +97,7 @@
 </body>
 
 <script>
-  var gHangHoa = []
+  const hangHoa = []
 
   function onPageLoading() {
     var vSelectElement = document.getElementById("select-maHang")
@@ -110,7 +110,7 @@
 
   function onBtnSaveDataClick() {
     addDataToObject()
-    console.log(gHangHoa)
+    console.log(hangHoa)
   }
 
   function validateData() {
@@ -150,7 +150,7 @@
       alert("Kiểm tra dữ liệu nhập")
     } else {
       var hang = validateData()
-      gHangHoa.push(hang)
+      hangHoa.push(hang)
     }
   }
 </script>
