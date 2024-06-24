@@ -2,47 +2,29 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Refactorin theo Coding Convention</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Refactorin theo Coding Convention</title>
 </head>
 
-<body class="bg bg-light">
-    <div class="container jumbotron">
-        <h1> Test Page for Devcamp Javascrip Tasks </h1>
-        <p> Press F5 to run code. Don't forget to Save your code before running. (Ctrl+S). </p>
-    </div>
+<body onload="onPageLoading()" class="bg bg-light">
+  <div class="container jumbotron">
+    <h1> Test Page for Devcamp Javascrip Tasks </h1>
+    <p> Press F5 to run code. Don't forget to Save your code before running. (Ctrl+S). </p>
+  </div>
 </body>
 <script>
-    "use strict";
-    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
 
-    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
 
-    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
 
-
-    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
-    
-    // vouchersDB: database of vouchers
-    // voucherId: vehicle identification number
-    const vouchersDB = [
-        { campaign: "NewYear2021", percentageDiscount: 10, voucherId: "ABC10X" },
-        { campaign: "NewYear2021", percentageDiscount: 20, voucherId: "ABC20D" },
-        { campaign: "CovidSupport", percentageDiscount: 20, voucherId: "DNE20N" },
-        { campaign: "CovidSupport", percentageDiscount: 30, voucherId: "DNE30E" },
-        { campaign: "CovidSupport", percentageDiscount: 50, voucherId: "DNE50M" }
-    ];
-
-    // return a voucher in the given index
-    function getVoucherByIndex(indexOfVoucher) {
-        //if the input index not in the invalid range (index đưa vào không có trong array vouchersDB)
-        if (indexOfVoucher < 0 || indexOfVoucher > vouchersDB.length - 1) { return null; }
-        return vouchersDB[indexOfVoucher];
-    }
-    
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+  function onPageLoading() {
     // bạn hãy tham khảo code để test getVoucherByIndex
     var voucherA = getVoucherByIndex(1);
     console.log("voucher found by getVoucherByIndex, index = " + 1);
@@ -50,22 +32,64 @@
     console.log(`Percentage discount: ${voucherA.percentageDiscount}`);
     console.log(`Voucher ID: ${voucherA.voucherId}`);
 
-    function getVoucherById(voucherId) {
-        for (var i = 0; i < vouchersDB.length; i++) {
-            // console.log(vouchersDB[i].voucherId);
-            if (vouchersDB[i].voucherId === voucherId) {
-                return vouchersDB[i];
-            }
-        }
-        return null;
-    }
     //đây là code chạy thử của function getVoucherById
     // ban hãy viết ra console.log 1 số đặc tính
     var voucherB = getVoucherById("DNE50M")
     console.log(`Campaign: ${voucherB.campaign}`);
     console.log(`Percentage discount: ${voucherB.percentageDiscount}`);
     console.log(`Voucher ID: ${voucherB.voucherId}`);
+  }
+  
+  // gVOUCHER_DB: database of vouchers
+  // voucherId: vehicle identification number
+  const gVOUCHER_DB = [{
+      campaign: "NewYear2021",
+      percentageDiscount: 10,
+      voucherId: "ABC10X"
+    },
+    {
+      campaign: "NewYear2021",
+      percentageDiscount: 20,
+      voucherId: "ABC20D"
+    },
+    {
+      campaign: "CovidSupport",
+      percentageDiscount: 20,
+      voucherId: "DNE20N"
+    },
+    {
+      campaign: "CovidSupport",
+      percentageDiscount: 30,
+      voucherId: "DNE30E"
+    },
+    {
+      campaign: "CovidSupport",
+      percentageDiscount: 50,
+      voucherId: "DNE50M"
+    }
+  ];
 
+  // return a voucher in the given index
+  function getVoucherByIndex(indexOfVoucher) {
+    //if the input index not in the invalid range (index đưa vào không có trong array gVOUCHER_DB)
+    if (indexOfVoucher < 0 || indexOfVoucher > gVOUCHER_DB.length - 1) {
+      return null;
+    }
+    return gVOUCHER_DB[indexOfVoucher];
+  }
+
+
+  function getVoucherById(paramVoucherId) {
+    var vFoundVoucher = null
+    for (var i = 0; i < gVOUCHER_DB.length; i++) {
+      console.log(gVOUCHER_DB[i].voucherId);
+      if (gVOUCHER_DB[i].voucherId === paramVoucherId) {
+        vFoundVoucher = gVOUCHER_DB[i];
+        break
+      }
+    }
+    return vFoundVoucher;
+  }
 </script>
 
 </html>
