@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- style dùng vưới bootstrap4-->
+  <title> Task kynangcoban.input.tag.BS4.640 - Get data form and map to object</title>
+</head>
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+</script>
+
+<body>
+  <div class="container jumbotron p-4">
+    <div class="text-center mb-4">
+      <h4>Dữ liệu khách hàng</h4>
+    </div>
+    <div class="row form-group">
+      <!-- row: hàng, form-group: để giữ margin (khoảng cách) giữa phần tử với phần tử khác-->
+      <div class="col-sm-3">
+        <!-- col-sm-3: cột chiếm 25% chiều ngang -->
+        <label for="input-ho-ten">Họ tên</label>
+      </div>
+      <div class="col-sm-3">
+        <!-- col-sm-9: cột chiếm 75% chiều ngang-->
+        <input type="text" id="input-ho-ten" name="hoten" placeholder="Họ tên .." class="form-control">
+        <!--form-control: phần tử có style (định dạng) mặc định theo bootstrap4-->
+      </div>
+      <div class="col-sm-3">
+        <label for="select-gioitinh">Giới tính</label>
+      </div>
+      <div class="col-sm-3">
+        <select id="select-gioitinh" name="gioitinh" class="form-control">
+          <option value="Nam">Nam</option>
+          <option value="Nữ">Nữ</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-3">
+        <label for="input-dia-chi">Địa chỉ</label>
+      </div>
+      <div class="col-sm-9">
+        <input type="text" id="input-dia-chi" name="diachi" placeholder="Địa chỉ .." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-3">
+        <label for="input-email">Email</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" id="input-email" name="email" placeholder="Email ..." class="form-control">
+      </div>
+      <div class="col-sm-3">
+        <label for="input-phone-number">Số điện thoại</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="text" id="input-phone-number" name="sodienthoai" placeholder="Số điện thoại ..." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group text-right">
+      <!-- text-right: mọi thứ sẽ căn phải, ví dụ nút Send -->
+      <div class="col-sm-12">
+        <!-- col-sm-12: cột chiếm 100% chiều ngang-->
+        <button class="btn btn-info" id="btn-send" onclick="onBtnSendDataClick()"> Send </button>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  function onBtnSendDataClick() {
+    var khachHang = {
+      hoTen: "",
+      gioiTinh:  "",
+      diaChi: "",
+      email: "",
+      sdt: ""
+    }
+
+    var hoTen = document.getElementById("input-ho-ten").value.trim()
+    var gioiTinh = document.getElementById("select-gioitinh").value
+    var diaChi = document.getElementById("input-dia-chi").value.trim()
+    var email = document.getElementById("input-email").value.trim()
+    var sdt = document.getElementById("input-phone-number").value.trim()
+
+    khachHang.hoTen = hoTen
+    khachHang.gioiTinh = gioiTinh
+    khachHang.diaChi = diaChi
+    khachHang.email = email
+    khachHang.sdt = sdt
+
+    console.log(khachHang)
+  }
+</script>
+
+</html>

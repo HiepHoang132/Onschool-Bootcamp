@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đây là trang web đơn giản</title>
+    <script>
+        /*1*/ function onBtnXepHangClick() {
+            // Truy xuất phần tử HTML ô nhập first name, và lưu phần tử đó vào một biến
+            /*2*/ var vFirstnameElement = document.getElementById("inp-firstname");
+            // Lấy được giá trị ở ô nhập, sau đó lưu giá trị đó vào một biến
+            /*3*/ var vFirtnameValue = vFirstnameElement.value;
+            // Truy xuất phần tử HTML ô nhập last name, và lưu phần tử đó vào một biến
+            /*4*/ var vLastnameElement = document.getElementById("inp-lastname");
+            // Lấy được giá trị ở ô nhập, sau đó lưu giá trị đó vào một biến
+            /*5*/ var vLastnameValue = vLastnameElement.value;
+            // Truy xuất phần tử HTML ô nhập điểm, và lưu phần tử đó vào một biến
+            /*6*/ var vDiemElement = document.getElementById("inp-diem");
+            // Lấy được giá trị ở ô nhập, sau đó lưu giá trị đó vào một biến
+            /*7*/ var vDiemValue = vDiemElement.value;
+            // Gọi hàm xếp hạng
+            /*8*/ var vKetQuaXepHang = chuyenDiemThanhXepHang(vDiemValue);
+            // Khai báo biến để chứa thông báo, và gán giá trị
+            /*9*/ var vMessage = "Bạn " + vFirtnameValue + " " + vLastnameValue + " xếp hạng:" + vKetQuaXepHang;
+            // Truy xuất phần tử HTML ô thông báo, và lưu phần tử đó vào một biến
+            /*10*/ var vThongBaoElement = document.getElementById("inp-message");
+            // thay đổi giá trị của ô thông báo bằng giá trị được lưu ở biến vMessage
+            /*11*/ vThongBaoElement.value = vMessage;
+        }
+
+
+     //chuyển điểm thành xếp hạng 
+
+    /*1*/ function chuyenDiemThanhXepHang(paramDiem) {
+      /*2*/ var vXepHang = "CHUA_XEP";
+      /*3*/ if ( paramDiem < 5) {  
+        /*4*/ vXepHang = "Kém";
+      }
+      /*5*/ else if ( paramDiem >= 5 && paramDiem < 7 ) {
+        /*6*/ vXepHang = "Trung bình";
+      }
+      /*7*/ else if ( paramDiem >= 7 && paramDiem < 9 ) {
+        /*8*/ vXepHang = "Khá";
+      }
+      /*9*/ else if ( paramDiem >= 9 ) {
+        /*10*/ vXepHang = "Tốt";
+      }
+      /*11*/ return vXepHang;
+    }
+
+    
+    </script>
+    <style>
+        body {
+            background-color: rgb(207, 224, 143);
+        }
+        h1 {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chào mừng đến với Devcamp120</h1>
+    <span>First name :</span> <input type="text" id="inp-firstname">
+    <br>
+    <span>Last name :</span> <input type="text" id="inp-lastname">
+    <br>
+    <span>Garde(Điểm) :</span> <input type="number" id="inp-diem">
+    <br>
+    <button onclick="onBtnXepHangClick()">Xếp hạng</button>
+    <br><br>
+    <span>Kết quả xếp hạng:</span> <input style="width: 250px;" type="text" id="inp-message">
+</body>
+</html>

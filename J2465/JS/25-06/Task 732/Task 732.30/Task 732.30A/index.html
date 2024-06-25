@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đây là trang web đơn giản</title>
+    <script>
+        function onBtnKiemTraClick() {
+            // Truy xuất phần tử HTML ô nhập, và lưu phần tử đó vào một biến
+            var numberElement = document.getElementById("inp-number");
+            // Lấy được giá trị ở ô nhập, sau đó lưu giá trị số đó vào một biến
+            var numberValue = numberElement.value;
+            // Gọi hàm kiểm tra chia hết cho 3, và gán giá trị trả ra vào một biến
+            var vKetQuaKiemTra = kiemTraChiaHetCho3(numberValue);
+            // Khai báo biến để chứa thông báo, và gán là rỗng
+            var vMessage = ""; 
+            if(vKetQuaKiemTra == true){
+                vMessage = "Chia hết cho 3";
+            }else{
+                vMessage = "Không chia hết cho 3";
+            }
+            // Truy xuất phần tử HTML ô thông báo, và lưu phần tử đó vào một biến
+            var vThongBaoElement = document.getElementById("inp-message");
+            // thay đổi giá trị của ô thông báo bằng giá trị được lưu ở biến vMessage
+            vThongBaoElement.value = vMessage;
+        }
+
+    //function kiểm tra số chia hết cho 3
+
+    /*1*/ function kiemTraChiaHetCho3(paramN) {
+        /*2*/ if(paramN == ""){
+            /*3*/ alert('Cần điền vào ô nhập');
+            /*4*/ return false;
+        }
+        /*5*/ if(isNaN(paramN)) {
+            /*6*/ alert("Phải là một số!");
+            /*7*/ return false;
+        }
+        /*8*/ var vKetQua = ( paramN % 3 === 0);
+        /*9*/ return vKetQua;
+    /*10*/ }
+
+    
+    </script>
+    <style>
+        body {
+            background-color: rgb(207, 224, 143);
+        }
+        h1 {
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chào mừng đến với Devcamp120</h1>
+    <span>Số :</span> <input type="text" id="inp-number">
+    <button onclick="onBtnKiemTraClick()">Kiểm tra chia hết cho 3</button>
+    <br><br>
+    <span>Kết quả kiểm tra:</span> <input type="text" id="inp-message">
+</body>
+</html>

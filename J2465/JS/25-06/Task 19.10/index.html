@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function constructs and returns Object</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        "use strict";
+        /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+        /*** REGION 2 - Vùng gán / thực thi hàm xử lý sự kiện cho các elements */
+
+        /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+        // hàm thực thi khi ấn nút get fixed person
+        function onBtnGetFixedPersonClick() {
+            var vJoePerson = getPersonJoe();
+            // ghi thông tin đối tượng ra console
+            vJoePerson.showObjectInfo();
+        }
+
+        // Hàm thực thi khi ấn nút Tạo đối tượng có tham số
+        function onBtnGetPersonWithParamClick() {
+            var vPerson = getPersonWithParam("Donal", "Park", 50, "DonalPark@yahoo.com.vn", "c46945");
+            vPerson.showObjectInfo();
+        }
+
+        /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+
+        /* getPersonJoe() là hàm tạo ra và trả lại 01 đối tượng
+         mà các thuộc tính nhận giá trị mặc định
+        */
+        function getPersonJoe() {
+            // get names from the database or API
+            var vPersonJoeObj = {
+                firstName: "Doe",
+                lastName: "Joe",
+                age: 39,
+                email: "DoeJoe@gmail.com",
+                citizenID: "c34935",
+                showObjectInfo: function () {
+                    console.log("%cPerson Infor - 1: ", "color:orange");
+                    console.log("FirstName: " + this.firstName);
+                    console.log("LastName: " + this.lastName);
+                    console.log("Age: " + this.age);
+                    console.log(`Email: ${this.email}`)
+                    console.log(`Citizen ID: ${this.citizenID}`)
+                }
+            };
+            // hàm return object
+            return vPersonJoeObj;
+        }
+
+        // function getPersonParameterized trả lại 01 đối tượng
+        // tham số: paramFirstName, paramLastName, paramAge
+        function getPersonWithParam(paramFirstName, paramLastName, paramAge, paramEmail, paramCitizenID) {
+            // khởi tạo đối tượng và gán giá trị cho các thuộc tính dựa vào tham số đầu vào
+            var vPersonObj = {
+                firstName: paramFirstName,
+                lastName: paramLastName,
+                age: paramAge,
+                email: paramEmail,
+                citizenID: paramCitizenID,
+                showObjectInfo: function () {
+                    console.log("%cPerson Infor - 2: ", "color:green");
+                    console.log("FirstName: " + this.firstName);
+                    console.log("LastName: " + this.lastName);
+                    console.log("Age: " + this.age);
+                    console.log(`Email: ${this.email}`)
+                    console.log(`Citizen ID: ${this.citizenID}`)
+                }
+            };
+            // return object values
+            return vPersonObj;
+        }
+
+    </script>
+</head>
+
+<body class="bg bg-light">
+    <div class="jumbotron">
+        <h3> Test Page for Devcamp Javascript Tasks </h3>
+        <button id="btn-get-fixed-person" class="btn btn-warning m-1" onclick="onBtnGetFixedPersonClick()">
+            get Fixed person/Tạo đối tượng cố định
+        </button>
+        <button id="btn-get-parameterized-person" class="btn btn-success m-1" onclick="onBtnGetPersonWithParamClick()">
+            Tạo đối tượng có tham số
+        </button>
+    </div>
+</body>
+
+</html>

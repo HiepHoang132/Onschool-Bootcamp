@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title> Đăng ký gói Gym </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Content -->
+  <div class="container">
+    <table class="table">
+      <tr class="text-center">
+        <th colspan="4">
+          <h2><b class="p-1">Gym membership - Đăng ký gói tập thể hình</b></h2>
+          <p><span class="p-2">Choose a pricing package that fits your needs - chọn gói đăng ký</span></p>
+        </th>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Gói
+        </td>
+        <td>
+          <b>Basic</b>
+        </td>
+        <td>
+          <b>Silver</b>
+        </td>
+        <td>
+          <b>Vip</b>
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Giờ tập
+        </td>
+        <td>
+          24x7
+        </td>
+        <td>
+          24x7
+        </td>
+        <td>
+          24x7
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Số giờ huấn luyện viên cá nhân (PT) / tuần
+        </td>
+        <td>
+          0
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          Theo đăng kí
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Giá theo tháng (VND)
+        </td>
+        <td>
+          500,000
+        </td>
+        <td>
+          800,000
+        </td>
+        <td>
+          1,500,000
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+        </td>
+        <td>
+          <button id="btn-package-basic" data-is-selected="N" class="btn-green" onclick="onBtnPackageBasicClick()">Đăng
+            ký</button>
+        </td>
+        <td>
+          <button id="btn-package-silver" data-is-selected="N" class="btn-green" onclick="onBtnPackageSilverClick()">Đăng ký</button>
+        </td>
+        <td>
+          <button id="btn-package-vip" data-is-selected="N" class="btn-green" onclick="onBtnPackageVipClick()">Đăng
+            ký</button>
+        </td>
+      </tr>
+    </table>
+
+    <div id="div-contact-info" class="row mt-4">
+      <div class="form-group col-sm-3">
+        <label class="form-control border-0"> Họ và tên</label>
+      </div>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-ho-va-ten" placeholder="ví dụ: Nguyễn Thị Nga" />
+      </div>
+    </div>
+    <div id="div-contact-info" class="row">
+      <div class="form-group col-sm-3">
+        <label class="form-control border-0"> Email</label>
+      </div>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-email" placeholder="ví dụ email: abc@gmail.vidu.vn" />
+      </div>
+    </div>
+    <div id="div-contact-info" class="row">
+      <div class="form-group col-sm-3">
+        <label class="form-control border-0"> Năm sinh</label>
+      </div>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-nam-sinh" placeholder="ví dụ: 2001" type="number" />
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button class="btn btn-info py-2 px-5" onclick="onBtnSendDataClick()"> Gửi đăng ký </button>
+    </div>
+  </div>
+</body>
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+  const gBASIC_PACKAGE_ID = "btn-package-basic";
+  const gSILVER_PACKAGE_ID = "btn-package-silver";
+  const gVIP_PACKAGE_ID = "btn-package-vip";
+
+  /*** REGION 2 - Vùng gán / thực thi hàm xử lý sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // Hàm thực thi khi package basic được chọn (click)
+  function onBtnPackageBasicClick() {
+    //tạo một đối tượng gói dịch vụ, được tham số hóa
+    var vSelectedPackageStructure = getPackageObject("Basic", "24x7", 0, 500000);
+    // gọi method hiển thị thông tin
+    vSelectedPackageStructure.displayPackageInfor();
+    // Đổi màu button
+    changePackageButtonColor(gBASIC_PACKAGE_ID);
+  }
+
+  // Hàm thực thi khi package Silver được chọn (click)
+  function onBtnPackageSilverClick() {
+    //tạo một đối tượng gói dịch vụ, được tham số hóa
+    var vSelectedPackageStructure = getPackageObject("Silver", "24x7", 2, 800000);
+    // gọi method hiển thị thông tin
+    vSelectedPackageStructure.displayPackageInfor();
+    // Đổi màu button
+    changePackageButtonColor(gSILVER_PACKAGE_ID);
+  }
+
+  // Hàm thực thi khi package Vip được chọn (click)
+  function onBtnPackageVipClick() {
+    //tạo một đối tượng gói dịch vụ, được tham số hóa
+    var vSelectedPackageStructure = getPackageObject("Vip", "24x7", "Theo đăng kí", 1500000);
+    // gọi method hiển thị thông tin
+    vSelectedPackageStructure.displayPackageInfor();
+    // Đổi màu button
+    changePackageButtonColor(gVIP_PACKAGE_ID);
+  }
+
+  // khi ấn nút Gửi đăng ký
+  function onBtnSendDataClick() {
+    var vChosenPackage = getChosenPackage()
+    vChosenPackage.showOrderInfor()
+  }
+
+  function getDataToSaveThongTinDangKyObj() {
+    // Định nghĩa đối tượng dữ liệu
+    var vThongTinDangKyObj = {
+      packageDuocChon: null,
+      email: "",
+      hoVaTen: "",
+      namSinh: 0,
+      showOrderInfor: function() {
+        console.log("---- Thông tin đơn hàng ---");
+        console.log("Họ tên khách hàng: " + this.hoVaTen);
+        console.log("Email: " + this.email);
+        console.log("Năm sinh: " + this.namSinh);
+        this.packageDuocChon.displayPackageInfor();
+      }
+    };
+
+    // đọc giá trị từ ô input và lấy gói được chọn để lưu vào vThongTinDangKyObj
+    /* code cần viết: tách đọc thành hàm riêng */
+    var vInputHoVaTen = document.getElementById("inp-ho-va-ten");
+    var vInputEmail = document.getElementById("inp-email");
+    var vInputNamSinh = document.getElementById("inp-nam-sinh");
+
+    if (validateEmail(vInputEmail.value.trim())) {
+      vThongTinDangKyObj.email = vInputEmail.value.trim();
+    }
+    vThongTinDangKyObj.hoVaTen = vInputHoVaTen.value.trim();
+    vThongTinDangKyObj.namSinh = parseInt(vInputNamSinh.value.trim());
+
+    return vThongTinDangKyObj
+  }
+
+  // Kiểm tra (email có đúng định dạng không?)
+  function validateEmail(email) {
+    var valid = false
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (emailPattern.test(email)) {
+      valid = true
+    } else {
+      console.log("Email is not in the correct format.");
+      alert("Email is not in the correct format.");
+    }
+
+    return valid
+  }
+
+  function getChosenPackage() {
+    var vChosenPackage = getDataToSaveThongTinDangKyObj()
+
+    // kiểm tra xem gói nào được chọn thông qua thuộc tính data-is-selected
+    var vBtnBasicPlan = document.getElementById("btn-package-basic");
+    var vBtnSilverPlan = document.getElementById("btn-package-silver");
+    var vBtnVipPlan = document.getElementById("btn-package-vip");
+
+    var vGoiBasicDuocChon = vBtnBasicPlan.getAttribute("data-is-selected");
+    var vGoiSilverDuocChon = vBtnSilverPlan.getAttribute("data-is-selected");
+    var vGoiVipDuocChon = vBtnVipPlan.getAttribute("data-is-selected");
+
+    // kiểm tra có phải gói BASIC được chọn không?
+    if (vGoiBasicDuocChon === "Y") {
+      vChosenPackage.packageDuocChon = getPackageObject("Basic", "24x7", 0, 500000);
+    } else if (vGoiSilverDuocChon === "Y") {
+      // viết code xử lý tiếp
+      vChosenPackage.packageDuocChon = getPackageObject("Silver", "24x7", 2, 800000);
+    } else if (vGoiVipDuocChon === "Y") {
+      // viết code xử lý tiếp
+      vChosenPackage.packageDuocChon = getPackageObject("Vip", "24x7", "Theo đăng kí", 1500000);
+    }
+
+    return vChosenPackage
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+
+  //function get Packages (lấy gói đăng ký)
+  //function trả lại một đối tượng package (gói đăng ký) được tham số hóa
+  function getPackageObject(paramPackage, paramGymhours, paraPthours, paramPricePerMonth) {
+    var vSelectedPackageStructure = { //Đối tượng: gói đăng ký gym được chọn
+      package: paramPackage, //package = gói đăng ký basic/silver/vip
+      gymhours: paramGymhours,
+      pthours: paraPthours,
+      pricePerMonthVND: paramPricePerMonth, //giá 1 tháng
+      // method: giá cả năm (phải được tính ra bằng cách nhân với 12, và bớt 15%, (nhân với 0.85))
+      priceAnnualVND: function() {
+        // 15% discount (giảm giá 15% nếu lấy giả cả năm)
+        return this.pricePerMonthVND * 12 * 0.85; //nếu trả cả 12 tháng sẽ giảm giá 15%; this = "đối tượng này"
+      },
+      // method display plan infor - phương thức hiện thi gói đăng ký gym 
+      displayPackageInfor() {
+        console.log("%cPACKAGE SELECTED - gói đăng ký gym được chọn..........", "color:blue");
+        console.log("Package: " + this.package); //this = "đối tượng này" 
+        console.log("Gym hours: " + this.gymhours);
+        console.log("Package hours: " + this.pthours);
+        console.log("Price per month: " + "VND " + this.pricePerMonthVND);
+        console.log("Annual price: " + "VND " + this.priceAnnualVND());
+      }
+    };
+
+    return vSelectedPackageStructure; //trả lại đối tượng, có đủ dữ liệu (attribute) và các methods (phương thức)
+  }
+
+  /* Hàm đổi màu button (Đăng ký) để phân biệt gói được chọn với các gói khác
+   input: paramPackage có thể là "Silver", "Basic", "Vip"
+   hoạt động: ấn nút nào thì nút đó đổi màu vàng, 2 nút còn lại chuyển màu xanh
+   và đánh dấu thuộc tính data-is-selected 
+   */
+  function changePackageButtonColor(paramPackageId) {
+    var vBtnBasic = document.getElementById("btn-package-basic"); //truy vấn nút gói basic (sign - up ) 
+    var vBtnSilver = document.getElementById("btn-package-silver"); // truy vấn nút gói Silver (sign - up )
+    var vBtnVip = document.getElementById("btn-package-vip"); //truy vấn nút gói Vip (sign - up ) 
+
+    vBtnBasic.className = "btn-green"
+    vBtnSilver.className = "btn-green"
+    vBtnVip.className = "btn-green"
+
+    vBtnBasic.setAttribute("data-is-selected", "N")
+    vBtnSilver.setAttribute("data-is-selected", "N")
+    vBtnVip.setAttribute("data-is-selected", "N")
+
+    document.getElementById(paramPackageId).className = "btn-yellow"
+    document.getElementById(paramPackageId).setAttribute("data-is-selected", "Y")
+  }
+</script>
+
+</html>

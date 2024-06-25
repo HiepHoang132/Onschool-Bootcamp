@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title> Đăng ký cước viễn thông </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Content -->
+  <div class="container">
+    <table class="table">
+      <tr class="text-center">
+        <th colspan="4">
+          <h2><b class="p-1">Đăng ký gói cước viễn thông</b></h2>
+        </th>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Gói
+        </td>
+        <td>
+          <b>Net 1 Basic</b>
+        </td>
+        <td>
+          <b>Net 3 Plus</b>
+        </td>
+        <td>
+          <b>Fast 50</b>
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Băng thông trong nước
+        </td>
+        <td>
+          30 Mbps
+        </td>
+        <td>
+          80 Mbps
+        </td>
+        <td>
+          200 Mbps
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Băng thông quốc tế
+        </td>
+        <td>
+          10 Mbps
+        </td>
+        <td>
+          20 Mbps
+        </td>
+        <td>
+          40 Mbps
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Truyền hình
+        </td>
+        <td>
+          20 kênh
+        </td>
+        <td>
+          20 kênh
+        </td>
+        <td>
+          20 kênh
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+          Giá theo tháng (VNĐ)
+        </td>
+        <td>
+          200,000
+        </td>
+        <td>
+          250,000
+        </td>
+        <td>
+          300,000
+        </td>
+      </tr>
+      <tr class="text-center">
+        <td>
+        </td>
+        <td>
+          <button id="btn-goi-net1-basic" data-is-selected="N" class="btn-green" onclick="onBtnPackageClick(gPAC_NET1_BASIC_ID)">Đăng ký gói</button>
+        </td>
+        <td>
+          <button id="btn-goi-net3-plus" data-is-selected="N" class="btn-green" onclick="onBtnPackageClick(gPAC_NET3_PLUS_ID)">Đăng ký gói</button>
+        </td>
+        <td>
+          <button id="btn-goi-fast50" data-is-selected="N" class="btn-green" onclick="onBtnPackageClick(gPAC_FAST50_ID)">Đăng ký gói</button>
+        </td>
+      </tr>
+    </table>
+
+    <div id="div-contact-info" class="row mt-4">
+      <label class="col-sm-3 col-form-label"> Họ và tên</label>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-ho-va-ten" placeholder="ví dụ: Nguyễn Thị Nga" />
+      </div>
+    </div>
+    <div id="div-contact-info" class="row">
+      <label class="col-sm-3 col-form-label"> Địa chỉ</label>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-dia-chi" placeholder="ví dụ: Phường A, Quận B, Thành Phố C" />
+      </div>
+    </div>
+    <div id="div-contact-info" class="row">
+      <label class="col-sm-3 col-form-label"> Email</label>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-email" placeholder="ví dụ email: abc@gmail.vidu.vn" />
+      </div>
+    </div>
+    <div id="div-contact-info" class="row">
+      <label class="col-sm-3 col-form-label"> Số điện thoại</label>
+      <div class="form-group col-sm-9">
+        <input class="form-control" id="inp-so-dien-thoai" placeholder="ví dụ: 0912345678" />
+      </div>
+    </div>
+    <div class="mt-4 text-center">
+      <button class="btn btn-info px-5 py-2" onclick="onBtnSendDataClick()"> Send Data (Gửi thông tin gói đăng ký)</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  "use strict";
+  const gPAC_NET1_BASIC_ID = "btn-goi-net1-basic";
+  const gPAC_NET3_PLUS_ID = "btn-goi-net3-plus";
+  const gPAC_FAST50_ID = "btn-goi-fast50";
+
+  function onBtnPackageClick(buttonId) {
+    const buttonIds = [gPAC_NET1_BASIC_ID, gPAC_NET3_PLUS_ID, gPAC_FAST50_ID]
+
+    buttonIds.forEach(id => {
+      const button = document.getElementById(id)
+      button.className = "btn-green"
+      button.setAttribute("data-is-selected", "N")
+    })
+
+    document.getElementById(buttonId).className = "btn-yellow"
+    document.getElementById(buttonId).setAttribute("data-is-selected", "Y")
+
+    if (buttonId === gPAC_NET1_BASIC_ID) {
+      let selectedPackage = getPackageObject("Net 1 Basic", "30 Mbps", "10 Mbps", "20 kênh", 200000)
+      selectedPackage.showPackageInfo()
+    }
+
+    if (buttonId === gPAC_NET3_PLUS_ID) {
+      let selectedPackage = getPackageObject("Net 3 Plus", "80 Mbps", "20 Mbps", "20 kênh", 250000)
+      selectedPackage.showPackageInfo()
+    }
+
+    if (buttonId === gPAC_FAST50_ID) {
+      let selectedPackage = getPackageObject("Fast 50", "200 Mbps", "40 Mbps", "20 kênh", 300000)
+      selectedPackage.showPackageInfo()
+    }
+  }
+
+  function onBtnSendDataClick() {
+    var selectedPackage = saveDataToPackageObject()
+    selectedPackage.showOrderInfo()
+  }
+
+  function validateEmail(email) {
+    var valid = false
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (emailPattern.test(email)) {
+      valid = true
+    } else {
+      console.log("Email không hợp lệ")
+      alert("Email không hợp lệ")
+    }
+
+    return valid
+  }
+
+  function validatePhoneNumber(phoneNumber) {
+    var valid = false
+    var phonePattern = /^0\d{9,10}$/;
+
+    if (phonePattern.test(phoneNumber)) {
+      valid = true
+    } else {
+      console.log("Số điện thoại không hợp lệ")
+      alert("Số điện thoại không hợp lệ")
+    }
+
+    return valid
+  }
+
+  function saveDataToPackageObject() {
+    var selectedPackage = getCustomerInfo()
+
+    const btnBasic = document.getElementById(gPAC_NET1_BASIC_ID)
+    const btnPlus = document.getElementById(gPAC_NET3_PLUS_ID)
+    const btnFast = document.getElementById(gPAC_FAST50_ID)
+
+    if (btnBasic.getAttribute("data-is-selected") === "Y") {
+      selectedPackage.packageDuocChon = getPackageObject("Net 1 Basic", "30 Mbps", "10 Mbps", "20 kênh", 200000)
+    }
+
+    if (btnPlus.getAttribute("data-is-selected") === "Y") {
+      selectedPackage.packageDuocChon = getPackageObject("Net 3 Plus", "80 Mbps", "20 Mbps", "20 kênh", 250000)
+    }
+
+    if (btnFast.getAttribute("data-is-selected") === "Y") {
+      selectedPackage.packageDuocChon = getPackageObject("Fast 50", "200 Mbps", "40 Mbps", "20 kênh", 300000)
+    }
+
+    return selectedPackage
+  }
+
+  function getCustomerInfo() {
+    var customerInfo = {
+      packageDuocChon: null,
+      hoVaTen: "",
+      diaChi: "",
+      email: "",
+      sdt: "",
+      showOrderInfo: function() {
+        console.log("%c---Thông tin khách hàng---", "color: red")
+        console.log(`Họ và tên: ${this.hoVaTen}`)
+        console.log(`Địa chỉ: ${this.diaChi}`)
+        console.log(`Email: ${this.email}`)
+        console.log(`Số điện thoại: ${this.sdt}`)
+        this.packageDuocChon.showPackageInfo()
+      }
+    }
+    var hoVaTen = document.getElementById("inp-ho-va-ten").value
+    var diaChi = document.getElementById("inp-dia-chi").value
+    var email = document.getElementById("inp-email").value
+    var sdt = document.getElementById("inp-so-dien-thoai").value
+
+    if (validateEmail(email) && validatePhoneNumber(sdt)) {
+      customerInfo.hoVaTen = hoVaTen
+      customerInfo.diaChi = diaChi
+      customerInfo.email = email
+      customerInfo.sdt = sdt
+      return customerInfo
+    }
+  }
+
+  function getPackageObject(packageName, domestic, international, channels, pricePerMonthVND) {
+    return {
+      packageName: packageName,
+      domestic: domestic,
+      international: international,
+      channels: channels,
+      pricePerMonthVND: pricePerMonthVND,
+      priceAnnualVND: function() {
+        return pricePerMonthVND * 12
+      },
+      showPackageInfo: function() {
+        console.log("%c---Thông tin package---", "color: green")
+        console.log(`Gói: ${this.packageName}`)
+        console.log(`Băng thông trong nuóc: ${this.domestic}`)
+        console.log(`Băng thông quốc tế: ${this.international}`)
+        console.log(`Truyền hình: ${this.channels}`)
+        console.log(`Giá theo tháng (VND): ${this.pricePerMonthVND}`)
+        console.log(`Giá 1 năm (VND): ${this.priceAnnualVND()}`)
+      }
+    }
+  }
+</script>
+
+</html>
