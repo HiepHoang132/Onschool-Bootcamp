@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" name="Hoang Hua Hiep">
+
+  <title>Task 710.5</title>
+</head>
+
+<body>
+  <h1>Task 710.5</h1>
+</body>
+
+<script>
+  function kiemTraSoDuChiaHetCho3(paramSoN) { //1
+    if (paramSoN % 3 === 0) { //2
+      console.log("Chia hết cho 3"); //3
+    } else if (paramSoN % 3 === 1) { //4
+      console.log("Chia cho 3 dư 1"); //5
+    } else if (paramSoN % 3 === 2) { //6
+      console.log("Chia cho 3 dư 2"); //7
+    } else {
+      console.log("Số dư khác"); //8 
+    };
+  }
+  kiemTraSoDuChiaHetCho3(29); //9
+  kiemTraSoDuChiaHetCho3("a"); //10
+</script>
+
+</html>

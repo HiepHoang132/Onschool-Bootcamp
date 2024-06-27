@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title> Get data from page & Object </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Content -->
+  <div class="container">
+    <div id="plans" class="row">
+      <!-- Title what we offer -->
+      <div class="col-sm-12 text-center p-4 mt-3">
+        <h2><b class="p-1 border-bottom">Pricing Plans - Giá gói dịch vụ máy chủ</b></h2>
+        <p><span class="p-2">Choose a pricing plan that fits your needs - chọn gói dịch vụ</span></p>
+      </div>
+      <!-- Content what we offer -->
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-header bg-dark text-white text-center">
+                <h3>Basic</h3>
+              </div>
+              <div class="card-body text-center">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>10GB</b> Storage</li>
+                  <li class="list-group-item"><b>10</b> Emails</li>
+                  <li class="list-group-item"><b>10</b> Domains</li>
+                  <li class="list-group-item"><b>Endless</b> Support</li>
+                  <li class="list-group-item">
+                    <h1><b>$ 10</b></h1> per month
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer text-center">
+                <button id="btn-plan-basic" class="btn-green" onclick="onBtnPlanBasicClick()" data-is-selected="N"> Sign
+                  Up </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-header bg-dark text-white text-center">
+                <h3>Pro</h3>
+              </div>
+              <div class="card-body text-center">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>25GB</b> Storage</li>
+                  <li class="list-group-item"><b>25</b> Emails</li>
+                  <li class="list-group-item"><b>25</b> Domains</li>
+                  <li class="list-group-item"><b>Endless</b> Support</li>
+                  <li class="list-group-item">
+                    <h1><b>$ 25</b></h1> per month
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer text-center">
+                <button id="btn-plan-pro" class="btn-green" onclick="onBtnPlanProClick()" data-is-selected="N">Sign
+                  Up</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <div class="card-header bg-dark text-white text-center">
+                <h3>Premium</h3>
+              </div>
+              <div class="card-body text-center">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>50GB</b> Storage</li>
+                  <li class="list-group-item"><b>50</b> Emails</li>
+                  <li class="list-group-item"><b>50</b> Domains</li>
+                  <li class="list-group-item"><b>Endless</b> Support</li>
+                  <li class="list-group-item">
+                    <h1><b>$ 50</b></h1> per month
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer text-center">
+                <button id="btn-plan-premium" class="btn-green" onclick="onBtnPlanPremiumClick()" data-is-selected="N">Sign Up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="div-contact-info" class="row mt-4">
+      <div class="col-sm-12 text-center p-4">
+        <h2><b class="p-2 border-bottom">Contact Infor</b></h2>
+      </div>
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label for="input-name">Name</label>
+              <input type="text" class="form-control" id="input-name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="input-email">Email</label>
+              <input type="text" class="form-control" id="input-email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="input-message">Message</label>
+              <input type="text" class="form-control" id="input-message" placeholder="Enter message">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row my-4">
+      <button class="btn btn-info form-control" onclick="onBtnSendDataClick()"> Send Data (Gửi thông tin gói dịch vụ)
+      </button>
+    </div>
+  </div>
+</body>
+
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+  const gPLAN_BASIC = "Basic";
+  const gPLAN_PRO = "Pro";
+  const gPLAN_PREMIUM = "Premium";
+
+  /*** REGION 2 - Vùng gán / thực thi hàm xử lý sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // Hàm thực thi khi plan basic được chọn (click)
+  function onBtnPlanBasicClick() {
+    // đổi màu button và đánh dấu data-is-selected của nút Basic là Y
+    markSelectedPlan(gPLAN_BASIC);
+    // lấy thông tin gói BASIC và hiển thị ra console
+    var vPlanSeleced = getPlan(gPLAN_BASIC, "10GB", 10, 10, "Endless", 10);
+    vPlanSeleced.showPlanInfor();
+  }
+
+  // Hàm thực thi khi plan Pro được chọn (click)
+  function onBtnPlanProClick() {
+    // đổi màu button và đánh dấu data-is-selected của nút Pro là Y
+    markSelectedPlan(gPLAN_PRO);
+    // lấy thông tin gói PRO và hiển thị ra console
+    var vPlanSeleced = getPlan(gPLAN_PRO, "25GB", 25, 25, "Endless", 25);
+    vPlanSeleced.showPlanInfor();
+  }
+
+  // Hàm thực thi khi plan Premium được chọn (click)
+  function onBtnPlanPremiumClick() {
+    // đổi màu button và đánh dấu data-is-selected của nút Premium là Y
+    markSelectedPlan(gPLAN_PREMIUM);
+    // lấy thông tin gói Premium và hiển thị ra console
+    var vPlanSeleced = getPlan(gPLAN_PREMIUM, "50GB", 50, 50, "Endless", 50);
+    vPlanSeleced.showPlanInfor();
+  }
+
+  // khi ấn nút send data
+  function onBtnSendDataClick() {
+    // khai báo đối tượng dữ liệu sẽ xử lý
+    // gồm email, và dữ liệu gói đã chọn
+    var vDonHang = {
+      planDaChon: null,
+      email: "",
+      name: "",
+      message: "",
+      showOrderInfor: function() {
+        console.log("---- Thông tin đơn hàng ---");
+        console.log("Customer name: " + this.name);
+        console.log("Customer email: " + this.email);
+        console.log("Message: " + this.message);
+        this.planDaChon.showPlanInfor();
+      }
+    };
+
+    // B1: thu thập dữ liệu môn học và lưu vào đối tượng
+    saveDataToObj(vDonHang)
+
+    // B2: kiểm tra dữ liệu đầu vào
+    var valid = validateData(vDonHang)
+
+    // B3: kiểm tra plan được chọn chưa
+    var validPlan = isPlanChosen(vDonHang)
+
+    // B3: ghi dữ liệu môn học và hiển thị vùng dữ liệu lên
+    if (valid && validPlan) {
+      vDonHang.showOrderInfor()
+    }
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+  function saveDataToObj(data) {
+    var vInputEmail = document.getElementById("input-email");
+    var vInputName = document.getElementById("input-name");
+    var vInputMessage = document.getElementById("input-message");
+
+    data.email = vInputEmail.value.trim();
+    data.name = vInputName.value.trim();
+    data.message = vInputMessage.value.trim();
+
+    return data
+  }
+
+  function validateData(data) {
+    var isValid = true
+
+    // 2. Kiểm tra email đúng định dạng không?    
+    if (data.name === "") {
+      alert("Tên cần được nhập!")
+      isValid = false
+    }
+
+    if (!validateEmail(data.email)) {
+      alert("Email nhập vào không đúng định dạng!");
+      isValid = false
+    }
+
+    if (data.message === "") {
+      alert("Thông điệp cần được nhập!")
+      isValid = false
+    }
+
+    return isValid
+  }
+
+  function isPlanChosen(data) {
+    var vBtnBasic = document.getElementById("btn-plan-basic");
+    var vBtnPro = document.getElementById("btn-plan-pro");
+    var vBtnPremium = document.getElementById("btn-plan-premium");
+
+    var vPlanBasicDaChon = vBtnBasic.getAttribute("data-is-selected");
+    var vPlanProDaChon = vBtnPro.getAttribute("data-is-selected");
+    var vPlanPremiumDaChon = vBtnPremium.getAttribute("data-is-selected");
+
+    // kiểm tra có phải gói BASIC được chọn không?
+    if (vPlanBasicDaChon === "Y") {
+      data.planDaChon = getPlan(gPLAN_BASIC, "10GB", 10, 10, "Endless", 10);
+    }
+    // làm tương tự để xem gói PRO hay gói PREMIUM được chọn?
+    else if (vPlanProDaChon === "Y") {
+      data.planDaChon = getPlan(gPLAN_PRO, "25GB", 25, 25, "Endless", 25);
+    } else if (vPlanPremiumDaChon === "Y") {
+      data.planDaChon = getPlan(gPLAN_PREMIUM, "50GB", 50, 50, "Endless", 50);
+    }
+    else {
+      alert("Plan chưa được chọn")
+      return false
+    }
+
+    return data
+  }
+
+  // function trả lại một đối tượng plan (gói dịch vụ), theo tham số truyền vào
+  function getPlan(paramPlan, paramStorage, paramEmails, paramDomains, paramSupport, paramPricePerMonth) {
+    // Đối tượng: gói dịch vụ máy chủ được chọn
+    var vSelectedPlan = {
+      plan: paramPlan, // plan = gói dịch vụ (Basic, Pro hay Premium)
+      storage: paramStorage,
+      emails: paramEmails,
+      domains: paramDomains,
+      support: paramSupport,
+      pricePerMonthUSD: paramPricePerMonth,
+      // method: tính giá cả năm
+      priceAnnualUSD: function() {
+        // nếu trả cả 12 tháng sẽ giảm giá 10%
+        return this.pricePerMonthUSD * 12 * 0.9;
+      },
+      // method display plan infor - phương thức hiện thi gói dịch vụ máy chủ 
+      showPlanInfor: function() {
+        console.log("%cThông tin gói dịch vụ được chọn ...", "color: orange");
+        console.log("Plan: " + this.plan);
+        console.log("Storage: " + this.storage);
+        console.log("Emails: " + this.emails);
+        console.log("Domains: " + this.domains);
+        console.log("Support:" + this.support);
+        console.log("Price per month: $" + this.pricePerMonthUSD);
+        console.log("Annual price: $" + this.priceAnnualUSD());
+      }
+    };
+
+    // trả lại đối tượng, có đủ dữ liệu (properties) và các methods (phương thức)
+    return vSelectedPlan;
+  }
+
+  /* Đánh dấu plan vừa được chọn gồm 2 việc:
+    1. đổi màu button (sign-up) để phân biện gói được chọn
+    2. đổi giá trị thuộc tính data-is-selected tương ứng, nút đc chọn là Y, 2 nút còn lại là N
+    */
+  function markSelectedPlan(paramPlan) {
+    // Truy vấn 3 nút tương ứng với 3 gói
+    var vBtnBasic = document.getElementById("btn-plan-basic");
+    var vBtnPro = document.getElementById("btn-plan-pro");
+    var vBtnPremium = document.getElementById("btn-plan-premium");
+
+    // nếu chọn Basic thì thay màu vàng nút Basic và đổi thuộc tính data-is-selected = Y
+    // 2 nút còn lại đổi sang màu xanh và data-is-selected = N
+    if (paramPlan == gPLAN_BASIC) {
+      vBtnBasic.className = "btn-yellow";
+      vBtnBasic.setAttribute("data-is-selected", "Y");
+
+      vBtnPro.className = "btn-green";
+      vBtnPro.setAttribute("data-is-selected", "N");
+
+      vBtnPremium.className = "btn-green";
+      vBtnPremium.setAttribute("data-is-selected", "N");
+    }
+    // làm tương tự cho 2 nút còn lại
+    else if (paramPlan == gPLAN_PRO) {
+      vBtnBasic.className = "btn-green";
+      vBtnBasic.setAttribute("data-is-selected", "N");
+
+      vBtnPro.className = "btn-yellow";
+      vBtnPro.setAttribute("data-is-selected", "Y");
+
+      vBtnPremium.className = "btn-green";
+      vBtnPremium.setAttribute("data-is-selected", "N");
+    } else if (paramPlan == gPLAN_PREMIUM) {
+      vBtnBasic.className = "btn-green";
+      vBtnBasic.setAttribute("data-is-selected", "N");
+
+      vBtnPro.className = "btn-green";
+      vBtnPro.setAttribute("data-is-selected", "N");
+
+      vBtnPremium.className = "btn-yellow";
+      vBtnPremium.setAttribute("data-is-selected", "Y");
+    }
+  }
+
+  // hàm kiểm tra email đúng định dạng ko?
+  function validateEmail(paramEmail) {
+    var vValidRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (paramEmail.match(vValidRegex)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+</script>
+
+</html>

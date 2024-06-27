@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title> task testJS10. gọi từ console để test </title>
+</head>
+
+<body onload="onPageLoading()">
+  <h1 id="h1_chao_mung"> Test Form - DevCamp 120 </h1>
+  <p id="p_muc_tieu"> Để tiện cho test các function trên console.log !</p>
+  <button onclick="onBtnTestButton1Click()"> Test Button 1</button>
+</body>
+<script>
+  "use strict"
+
+  function onBtnTestButton1Click() {
+    console.log("Ấn nút và Test code tại đây..");
+
+  }
+
+  function onPageLoading() {
+    console.log("%c Load trang tại đây", "color:blue");
+  }
+
+  // Task 711.10
+  console.log("%cTask711.10", "color: green")
+  var vMyNumbers = [10, 4, 5, 6, 17, 10, 4, 5, 10, 2];
+
+  var sum = 0
+  for (var number of vMyNumbers) {
+    sum += number
+  }
+
+  console.log(`Tổng các số: ${sum}`)
+
+  var lonHon5 = 0
+  for (var number of vMyNumbers) {
+    if (number > 5) {
+      lonHon5++
+    }
+  }
+
+  console.log(`Có ${lonHon5} phần tử lớn hơn 5`)
+
+  // Task 711.20
+  console.log("%cTask711.20", "color: green")
+
+  var vMyFruits = ["apple", "mango", "apple", "banana", "lemon", "lemon", "grapefruit", "lime"];
+
+  for (var i = 0; i < vMyFruits.length; i++) {
+    console.log(`${i}: ${vMyFruits[i]}`)
+  }
+
+  var sumApple = 0
+  for (var fruit of vMyFruits) {
+    if (fruit === "apple") {
+      sumApple++
+    }
+  }
+
+  console.log(`Có ${sumApple} phần tử “apple”`)
+
+  // Task 711.30
+  console.log("%cTask711.30", "color: green")
+
+  var vPerson = ["anastasia", "anna", "john", "peter", "cole", "jane", "william"];
+
+  for (var i = 0; i < vPerson.length; i++) { // 1
+    console.log(`${i}: ${vPerson[i]}`) // 2
+  }
+
+  var sumLengthOver4 = 0 // 1
+  for (var person of vPerson) { // 2
+    if (person.length > 4) { // 3
+      sumLengthOver4++ // 4
+    }
+  }
+  console.log(`Có ${sumLengthOver4} phần tử có độ dài > 4`) // 5
+
+
+  console.log("Ghi hết các phần tử có độ dài <5") // 1
+  for (var i = 0; i < vPerson.length; i++) { // 2
+    if (vPerson[i].length < 5) { // 3
+      console.log(`${i}: ${vPerson[i]}`) // 4
+    }
+  }
+
+  // Task 711.40
+  console.log("%cTask711.40", "color: green")
+
+  var vPerson1 = ["anastasia", "anna", "john", "peter", "cole", "jane", "william", "mile", "lan"];
+  for (var i = 0; i < vPerson1.length; i++) { // 1
+    console.log(`${i}: ${vPerson1[i]}`) // 2
+  }
+
+  var sumChuChuaA = 0
+  for (var person of vPerson1) {
+    if (person.includes("a")) {
+      sumChuChuaA++
+    }
+  }
+
+  console.log(`Có ${sumChuChuaA} phần tử có chứa chữ  “a”`)
+
+  // Task 711.60
+  console.log("%cTask711.60", "color: green")
+
+  var vDanhSachHocSinh = [{
+      ten: "Nga",
+      diemTrungBinh: 7.5
+    },
+    {
+      ten: "Nam",
+      diemTrungBinh: 6.2
+    },
+    {
+      ten: "Hà",
+      diemTrungBinh: 8.5
+    }
+  ]
+
+  vDanhSachHocSinh.push({
+    ten: "Hoàng",
+    diemTrungBinh: 9.9
+  }, {
+    ten: "Mai",
+    diemTrungBinh: 4.5
+  })
+
+  console.log("%cDanh sách học sinh", "color: red")
+  for (var hocSinh of vDanhSachHocSinh) {
+    console.log(`Tên: ${hocSinh.ten}`)
+    console.log(`Điểm trung bình: ${hocSinh.diemTrungBinh}`)
+  }
+
+  console.log("%cDanh sách học sinh có điểm trung bình lớn hơn 6.5", "color: red")
+  for (var hocSinh of vDanhSachHocSinh) {
+    if (hocSinh.diemTrungBinh > 6.5) {
+      console.log(`Tên: ${hocSinh.ten}`)
+      console.log(`Điểm trung bình: ${hocSinh.diemTrungBinh}`)
+    }
+  }
+
+  // Task 711.12P
+  console.log("%cTask711.12P", "color: green")
+  var vMangSoNguyen = [21, 10, 4, 5, 6, 17, 10, 4, 5, 10, 2];
+
+  vMangSoNguyen.push(13)
+  vMangSoNguyen.push(2)
+  vMangSoNguyen.push(8)
+  vMangSoNguyen.push(8)
+
+  var display = ""
+  for (var so of vMangSoNguyen) {
+    display += so + " "
+  }
+  console.log("%cMảng số nguyên", "color: red")
+  console.log(display)
+
+  var sumSoNguyen = 0
+  for (var so of vMangSoNguyen) {
+    sumSoNguyen += so
+  }
+  console.log(`%cTổng số nguyên: ${sumSoNguyen}`, "color: red")
+
+  var lonHon6 = 0
+  for (var so of vMangSoNguyen) {
+    if (so > 6) {
+      lonHon6++
+    }
+  }
+
+  console.log(`%cCó ${lonHon6} phần tử nhỏ hơn 6`, "color: red")
+</script>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Task 12.35 </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container jumbotron p-5 mt-4">
+    <form>
+      <div class="row form-group">
+        <label class="col-sm-2 col-form-label" for="inp-fname">First Name <span class="text-danger">(*)</span></label>
+        <div class="col-sm-4">
+          <input type="text" id="inp-fname" placeholder="Your name.." class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-sm-2 col-form-label" for="inp-lname">Last Name <span class="text-danger">(*)</span></label>
+        <div class="col-sm-4">
+          <input type="text" id="inp-lname" placeholder="Your last name.." class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-sm-2 col-form-label" for="inp-age">Age <span class="text-danger">(*)</span></label>
+        <div class="col-sm-4">
+          <input type="text" id="inp-age" placeholder="Your age.." class="form-control">
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <label class="col-sm-2 col-form-label" for="inp-email">Email <span class="text-danger">(*)</span></label>
+        <div class="col-sm-4">
+          <input type="text" id="inp-email" placeholder="Your email.." class="form-control">
+        </div>
+      </div>
+    </form>
+
+    <p>Ấn nút để insert row mới vào bảng</p>
+    <button class="btn btn-info" onclick="onBtnInsertNewRowToTableClick()">thêm hàng mới vào bảng</button>
+  </div>
+
+  <div class="container p-5 mt-4">
+    <table id="table-person" class="table table-bordered">
+      <thead>
+        <!-- phần head, dòng tiêu đề  của bảng -->
+        <tr>
+          <td></td>
+          <td> First Name </td>
+          <td> Last Name </td>
+          <td> Age </td>
+          <td> Email </td>
+        </tr>
+        <thead>
+        <tbody>
+      <tbody>
+    </table>
+  </div>
+
+  <script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+    var index = 1
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+    const userList = []
+
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    function onBtnInsertNewRowToTableClick() {
+      if (validateData()) {
+        saveUserToTable()
+      }
+    }
+
+    function saveUserToTable() {
+      "use strict";
+
+      var user = getDataToSaveUser();
+      userList.push(user);
+
+      const vEND_OF_TABLE = -1;
+      var vPersonTable = document.getElementById("table-person");
+
+      // Insert a new row at the end of the table
+      var vNewRow = vPersonTable.insertRow(vEND_OF_TABLE);
+
+      // Insert new cells in the row
+      var vCellIndex = vNewRow.insertCell(0);
+      var vCellFirstName = vNewRow.insertCell(1);
+      var vCellLastName = vNewRow.insertCell(2);
+      var vCellAge = vNewRow.insertCell(3);
+      var vCellEmail = vNewRow.insertCell(4);
+
+      // Get the index of the new user
+      var userIndex = userList.length;
+
+      // Assign values to the cells
+      vCellIndex.innerHTML = userIndex;
+      vCellFirstName.innerHTML = user.firstname;
+      vCellLastName.innerHTML = user.lastname;
+      vCellAge.innerHTML = user.age;
+      vCellEmail.innerHTML = user.email;
+    }
+
+    function validateData() {
+      var khachHang = getDataFromForm();
+
+      if (khachHang.hoTen === "") {
+        alert("Họ tên cần được nhập!");
+        return false;
+      }
+
+      if (khachHang.diaChi === "") {
+        alert("Địa chỉ cần được nhập!");
+        return false;
+      }
+
+      if (khachHang.email === "") {
+        alert("Email cần được nhập!");
+        return false;
+      }
+
+      if (khachHang.sdt === "") {
+        alert("Số điện thoại cần được nhập!");
+        return false;
+      }
+
+      if (!validateEmail(khachHang.email) || !validatePhoneNumber(khachHang.sdt)) {
+        return false;
+      }
+
+      return true;
+    }
+
+    function validateEmail(email) {
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      return emailPattern.test(email);
+    }
+
+    function validatePhoneNumber(phoneNumber) {
+      var phonePattern = /^0\d{9,14}$/;
+      return phonePattern.test(phoneNumber);
+    }
+
+    // Assuming `getDataFromForm` and `getDataToSaveUser` are defined elsewhere
+
+
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    function getDataToSaveUser() {
+      var user = {
+        firstname: "",
+        lastname: "",
+        age: 0,
+        email: ""
+      }
+
+      var fName = document.getElementById("inp-fname").value.trim()
+      var lName = document.getElementById("inp-lname").value.trim()
+      var age = document.getElementById("inp-age").value.trim()
+      var email = document.getElementById("inp-email").value.trim()
+
+      user.firstname = fName
+      user.lastname = lName
+      user.age = Number(age)
+      user.email = email
+
+      return user
+    }
+
+    function validateData() {
+      var fName = document.getElementById("inp-fname").value.trim()
+      var lName = document.getElementById("inp-lname").value.trim()
+      var age = document.getElementById("inp-age").value.trim()
+      var email = document.getElementById("inp-email").value.trim()
+
+      if (fName === "") {
+        alert("First name cần được nhập!")
+        return false
+      }
+
+      if (lName === "") {
+        alert("Last name cần được nhập!")
+        return false
+      }
+
+      if (age === "") {
+        alert("Age cần được nhập!")
+        return false
+      } else if (isNaN(age) || age < 0 || age > 150) {
+        alert("Age là 1 số dương, có giá trị từ 0 đến 150")
+        return false
+      }
+
+      if (email === "") {
+        alert("First name cần được nhập!")
+        return false
+      } else if (!validateEmail(email)) {
+        return false
+      }
+
+      return true
+    }
+
+    function validateEmail(email) {
+      var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert("Email is not in the correct format.");
+        return false
+      }
+
+      return true;
+    }
+  </script>
+
+</body>
+
+</html>

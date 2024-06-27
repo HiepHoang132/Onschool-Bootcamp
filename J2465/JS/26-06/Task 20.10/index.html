@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>3 bước xử lý sự kiện - get subject infor</title>
+</head> 
+
+<body>
+  <!-- Bắt đầu vùng form màu xám -->
+  <div class="container jumbotron p-4 my-3">
+    <div class="row form-group">
+      <label id="label-ma-mon" class="col-md-2 col-form-label">Mã môn học <span class="text-danger">(*)</span></label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Nhập mã môn ..." id="input-ma-mon">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label id="label-ten-mon" class="col-md-2 col-form-label">Tên môn <span class="text-danger">(*)</span></label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Nhập tên môn ..." id="input-ten-mon">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label id="label-so-tin-chi" class="col-md-2 col-form-label">Số tín chỉ <span class="text-danger">(*)</span></label>
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Nhập số tín chỉ ..." id="input-tin-chi">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-info" id="btn-save-data" onclick="onBtnSaveDataClick()">Save data</button>
+      </div>
+    </div>
+  </div>
+  <!-- Kết thúc vùng form màu xám -->
+
+  <!-- vùng hiển thị thông tin môn học -->
+  <div id="div-container-subject" class="container bg-info" style="display: none;">
+    <div id="div-subject-infor" class="text-white p-3">...</div>
+  </div>
+
+  <script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    function onBtnSaveDataClick() {
+      console.log("Lưu dữ liệu môn học.")
+
+      // khai báo đối tượng môn học chứa dữ liệu
+      var vMonHocObj = {
+        maMon: "",
+        tenMon: "",
+        soTinChi: 0
+      };
+
+      // B1: thu thập dữ liệu môn học và lưu vào đối tượng
+      saveDataToMonHocObj(vMonHocObj)
+
+      // B2: kiểm tra dữ liệu đầu vào
+      var valid = validateData()
+
+      // B3: ghi dữ liệu môn học và hiển thị vùng dữ liệu lên
+      if(valid){
+        display(vMonHocObj)
+      }
+    }
+    
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    
+    function saveDataToMonHocObj(data){
+      var maMon = document.getElementById("input-ma-mon").value.trim()
+      var tenMon = document.getElementById("input-ten-mon").value.trim()
+      var soTinChi = document.getElementById("input-tin-chi").value.trim()
+
+      data.maMon = maMon
+      data.tenMon = tenMon
+      data.soTinChi = Number(soTinChi)
+
+      return data
+    }
+
+    function validateData(){
+      var isValid = true
+
+      var maMon = document.getElementById("input-ma-mon").value.trim()
+      var tenMon = document.getElementById("input-ten-mon").value.trim()
+      var soTinChi = document.getElementById("input-tin-chi").value.trim()
+
+      if(maMon === ""){
+        alert("Mã môn cần được nhập!")
+        isValid = false
+      } else if(maMon.length !== 6){
+        alert("Mã môn phải có 6 ký tự")
+        isValid = false
+      }
+
+      if(tenMon === ""){
+        alert("Tên môn cần được nhập!")
+        isValid = false
+      }
+
+      if(soTinChi === ""){
+        alert("Số tín chỉ cần được nhập!")
+        isValid = false
+      } else if(isNaN(soTinChi) || soTinChi < 1 || soTinChi > 10){
+        alert("Số tín chỉ phải là số, trong khoảng từ 1 đến 10")
+        isValid = false
+      }
+
+      return isValid
+    }
+
+    function display(obj){
+      var subjectContainer = document.getElementById("div-container-subject")
+      subjectContainer.style.display = "block"
+
+      var subject = document.getElementById("div-subject-infor")
+      subject.innerHTML = `Mã môn học: ${obj.maMon} <br>
+                           Tên môn học: ${obj.tenMon} <br>
+                           Số tín chỉ: ${obj.soTinChi}`
+    }
+  </script>
+</body>
+
+</html>

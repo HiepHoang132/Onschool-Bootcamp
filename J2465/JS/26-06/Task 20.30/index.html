@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>3 bước xử lý register form</title>
+</head>
+
+<body>
+  <div class="container jumbotron p-5 mt-4">
+    <div class="text-center mb-5">
+      <h2>Responsive Register Form</h2>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label" for="inp-fname">First Name <span class="text-danger">(*)</span></label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-fname" placeholder="Your name.." class="form-control">
+      </div>
+
+      <label class="col-sm-2 col-form-label" for="inp-lname">Last Name <span class="text-danger">(*)</span></label>
+      <div class="col-sm-4">
+        <input type="text" id="inp-lname" placeholder="Your last name.." class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-4">
+        <select id="select-country" name="country" class="form-control">
+          <option value="01-au">Australia</option>
+          <option value="02-ca">Canada</option>
+          <option value="03-us">USA</option>
+          <option value="04-cn">China</option>
+        </select>
+      </div>
+      <label class="col-sm-2 col-form-label">Gender</label>
+      <div class="col-sm-4">
+        <select id="select-gender" name="country" class="form-control">
+          <option value="0-m">Male</option>
+          <option value="1-f">Female</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-sm-2 col-form-label" for="inp-age">Age <span class="text-danger">(*)</span></label>
+      <div class="col-sm-4">
+        <input type="number" id="inp-age" placeholder="Your age.." class="form-control">
+      </div>
+      <label class="col-sm-2 col-form-label">Purpose</label>
+      <div class="col-sm-4">
+        <select id="select-purpose" name="country" class="form-control">
+          <option value="01-bu">Business</option>
+          <option value="02-pr">Private</option>
+          <option value="03-to">Tourist</option>
+          <option value="04-me">Medical</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="row form-group text-right">
+      <div class="col-sm-12">
+        <button class="btn btn-info px-4" id="btn-send" onclick="onBtnSendRegisterClick()">Send Register</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- vùng hiển thị thông tin register mặc định bị ẩn -->
+  <div id="div-container-register" class="container bg-info" style="display: none;">
+    <div id="div-register-infor" class="text-white p-3">...</div>
+  </div>
+</body>
+<script>
+  "use strict";
+  var user = {
+    firstname: "",
+    lastname: "",
+    country: "",
+    gender: "",
+    age: 0,
+    purpose: ""
+  }
+
+  function onBtnSendRegisterClick() {
+    saveDataToObj(user)
+    var isValid = validateData(user)
+    if(isValid){
+      display(user)
+    }
+  }
+
+  function saveDataToObj(obj) {
+    var fName = document.getElementById("inp-fname").value.trim()
+    var lName = document.getElementById("inp-lname").value.trim()
+
+    var countryElement = document.getElementById("select-country")
+    var country = countryElement.options[countryElement.selectedIndex].text
+
+    var genderElement = document.getElementById("select-gender")
+    var gender = genderElement.options[genderElement.selectedIndex].text
+
+    var age = Number(document.getElementById("inp-age").value.trim())
+
+    var purposeElement = document.getElementById("select-purpose")
+    var purpose = purposeElement.options[purposeElement.selectedIndex].text
+
+    obj.firstname = fName
+    obj.lastname = lName
+    obj.country = country
+    obj.gender = gender
+    obj.age = age
+    obj.purpose = purpose
+
+    return obj
+  }
+
+  function validateData(obj) {
+    if (obj.firstname === "") {
+      alert("First name là thông tin bắt buộc")
+      return false
+    }
+
+    if (obj.lastname === "") {
+      alert("Last name là thông tin bắt buộc")
+      return false
+    }
+
+    if (obj.age === "") {
+      alert("Tuổi là thông tin bắt buộc")
+      return false
+    } else if (isNaN(obj.age) || obj.age < 18 || obj.age > 120) {
+      alert("Tuổi phải là số, trong khoảng từ 18 đến 120")
+      return false
+    }
+
+    return true
+  }
+
+  function display(obj) {
+    var container = document.getElementById("div-container-register")
+    container.style.display = "block"
+
+    var content = document.getElementById("div-register-infor")
+    content.innerHTML = `Firstname: ${obj.firstname} <br>
+                         Lastname: ${obj.lastname} <br>
+                         Country: ${obj.country} <br>
+                         Gender: ${obj.gender} <br>
+                         Age: ${obj.age} <br>
+                         Purpose: ${obj.purpose} <br>`
+  }
+</script>
+
+</html>

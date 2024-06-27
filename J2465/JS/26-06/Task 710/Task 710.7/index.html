@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" name="Hoang Hua Hiep">
+
+  <title>Task 710.7</title>
+</head>
+
+<body>
+  <h1>Task 710.7</h1>
+</body>
+
+<script>
+
+  function getPhanHoiCuaCasino(paramSoXucXac) { //0
+    var vPhanHoi = "Cảm ơn bạn !"; //1
+    if (paramSoXucXac === 1) { //2
+      vPhanHoi = "Đen quá, hay thử lại !"; //3
+    } else if (paramSoXucXac === 2) { //4
+      vPhanHoi = "Đen quá, hay thử lại !"; //5
+    } else if (paramSoXucXac === 3) { //6
+      vPhanHoi = "Đen quá, hay thử lại !"; //7
+    } else if (paramSoXucXac === 4) { //8
+      vPhanHoi = "Ổn quá, hãy nhận quà phiếu giảm giá !"; //9
+    } else if (paramSoXucXac === 5) { //10
+      vPhanHoi = "Ổn quá, hãy nhận quà phiếu giảm giá !"; //11
+    } else if (paramSoXucXac === 6) { //12
+      vPhanHoi = "Tuyệt vời. Hãy nhận thưởng !"; //13
+    } else {
+      vPhanHoi = "Cảm ơn bạn đã chơi"; //14        
+    }
+    return vPhanHoi; //15  
+  }
+  var vPhanHoiA = getPhanHoiCuaCasino(4); //16
+  console.log(vPhanHoiA); //17
+  var vPhanHoiB = getPhanHoiCuaCasino(9); //18
+  console.log(vPhanHoiB); //19
+
+  
+</script>
+
+</html>
