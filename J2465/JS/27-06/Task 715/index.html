@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <title>Task BasicSkill.JS.Object.715</title>
+</head>
+<script>
+  "use strict";
+  /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+
+  /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+  /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+  // đối tượng dơn giản chỉ có thuộc tính
+  // demo 1: định nghĩa và truy vấn đối tượng chỉ có thuộc tính
+  function testDoiTuongDonGianChiCoThuocTinh() {
+    console.log("%c demo 1: định nghĩa và truy vấn đối tượng chỉ có thuộc tính", "color:purple");
+    var vMarryPersonObject = {
+      firstName: "Marry",
+      age: 20
+    };
+    // write object to console
+    console.log(" Đối tượng Person Marry ");
+    console.log(vMarryPersonObject);
+    // viết từng thuộc tính của đối tượng ra 
+    console.log(vMarryPersonObject.firstName);
+    console.log(vMarryPersonObject.age);
+
+  }
+  // demo 2: định nghĩa và truy vấn đối tượng có thuộc tính và method (phương thức)
+  function testDoiTuongCoThuocTinhVaMethod() {
+    console.log("%c demo 2: định nghĩa và truy vấn đối tượng có thuộc tính và method (phương thức)", "color:purple");
+    var vMarryKanePersonObject = {
+      firstName: "Marry",
+      lastName: "Kane",
+      age: 20,
+      fullName: function() { //method (phương thức) để tính toán dựa trên thuộc tính của đối tượng
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    // write object to console
+    console.log(" Đối tượng Person Marry Kane ");
+    console.log(vMarryKanePersonObject);
+    // gọi method của đối tượng 
+    console.log(" gọi method FullName: " + vMarryKanePersonObject.fullName());
+  }
+
+  //demo 3: tác động vào thuộc tính, method của đối tượng
+  function testThayDoiThuocTinhVaMethodCuaDoiTuong() {
+    console.log("%c demo 3: tác động vào thuộc tính, method của đối tượng", "color:green");
+    var vMarryKanePersonObject = {
+      firstName: "Marry",
+      lastName: "Kane",
+      age: 20,
+      fullName: function() { //method (phương thức) để tính toán dựa trên thuộc tính của đối tượng
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    // đổi tuổi của Marry
+    vMarryKanePersonObject.age = "36";
+    // đổi method fullName
+    vMarryKanePersonObject.fullName = fullNameUpperCase; // đổi hẳn method này, chuyển thành chữ IN HOA  
+
+    // write object to console
+    console.log(" Đối tượng Person Marry Kane ");
+    console.log(vMarryKanePersonObject);
+    // gọi method của đối tượng 
+    console.log(" gọi method FullName: " + vMarryKanePersonObject.fullName());
+  }
+
+  //demo 4: đối tượng có thuộc tính là đối tượng, và thuộc tính là mảng
+  function testDoiTuongCoThuocTinhLaDoiTuong() {
+    console.log("%c demo 4: đối tượng có thuộc tính là đối tượng, và thuộc tính là mảng", "color:red");
+    //đối tượng có chứa attribute (thuộc tính) là array và thuộc tính là object
+    var vJohnPersonObject = {
+      name: "John",
+      age: 30,
+      cars: ["Ford", "BMW", "Fiat"], //có nhiều ô tô (car) trong một mảng
+      pet: {
+        type: "dog",
+        name: "Jolly"
+      } //có 1 con vật nuôi (pet), 
+    };
+
+    // write object to console
+    console.log(" Đối tượng Person John: ");
+    console.log(vJohnPersonObject);
+    // viết từng thuộc tính của đối tượng ra 
+    console.log(vJohnPersonObject.name);
+    console.log(vJohnPersonObject.age);
+    console.log(vJohnPersonObject.cars);
+    console.log(vJohnPersonObject.pet);
+    // truy vấn thuộc tính của đối tượng bên trong 
+    console.log("Tên vật nuôi của John là: " + vJohnPersonObject.pet.name);
+  }
+  //demo 5: truyền đối tượng như tham số của hàm 
+  function testTruyenDoiTuongNhuThamSo() {
+    console.log("%c demo 5: truyền đối tượng như tham số của hàm ", "color:orange");
+    // tạo đối tượng
+    var vMarryPersonObject = {
+      firstName: "Marry",
+      age: 20
+    };
+    console.log(" Đối tượng Person Marry ban đầu ");
+    console.log(vMarryPersonObject);
+    // tăng tuổi của marry
+    tangTuoiPerson(vMarryPersonObject);
+    // write object to console
+    console.log(" Đối tượng Person Marry nhận về ");
+    console.log(vMarryPersonObject);
+  }
+  // demo 6: hàm trả lại đối tượng (tạo đối tượng giống nhau, mà ko phải viết code lại)
+  function testHamTraLaiDoiTuong() {
+    console.log("%c Demo 6: hàm trả lại đối tượng (tạo đối tượng giống nhau, mà ko phải viết code lại", "color:orange");
+    // dùng 1 hàm có thể tạo ra nhiều object giống nhau về cấu trúc (về thuộc tính, và method)
+    // khác nhau về giá trị của thuộc tính và method
+    var vMarryPersonObject = getPersonObj("Marry", "Kane", 20);
+    var vJohnPersonObject = getPersonObj("John", "Doe", 36);
+    console.log("Marry: ");
+    console.log(vMarryPersonObject);
+    console.log("John: ");
+    console.log(vJohnPersonObject);
+  }
+
+  /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+  // viết method fullName kiểu in hoa
+  function fullNameUpperCase() {
+    return (this.firstName + " " + this.lastName).toUpperCase(); //chuyển thành IN HOA 
+  }
+  // tăng tuổi của person
+  function tangTuoiPerson(paramPersonObject) {
+    paramPersonObject.age++; //thêm 1 tuổi
+  }
+  // tạo đối tượng bằng hàm số (để có thể tạo nhiều đối tượng giống nhau, mà không phải viết code lại )
+  function getPersonObj(paramFirstName, paramLastName, paramAge) {
+    var vPersonObject = { //tạo đối tượng từ các tham số 
+      firstName: paramFirstName,
+      lastName: paramLastName,
+      age: paramAge,
+      fullName: function() { //method (phương thức) để tính toán dựa trên thuộc tính của đối tượng
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    return vPersonObject; //trả lại đối tượng
+  }
+
+  function task715_10() {
+    var car = {
+      name: "Fiat",
+      model: "500",
+      weight: "850kg",
+      color: "white"
+    }
+
+    console.log("%cTask 715.10", "color: green");
+
+    console.log(" Đối tượng Car");
+    console.log(car);
+
+    console.log(car.name);
+    console.log(car.model);
+    console.log(car.weight);
+    console.log(car.color);
+  }
+
+  function task715_20() {
+    var car = {
+      name: "Fiat",
+      model: "500",
+      weight: "850kg",
+      color: "white",
+      fullName() {
+        return `${this.name} ${this.model}`
+      }
+    }
+
+    console.log("%cTask 715.20", "color: green");
+
+    console.log(" Đối tượng car ");
+    console.log(car);
+
+    console.log(" gọi method fullName: " + car.fullName());
+  }
+
+  function task715_30() {
+    var car = {
+      name: "Fiat",
+      model: "500",
+      weight: "850kg",
+      color: "white",
+      fullName() {
+        return `${this.name} ${this.model}`.toUpperCase()
+      }
+    }
+    console.log("%cTask 715.30", "color:green");
+
+    car.model = 800
+    console.log(" Đối tượng car ");
+    console.log(car);
+
+    console.log(" gọi method fullName: " + car.fullName());
+  }
+
+  function task715_40() {
+    var car = {
+      name: "Fiat",
+      model: "500",
+      weight: "850kg",
+      color: "white",
+      wheel: [{
+        type: "front",
+        quantity: 2,
+      }, {
+        type: "rear",
+        quantity: 2,
+      }, {
+        type: "backup",
+        quantity: 1
+      }],
+      radio: {
+        name: "phillips",
+        model: "wave 200",
+        bluetooth: "yes"
+      },
+      fullName() {
+        return `${this.name} ${this.model}`
+      }
+    }
+
+    console.log("%cTask 715.40", "color: green");
+    console.log("%cĐối tượng Car", "color: red");
+    console.log(car);
+
+    console.log(car.name);
+    console.log(car.model);
+    console.log(car.weight);
+    console.log(car.color);
+    console.log(car.wheel);
+    console.log(car.radio);
+
+    console.log("%cLoại bánh xe", "color: red")
+    for (var wheelType of car.wheel) {
+      console.log(`Type: ${wheelType.type}`)
+      console.log(`Quantity: ${wheelType.quantity}`)
+    }
+
+    console.log("%cCar radio", "color: red")
+    console.log(`Name: ${car.radio["name"]}`)
+    console.log(`Model: ${car.radio["model"]}`)
+    console.log(`Bluetooth: ${car.radio["bluetooth"]}`)
+  }
+
+  function task715_50() {
+    console.log("%cTask 715.50", "color:green");
+
+    var car1 = getCarObj("Toyota", "Camry", "1500kg", "Red")
+    console.log("%cCar 1", "color: red")
+    console.log(car1)
+
+    var car2 = getCarObj("Honda", "Civic", "1400kg", "Blue")
+    console.log("%cCar 2", "color: red")
+    console.log(car2)
+
+    var car3 = getCarObj("Ford", "Mustang", "1700kg", "Black")
+    console.log("%cCar 3", "color: red")
+    console.log(car3)
+
+    var car4 = getCarObj("Tesla", "Model 3", "1600kg", "White")
+    console.log("%cCar 4", "color: red")
+    console.log(car4)
+  }
+
+  function getCarObj(paramName, paramModel, paramWeight, paramColor) {
+    var car = {
+      name: paramName,
+      model: paramModel,
+      weight: paramWeight,
+      color: paramColor,
+      fullName() {
+        return `${this.name} ${this.model}`
+      }
+    }
+
+    return car
+  }
+
+  function task715_60() {
+    console.log("%cTask 715.60", "color:green");
+    var car = {
+      name: "Fiat",
+      model: "500",
+      weight: "850kg",
+      color: "white"
+    }
+
+    console.log("%cĐối tượng Car ban đầu", "color: red");
+    console.log(car);
+
+    changeCar(car)
+    console.log("%cĐối tượng car sau khi gọi method changeCar", "color: red");
+    console.log(car);
+  }
+
+  function changeCar(paramCar) {
+    paramCar.name = "Honda"
+    paramCar.model = "Civic"
+    paramCar.color = "Pink"
+  }
+
+  function task715_70() {
+    console.log("%cTask 715.70", "color:green");
+
+    var hocSinh = getHocSinhObj("hs213", "Nguyễn Văn A", [9, 6, 9], 10)
+    console.log(hocSinh)
+    console.log(`Điểm trung bình: ${hocSinh.layDiemTrungBinh()}`)
+    console.log(`Xếp loại: ${hocSinh.xepLoaiHocSinh()}`)
+  }
+
+  function getHocSinhObj(paramMaHocSinh, paramTenHocSinh, paramDiemToanVanAnh, paramLopHoc) {
+    var hocSinh = {
+      maHocSinh: paramMaHocSinh,
+      tenHocSinh: paramTenHocSinh,
+      diemToanVanAnh: paramDiemToanVanAnh,
+      lopHoc: paramLopHoc,
+      layDiemTrungBinh() {
+        return (this.diemToanVanAnh[0] + this.diemToanVanAnh[1] + this.diemToanVanAnh[2]) / this.diemToanVanAnh.length
+      },
+      xepLoaiHocSinh() {
+        const diemTrungBinh = this.layDiemTrungBinh()
+        if (diemTrungBinh < 5) return "Kém"
+        else if (diemTrungBinh < 6.5) return "Trung bình"
+        else if (diemTrungBinh < 8) return "Khá"
+        else if (diemTrungBinh <= 10) return "Giỏi"
+      }
+    }
+
+    return hocSinh
+  }
+</script>
+
+<body>
+  <div class="container jumbotron">
+    <p id="cmt2dev"> Test Page for Javascrip Tasks. F5 to run code.</p>
+    <h2>Chạy thử - Đọc code của các ví dụ sau </h2>
+    <button onclick="testDoiTuongDonGianChiCoThuocTinh()" class="btn btn-info"> demo 1: Đối tượng đơn giản, chỉ có thuộc tính !</button>
+    <button onclick="testDoiTuongCoThuocTinhVaMethod()" class="btn btn-success"> demo 2: Đối tượng có thuộc tính, và đối tượng!</button>
+    <button onclick="testThayDoiThuocTinhVaMethodCuaDoiTuong()" class="btn btn-warning"> demo 3: Thay đổi thuộc tính, method của đối tượng!</button>
+    <button onclick="testDoiTuongCoThuocTinhLaDoiTuong()" class="btn btn-primary"> demo 4: Đối tượng có thuộc tính là đối tượng !</button>
+    <button onclick="testTruyenDoiTuongNhuThamSo()" class="btn btn-light"> demo 5: Truyền đối tượng như tham số !</button>
+    <button onclick="testHamTraLaiDoiTuong()" class="btn btn-secondary"> demo 6: tạo đối tượng bằng hàm số !</button>
+    <button onclick="task715_10()" class="btn btn-secondary"> Task 715.10</button>
+    <button onclick="task715_20()" class="btn btn-secondary"> Task 715.20</button>
+    <button onclick="task715_30()" class="btn btn-secondary"> Task 715.30</button>
+    <button onclick="task715_40()" class="btn btn-secondary"> Task 715.40</button>
+    <button onclick="task715_50()" class="btn btn-secondary"> Task 715.50</button>
+    <button onclick="task715_60()" class="btn btn-secondary"> Task 715.60</button>
+    <button onclick="task715_70()" class="btn btn-secondary"> Task 715.70</button>
+  </div>
+</body>
+
+</html>
