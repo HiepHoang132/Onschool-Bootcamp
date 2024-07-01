@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 22.40A</title>
+</head>
+    <h1>Task 22.40A</h1>
+<body>
+
+</body>
+
+<script>
+  // Define the JSON string
+  const jsonString = `{
+  "company": {
+    "employee": {
+      "name": "John Doe",
+      "payable": {
+        "salary": 50000,
+        "bonus": 5000
+      }
+    }
+  }
+}`;
+
+  // Parse the JSON string into an object
+  const companyObject = JSON.parse(jsonString);
+
+  // Extract salary and bonus
+  const salary = companyObject.company.employee.payable.salary;
+  const bonus = companyObject.company.employee.payable.bonus;
+
+  // Log the values
+  console.log(`Salary: ${salary}`);
+  console.log(`Bonus: ${bonus}`);
+</script>
+
+</html>
