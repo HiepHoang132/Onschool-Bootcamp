@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List students</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body onload="onPageLoading()">
+  <div class="container w-50">
+    <div class="text-center m-3">
+      <h3>THÔNG TIN SINH VIÊN</h3>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-3">
+        <button class="btn btn-primary" onclick="onBtnGetInfoClick()">Lấy thông tin</button>
+      </div>
+      <label class="col-form-label col-sm-4">Số lượng sinh viên:
+        <span id="span-num-students" class="text-danger font-weight-bold">1000</span>
+      </label>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-12">Danh sách ID sinh viên:
+        <span id="span-id-student-list" class="text-danger">3, 4, 7, 8, 9, 10</span>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row form-group">
+      <label class="col-form-label col-sm-4" for="input-student-id">Nhập Id sinh viên <span class="text-danger">(*)</span></label>
+      <div class="col-sm-5">
+        <input id="input-student-id" placeholder="Nhập id sinh viên ..." class="form-control">
+      </div>
+      <div class="col-sm-3">
+        <button class="btn btn-primary" onclick="onBtnMoreDetailClick()">Xem chi tiết</button>
+      </div>
+    </div>
+    <hr>
+    <div class="row form-group">
+      <label class="col-form-label col-sm-3" for="input-student-code">Student Code</label>
+      <div class="col-sm-3">
+        <input id="input-student-code" placeholder="Student Code" class="form-control">
+      </div>
+      <label class="col-form-label col-sm-3" for="input-username">Username</label>
+      <div class="col-sm-3">
+        <input id="input-username" placeholder="Username" class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-form-label col-sm-3" for="input-firstname">First name</label>
+      <div class="col-sm-3">
+        <input id="input-firstname" placeholder="First name" class="form-control">
+      </div>
+      <label class="col-form-label col-sm-3" for="input-lastname">Last name</label>
+      <div class="col-sm-3">
+        <input id="input-lastname" placeholder="Last name" class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-form-label col-sm-3" for="input-birthday">Birthday</label>
+      <div class="col-sm-3">
+        <input type="text" id="input-birthday" placeholder="Birthday" class="form-control">
+      </div>
+      <label class="col-form-label col-sm-3" for="input-study-year">Study year</label>
+      <div class="col-sm-3">
+        <input type="text" id="input-study-year" placeholder="Study year" class="form-control">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-form-label col-sm-3" for="input-email">Email</label>
+      <div class="col-sm-9">
+        <input type="text" id="input-email" placeholder="Email" class="form-control">
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const BASE_URL = "https://624abe0dfd7e30c51c110ac6.mockapi.io/api/v1/";
+
+  function onPageLoading() {
+    document.getElementById("span-num-students").style.visibility = "hidden"
+    document.getElementById("span-id-student-list").style.visibility = "hidden"
+  }
+
+  function onBtnGetInfoClick() {
+    const API_URL = BASE_URL + "students"
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.open("GET", API_URL, false)
+    xmlHttp.send()
+    if (xmlHttp.status === 200) {
+      displayData(xmlHttp.responseText)
+    }
+  }
+
+  function displayData(response) {
+    var data = JSON.parse(response)
+
+    var students = document.getElementById("span-num-students")
+    students.innerHTML = data.length
+    students.style.visibility = "visible"
+
+    var studentIds = document.getElementById("span-id-student-list")
+    studentIds.innerHTML = ''
+    for (var i = 0; i < data.length; i++) {
+      studentIds.innerHTML += `${data[i].id}`
+      if (i < data.length - 1) {
+        studentIds.innerHTML += ', ';
+      }
+    }
+    studentIds.style.visibility = "visible"
+  }
+
+  function onBtnMoreDetailClick() {
+    if (validateStudentId()) {
+      var studentResponse = getStudentData()
+      displayStudenData(studentResponse)
+    }
+  }
+
+  function getStudentId() {
+    return document.getElementById("input-student-id").value.trim()
+  }
+
+  function validateStudentId() {
+    var studentId = getStudentId()
+
+    if (studentId === "") {
+      console.log("Id cần được nhập!")
+      return false
+    }
+
+    if (!(/^\d{2}$/.test(studentId))) {
+      console.log("Id phải là 2 số")
+      return false
+    }
+
+    return true
+  }
+
+  function getStudentData() {
+    const STUDENT_API_URL = BASE_URL + "students/" + getStudentId()
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.open("GET", STUDENT_API_URL, false)
+    xmlHttp.send()
+    if (xmlHttp.status === 200) {
+      var response = JSON.parse(xmlHttp.responseText)
+      return response
+    }
+  }
+
+  function displayStudenData(response) {
+    document.getElementById("input-student-code").value = response.studentCode
+    document.getElementById("input-username").value = response.username
+    document.getElementById("input-firstname").value = response.firstname
+    document.getElementById("input-lastname").value = response.lastname
+    document.getElementById("input-birthday").value = response.birthday
+    document.getElementById("input-study-year").value = response.studyYear
+    document.getElementById("input-email").value = response.email
+  }
+</script>
+
+</html>

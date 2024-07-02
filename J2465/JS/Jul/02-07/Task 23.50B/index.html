@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 23.50B</title>
+</head>
+
+<body>
+  <h1>Task 23.50B</h1>
+  <p>Check console</p>
+</body>
+
+<script>
+  // Tạo một đối tượng XMLHttpRequest
+  var xmlHttp = new XMLHttpRequest();
+
+  // Định nghĩa hàm xử lý khi readyState thay đổi
+  xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+      // Nếu request hoàn tất và có phản hồi thành công (status 200)
+      var users = JSON.parse(xmlHttp.responseText); // Chuyển đổi JSON response thành đối tượng JavaScript
+      console.log(users); // In ra danh sách người dùng trong console
+    }
+  };
+
+  // Chuẩn bị và gửi request GET đến API
+  xmlHttp.open("GET", "http://203.171.20.210:8080/crud-api/users/", true); // true để gửi bất đồng bộ
+  xmlHttp.send();
+</script>
+
+</html>

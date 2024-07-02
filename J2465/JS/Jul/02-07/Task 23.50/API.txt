@@ -1,0 +1,26 @@
+Mô tả sơ bộ restAPI lấy user theo id:
+
+  Gọi đi từ client:
+  *****************
+  API: 
+  http://203.171.20.210:8080/crud-api/users/
+  
+  Input:
+  01 tham số:  
+  id của user
+
+  Ví dụ gọi:
+  xmlHttp.open( "GET", "http://203.171.20.210:8080/crud-api/users/181214", false );
+  
+  
+  Trả về, với cấu trúc sau:
+  *************************
+  id: được cấp cho user
+  firstname
+  lastname
+  country
+  subject
+  customertype: Premium/Standard/Gold
+  registerstatus: accepted/denied
+  
+  Ví dụ chuỗi trả về responseText: {"id":181214,"firstname":"Phan","lastname":"Xuân Minh","country":"VN","subject":"Taekwondo","customerType":"Gold","registerStatus":"New"}
