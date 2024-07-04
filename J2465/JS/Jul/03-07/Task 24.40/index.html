@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 24.40</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<html>
+<!-- file html dùng để thử tác động của javascript vào các thành phần trang web-->
+<script>
+  "use strict";
+  //base url
+  const gREQUEST_STATUS_OK = 200;
+  const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+  const vBASE_URL = "http://203.171.20.210:8080/devcamp-lucky-dice/";
+  const vUTF8_TEXT_APPLICATON_HEADER = "application/json;charset=UTF-8";
+
+  // 1. Hàm tạo đối tượng dữ liệu người dùng
+  function createPersonDataObject() {
+    return {
+      firstname: "hiep",
+      lastname: "hoang",
+      username: "hhoang69"
+    };
+  }
+
+  // 2. Hàm gửi request POST
+  function sendPostRequest(vPersonJsonData) {
+    var vXmlHttpDice = new XMLHttpRequest();
+    console.log(vBASE_URL + "/dice")
+    vXmlHttpDice.open("POST", vBASE_URL + "/dice", true);
+    vXmlHttpDice.setRequestHeader("Content-Type", vUTF8_TEXT_APPLICATON_HEADER);
+    vXmlHttpDice.send(vPersonJsonData);
+    return vXmlHttpDice;
+  }
+
+  // 3. Hàm xử lý khi request thành công
+  function handleResponse(vXmlHttpDice) {
+    vXmlHttpDice.onreadystatechange = function() {
+      if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+        console.log(vXmlHttpDice.responseText);
+        
+        var vResponse = JSON.parse(vXmlHttpDice.responseText);
+        var vDiceReady = vResponse.dice;
+        console.log("Dice result:= " + vDiceReady);
+        handleVoucher(vResponse.voucher)
+        handlePrize(vResponse.prize)
+      }
+    };
+  }
+
+  // 4. Hàm xử lý voucher
+  function handleVoucher(voucher) {
+    if (voucher !== null) {
+      console.log(`Voucher: ${voucher.id}`);
+    } else {
+      console.log("Không có voucher");
+    }
+  }
+
+  // 5. Hàm xử lý prize
+  function handlePrize(prize) {
+    if (prize !== null) {
+      console.log(`Prize: ${prize}`);
+    } else {
+      console.log("Không có prize");
+    }
+  }
+
+  // 6. Hàm gọi khi nhấn nút
+  function myOnClickFunctionPostApi() {
+    var vPersonDataObject = createPersonDataObject();
+    var vPersonJsonData = JSON.stringify(vPersonDataObject);
+    var vXmlHttpDice = sendPostRequest(vPersonJsonData);
+    handleResponse(vXmlHttpDice);
+  }
+
+  // function myOnClickFunctionPostApi() {
+  //     "use strict";
+  //     //base url
+  //     const vBASE_URL = "http://203.171.20.210:8080/devcamp-lucky-dice/";
+  //     const vUTF8_TEXT_APPLICATON_HEADER = "application/json;charset=UTF-8";
+  //     // data to be sent by post method
+  //     var vPersonDataObject = {
+  //         firstname: "do",
+  //         lastname: "nga",
+  //         username: "ngado20"
+  //     }
+  //     // chuyển object về chuỗi JSON
+  //     var vPersonJsonData = JSON.stringify(vPersonDataObject);
+  //     debugger;
+  //     // create a request
+  //     var vXmlHttpDice = new XMLHttpRequest();
+  //     // mở và gửi request đi
+  //     vXmlHttpDice.open("POST", vBASE_URL + "/dice", true);
+  //     vXmlHttpDice.setRequestHeader("Content-Type", vUTF8_TEXT_APPLICATON_HEADER);
+  //     vXmlHttpDice.send(vPersonJsonData);
+
+  //     vXmlHttpDice.onreadystatechange = function () {
+  //         // Khi request đã xử lý xong và thành công!
+  //         if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+  //             // hãy REFACTORING ĐẨY MÃ NGUỒN XỬ LÝ RA FUNCTION KHÁC
+  //             console.log(vXmlHttpDice.responseText);
+  //             debugger;
+  //             // parsing to object
+  //             var vResponse = JSON.parse(vXmlHttpDice.responseText);
+  //             // sample:  response = JSON.parse(`{"voucher":{"id":12,"maVoucher":"86423","phanTramGiamGia":"20","ghiChu":null,"ngayTao":1614361849000,"ngayCapNhat":1614361849000},"dice":4,"prize":"Xe máy"}`);
+  //             // get result dice
+  //             var vDiceReady = vResponse.dice;
+  //             console.log("dice result:= " + vDiceReady);
+
+  //         }
+  //     }
+  // }
+</script>
+
+<body class="bg bg-light">
+  <div class="jumbotron container">
+    <div class="row form-group">
+      <p id="cmt2dev">Test Page for Javascrip Tasks. F5 to run code. </p>
+    </div>
+    <div class="row form-group">
+      <button onclick="myOnClickFunctionPostApi()" class="btn btn-success">Call post api!</button>
+    </div>
+    <div class="row form-group">
+      <p id="p-test" style="font-size:larger;">Demo gọi 01 post API!</p>
+    </div>
+    <div class="row form-group">
+      <p> Input: username, firstname, lastname</p>
+    </div>
+    <div class="row form-group">
+      <p> Response: dice, voucher, prize </p>
+    </div>
+
+  </div>
+</body>
+
+</html>

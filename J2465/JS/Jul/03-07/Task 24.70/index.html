@@ -74,13 +74,24 @@
         </select>
       </div>
     </div>
+
+    <div class="col-sm-12 text-center">
+      <button class="btn btn-primary" onclick="onBtnCapNhatUserClick()">Cập nhật user</button>
+    </div>
   </div>
+
+
 </body>
 <script>
+  const REQUEST_STATUS_OK = 200
+  const REQUEST_READY_STATUS_FINISH_AND_OK = 4
+  const BASE_URL = "http://203.171.20.210:8080/crud-api/users/"
+  const UTF8_TEXT_APPLICATON_HEADER = "application/json;charset=UTF-8"
+
   function onBtnGetInfoClick() {
     var userId = getUserId()
     if (validateUserId(userId)) {
-      var request = sendIdRequest(userId)
+      var request = sendGetRequest(userId)
       handleIdResponse(request)
     }
   }
@@ -104,32 +115,105 @@
     return true
   }
 
-  function sendIdRequest(userId) {
+  function sendGetRequest(userId) {
     var xmlHttp = new XMLHttpRequest()
-    xmlHttp.open("GET", `http://203.171.20.210:8080/crud-api/users/${userId}`, false)
+    xmlHttp.open("GET", BASE_URL + userId, false)
     xmlHttp.send()
     return xmlHttp
   }
 
   function handleIdResponse(xmlHttp) {
-    var statusCode = xmlHttp.status
-    if (statusCode === 200) {
-      var idResponse = JSON.parse(xmlHttp.responseText)
-      console.log(idResponse)
-      display(idResponse)
-    } else {
-      alert("Không tồn tại user với id đã nhập")
-    }
+    var response = JSON.parse(xmlHttp.responseText)
+    console.log(response)
+    display(response)
   }
 
   function display(response) {
     document.getElementById("input-firstname").value = response.firstname
     document.getElementById("input-lastname").value = response.lastname
     document.getElementById("select-country").value = response.country
-
     document.getElementById("input-subject").value = response.subject
     document.getElementById("select-customer-type").value = response.customerType
     document.getElementById("select-register-status").value = response.registerStatus
+  }
+
+  function onBtnCapNhatUserClick() {
+    var data = getUserData()
+    if (validateData(data)) {
+      var jsonData = JSON.stringify(data)
+      var xmlHttp = sendPutRequest(data.userId, jsonData)
+      handlePutResponse(xmlHttp)
+    }
+  }
+
+  function getUserData() {
+    var userId = getUserId()
+    var firstName = document.getElementById("input-firstname").value.trim()
+    var lastName = document.getElementById("input-lastname").value.trim()
+    var subject = document.getElementById("input-subject").value.trim()
+
+    var countryElement = document.getElementById("select-country")
+    var country = countryElement.options[countryElement.selectedIndex].text
+
+    var customerTypeElement = document.getElementById("select-customer-type")
+    var customerType = customerTypeElement.options[customerTypeElement.selectedIndex].text
+
+    var registerElement = document.getElementById("select-register-status")
+    var register = registerElement.options[registerElement.selectedIndex].text
+
+    return {
+      userId: userId,
+      firstname: firstName,
+      lastname: lastName,
+      subject: subject,
+      country: country,
+      customerType: customerType,
+      registerStatus: register
+    }
+  }
+
+  function validateData(data) {
+    if (data.userId === "") {
+      alert("User id cần được nhập")
+      return false
+    }
+
+    if (data.firstName === "") {
+      alert("First name cần được nhập")
+      return false
+    }
+
+    if (data.lastName === "") {
+      alert("Last name cần được nhập")
+      return false
+    }
+
+    if (data.subject === "") {
+      alert("Subject cần được nhập")
+      return false
+    }
+
+    return true
+  }
+
+  function sendPutRequest(userId, jsonData) {
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.open("PUT", BASE_URL + userId, true)
+    xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+    xmlHttp.send(jsonData)
+    return xmlHttp
+  }
+
+  function handlePutResponse(xmlHttp) {
+    xmlHttp.onreadystatechange = function() {
+      if (
+        this.status === REQUEST_STATUS_OK &&
+        this.readyState === REQUEST_READY_STATUS_FINISH_AND_OK
+      ) {
+        console.log(xmlHttp.responseText)
+        alert("User đã được cập nhật")
+      }
+    }
   }
 </script>
 

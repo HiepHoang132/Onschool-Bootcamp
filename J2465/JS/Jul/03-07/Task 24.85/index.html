@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> 02 API sample cho Pizza 365 Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+
+<!-- file html dùng để thử tác động của javascript vào các thành phần trang web-->
+<script>
+  "use strict";
+
+  const gREQUEST_STATUS_OK = 200; // GET & PUT success
+  const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+  const BASE_URL_VOUCHER = "http://203.171.20.210:8080/devcamp-pizza365/voucher_detail/";
+  const BASE_URL_DRINK = "http://203.171.20.210:8080/devcamp-pizza365/drinks"
+  var vVoucherId = "95531"; //một số mã đúng để test: 12332, 95531, 81432,...lưu ý test cả mã sai
+
+  function onPageLoading() {
+    document.getElementById("paragraph").style.visibility = "hidden"
+  }
+
+  //check mã giảm giá
+  function onBtnCheckVoucherClick() {
+    var vXmlHttp = sendGetRequestVoucher(vVoucherId)
+    var response = handleGetResponseVoucher(vXmlHttp)
+    displayVoucher(response)
+  }
+
+  function sendGetRequestVoucher(voucherId) {
+    // nếu mã giảm giấ đã nhập, tạo vXmlHttp request và gửi về server
+    var vXmlHttp = new XMLHttpRequest();
+    vXmlHttp.open("GET", BASE_URL_VOUCHER + vVoucherId, false);
+    vXmlHttp.send();
+    return vXmlHttp
+  }
+
+  function handleGetResponseVoucher(vXmlHttp) {
+    var response = vXmlHttp.responseText
+
+    if (vXmlHttp.status == gREQUEST_STATUS_OK) { // restFullAPI successful
+      // nhận lại response dạng JSON ở vXmlHttp.responseText và chuyển thành object
+      console.log(response);
+      return response
+    } else {
+      // không nhận lại được data do vấn đề gì đó: khả năng mã voucher ko dúng
+      console.log("Không tìm thấy voucher " + response);
+      return response
+    }
+  }
+
+  function displayVoucher(response) {
+    var paragraph = document.getElementById("paragraph")
+    paragraph.style.visibility = "visible"
+
+    if (response === "") {
+      paragraph.innerHTML = "Không tìm thấy voucher"
+    } else {
+      var jsonString = JSON.parse(response)
+      var ngayTao = new Date(jsonString.ngayTao).toISOString().split("T")[0]
+      var ngayCapNhat = new Date(jsonString.ngayCapNhat).toISOString().split("T")[0]
+
+      paragraph.innerHTML = `
+        Id: ${jsonString.id} <br>
+        Mã voucher: ${jsonString.maVoucher} <br>
+        Phần trăm giảm giá: ${jsonString.phanTramGiamGia} <br>
+        Ghi chú: ${jsonString.ghiChu} <br>
+        Ngày tạo: ${ngayTao} <br>
+        Ngày cập nhật: ${ngayCapNhat}`
+    }
+  }
+
+  //mã nguồn để load data drink list (danh sách loại nước uống) về
+  function onBtnGetDrinkListClick() {
+    var vXmlHttp = sendGetRequestDrink()
+    var response = handleGetResponseDrink(vXmlHttp)
+  }
+
+  function sendGetRequestDrink() {
+    var vXmlHttp = new XMLHttpRequest()
+    vXmlHttp.open("GET", BASE_URL_DRINK, true)
+    vXmlHttp.send()
+    return vXmlHttp
+  }
+
+  function handleGetResponseDrink(vXmlHttp) {
+    vXmlHttp.onreadystatechange = function() {
+      if (
+        this.readyState === gREQUEST_READY_STATUS_FINISH_AND_OK &&
+        this.status === gREQUEST_STATUS_OK
+      ) {
+        var response = vXmlHttp.responseText
+        console.log(response); //ghi response text ra console.log
+        displayDrink(response)
+      }
+    }
+  }
+
+  function displayDrink(response) {
+    var paragraph = document.getElementById("paragraph");
+    paragraph.style.visibility = "visible";
+    paragraph.innerHTML = ""; // Clear previous content
+
+    if (response === "") {
+      paragraph.innerHTML = "Không tìm thấy data";
+      return;
+    }
+
+    var jsonString;
+    try {
+      jsonString = JSON.parse(response);
+    } catch (e) {
+      paragraph.innerHTML = "Lỗi khi phân tích dữ liệu";
+      return;
+    }
+
+    if (!Array.isArray(jsonString)) {
+      paragraph.innerHTML = "Dữ liệu không đúng định dạng";
+      return;
+    }
+
+    var content = jsonString.map(nuocUong => {
+      var ngayTao = formatDate(nuocUong.ngayTao);
+      var ngayCapNhat = formatDate(nuocUong.ngayCapNhat);
+      return `
+      Mã nước uống: ${nuocUong.maNuocUong} <br>
+      Tên nước uống: ${nuocUong.tenNuocUong} <br>
+      Đơn giá: ${nuocUong.donGia} <br>
+      Ghi chú: ${nuocUong.ghiChu} <br>
+      Ngày tạo: ${ngayTao} <br>
+      Ngày cập nhật: ${ngayCapNhat} <br><br>`;
+    }).join("");
+
+    paragraph.innerHTML = content;
+  }
+
+  function formatDate(timestamp) {
+    if (!timestamp) return "Không xác định";
+    return new Date(timestamp).toISOString().split("T")[0];
+  }
+</script>
+
+<body onload="onPageLoading()">
+  <div class="container-fluid mt-4">
+    <p id="cmt2dev">Test Page for Javascrip Tasks. F5 to run code. </p>
+    <form id="singleForm">
+      <button type="button" class="btn btn-primary" onclick="onBtnCheckVoucherClick()"><i class="fas fa-search">&nbsp;</i>Call api Check Voucher</button>
+      <button type="button" class="btn btn-primary" onclick="onBtnGetDrinkListClick()"><i class="fas fa-search">&nbsp;</i>Call api Get Drink list!</button>
+    </form>
+    <p id="testP" style="font-size:larger;"> Demo 02 API for Pizza 365 Project: </p>
+    <ul>
+      <li>check voucher by ID: check thông tin mã giảm giá, quan trọng là có hay không, và % giảm giá </li>
+      <li>get drink list: lấy danh sách đồ uống</li>
+    </ul>
+    <strong style="color:red"> Bật console log để nhìn rõ output </strong>
+    <p id="paragraph">
+    </p>
+  </div>
+</body>
+
+</html>
