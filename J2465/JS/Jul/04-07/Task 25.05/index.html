@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Task 25.05 </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- Bắt đầu vùng form nhập thông tin điểm -->
+  <div class="container jumbotron p-4 my-4">
+    <div class="text-center">
+      <h3 class="mb-4">F500 - Quản lý bảng điểm</h3>
+    </div>
+    <div class="row form-group">
+      <label class="col-md-3 col-form-label text-right">Sinh viên <span class="text-danger">(*)</span></label>
+      <div class="col-md-7">
+        <select id="select-sinh-vien" class="form-control">
+          <option value="0">-- Chọn sinh viên --</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-md-3 col-form-label text-right">Môn học <span class="text-danger">(*)</span></label>
+      <div class="col-md-7">
+        <select id="select-mon-hoc" class="form-control">
+          <option value="0">-- Chọn môn học --</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-md-3 col-form-label text-right">Ngày thi <span class="text-danger">(*)</span></label>
+      <div class="col-md-7">
+        <input type="date" class="form-control" id="input-ngay-thi">
+      </div>
+    </div>
+    <div class="row form-group">
+      <label class="col-md-3 col-form-label text-right">Điểm <span class="text-danger">(*)</span></label>
+      <div class="col-md-7">
+        <input type="text" class="form-control" placeholder="Nhập điểm ..." id="input-diem">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-success" id="btn-save-data" onclick="onBtnSaveDataClick()">Save data</button>
+      </div>
+    </div>
+  </div>
+  <!-- Kết thúc vùng form nhập thông tin điểm -->
+
+  <!-- vùng hiển thị khi thêm điểm thành công -->
+  <div id="div-new-grade-success" class="container p-3 bg-success text-white" style="display: none;">
+
+  </div>
+</body>
+
+<script>
+  "use strict";
+  const gREQUEST_STATUS_OK = 200;
+  const gREQUEST_CREATE_OK = 201;
+  const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+  const vUTF8_TEXT_APPLICATON_HEADER = "application/json";
+
+  const gBASE_URL = "https://62454a477701ec8f724fb923.mockapi.io/api/v1/";
+  const gSTUDENTS_URL = gBASE_URL + "/students"
+  const gSUBJECTS_URL = gBASE_URL + "/subjects"
+  const gGRADES_URL = gBASE_URL + "/grades"
+
+  async function onPageLoading() {
+    try {
+      const studentData = await fetchData(gSTUDENTS_URL);
+      displayOptions(studentData, 'select-sinh-vien', formatStudentOption);
+
+      const subjectData = await fetchData(gSUBJECTS_URL);
+      displayOptions(subjectData, 'select-mon-hoc', formatSubjectOption);
+    } catch (error) {
+      console.error("Error loading data:", error);
+    }
+  }
+
+  async function fetchData(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Fetch error:", error);
+      throw error;
+    }
+  }
+
+  function formatStudentOption(data) {
+    return `${data.id} - 
+            ${data.firstname} 
+            ${data.lastname} - 
+            student code ${data.studentCode}
+    `;
+  }
+
+  function formatSubjectOption(data) {
+    return `${data.id} - 
+            ${data.subjectName} - 
+            ${data.subjectCode} - 
+            Credit ${data.credit}
+    `;
+  }
+
+  function displayOptions(data, selectElementId, formatOptionText) {
+    const selectElement = document.getElementById(selectElementId);
+    data.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.id;
+      option.text = formatOptionText(item);
+      selectElement.appendChild(option);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', onPageLoading);
+
+  function onBtnSaveDataClick() {
+    var gradeObject = getGradeObject()
+    if (validateData(gradeObject)) {
+      var jsonGradeObject = JSON.stringify(gradeObject)
+      console.log(jsonGradeObject)
+      sendPostRequest(jsonGradeObject)
+    }
+  }
+
+  function getGradeObject() {
+    return {
+      studentId: Number(document.getElementById("select-sinh-vien").value),
+      subjectId: Number(document.getElementById("select-mon-hoc").value),
+      examDate: document.getElementById("input-ngay-thi").value,
+      grade: document.getElementById("input-diem").value
+    };
+  }
+
+  function validateData(data) {
+    const errors = [];
+
+    if (data.studentId === 0) errors.push('Sinh viên chưa được chọn');
+    if (data.subjectId === 0) errors.push('Môn học chưa được chọn');
+    if (!data.examDate) errors.push('Chưa nhập ngày thi');
+    if (!data.grade) {
+      errors.push('Chưa nhập điểm');
+    } else if (isNaN(data.grade)) {
+      errors.push('Điểm phải là số');
+    } else {
+      const grade = Number(data.grade);
+      if (grade < 0 || grade > 10) errors.push('Điểm thi phải từ 0 đến 10');
+    }
+
+    if (errors.length > 0) {
+      alert(errors.join('\n'));
+      return false;
+    }
+    return true;
+  }
+
+  function sendPostRequest(data) {
+    var xmlHttp = new XMLHttpRequest()
+    xmlHttp.open("POST", gGRADES_URL, true)
+    xmlHttp.setRequestHeader("Content-type", vUTF8_TEXT_APPLICATON_HEADER)
+    xmlHttp.send(data)
+    if (
+      xmlHttp.status === gREQUEST_STATUS_OK &&
+      xmlHttp.readyState === gREQUEST_READY_STATUS_FINISH_AND_OK
+    ) {
+      console.log(xmlHttp.responseText)
+    }
+  }
+</script>
+
+
+</html>
