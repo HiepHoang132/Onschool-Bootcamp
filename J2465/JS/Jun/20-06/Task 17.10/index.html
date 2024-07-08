@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Menu Spacing</title>
-  </head>
-  <style>
-    .menu-body {
-      background-color: DodgerBlue;
-      display: inline-block;
-      border: 2px solid black;
-      color: black;
-    }
+<html lang="en">
 
-    /* Update only the css styles of .menu-item */
-    .menu-item {
-      background-color: LightGray;
-      display: block;
-      margin: 10px 0;
-      padding: 0 10px;
-      border-top: 2px solid black;
-      border-bottom: 2px solid black;
-    }
-  </style>
-  <body>
-    <div class="menu-body">
-      <div class="menu-item">Home</div>
-      <div class="menu-item">Pricing</div>
-      <div class="menu-item">Docs</div>
-      <div class="menu-item">Contact</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Hoang Hua Hiep">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Lucky Dice Casino</title>
+</head>
+
+<body>
+  <div class="flex-container">
+    <div class="container">
+      <div class="big-picture" id="picture"></div>
+      <h1 class="heading" id="welcome">Welcome To My Lucky Dice</h1>
+      <div class="dice">
+        <img id="dice-image" src="assets/images/dice.png" alt="">
+      </div>
+      <button id="btn" onclick="onBtnThrowDiceClick()">Throw the dice</button>
+      <h2 class="message" id="h-message">Hello</h2>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
