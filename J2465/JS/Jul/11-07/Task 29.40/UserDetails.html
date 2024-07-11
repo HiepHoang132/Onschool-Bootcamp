@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Task 29.40</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<body onload="onPageLoading()">
+  <div class="container">
+    <div class="form-group p-2">
+      <a href="indexListView.html" class="font-weight-bold"> QUAY LẠI </a>
+    </div>
+    <div class="form-group">
+      <h1> Luyện tập lấy tham số từ query string (đường dẫn URL) </h1>
+      <img src="query.string.goc.png" alt="query string">
+    </div>
+    <div class="form-group text-danger" id="div-result">
+      ...
+    </div>
+    <div class="form-group">
+      Hãy thử dùng query string như sau (edit trên thanh URL): ?id=a10&firstname=joe&lastname=doe
+    </div>
+  </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    function onPageLoading() {
+      // get data from query string
+      var vUrlString = window.location.href; //đường đẫn gọi đến trang
+      console.log(vUrlString);
+      var vUrl = new URL(vUrlString);
+      
+      // get parameters
+      var vUserId = vUrl.searchParams.get("id")
+      var vFirstname = vUrl.searchParams.get("firstname");
+      var vLastname = vUrl.searchParams.get("lastname");
+      var vAge = vUrl.searchParams.get("age")
+
+      // show on div result
+      var vDivResult = document.getElementById("div-result");
+      vDivResult.innerHTML = "Id is: " + vUserId
+      vDivResult.innerHTML += "<br> Firstname is: " + vFirstname;
+      vDivResult.innerHTML += " <br> Lastname is: " + vLastname;
+      vDivResult.innerHTML += "<br> Age is: " + vAge
+    }
+  </script>
+</body>
+
+</html>

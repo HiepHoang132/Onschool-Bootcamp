@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Task 29.20</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="onPageLoading()">
+  <div class="container">
+    <h2 class="text-center">Danh sách người dùng đăng ký</h2>
+    <table id="user-table" class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Mã người dùng</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Age</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+  </div>
+  <script>
+    "use strict";
+
+    const gJSON_USER = `{
+    "description": "Data user",
+    "users": [
+      {
+        "userId": 1,
+        "firstname": "Test1",
+        "lastname": "User1",
+        "age": 18
+      },
+      {
+        "userId": 2,
+        "firstname": "Test2",
+        "lastname": "User2",
+        "age": 19
+      },
+      {
+        "userId": 3,
+        "firstname": "Test3",
+        "lastname": "User3",
+        "age": 18
+      },
+      {
+        "userId": 4,
+        "firstname": "Test4",
+        "lastname": "User4",
+        "age": 20
+      },
+      {
+        "userId": 5,
+        "firstname": "Test5",
+        "lastname": "User5",
+        "age": 21
+      },
+      {
+        "userId": 6,
+        "firstname": "Test6",
+        "lastname": "User6",
+        "age": 20
+      }
+    ]
+  }`;
+    var gUserListObject = JSON.parse(gJSON_USER);
+
+    const gEND_ROW_TABLE = -1;
+    const gCOLUMN_USER_ID = 0;
+    const gCOLUMN_FIRSTNAME = 1;
+    const gCOLUMN_LASTNAME = 2;
+    const gCOLUMN_AGE = 3;
+    const gCOLUMN_ACTION = 4;
+
+    function onPageLoading() {
+      showDataOnTable(gUserListObject.users);
+    }
+
+    function showDataOnTable(paramUserList) {
+      var vTable = document.getElementById("user-table");
+      var vTableBody = vTable.getElementsByTagName("tbody")[0];
+
+      for (var bIndex = 0; bIndex < paramUserList.length; bIndex++) {
+        var vUser = paramUserList[bIndex];
+        var row = vTableBody.insertRow(-1);
+
+        var vCellUserId = row.insertCell(0);
+        var vCellFirstname = row.insertCell(1);
+        var vCellLastname = row.insertCell(2);
+        var vCellAge = row.insertCell(3);
+        var vCellAction = row.insertCell(4);
+
+        vCellUserId.innerHTML = vUser.userId;
+        vCellFirstname.innerHTML = vUser.firstname;
+        vCellLastname.innerHTML = vUser.lastname;
+        vCellAge.innerHTML = vUser.age;
+
+        var vInfoButton = document.createElement("button")
+        vInfoButton.innerHTML = "Chi tiết"
+        vInfoButton.className = "btn btn-info"
+
+        vInfoButton.dataset.id = vUser.userId
+        vInfoButton.dataset.firstName = vUser.firstname
+        vInfoButton.dataset.lastName = vUser.lastname
+        vInfoButton.dataset.age = vUser.age
+
+        vInfoButton.addEventListener("click", function() {
+          onBtnShowInfoClick(this);
+        });
+
+        vCellAction.appendChild(vInfoButton)
+      }
+    }
+
+    function onBtnShowInfoClick(button) {
+      console.log("Nút chi tiết được ấn")
+      console.log(`User id: ${button.dataset.id}`)
+      console.log(`User first name: ${button.dataset.firstName}`)
+      console.log(`User last name: ${button.dataset.lastName}`)
+      console.log(`User age: ${button.dataset.age}`)
+    }
+  </script>
+</body>
+
+</html>

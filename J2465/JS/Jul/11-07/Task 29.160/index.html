@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gọi mẫu: get All User - Get User by ID - Update user</title>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-group">
+      <h3> 3 ví dụ gọi Rest API. Bạn hãy thử bằng ấn các nút. Và phân tích JSON thử (responseText trên console)</h3>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-info" onclick="onBtnLoadDataUsersClick()"> Mẫu: Lấy tất cả User - Load user data </button>
+      <button class="btn btn-danger" onclick="onBtnGetUserDataByIdClick()"> Mẫu: Lấy thông tin một User bằng ID - Get User info by ID </button>
+      <button class="btn btn-success" onclick="onBtnCallRestApiUpdateClick()"> Mẫu: Sửa thông tin User - Update User </button>
+    </div>
+
+  </div>
+
+  <script>
+    'use strict';
+    const gREQUEST_STATUS_OK = 200;
+    const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+    const gBASE_URL = "http://203.171.20.210:8080/devcamp-register-java-api/users"
+
+    // Lấy thông tin tất cả user (load all users)
+    // Dùng để lấy danh sách các user
+    function onBtnLoadDataUsersClick() {
+      'use strict';
+      var vXHTMLRequest = new XMLHttpRequest();
+      vXHTMLRequest.onreadystatechange = function() {
+        if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+          //đây là responses text bạn có thể  phân tích 
+          // console.log("responseText = " + vXHTMLRequest.responseText); 
+          // code xử lý response ở đây
+          /*thêm code xử lý response*/
+          var data = JSON.parse(vXHTMLRequest.responseText)
+          console.log(`Coutry: ${data[2].country}`)
+        }
+      };
+      vXHTMLRequest.open("GET", gBASE_URL, true);
+      vXHTMLRequest.send();
+    }
+
+    //sample function get user data by id
+    function onBtnGetUserDataByIdClick() {
+      'use strict';
+      var vUserID = "206773"; //ví dụ là id này
+      var vXHTMLRequest = new XMLHttpRequest();
+      vXHTMLRequest.onreadystatechange = function() {
+        if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+          //bạn hãy tự chuyển thành JSON object, past, và nghiên cứu các dữ liệu nhân về (ví dụ dùng break-point, watch; hoặc ghi ra console)
+          alert("response Text = " + vXHTMLRequest.responseText);
+          // xem trên console.log để biết cấu trúc
+          // console.log(vXHTMLRequest.responseText); 
+          // code xử lý response ở đây
+          /*thêm code xử lý response*/
+
+          var data = JSON.parse(vXHTMLRequest.responseText)
+
+          console.log(`First name: ${data.firstname}`)
+        }
+      };
+      vXHTMLRequest.open("GET", gBASE_URL + "/" + vUserID, true);
+      vXHTMLRequest.send();
+    }
+
+    //update user info
+    // mẫu code update một user
+    function onBtnCallRestApiUpdateClick() {
+      'use strict';
+      var vUserID = "204935"; //ví dụ là id này
+      //data to be sent 
+      var vObjectRequestData = {
+        firstname: "Mike", //bạn có thể sửa các giá trị này để thử, và lại get lại data 
+        lastname: "Donasky",
+        subject: "On business 200",
+        country: "USA"
+      };
+      //      
+      var vXMLHttp = new XMLHttpRequest(); // new HttpRequest instance - tạo 1 request
+      var vUrlUpdateInfo = gBASE_URL + "/" + vUserID;
+      vXMLHttp.open("PUT", vUrlUpdateInfo);
+      vXMLHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      vXMLHttp.onreadystatechange = function() {
+        if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+          alert("Cập nhật thông tin thành công: " + this.responseText);
+          // code xử lý response ở đây
+          /*thêm code xử lý response*/
+          var data = JSON.parse(vXMLHttp.responseText)
+
+          console.log(data)
+
+          console.log(`Id: ${data.id}`)
+          console.log(`First name: ${data.firstname}`)
+          console.log(`Last name: ${data.lastname}`)
+          console.log(`Coutry: ${data.country}`)
+          console.log(`Subject: ${data.subject}`)
+          console.log(`Customer type: ${data.customerType}`)
+          console.log(`Register status: ${data.registerStatus}`)
+        }
+      }
+      vXMLHttp.send(JSON.stringify(vObjectRequestData)); //send request - gửi request
+    }
+  </script>
+  </div>
+</body>
+
+</html>
