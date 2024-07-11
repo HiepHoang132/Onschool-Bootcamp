@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Task 21.06 </title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container p-4">
+    <p>Ấn nút để insert (trèn, thêm mới) dòng vào table (bảng)</p>
+    <!-- TODO 1: Thêm 1 dòng mới thủ công ở table trên (thêm thủ công  bằng HTML) -->
+    <table id="table-person" class="table table-bordered table-striped">
+      <thead>
+        <!-- phần head, dòng tiêu đề  của bảng -->
+        <tr>
+          <td> First Name </td>
+          <td> Last Name </td>
+          <td> Age </td>
+        </tr>
+        <thead>
+        <tbody>
+          <!-- phần dữ liệu của bảng -->
+          <tr>
+            <td>Joe</td>
+            <td>Doe</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>Dun</td>
+            <td>Zent</td>
+            <td>19</td>
+          </tr>
+      <tbody>
+    </table>
+    <button class="btn btn-info" onclick="onBtnInsertNewRowToTableClick()">Thêm dòng mới vào bảng:  "Mol", "An", "29"</button>
+    <button class="btn btn-warning" onclick="onBtnNewRowClick()" >Thêm dòng mới vào bảng:  "Alan", "Pham", "37"</button>  <!-- phải làm nút này -->
+  </div>
+  <script>
+    "use strict";
+    const gCOL_FIRSTNAME = 0;
+    const gCOL_LASTNAME = 1;
+    const gCOL_AGE = 2; 
+
+    function onBtnInsertNewRowToTableClick() {
+      "use strict";
+      const vEND_OF_TABLE = -1;
+      var vPersonTable = document.getElementById("table-person");  //truy xuất bảng
+      var vPersonTableBody = document.getElementsByTagName("tbody")[0];  //truy xuất body của bảng 
+      // insert to the end of table, thêm row mới vào bảng( <tr> </tr>)
+      var vNewRow = vPersonTableBody.insertRow(vEND_OF_TABLE);
+      // them moi 03 cell (03 ô) (<td> </td> 
+      var vCellFirstName = vNewRow.insertCell(gCOL_FIRSTNAME);
+      var vCellLastName = vNewRow.insertCell(gCOL_LASTNAME);
+      var vCellAge = vNewRow.insertCell(gCOL_AGE);
+      //gán giá trị cho các ô
+      vCellFirstName.innerHTML = "Mol";
+      vCellLastName.innerHTML = "Ann";
+      vCellAge.innerHTML = "29";
+    }
+    
+    function onBtnNewRowClick(){
+      var table = document.getElementById("table-person")
+      var tableBody = table.getElementsByTagName("tbody")[0]
+
+      var newRow = tableBody.insertRow(-1)
+
+      var firstNameCell = newRow.insertCell(0)
+      var lastNameCell = newRow.insertCell(1)
+      var ageCell = newRow.insertCell(2)
+
+      firstNameCell.innerHTML = "Alan"
+      lastNameCell.innerHTML = "Pham"
+      ageCell.innerHTML = "37"
+    }
+
+  </script>
+
+</body>
+
+</html>
