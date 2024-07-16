@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Task 30.30</title>
+  </head>
+  <body onload="onPageLoading()">
+    <div id="my-container">
+      <div id="inner-container">
+        <div class="form-group" id="form-container">
+          <form action="" method="POST" id="my-form">
+            <h5>Let's get you started</h5>
+
+            <div class="">
+              <label for="input-name">Full name</label>
+              <input
+                type="text"
+                id="input-name"
+                class="form-control"
+                placeholder="Hoang Hua Hiep"
+              />
+              <p class="alert-paragraph text-danger" id="name-input">Tên cần được nhập</p>
+            </div>
+
+            <div class="">
+              <label for="input-email">Email address</label>
+              <input
+                type="text"
+                id="input-email"
+                class="form-control"
+                placeholder="address@email.com"
+              />
+              <p class="alert-paragraph text-danger" id="email-input"></p>
+            </div>
+
+            <div class="">
+              <label for="input-password">Create password</label>
+              <input type="password" id="input-password" class="form-control" />
+              <p class="alert-paragraph" id="password-input">
+                Password must contain a minimum of 8 characters <br />
+                Password must contain at least one symbol e.g. @, !
+              </p>
+            </div>
+
+            <button type="submit" class="btn" id="my-button">Sign up</button>
+
+            <h6 class="text-center" id="already-account">
+              Already a user?
+              <span>Login</span>
+            </h6>
+          </form>
+        </div>
+        <div
+          id="form-quotes"
+          class="d-flex flex-column justify-content-center align-items-center"
+        >
+          <div class="text-white" id="quotes">
+            “Creativity is intelligence having fun”
+          </div>
+          <div id="author" class="text-white">- Albert Einstein</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

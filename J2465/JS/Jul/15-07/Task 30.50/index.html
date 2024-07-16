@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Task 30.50</title>
+  </head>
+  <body onload="onPageLoading()">
+    <div class="container-fluid d-flex align-items-center">
+      <div class="container d-flex" id="my-container">
+        <div
+          class="d-flex flex-column justify-content-center align-items-center"
+          id="form-container"
+        >
+          <form class="form" id="myForm" method="POST">
+            <div class="">
+              <h1>Contact Us</h1>
+              <p>
+                We’re here to help! Send us your query via the form below or
+                send us an email at <a href="#">helpdesk@gstudio.com</a> for any
+                issue you’re facing
+              </p>
+            </div>
+            <input
+              type="text"
+              id="input-name"
+              class="form-control"
+              placeholder="Name"
+            />
+            <input
+              type="text"
+              id="input-email"
+              class="form-control"
+              placeholder="Email"
+            />
+            <textarea
+              class="form-control"
+              id="textarea-contact"
+              rows="7"
+              placeholder="Type your message here"
+            ></textarea>
+            <button type="submit" class="btn mx-auto">Submit</button>
+          </form>
+        </div>
+        <div id="form-image"></div>
+      </div>
+    </div>
+  </body>
+</html>

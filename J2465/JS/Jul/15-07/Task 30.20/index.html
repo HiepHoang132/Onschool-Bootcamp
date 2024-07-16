@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Task 30.20</title>
+  </head>
+  <body onload="onPageLoading()">
+    <div class="container-fluid" id="my-container">
+      <div class="container">
+        <div class="form-group" id="form-container">
+          <h3 id="create-account">Create a free account</h3>
+
+          <form action="" method="POST" id="my-form">
+            <div class="">
+              <label for="input-name">Name</label>
+              <input
+                type="text"
+                id="input-name"
+                class="form-control"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div class="">
+              <label for="input-email">E-mail</label>
+              <input
+                type="text"
+                id="input-email"
+                class="form-control"
+                placeholder="Your e-mail address"
+              />
+            </div>
+
+            <div class="">
+              <label for="input-password">Password</label>
+              <input type="password" id="input-password" class="form-control" />
+            </div>
+
+            <div class="">
+              <label for="input-confirm-password">Confirm Password</label>
+              <input
+                type="password"
+                id="input-confirm-password"
+                class="form-control"
+              />
+            </div>
+
+            <button  type="submit" class="btn" id="my-button">Sign up</button>
+
+          </form>
+
+
+          <p class="text-center" id="terms">
+            By signing up you agree to our
+            <span>Terms of Service</span> and
+            <span>Privacy Policy</span>
+          </p>
+
+          <h5 class="text-center" id="already-account">
+            Already have an account?
+            <span>Login</span>
+          </h5>
+        </div>
+        <div id="form-image"></div>
+      </div>
+    </div>
+  </body>
+</html>

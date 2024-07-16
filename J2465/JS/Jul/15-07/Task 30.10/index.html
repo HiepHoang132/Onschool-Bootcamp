@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <title>Task 30.10</title>
+  </head>
+  <body onload="onPageLoading()">
+    <div
+      class="container-fluid d-flex flex-column justify-content-center"
+      style="height: 100vh"
+    >
+      <div class="container d-flex flex-column">
+        <h3>Đăng nhập</h3>
+        <p>Nhập tên đăng nhập và mật khẩu</p>
+        <form action="" id="loginForm" method="POST">
+          <div class="form-group">
+            <label for="input-email">Email address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="input-email"
+              placeholder="Email address"
+            />
+            <p>We'll never share your email with anyone else.</p>
+
+            <label for="input-password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="input-password"
+              placeholder="Password"
+            />
+          </div>
+
+          <button type="button submit" class="btn btn-primary btn-sm">Submit</button>
+
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
