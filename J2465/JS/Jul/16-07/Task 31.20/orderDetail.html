@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Order Detail</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/orderDetail.css">
+    <script src="scripts/orderDetail.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body onload="onPageLoading()">
+    <div
+      class="container-fluid d-flex align-items-center justify-content-center"
+      style="height: 100vh; width: 100%"
+    >
+      <div class="container">
+        <div class="heading">
+          <h2 class="text-center mb-5">Order Detail</h2>
+        </div>
+
+        <form id="myForm" method="POST" class="form-group">
+          <div class="left-container">
+            <div class="container-row">
+              <label for="input-order-code">Order Code</label>
+              <input type="text" class="form-control" id="input-order-code"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-duong-kinh">Đường kính Pizza</label>
+              <input type="number" class="form-control" id="input-duong-kinh"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-drink">Đồ uống</label>
+              <select class="form-control" id="input-drink">
+                <option>Chọn đồ uống</option>
+              </select>            
+            </div>
+
+            <div class="container-row">
+              <label for="input-voucher-id">Voucher ID</label>
+              <input type="text" class="form-control" id="input-voucher-id"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-salad">Salad</label>
+              <input type="number" class="form-control" id="input-salad"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-giam-gia">Giảm giá</label>
+              <input type="text" class="form-control" id="input-giam-gia"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-email">Email</label>
+              <input type="text" class="form-control" id="input-email"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-dia-chi">Địa chỉ</label>
+              <input type="text" class="form-control" id="input-dia-chi"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-trang-thai">Trạng thái đơn hàng</label>
+              <select class="form-control" id="input-trang-thai">
+                <option>Trạng thái</option>
+                <option value="open">Open</option>
+                <option value="cancel">Cancel</option>
+              </select>            
+            </div>
+
+            <div class="container-row">
+              <label for="input-ngay-cap-nhat">Ngày cập nhật</label>
+              <input type="text" class="form-control" id="input-ngay-cap-nhat"/>
+            </div>
+
+            <div class="buttons">
+              <button type="submit" class="btn btn-success">Confirm</button>
+              <button type="submit" class="btn btn-info">Cancel</button>
+            </div>
+
+          </div>
+          
+          <div class="right-container">
+            <div class="container-row">
+              <label for="input-combo">Cỡ combo</label>
+              <select class="form-control" id="input-combo">
+                <option>Chọn cỡ Combo (Combo size)</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+              </select>            
+            </div>
+
+            <div class="container-row">
+              <label for="input-suon-nuong">Sườn nướng(miếng)</label>
+              <input type="number" class="form-control" id="input-suon-nuong"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-so-luong-drink">Số lượng nước uống</label>
+              <input type="number" class="form-control" id="input-so-luong-drink"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-pizza">Loại pizza</label>
+              <select class="form-control" id="input-pizza">
+                <option>Chọn loại pizza</option> 
+                <option value="Hawaii">Pizza Hawaii</option>
+                <option value="Seafood">Pizza Seafood</option>
+                <option value="Bacon">Pizza Bacon</option>
+              </select>            
+            </div>
+
+            <div class="container-row">
+              <label for="input-thanh-tien">Thành tiền</label>
+              <input type="number" class="form-control" id="input-thanh-tien"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-ho-va-ten">Họ và tên</label>
+              <input type="text" class="form-control" id="input-ho-va-ten"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-sdt">Số điện thoại</label>
+              <input type="text" class="form-control" id="input-sdt"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-loi-nhan">Lời nhắn</label>
+              <input type="text" class="form-control" id="input-loi-nhan"/>
+            </div>
+
+            <div class="container-row">
+              <label for="input-ngay-tao-don">Ngày tạo đơn</label>
+              <input type="text" class="form-control" id="input-ngay-tao-don"/>
+            </div>
+          </div>
+        </form>        
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
