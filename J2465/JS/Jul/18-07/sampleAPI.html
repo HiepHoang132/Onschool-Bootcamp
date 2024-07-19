@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> All APIs sample cho Devcamp Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    .divider {
+        border-bottom: 2px solid #0163ee;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 23rem;
+    }
+</style>
+<script>
+    const gREQUEST_STATUS_OK = 200;
+    const gREQUEST_CREATE_OK = 201; // status 201 là tạo mới thành công
+    const gREQUEST_READY_STATUS_FINISH_AND_OK = 4;
+
+    var gBASE_URL = "https://62442d9d3da3ac772b0c50eb.mockapi.io/api/v1/";
+
+    // API lấy danh sách Liên hệ (Contacts)
+    function onGetContactsListClick() {
+        var vAPI_URL = gBASE_URL + "/contacts";
+        var vXhttp = new XMLHttpRequest();
+        vXhttp.onreadystatechange = function () {
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                console.log(vXhttp.responseText); // ghi response text ra console.log
+            }
+        };
+        vXhttp.open("GET", vAPI_URL, true);
+        vXhttp.send();
+    }
+
+    // API lấy chi tiết 01 contact by id
+    function onGetContactByIdClick() {
+        const vAPI_URL = gBASE_URL + "/contacts/";
+        var vContactId = 11;
+
+        var vXmlHttp = new XMLHttpRequest();
+        vXmlHttp.open("GET", vAPI_URL + vContactId, true);
+        vXmlHttp.send();
+        vXmlHttp.onreadystatechange = function () {
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                console.log(vXmlHttp.responseText);
+            }
+        }
+    }
+
+    // API tạo (Create) một Contact mới
+    function onCreateContactClick() {
+        const vAPI_URL = gBASE_URL + "/contacts";
+        // đối tượng contact sẽ được tạo mới
+        var vContactObj = {
+            name: "Hoang Chi Linh",
+            email: "hoang.linh@gmailmail.com",
+            message: "Please contact me ASAP to make a big deal!",
+            createDate: "12/12/2022"
+        };
+
+        var vXmlHttp = new XMLHttpRequest();
+        vXmlHttp.open("POST", vAPI_URL, true);
+        vXmlHttp.setRequestHeader("Content-Type", "application/json");
+        vXmlHttp.send(JSON.stringify(vContactObj));
+
+        vXmlHttp.onreadystatechange = function () {
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_CREATE_OK) {
+                console.log(vXmlHttp.responseText);
+            }
+        }
+    }
+
+    // API để sửa (update) một contact theo Id
+    function onUpdateContactClick() {
+        const vAPI_URL = gBASE_URL + "/contacts/";
+        // id contact cần sửa
+        var vContactId = 11;
+        // đối tượng contact sẽ được sửa
+        var vContactObj = {
+            name: "Hoang Chi Linh",
+            email: "hoang.linh@gmailmail.com",
+            message: "Please contact me ASAP to make a big deal!",
+            createDate: "12/12/2022"
+        };
+
+        var vXmlHttp = new XMLHttpRequest();
+        vXmlHttp.open("PUT", vAPI_URL + vContactId, true);
+        vXmlHttp.setRequestHeader("Content-Type", "application/json");
+        vXmlHttp.send(JSON.stringify(vContactObj));
+
+        vXmlHttp.onreadystatechange = function () {
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                console.log(vXmlHttp.responseText);
+            }
+        }
+    }
+
+    // API để xóa (delete) một contact theo Id
+    function onDeleteContactClick() {
+        const vAPI_URL = gBASE_URL + "/contacts/";
+        // id contact sẽ xóa
+        var vContactId = 4;
+
+        var vXmlhttp = new XMLHttpRequest();
+        vXmlhttp.open("DELETE", vAPI_URL + vContactId, true);
+        vXmlhttp.send();
+
+        vXmlhttp.onreadystatechange = function () {
+            // xóa thành công contact
+            if (this.readyState == gREQUEST_READY_STATUS_FINISH_AND_OK && this.status == gREQUEST_STATUS_OK) {
+                console.log("Delete contact " + vContactId + " thành công!");
+            }
+        }
+    }
+
+</script>
+
+<body>
+    <div class="container mt-4">
+        <div class="row form-group">
+            <strong class="text-danger"> Bật console log để nhìn rõ output </strong>
+        </div>
+        <div class="row form-group">
+            <p id="testP" class="h4"> Demo APIs cho dự án Quản lý Contacts: </p>
+        </div>
+        <div class="row form-group">
+            <button class="btn btn-info m-1" onclick="onGetContactsListClick()">Lấy danh sách Contacts</button>
+            <button class="btn btn-warning m-1" onclick="onGetContactByIdClick()">Lấy chi tiết 1 Contact theo id</button>
+            <button class="btn btn-success m-1" onclick="onCreateContactClick()">Tạo mới Contact (Create)</button>
+            <button class="btn btn-primary m-1" onclick="onUpdateContactClick()">Sửa Contact (Update)</button>
+            <button class="btn btn-danger m-1" onclick="onDeleteContactClick()">Xóa Contact (Delete)</button>
+        </div>
+    </div>
+</body>
+
+</html>
