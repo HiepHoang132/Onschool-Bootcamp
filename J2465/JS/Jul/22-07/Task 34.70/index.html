@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jQuery Traversing Table</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="text-center">Danh sách người dùng đăng ký</h2>
+      <table
+        id="user-table"
+        class="table table-bordered table-striped table-hover"
+      >
+        <thead>
+          <tr>
+            <th>Mã người dùng</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script>
+      "use strict";
+      /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+      const gJSON_USER = `{
+        "description": "Data user",
+        "users": [
+          {
+            "userId": 1,
+            "firstname": "Nguyễn",
+            "lastname": "Hoa Lan",
+            "age": 18
+          },
+          {
+            "userId": 2,
+            "firstname": "Trần",
+            "lastname": "Hòa Bình",
+            "age": 19
+          },
+          {
+            "userId": 3,
+            "firstname": "Joe",
+            "lastname": "Paker",
+            "age": 18
+          },
+          {
+            "userId": 4,
+            "firstname": "Lee",
+            "lastname": "Hoyan",
+            "age": 20
+          },
+          {
+            "userId": 5,
+            "firstname": "Mai",
+            "lastname": "Thế Vinh",
+            "age": 21
+          },
+          {
+            "userId": 6,
+            "firstname": "Sadam",
+            "lastname": "Mark",
+            "age": 20
+          }
+        ]
+      }`;
+      // parsing json to object
+      var gUserListObject = JSON.parse(gJSON_USER);
+
+      const gEND_ROW_TABLE = -1;
+      // hằng số số thứ tự các cột
+      const gCOLUMN_USER_ID = 0;
+      const gCOLUMN_FIRSTNAME = 1;
+      const gCOLUMN_LASTNAME = 2;
+      const gCOLUMN_AGE = 3;
+      const gCOLUMN_ACTION = 4;
+
+      /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+      $(document).ready(function () {
+        onPageLoading();
+
+        // console.log($("#user-table").text());
+        // $("#user-table > thead").addClass("thead-dark");
+        // console.log($("#user-table > tbody > tr").children().first().text());
+        // console.log($("#user-table > tr").first().text());
+        // console.log($("#user-table > tbody").first().text());
+
+        // gọi hàm findCell tìm kiếm ở ô Firstname, và ghi vào console giá trị ô Mã người dùng ở cùng dòng
+        console.log(
+          findCell("Sadam", gCOLUMN_FIRSTNAME)
+            .closest("tr")
+            .find("td:eq(0)")
+            .text()
+        );
+
+        // còn dòng này thì ghi vào console ô Action ở cùng dòng khi tìm thấy
+        console.log(
+          findCell("Trần", gCOLUMN_FIRSTNAME)
+            .closest("tr")
+            .find("td:eq(4)")
+            .text()
+        );
+
+        console.log($("#user-table tr").find("th:eq(0)").text());
+
+        // Yêu cầu 3: gọi findCell theo Lastname và tìm tuổi cùng dòng ghi vào console
+        var data = JSON.parse(gJSON_USER);
+        const users = data["users"];
+
+        for (var i = 0; i < users.length; i++) {
+          const lastName = users[i].lastname;
+          const row = findCell(lastName, gCOLUMN_LASTNAME).closest("tr");
+          const age = row.find("td:eq(3)").text();
+          console.log(age);
+          // console.log($(`#user-table tr:eq(${i})`).find("td:eq(3)").text());
+        }
+
+        // Gán sự kiện click cho các nút chi tiết
+        $(".info-user").click(function () {
+          onBtnChiTietClick(this);
+        });
+      });
+      /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+      // hàm xử lý sự kiện loading
+      function onPageLoading() {
+        // hiển thị dữ liệu lên table
+        showDataOnTable(gUserListObject.users);
+      }
+
+      //hàm xử lý sự kiện chung cho tất cả các nút Chi tiết
+      // onBtnChiTietClick, ấn nút chi tiết
+      function onBtnChiTietClick(paramDetailButton) {
+        // thu thập dữ liệu
+        var vId = $(paramDetailButton).data("id");
+        var vFirstname = $(paramDetailButton).data("firstname");
+        var vLastname = $(paramDetailButton).data("lastname");
+        var vAge = $(paramDetailButton).data("age");
+
+        // gọi và truyền data qua form Details
+        console.log("%c Ghi thông tin hàng ra console", "color:blue");
+        console.log("First name = " + vFirstname);
+        console.log($(paramDetailButton).data());
+      }
+
+      /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+      // hiển thị dữ liệu lên table
+      function showDataOnTable(paramUserList) {
+        var vUsersTable = $("#user-table");
+        for (var bI = 0; bI < paramUserList.length; bI++) {
+          var bNewRow = $("<tr>").appendTo(vUsersTable);
+          $("<td>", { html: paramUserList[bI].userId }).appendTo(bNewRow);
+          $("<td>", { html: paramUserList[bI].firstname }).appendTo(bNewRow);
+          $("<td>", { html: paramUserList[bI].lastname }).appendTo(bNewRow);
+          // các tạo ô khác
+          $("<td>").html(paramUserList[bI].age).appendTo(bNewRow);
+
+          var bActionCell = $("<td>").appendTo(bNewRow);
+          // thêm nút Chi tiết và dataset cho nút dùng jQuery
+          var vDetailButton = $("<button>", {
+            html: "Chi tiết",
+            class: "btn btn-info info-user",
+          })
+            .data("id", paramUserList[bI].userId)
+            .data("firstname", paramUserList[bI].firstname)
+            .data("lastname", paramUserList[bI].lastname)
+            .data("age", paramUserList[bI].age)
+            .appendTo(bActionCell);
+        }
+      }
+
+      // Hàm tìm ô thỏa mãn giá trị truyền vào
+      // input: paramStr: chuỗi cần tìm
+      // input: paramColIndex tìm giá trị trong cột nào (theo chỉ số cột)
+      function findCell(paramStr, paramColIndex) {
+        var vCurrentCell;
+        $("#user-table tr")
+          .find("td:eq(" + paramColIndex + ")")
+          .each(function () {
+            if ($(this).text() === paramStr) vCurrentCell = $(this);
+          });
+        return vCurrentCell;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jquery chain examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js" defer></script>
+    <style>
+      /*class để thử */
+      .text-bordered {
+        border: 2px solid red;
+      }
+
+      .text-line-through {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-4">
+      <div class="form-group">
+        <p id="para-p1">
+          Bạn có thể chạy nhiều Action, với cùng một jquery element bằng
+          Chaining!
+        </p>
+        <hr />
+        <button class="btn btn-warning" id="btn-change-text">
+          (1) Change the text
+        </button>
+        <button class="btn btn-info" id="btn-change-text-alert">
+          (2) Change the text, then alert
+        </button>
+        <button class="btn btn-success" id="btn-change-text-hide-error">
+          (3) Change the text, then hide (có lỗi, bật console lên)
+        </button>
+        <button class="btn btn-danger" id="btn-hide-text">(4) Hide text</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" id="btn-hide-chaining">
+          (5) Hide text with chaining
+        </button>
+        <button class="btn btn-success" id="btn-change-text-show">
+          (6) Change the text then show
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
