@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sample data calls: getAllStudents, getStudentInfo</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h3>Sample function calls</h3>
+
+      <div class="row form-group">
+        <button
+          class="btn btn-success m-1"
+          onclick="onBtnGetStudentsListClick()"
+        >
+          Load student data (Xhr)
+        </button>
+        <button
+          class="btn btn-success m-1"
+          onclick="onBtnGetStudentByIdClick()"
+        >
+          Get student info by ID (Xhr)
+        </button>
+      </div>
+      <div class="row form-group">
+        <button
+          class="btn btn-danger m-1"
+          onclick="onBtnAjaxGetStudentsListClick()"
+        >
+          jquery ajax call: Load student data
+        </button>
+        <button
+          class="btn btn-info m-1"
+          onclick="onBtnGetAjaxStudentByIdClick()"
+        >
+          jquery ajax call: Get student info by ID
+        </button>
+      </div>
+    </div>
+
+    <script>
+      "use strict";
+      /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+      const gREADYSTATE_FINISHED_RESPONSEREADY = 4;
+      const gREQUEST_STATUS_OK = 200;
+      const gBASE_URL =
+        "https://62454a477701ec8f724fb923.mockapi.io/api/v1/students/";
+
+      /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+
+      /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+      // Hàm xử lý sự kiện load student data
+      function onBtnGetStudentsListClick() {
+        var vXhttp = new XMLHttpRequest();
+        vXhttp.onreadystatechange = function () {
+          if (
+            this.readyState == gREADYSTATE_FINISHED_RESPONSEREADY &&
+            this.status == gREQUEST_STATUS_OK
+          ) {
+            console.log("responseText = " + vXhttp.responseText);
+          }
+        };
+        vXhttp.open("GET", gBASE_URL, true);
+        vXhttp.send();
+      }
+
+      //sample function get student data by id
+      function onBtnGetStudentByIdClick() {
+        var vStudentID = 2;
+        var vXhttp = new XMLHttpRequest();
+        vXhttp.onreadystatechange = function () {
+          if (
+            this.readyState == gREADYSTATE_FINISHED_RESPONSEREADY &&
+            this.status == gREQUEST_STATUS_OK
+          ) {
+            console.log(vXhttp.responseText);
+          }
+        };
+        vXhttp.open("GET", gBASE_URL + vStudentID, true);
+        vXhttp.send();
+      }
+
+      /*
+       * hàm load student data click dùng Ajax
+       */
+      function onBtnAjaxGetStudentsListClick() {
+        $.ajax({
+          url: gBASE_URL,
+          type: "GET",
+          dataType: "json", // added data type
+          success: function (res) {
+            console.log(res);
+          },
+          error: function (ajaxContext) {
+            alert(ajaxContext.responseText);
+          },
+        });
+      }
+
+      // sample function get student data by id
+      function onBtnGetAjaxStudentByIdClick() {
+        var vStudentID = 2;
+        console.log("get ajax student data by ID - function to be implemented");
+        // hãy làm lại function này theo công nghệ ajax - jquery
+        $.ajax({
+          url: gBASE_URL + "/" + vStudentID,
+          type: "GET",
+          dataType: "json",
+          success: function (res) {
+            console.log(res);
+          },
+          error: function (ajaxContext) {
+            console.log(ajaxContext.responseText);
+          },
+        });
+      }
+
+      /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    </script>
+  </body>
+</html>

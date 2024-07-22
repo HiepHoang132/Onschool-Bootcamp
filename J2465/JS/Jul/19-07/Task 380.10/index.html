@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- link để sử dụng jquery và boostsrap-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container mt-4">
+      <h1 id="h1-chao-mung">Chào bạn đến với Jquery !!!</h1>
+      <h1 id="h1-jquery-doi-tuong" class="text-primary">
+        Jquery là đối tượng vỏ bao ra ngoài đối tượng DOM
+      </h1>
+      <p id="p-jquery-muc-tieu" class="text-success">
+        Jquery sẽ giúp chúng ta lập trình được nhiều hơn, code ngắn hơn
+      </p>
+      <div class="form-group w-50">
+        <input
+          type="text"
+          id="input-welcome"
+          class="form-control"
+          placeholder="welcome message ..."
+        />
+      </div>
+      <div class="form-group">
+        <button id="btn-khau-hieu" class="btn btn-primary">
+          Ấn nút này để thử
+        </button>
+        <button id="btn-doi-mau-h1-chao-mung" class="btn btn-success">
+          Ấn nút này để đổi màu H1 chào mừng
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    "use strict";
+    $("#btn-khau-hieu").click(() => {
+      console.log($("#h1-chao-mung").html());
+      console.log($("h1:first").next().html());
+      $("h1:first").css("color", "red");
+      $("#p-jquery-muc-tieu").html("Phần tử p đã được thay đổi")
+    });
+  </script>
+</html>
