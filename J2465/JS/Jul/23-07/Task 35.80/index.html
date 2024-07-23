@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration Car Form</h2>
+
+      <div class="jumbotron container">
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="input-fname">First Name</label>
+          </div>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              id="input-fname"
+              name="firstname"
+              placeholder="Your first name ..."
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="input-lname">Last Name</label>
+          </div>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              id="input-lname"
+              name="lastname"
+              placeholder="Your last name ..."
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="country-select">Country</label>
+          </div>
+          <div class="col-sm-3">
+            <select
+              id="country-select"
+              name="country"
+              class="form-control"
+            ></select>
+          </div>
+          <div class="col-sm-3">
+            <label for="region-type-select">Region</label>
+          </div>
+          <div class="col-sm-3">
+            <select
+              id="region-type-select"
+              name="region"
+              class="form-control"
+            ></select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="car-select">Car</label>
+          </div>
+          <div class="col-sm-3">
+            <select id="car-select" name="car" class="form-control"></select>
+          </div>
+          <div class="col-sm-3">
+            <label for="car-type-select">Car type</label>
+          </div>
+          <div class="col-sm-3">
+            <select
+              id="car-type-select"
+              name="car-type"
+              disabled
+              class="form-control"
+            ></select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" style="text-align: right">
+            <button class="btn btn-info">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
