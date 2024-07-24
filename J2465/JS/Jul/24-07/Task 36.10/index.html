@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>jquery Ajax: load users, update users...</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h3>Sample function calls</h3>
+
+      <div class="row form-group">
+        <button class="btn btn-success m-1" onclick="loadDataUsers()">
+          (1.1) Load List users
+        </button>
+        <button class="btn btn-success m-1" onclick="getUserDataById()">
+          (2.1) Get User info by Id
+        </button>
+        <button class="btn btn-success m-1" onclick="callRestApiUpdate()">
+          (3.1) Update User info
+        </button>
+      </div>
+      <div class="row form-group">
+        <button class="btn btn-danger m-1" onclick="loadAjaxDataUsers()">
+          (1.2) jquery ajax: Load list users
+        </button>
+        <button class="btn btn-info m-1" onclick="getAjaxUserDataById()">
+          (2.2) jquery ajax: Get User info by ID
+        </button>
+        <button class="btn btn-warning m-1" onclick="callAjaxRestApiUpdate()">
+          (3.2) jquery ajax: Update User info
+        </button>
+      </div>
+    </div>
+
+
+  </body>
+</html>
