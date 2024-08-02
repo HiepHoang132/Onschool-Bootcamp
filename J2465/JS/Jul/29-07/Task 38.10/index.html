@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Task 38.10</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container mt-4 mb-4">
+      <div class="text-center">
+        <button class="btn btn-primary" id="btn-load-user-table">
+          1. Load user to table
+        </button>
+        <button class="btn btn-primary" id="btn-direct-handler-attach">
+          2A. Direct attach handler to Detail button
+        </button>
+        <button class="btn btn-primary" id="btn-delegate-handler">
+          2B. Delegate handler Detail button
+        </button>
+        <button class="btn btn-warning" id="btn-add-event-rows">
+          3. Add event handler to each row
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 style="text-align: center">Danh sách người dùng</h2>
+
+      <table
+        class="table table-bordered table-striped table-hover"
+        id="table-users"
+      >
+        <thead>
+          <tr>
+            <th>Mã người dùng</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Country</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    ​
+  </body>
+</html>
