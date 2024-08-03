@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Task 40.10</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+    <!--Popper for modal-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="scripts/index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2 style="text-align: center">Danh sách người dùng</h2>
+
+      <table
+        class="table table-bordered table-striped table-hover"
+        id="table-users"
+      >
+        <thead>
+          <tr>
+            <th>Mã người dùng</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Modal user infor-->
+    <div id="user-modal" class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Detail Information</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body - chứa form dữ liệu -->
+          <div class="modal-body">
+            <form>
+              <!-- form thiết kế như form bình thường, theo grid model -->
+              <div class="row form-group">
+                <label class="col-sm-4 col-form-label">User Id</label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="input-modal-userid" />
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <label class="col-sm-4 col-form-label">First name</label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="input-modal-firstname" />
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <label class="col-sm-4 col-form-label">Last name</label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="input-modal-lastname" />
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <label class="col-sm-4 col-form-label">Age</label>
+                <div class="col-sm-8">
+                  <input class="form-control" id="input-modal-age" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="btn-modal-close"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

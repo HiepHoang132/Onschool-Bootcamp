@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Task 40.25 Show simple modal</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Hiện modal bằng Javascript</h2>
+      <!-- Trigger the modal with a button -->
+      <input
+        id="inp-modal-message"
+        placeholder=" ...điền lời chào vào đây..."
+        class="form-control"
+      />
+      <button type="button" class="btn btn-info btn-lg" id="btn-show-modal-1">
+        Hiện Modal 1
+      </button>
+
+      <button type="button" class="btn btn-info btn-lg" id="btn-show-modal-2">
+        Hiện Modal 2
+      </button>
+
+      <!-- Modal 1-->
+      <div class="modal fade" id="modal-1" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content : nội dung modal -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <!--phần nóc modal -->
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <!--phần thân modal -->
+              <p id="p-text-modal">Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <!--phần chân modal -->
+              <button class="btn btn-info" id="btn-close-modal">
+                Đóng modal
+              </button>
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal 2-->
+      <div class="modal fade" id="modal-2" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content : nội dung modal -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <!--phần nóc modal -->
+              <h4 class="modal-title">Modal Header 2</h4>
+            </div>
+            <div class="modal-body">
+              <!--phần thân modal -->
+              <p id="p-text-modal-2"></p>
+            </div>
+            <div class="modal-footer">
+              <!--phần chân modal -->
+              <button class="btn btn-info" id="btn-close-modal-2">
+                Viết message ra console và Đóng modal
+              </button>
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 40.40</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Data Table-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container-fluid" style="height: 100vh">
+      <h4 class="text-center mt-5 mb-3">Danh sách người dùng đăng ký</h4>
+      <button class="btn btn-success mb-3" id="add-btn">Thêm user</button>
+      <table class="table table-striped" id="table-user">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Country</th>
+            <th>Subject</th>
+            <th>Customer type</th>
+            <th>Register status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <!--Modals-->
+    <div class="modal" tabindex="-1" role="dialog" id="add-user-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Thêm user</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-firstname">First name</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-firstname"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-lastname">Last name</label>
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="input-lastname" />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-subject">Subject</label>
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="input-subject" />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-country">Country</label>
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="country"
+                    id="select-country"
+                    class="form-control"
+                  >
+                    <option value="0">Chọn country</option>
+                    <option value="VN">VN</option>
+                    <option value="USA">USA</option>
+                    <option value="CAN">CAN</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-customer-type">Customer Type</label>
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="customer-type"
+                    id="select-customer-type"
+                    class="form-control"
+                  >
+                    <option value="0">Chọn gói</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Premium">Premium</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="confirm-add-btn">
+              Insert user
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
