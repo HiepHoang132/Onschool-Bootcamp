@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 43.70</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Import DataTable Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="scripts/voucherHistory.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container-fluid d-flex flex-column justify-content-center">
+      <h4 class="mt-5 text-uppercase text-center font-weight-bold">
+        F20 - Lịch sử voucher
+      </h4>
+      <div class="container jumbotron mt-3">
+        <h6 class="font-weight-bold mb-3">Thông tin người chơi:</h6>
+        <div class="row">
+          <div class="col-4 d-flex">
+            <label for="input-username" class="col-form-label mr-3"
+              >Username</label
+            >
+            <input type="text" class="form-control" id="input-username" />
+          </div>
+
+          <div class="col-4 d-flex">
+            <label for="input-firstname" class="col-form-label mr-3"
+              >Firstname</label
+            >
+            <input type="text" class="form-control" id="input-firstname" />
+          </div>
+
+          <div class="col-4 d-flex">
+            <label for="input-lastname" class="col-form-label mr-3"
+              >Lastname</label
+            >
+            <input type="text" class="form-control" id="input-lastname" />
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <table class="table table-striped" id="voucher-history-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã voucher</th>
+              <th>Phần trăm giảm giá</th>
+              <th>Ngày tạo</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 43.30</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Import DataTable Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container-fluid d-flex flex-column justify-content-center">
+      <h4 class="mt-5 text-uppercase text-center font-weight-bold">
+        F100 - Quản trị người dùng
+      </h4>
+      <div class="container jumbotron mt-3">
+        <div class="row justify-content-center">
+          <div class="col-1">
+            <label for="select-role" class="col-form-label">Row</label>
+          </div>
+
+          <div class="col-6">
+            <select class="form-control" name="role" id="select-role">
+              <option value="0">Chọn 1 role</option>
+            </select>
+          </div>
+
+          <div class="col-2">
+            <button class="btn btn-success" id="filter-btn">Lọc dữ liệu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <table class="table table-striped" id="user-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Username</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Age</th>
+              <th>Role</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

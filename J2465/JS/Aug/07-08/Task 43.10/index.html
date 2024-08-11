@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>43.10</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Import DataTable Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="text-center mt-2 mb-2">
+        <h2>F120 - Quản trị Order</h2>
+      </div>
+      <div class="jumbotron container">
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="voucherCodeInput" class="col-form-label"
+              >Loại Pizza</label
+            >
+          </div>
+          <div class="col-sm-6">
+            <select id="gPizzaTypeSelect" class="form-control"></select>
+          </div>
+          <div class="col-sm-3">
+            <button id="btn-filter-order" class="btn btn-info">
+              Lọc dữ liệu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <table
+        class="table table-bordered table-striped table-hover"
+        id="order-table"
+      >
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã order</th>
+            <th>Loại Pizza</th>
+            <th>Tên khách hàng</th>
+            <th>Ngày đặt hàng</th>
+            <th>Trạng thái</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+</html>
