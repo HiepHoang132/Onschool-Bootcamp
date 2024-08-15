@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iconic 365Course v1.5</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+    <script src="scripts/index.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdown-courses"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Browse courses
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-courses">
+              <a class="dropdown-item" href="#">Web Development</a>
+              <a class="dropdown-item" href="#">Mobile App</a>
+              <a class="dropdown-item" href="#">Desktop App</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdown-about"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              About Us
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown-about">
+              <a class="dropdown-item" href="#">Vision & Mission</a>
+              <a class="dropdown-item" href="#">Team</a>
+              <a class="dropdown-item" href="#">Contact Us</a>
+            </div>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <div class="input-group input-focus">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-white">
+                <i class="fas fa-search"></i>
+              </span>
+            </div>
+            <input
+              class="form-control border-left-0 mr-sm-2"
+              type="search"
+              placeholder="Search Courses"
+              aria-label="Search"
+            />
+          </div>
+
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container-fluid" id="slide-content">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-6 mr-5 d-flex flex-column justify-content-center">
+            <h2 class="text-white">
+              Welcome to Ionic Course365 Learning Center
+            </h2>
+            <p>
+              Ionic Course365 is an online learning and teaching marketplace
+              with over 5000 courses and 1 million students. Instructor and
+              expertly crafted courses, designed for the modern students and
+              entrepreneur.
+            </p>
+
+            <div>
+              <button class="btn btn-warning mr-2">Browse Courses</button>
+              <button class="btn btn-light">Become an Instructor</button>
+            </div>
+          </div>
+          <div class="col-5">
+            <img src="images/front-page.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid my-5" id="courses-section">
+      <div class="container mb-5 courses" id="recommended">
+        <h4 class="my-5">Recommended to you</h4>
+        <div class="row">
+          <div class="col-3">
+            <div class="card" style="width: 16rem">
+              <img src="images/angular.png" class="card-img-top" />
+
+              <div class="card-body">
+                <div class="description">
+                  <h6 class="card-title">
+                    How to easily create a website with Angular
+                  </h6>
+                  <div class="d-flex mb-2 align-items-center">
+                    <img
+                      src="images/clock.png"
+                      class="card-img-top"
+                      style="height: 15px; width: 15px"
+                    />
+                    <span class="mx-3">3h 56m</span>
+                    <span>Beginner</span>
+                  </div>
+                </div>
+                <div class="price">
+                  <span class="font-weight-bold">$600</span>
+                  <span
+                    class="text-secondary"
+                    style="text-decoration: line-through"
+                    >$750</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="card-footer d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <img src="images/morris-mccoy.png" />
+                  <span class="ml-2">Morris Mccoy</span>
+                </div>
+                <button class="btn">
+                  <img src="images/save.png" style="height: 20px" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="card" style="width: 16rem">
+              <img src="images/python.png" class="card-img-top" />
+
+              <div class="card-body">
+                <div class="description">
+                  <h6 class="card-title">
+                    The Python Course: build web application
+                  </h6>
+                  <div class="d-flex mb-2 align-items-center">
+                    <img
+                      src="images/clock.png"
+                      class="card-img-top"
+                      style="height: 15px; width: 15px"
+                    />
+                    <span class="mx-3">4h 30m</span>
+                    <span>Advanced</span>
+                  </div>
+                </div>
+                <div class="price">
+                  <span class="font-weight-bold">$900</span>
+                  <span
+                    class="text-secondary"
+                    style="text-decoration: line-through"
+                    >$1050</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="card-footer d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <img src="images/claire-robertson.png" />
+                  <span class="ml-2">Claire Robertson</span>
+                </div>
+                <button class="btn">
+                  <img src="images/save.png" style="height: 20px" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="card" style="width: 16rem">
+              <img src="images/graphQl.png" class="card-img-top" />
+
+              <div class="card-body">
+                <div class="description">
+                  <h6 class="card-title">
+                    GraphQL: introduction to graphQL for beginners
+                  </h6>
+                  <div class="d-flex mb-2 align-items-center">
+                    <img
+                      src="images/clock.png"
+                      class="card-img-top"
+                      style="height: 15px; width: 15px"
+                    />
+                    <span class="mx-3">2h 15m</span>
+                    <span>Intermediate</span>
+                  </div>
+                </div>
+                <div class="price">
+                  <span class="font-weight-bold">$650</span>
+                  <span
+                    class="text-secondary"
+                    style="text-decoration: line-through"
+                    >$850</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="card-footer d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <img src="images/ted_hawkins.png" />
+                  <span class="ml-2">Ted Hawkins</span>
+                </div>
+                <button class="btn">
+                  <img src="images/save.png" style="height: 20px" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="card" style="width: 16rem">
+              <img src="images/javascript.png" class="card-img-top" />
+
+              <div class="card-body">
+                <div class="description">
+                  <h6 class="card-title">Getting Started with JavaScript</h6>
+                  <div class="d-flex mb-2 align-items-center">
+                    <img
+                      src="images/clock.png"
+                      class="card-img-top"
+                      style="height: 15px; width: 15px"
+                    />
+                    <span class="mx-3">3h 34m</span>
+                    <span>Beginner</span>
+                  </div>
+                </div>
+                <div class="price">
+                  <span class="font-weight-bold">$300</span>
+                  <span
+                    class="text-secondary"
+                    style="text-decoration: line-through"
+                    >$550</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="card-footer d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <img src="images/ted_hawkins.png" />
+                  <span class="ml-2">Ted Hawkins</span>
+                </div>
+                <button class="btn">
+                  <img src="images/save.png" style="height: 20px" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mb-5 courses" id="popular">
+        <h4 class="my-5">Most popular</h4>
+        <div class="row"></div>
+      </div>
+
+      <div class="container mb-5 courses" id="trending">
+        <h4 class="my-5">Trending</h4>
+        <div class="row"></div>
+      </div>
+    </div>
+
+    <footer class="text-center text-lg-start">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-6">
+            <p class="text-center">
+              © 2021 Ionic Course365. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <a class="ml-5" href="#">Privacy</a>
+            <a class="ml-5" href="#">Terms</a>
+            <a class="ml-5" href="#">Feeback</a>
+            <a class="ml-5" href="#">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
