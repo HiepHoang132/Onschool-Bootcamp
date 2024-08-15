@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD Course365</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Data Table-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="scripts/admin.js" defer></script>
+  </head>
+
+  <body>
+    <div
+      class="container-fluid d-flex flex-column align-items justify-content-center"
+    >
+      <h3 class="mt-5 text-center">Admin</h3>
+      <div class="mb-3">
+        <button class="btn btn-success" id="add-btn">Thêm course</button>
+      </div>
+
+      <table class="mt-5 table table-striped" id="course-table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Cover image</th>
+            <th>Course code</th>
+            <th>Course name</th>
+            <th>Duration</th>
+            <th>Level</th>
+            <th>Price</th>
+            <th>Discount price</th>
+            <th>Teacher photo</th>
+            <th>Teacher name</th>
+            <th>Popular</th>
+            <th>Trending</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+      </table>
+
+      <!--Thêm course modal-->
+      <div class="modal" tabindex="-1" role="dialog" id="add-course-modal">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Thông tin course</h5>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label class="col-form-label" for="">Cover image</label>
+                    </div>
+                    <div class="col-7">
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="input-file-cover-image"
+                        />
+                        <label
+                          class="custom-file-label"
+                          for="input-file-cover-image"
+                          >Choose file...</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-course-code" class="col-form-label"
+                        >Course code</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-course-code"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-course-name" class="col-form-label"
+                        >Course name</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-course-name"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-duration" class="col-form-label"
+                        >Duration</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-duration"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-level" class="col-form-label"
+                        >Level</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-level"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-price" class="col-form-label"
+                        >Price</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-price"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-discount" class="col-form-label"
+                        >Discount</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-discount"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label class="col-form-label" for="">Teacher photo</label>
+                    </div>
+                    <div class="col-7">
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="input-file-teacher-image"
+                        />
+                        <label
+                          class="custom-file-label"
+                          for="input-file-teacher-image"
+                          >Choose file...</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-teacher-name" class="col-form-label"
+                        >Teacher name</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-teacher-name"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 d-flex align-items-center">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="check-popular"
+                        />
+                        <label class="form-check-label" for="check-popular"
+                          >Popular</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="check-trending"
+                        />
+                        <label class="form-check-label" for="check-trending"
+                          >Trending</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="add-confirm-btn"
+              >
+                Add course
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Edit course modal-->
+      <div class="modal" tabindex="-1" role="dialog" id="edit-course-modal">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Sửa thông tin course</h5>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label class="col-form-label" for="">Cover image</label>
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-file-cover-image"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-edit-course-code" class="col-form-label"
+                        >Course code</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-course-code"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-edit-course-name" class="col-form-label"
+                        >Course name</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-course-name"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-edit-duration" class="col-form-label"
+                        >Duration</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-duration"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-edit-level" class="col-form-label"
+                        >Level</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-level"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-edit-price" class="col-form-label"
+                        >Price</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-price"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label for="input-edit-discount" class="col-form-label"
+                        >Discount</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-discount"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label class="col-form-label" for="">Teacher photo</label>
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-file-teacher-image"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-4">
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-5">
+                      <label
+                        for="input-edit-teacher-name"
+                        class="col-form-label"
+                        >Teacher name</label
+                      >
+                    </div>
+                    <div class="col-7">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="input-edit-teacher-name"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 d-flex align-items-center">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="check-edit-popular"
+                        />
+                        <label class="form-check-label" for="check-edit-popular"
+                          >Popular</label
+                        >
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="check-edit-trending"
+                        />
+                        <label
+                          class="form-check-label"
+                          for="check-edit-trending"
+                          >Trending</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="edit-confirm-btn"
+              >
+                Edit course
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Delete course modal-->
+      <div class="modal" tabindex="-1" role="dialog" id="delete-course-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Xoá course</h5>
+            </div>
+            <div class="modal-body">
+              <p>Bạn có chắc chắn muốn xoá khoá học này?</p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="delete-confirm-btn"
+              >
+                Xoá course
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
