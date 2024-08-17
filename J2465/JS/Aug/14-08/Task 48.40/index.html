@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 48.40</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Data Table-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#users">Users</a>
+      <a href="#settings">Settings</a>
+      <a href="#reports">Reports</a>
+      <a href="#logout">Logout</a>
+    </div>
+
+    <div class="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <h2 class="mt-4">Dashboard</h2>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Users</div>
+            <div class="card-body">
+              <h5 class="card-title">150</h5>
+              <p class="card-text">Total users registered.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header">Sales</div>
+            <div class="card-body">
+              <h5 class="card-title">$53,000</h5>
+              <p class="card-text">Total sales this month.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Reports</div>
+            <div class="card-body">
+              <h5 class="card-title">24</h5>
+              <p class="card-text">Pending reports.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Errors</div>
+            <div class="card-body">
+              <h5 class="card-title">5</h5>
+              <p class="card-text">Critical system errors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid" style="height: 100vh">
+        <h4 class="text-center mt-5 mb-3">Danh sách người dùng đăng ký</h4>
+        <button class="btn btn-success mb-3" id="add-btn">Thêm user</button>
+        <table class="table table-striped" id="table-user">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Country</th>
+              <th>Subject</th>
+              <th>Customer type</th>
+              <th>Register status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <!--Modals-->
+    <!--Add user modal-->
+    <div class="modal" tabindex="-1" role="dialog" id="add-user-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Thêm user</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-add-firstname">First name</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-add-firstname"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-add-lastname">Last name</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-add-lastname"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-add-subject">Subject</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-add-subject"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-add-country">Country</label>
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="country"
+                    id="select-add-country"
+                    class="form-control"
+                  >
+                    <option value="0">Chọn country</option>
+                    <option value="VN">VN</option>
+                    <option value="USA">USA</option>
+                    <option value="CAN">CAN</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-add-customer-type">Customer Type</label>
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="customer-type"
+                    id="select-add-customer-type"
+                    class="form-control"
+                  >
+                    <option value="0">Chọn gói</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Premium">Premium</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="confirm-add-btn">
+              Insert user
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Edit user modal-->
+    <div class="modal" tabindex="-1" role="dialog" id="edit-user-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Chi tiết user</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-edit-firstname">First name</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-edit-firstname"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-edit-lastname">Last name</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-edit-lastname"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="input-edit-subject">Subject</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="input-edit-subject"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-edit-country">Country</label>
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="country"
+                    id="select-edit-country"
+                    class="form-control"
+                  >
+                    <option value="VN">VN</option>
+                    <option value="USA">USA</option>
+                    <option value="AUS">AUS</option>
+                    <option value="CAN">CAN</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-edit-customer-type">Customer Type</label>
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="customer-type"
+                    id="select-edit-customer-type"
+                    class="form-control"
+                  >
+                    <option value="Standard">Standard</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Premium">Premium</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row align-items-center">
+                <div class="col-sm-4">
+                  <label for="select-edit-register-status"
+                    >Register status</label
+                  >
+                </div>
+                <div class="col-sm-8">
+                  <select
+                    name="register-status"
+                    id="select-edit-register-status"
+                    class="form-control"
+                  >
+                    <option value="New">New</option>
+                    <option value="Accepted">Accepted</option>
+                    <option value="Denied">Denied</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="confirm-update-btn"
+            >
+              Update user
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Delete user modal-->
+    <div class="modal" tabindex="-1" role="dialog" id="delete-user-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirm xoá user</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Bạn có chắc chắn muốn xoá user này không?</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="confirm-delete-btn"
+            >
+              Confirm
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

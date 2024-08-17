@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 48.50</title>
+    <meta
+      charset="utf-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <!--Font awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <!-- Import DataTable Library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#users">Users</a>
+      <a href="#settings">Settings</a>
+      <a href="#reports">Reports</a>
+      <a href="#logout">Logout</a>
+    </div>
+
+    <div class="content">
+      <!-- Menu -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Dashboard</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Breadcrumb -->
+      <h2 class="mt-4">Dashboard</h2>
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Users</div>
+            <div class="card-body">
+              <h5 class="card-title">150</h5>
+              <p class="card-text">Total users registered.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header">Sales</div>
+            <div class="card-body">
+              <h5 class="card-title">$53,000</h5>
+              <p class="card-text">Total sales this month.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-header">Reports</div>
+            <div class="card-body">
+              <h5 class="card-title">24</h5>
+              <p class="card-text">Pending reports.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Errors</div>
+            <div class="card-body">
+              <h5 class="card-title">5</h5>
+              <p class="card-text">Critical system errors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="container-fluid d-flex flex-column justify-content-center">
+        <h4 class="mt-5 text-uppercase text-center font-weight-bold">
+          F100 - Quản trị người dùng
+        </h4>
+        <div class="container jumbotron mt-3">
+          <div class="row justify-content-center">
+            <div class="col-1">
+              <label for="select-role" class="col-form-label">Row</label>
+            </div>
+
+            <div class="col-6">
+              <select class="form-control" name="role" id="select-role">
+                <option value="0">Chọn 1 role</option>
+              </select>
+            </div>
+
+            <div class="col-2">
+              <button class="btn btn-success" id="filter-btn">
+                Lọc dữ liệu
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <table class="table table-striped" id="user-table">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Username</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Role</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
