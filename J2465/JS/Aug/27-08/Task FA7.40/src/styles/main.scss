@@ -1,0 +1,55 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$padding: 20px;
+$btn-padding: 10px 20px;
+$text-color: white;
+$font-family: Arial, sans-serif;
+
+@mixin text-style {
+  color: $text-color;
+  font-family: $font-family;
+}
+
+header {
+  background-color: $primary-color;
+  padding: $padding;
+  text-align: center;
+  @include text-style;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $padding;
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      padding: $btn-padding;
+      border: none;
+      cursor: pointer;
+      @include text-style();
+
+      &-primary {
+        background-color: $primary-color;
+      }
+
+      &-secondary {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  padding: $padding;
+  @include text-style();
+  text-align: center;
+}

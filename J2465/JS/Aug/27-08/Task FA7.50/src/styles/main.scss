@@ -1,0 +1,56 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$padding: 20px;
+$margin: 20px;
+$font-family: Arial, sans-serif;
+$text-color: white;
+
+@mixin font-style {
+  font-family: $font-family;
+  color: $text-color;
+}
+
+@mixin btn-style($bg-color) {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: $bg-color;
+  @include font-style();
+}
+
+header {
+  background-color: $primary-color;
+  padding: $padding;
+  @include font-style();
+  text-align: center;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $padding;
+
+  p {
+    margin-bottom: $margin;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+
+    .btn {
+      @include btn-style($primary-color);
+
+      &.btn-secondary {
+        @include btn-style($secondary-color);
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  padding: $padding;
+  @include font-style;
+  text-align: center;
+}

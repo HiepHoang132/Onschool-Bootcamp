@@ -1,0 +1,31 @@
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$container-width: 960px;
+$padding: 20px;
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+  padding: $padding;
+
+  .header {
+    background-color: $primary-color;
+    color: $text-color;
+    padding: $padding;
+    margin-bottom: $padding;
+  }
+
+  .content {
+    background-color: $secondary-color;
+    color: $text-color;
+    padding: $padding;
+    margin-bottom: $padding;
+  }
+
+  .footer {
+    background-color: $primary-color;
+    color: $text-color;
+    padding: $padding;
+  }
+}

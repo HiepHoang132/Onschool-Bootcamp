@@ -1,0 +1,41 @@
+$button-color: #3498db;
+$box-color: #2ecc71;
+$text-color: #fff;
+$padding: 10px 20px;
+$margin: 20px;
+
+@mixin border-style {
+  border: none;
+  border-radius: 5px;
+}
+
+@mixin box-style {
+  width: 100px;
+  height: 100px;
+}
+
+@mixin hover-style {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.button {
+  background-color: $button-color;
+  color: $text-color;
+  padding: $padding;
+  @include border-style;
+
+  &:hover {
+    @include hover-style;
+  }
+}
+
+.box {
+  @include box-style;
+  background-color: $box-color;
+  margin-top: $margin;
+
+  &:hover {
+    @include hover-style;
+  }
+}
