@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Landing Page</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4dd9393943.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light"
+      style="padding: 0 100px 0 100px"
+    >
+      <a class="navbar-brand" href="#"
+        >Lander
+        <p>.</p></a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto" style="gap: 50px">
+          <li class="nav-item active home-item">
+            <a class="nav-link" href="#">HOME</a>
+          </li>
+          <li class="nav-item about-item">
+            <a class="nav-link" href="#">ABOUT</a>
+          </li>
+          <li class="nav-item reviews-item">
+            <a class="nav-link" href="#">REVIEWS</a>
+          </li>
+          <li class="nav-item video-item">
+            <a class="nav-link" href="#">VIDEO</a>
+          </li>
+          <li class="nav-item features-item">
+            <a class="nav-link" href="#">FEATURES</a>
+          </li>
+          <li class="nav-item products-item">
+            <a class="nav-link" href="#">PRODUCTS</a>
+          </li>
+          <li class="nav-item faqs-item">
+            <a class="nav-link" href="#">FAQs</a>
+          </li>
+          <li class="nav-item contact-item">
+            <a class="nav-link" href="#">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Header -->
+    <div class="main-header container">
+      <div class="row align-items-center">
+        <div class="col-md-7 text-center text-md-left">
+          <h1>Your Product Landing Page</h1>
+          <p>Write here about your product short description.</p>
+          <button class="btn btn-primary" id="order-btn">Order Now</button>
+        </div>
+        <div class="col-md-5 text-center">
+          <img
+            src="images/header-.png"
+            alt="Product Image"
+            class="img-fluid"
+            style="max-width: 130%"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title">Why Is Lander?</h2>
+          <p class="section-description">
+            Lander is simply a product landing page template for any products.
+            If you are searching for product landing pages to create sales,
+            Lander is perfect.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card feature-item">
+              <div class="card-body text-center">
+                <i class="icon">
+                  <img
+                    src="images/solar-balloon-broken.png"
+                    alt="Icon 1"
+                    class="feature-icon"
+                  />
+                </i>
+                <h4 class="card-title">100% High Quality Product</h4>
+                <p class="card-text">We have the option of pickup in-store</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card feature-item">
+              <div class="card-body text-center">
+                <i class="icon">
+                  <img
+                    src="images/solar-bag-heart-broken.png"
+                    alt="Icon 2"
+                    class="feature-icon"
+                  />
+                </i>
+                <h4 class="card-title">Free Shipping Charge</h4>
+                <p class="card-text">Inside City delivery within 5 days</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card feature-item">
+              <div class="card-body text-center">
+                <i class="icon">
+                  <img
+                    src="images/solar-adhesive-plaster-broken.png"
+                    alt="Icon 3"
+                    class="feature-icon"
+                  />
+                </i>
+                <h4 class="card-title">Money Back Guarantee</h4>
+                <p class="card-text">We will take returns in some cases</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews">
+      <div class="container">
+        <div class="text-center">
+          <h2
+            class="section-title"
+            style="
+              color: #313131;
+              text-align: center;
+              font-family: Poppins;
+              font-size: 64px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 109%; /* 69.76px */
+              letter-spacing: -0.64px;
+              text-transform: capitalize;
+            "
+          >
+            Customer's Reviews
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 review-item">
+            <p>
+              Lorem ipsum dolor sit amet consectetur. Malesuada et ut vitae
+              eget. Leo viverra fringilla faucibus proin lacinia ornare amet.
+              Aliquam mi eros dapibus pulvinar morbi aenean. Sit in donec
+              quisque turpis. Tortor aliquam auctor elementum sodales porttitor
+              viverra.
+            </p>
+            <div class="review-author">
+              <strong>David William - Feb 22, 2023</strong>
+            </div>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div class="col-md-4 review-item">
+            <p>
+              Amet non dolor pellentesque feugiat ac nec ac in. Dictumst turpis
+              natoque eget suscipit arcu. Eu nunc quis consectetur iaculis sit
+              et. Ipsum mattis eleifend arcu faucibus netus neque tellus amet.
+              Accumsan enim cursus nulla tellus felis vitae.
+            </p>
+            <div class="review-author">
+              <strong>Emma Turner - Feb 22, 2023</strong>
+            </div>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+          </div>
+          <div class="col-md-4 review-item">
+            <p>
+              Adipiscing dictum adipiscing arcu venenatis dolor adipiscing.
+              Iaculis mauris tellus morbi nisl suspendisse egestas augue at. In
+              tortor tristique quisque faucibus dui. Fusce lacus dignissim vel
+              integer sagittis. Aliquam in cras eget et turpis. Auctor purus
+              hendrerit sit.
+            </p>
+            <div class="review-author">
+              <strong>Rachel Bryan - Feb 22, 2023</strong>
+            </div>
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <div class="review-pagination text-center">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="choose-us">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center" id="choose-us-left">
+            <img
+              src="images/pexels-suzy-hazelwood-25369653.png"
+              alt="Watch Image"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-md-6" id="choose-us-right">
+            <h2 class="section-title">Why Choose Us</h2>
+            <p class="section-description">
+              Write some features of your products.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <h4>Your Product Quality</h4>
+                <p>
+                  Suspen disse tempus orci enim pelle tesque este pretium in
+                  neque, elit morbi sagittis lorem habit mattis ampu arcu enim
+                  palien.
+                </p>
+              </li>
+              <li>
+                <h4>Feature Of Your Product</h4>
+                <p>
+                  Suspen disse tempus orci enim pelle tesque este pretium in
+                  neque, elit morbi sagittis lorem habit mattis. A palien tesque
+                  pretium feugiat.
+                </p>
+              </li>
+              <li>
+                <h4>Customer Satisfaction</h4>
+                <p>
+                  A pollen tesque pretium faugt vel morbi sagittis habit tessue
+                  cursus. Suspen disse tempus orci enim pelle tesque este
+                  pretium.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Six Feature Section -->
+    <section class="six-feature">
+      <div class="row">
+        <div class="col-md-4 feature-item-left">
+          <div class="feature-number">
+            <div id="feature-number-head">01.</div>
+            <div>
+              <h4>Feature One</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur. Molestie aenean anim
+                massa magna vulputate.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-number">
+            <div id="feature-number-head">02.</div>
+            <div>
+              <h4>Feature Two</h4>
+              <p>
+                Nisl vel porttitor feugiat ornare mollis ac. Dignissim amet
+                feugiat vivamus urna eu justo.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-number">
+            <div id="feature-number-head">03.</div>
+            <div>
+              <h4>Feature Three</h4>
+              <p>
+                Urna posuere egestas nunc et sit vel. Nam cursus interdum urna
+                rutrum ac elit purus ut.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <img
+            src="images/pexels-ds-stories-72560941.png"
+            alt="Six Feature Image"
+            class="img-fluid"
+          />
+        </div>
+
+        <div class="col-md-4 feature-item-right">
+          <div class="feature-number">
+            <div id="feature-number-head">04.</div>
+            <div>
+              <h4>Feature Four</h4>
+              <p>
+                Neque aliquam risus ut gravida commodo nec integer viverra. Id
+                sit bibendum mi sodales.
+              </p>
+            </div>
+          </div>
+          <div class="feature-number">
+            <div id="feature-number-head">05.</div>
+            <div>
+              <h4>Feature Five</h4>
+              <p>
+                In nulla laoreet amet platea feugiat purus at consequat orci.
+                Velit in enim ac eu massa.
+              </p>
+            </div>
+          </div>
+          <div class="feature-number">
+            <div id="feature-number-head">06.</div>
+            <div>
+              <h4>Feature Six</h4>
+              <p>
+                Velit sed sem scelerisque gravida ornare enim. Venenatis
+                pharetra orci eu morbi et justo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="deal-section">
+      <h2 class="deal-title">Grab Deal Of The Week</h2>
+      <p class="deal-subtitle">
+        This is the only way to get this product in discount. Limited time only.
+      </p>
+      <div class="deal-content">
+        <div class="deal-image">
+          <img
+            src="images/pexels-suzy-hazelwood-25369652.png"
+            alt="Product Image"
+          />
+        </div>
+        <div class="deal-info">
+          <div class="deal-rating">★★★★★</div>
+          <h3 class="product-name">Product Name</h3>
+          <p class="product-description">
+            Tempus uspen dise oncu enim pellen tesque este pretium in neque,
+            elit morbi sagittis lorem habi mattis empus oncu enim pellen. Dise
+            tempus oncu enim pellen tesque este pretium in neque, elit morbi
+            sagittis lorem habi mattis empus oncu enim pellen.
+          </p>
+          <div class="price">
+            <span class="current-price">$99.99</span>
+            <span class="original-price">$190</span>
+          </div>
+          <div class="deal-timer">
+            <div class="timer">
+              <div class="time">
+                <span id="days">21</span><br /><span>Days</span>
+              </div>
+              <div class="time">
+                <span id="hours">22</span><br /><span>Hrs</span>
+              </div>
+              <div class="time">
+                <span id="minutes">19</span><br /><span>Min</span>
+              </div>
+              <div class="time">
+                <span id="seconds">30</span><br /><span>Sec</span>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn order-btn"
+            style="
+              border-radius: 70px;
+              background: #0a74f1;
+              width: 30%;
+              margin-top: 50px;
+            "
+          >
+            Order Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="product">
+      <div class="text-center">
+        <h2 class="section-title">Our Products</h2>
+        <p class="section-description">List your other great products here.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img
+              src="images/rectangle-315.png"
+              alt="Product 1"
+              class="product-image"
+            />
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-info">
+              <h4 class="product-title">Your First Item</h4>
+              <div class="product-price">
+                <span class="current-price">$99.99</span>
+                <span class="original-price">$100</span>
+              </div>
+              <button class="btn">Order now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img
+              src="images/rectangle-314.png"
+              alt="Product 2"
+              class="product-image"
+            />
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-info">
+              <h4 class="product-title">Your Second Item</h4>
+              <div class="product-price">
+                <span class="current-price">$99.99</span>
+                <span class="original-price">$100</span>
+              </div>
+              <button class="btn">Order now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img
+              src="images/rectangle-313.png"
+              alt="Product 3"
+              class="product-image"
+            />
+            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+            <div class="product-info">
+              <h4 class="product-title">Your Third Item</h4>
+              <div class="product-price">
+                <span class="current-price">$99.99</span>
+                <span class="original-price">$100</span>
+              </div>
+              <button class="btn">Order now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe-us">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center">
+            <h2 class="section-title">Subscribe us</h2>
+            <p class="section-description">
+              Subscribe to our newsletter for discounts and updates.
+            </p>
+            <form action="#" class="subscribe-form">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Write your email address here..."
+                  required
+                  style="height: 60px"
+                />
+                <div class="input-group-append position-relative">
+                  <button
+                    class="btn btn-primary position-absolute"
+                    type="submit"
+                    style="padding: 17px 56px"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <p class="faq-description">Frequently asked questions.</p>
+      <div class="faq-container">
+        <div class="faq-content">
+          <div class="faq-questions">
+            <div class="faq-item active">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Write Your First Question Here ?</span>
+                <button class="toggle-btn">-</button>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Mattis morbi ipsum nunc varius id. Ullamcorper vitae elementum
+                  tristique pellentesque vitae viverra non sed malesuada...
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Write Your Second Question Here ?</span>
+                <button class="toggle-btn">+</button>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Write Your Third Question Here ?</span>
+                <button class="toggle-btn">+</button>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Write Your Fourth Question Here ?</span>
+                <button class="toggle-btn">+</button>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>Write Your Fifth Question Here ?</span>
+                <button class="toggle-btn">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="faq-image">
+          <img
+            src="images/pexels-cottonbro-studio-39456671.png"
+            alt="FAQ Image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile App Section -->
+    <section class="mobile-app" style="padding: 100px 0">
+      <div class="container">
+        <div class="row" style="background-color: #f3f3f3; border-radius: 20px">
+          <div class="col-md-5 text-center" id="phone-screen">
+            <img
+              src="images/mockup.png"
+              alt="Mobile App Image"
+              class="img-fluid phone-image"
+              style="max-width: 100%"
+            />
+          </div>
+          <div
+            class="col-md-7"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+            "
+          >
+            <h2
+              class="section-title"
+              style="
+                font-family: Poppins;
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 109%;
+                letter-spacing: -0.48px;
+                text-transform: capitalize;
+                color: #313131;
+              "
+            >
+              Download Our Mobile App
+            </h2>
+            <p
+              style="
+                font-family: Poppins;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+                color: #5f6368;
+                margin-bottom: 30px;
+              "
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sagittis
+              sed ptibus liberolectus nonet psryroin. Amet sed lorem posuere sit
+              iaculis amet, ac urna. Adipiscing fames semper erat ac in
+              suspendisse iaculis. Amet blandit tortor praesent ante vitae. A,
+              enim pretiummi senectus magna. Sagittis sed ptibus liberolectus
+              non et psryroin.
+            </p>
+            <div class="app-buttons">
+              <a href="#">
+                <img
+                  src="images/store-google-play-style-black.png"
+                  alt="App Store"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="images/store-app-store-style-black.png"
+                  alt="Play Store"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact-us" class="section-bg">
+      <div class="section-header">
+        <h2>Contact Us</h2>
+        <p>Contact us for more information.</p>
+      </div>
+
+      <div class="row contact-info">
+        <div class="col-md-4">
+          <div class="contact-box">
+            <div class="contact-icon">
+              <img src="images/solar-call-chat-outline.png" alt="" />
+              <div>
+                <p>123 456 7891</p>
+                <p>123 456 7891</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-box">
+            <div class="contact-icon">
+              <img src="images/solar-letter-linear.png" alt="" />
+              <div>
+                <p>youremail1@gmail.com</p>
+                <p>youremail1@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-box">
+            <div class="contact-icon">
+              <img src="images/solar-point-on-map-outline.png" alt="" />
+              <div>
+                <p>Phoenix, Arizona</p>
+                <p>947 Dogwood Road</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="padding-top: 40px">
+        <div class="col-md-6">
+          <img
+            src="images/map.png"
+            alt=""
+            style="width: 100%; border-radius: 10px"
+          />
+        </div>
+        <div class="col-md-6">
+          <form
+            action="forms/contact.php"
+            method="post"
+            role="form"
+            class="php-email-form"
+          >
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Full Name*"
+                  required
+                />
+              </div>
+              <div class="col-md-6 form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  placeholder="Email*"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="subject"
+                id="subject"
+                placeholder="Subject*"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                name="message"
+                rows="5"
+                placeholder="Your Message*"
+                required
+              ></textarea>
+            </div>
+            <div class="text-md-left">
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="text-example">
+      <nav>
+        <a href="#" class="life-track">Lifetrack</a>
+        <a href="#" class="landing">landing</a>
+        <a href="#" class="happen">HAPPEN</a>
+        <a href="#" class="products">Products</a>
+        <a href="#" class="opener">OPENER</a>
+      </nav>
+    </section>
+    <section class="brand">
+      <div class="section-header">
+        <h2
+          style="
+            color: #313131;
+            text-align: center;
+            font-family: Poppins;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 109%; /* 69.76px */
+            letter-spacing: -0.64px;
+            text-transform: capitalize;
+          "
+        >
+          Instagram #YourBrand
+        </h2>
+        <div class="brand-gallery">
+          <img src="images/rectangle-172.png" alt="Brand Image 1" />
+          <img src="images/rectangle-173.png" alt="Brand Image 2" />
+          <img src="images/rectangle-174.png" alt="Brand Image 3" />
+          <img src="images/rectangle-177.png" alt="Brand Image 4" />
+          <img src="images/rectangle-176.png" alt="Brand Image 5" />
+          <img src="images/rectangle-175.png" alt="Brand Image 6" />
+        </div>
+      </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- Logo and Tagline -->
+        <h2 class="footer-logo">
+          Lander
+          <p>.</p>
+        </h2>
+        <p class="footer-tagline">
+          Lander best multi-purpose product landing page.
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="footer-social-icons">
+          <a href="#"
+            ><i
+              class="fa-brands fa-facebook-f"
+              style="
+                display: flex;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                /* gap: 8px; */
+                border-radius: 10px;
+                border: 1px solid #d7d7d7;
+                background: #f9fafc;
+              "
+            ></i
+          ></a>
+          <a href="#"
+            ><i
+              class="fab fa-instagram"
+              style="
+                display: flex;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                /* gap: 8px; */
+                border-radius: 10px;
+                border: 1px solid #d7d7d7;
+                background: #f9fafc;
+              "
+            ></i
+          ></a>
+          <a href="#"
+            ><i
+              class="fab fa-twitter"
+              style="
+                display: flex;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                /* gap: 8px; */
+                border-radius: 10px;
+                border: 1px solid #d7d7d7;
+                background: #f9fafc;
+              "
+            ></i
+          ></a>
+          <a href="#"
+            ><i
+              class="fa-brands fa-linkedin-in"
+              style="
+                display: flex;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                /* gap: 8px; */
+                border-radius: 10px;
+                border: 1px solid #d7d7d7;
+                background: #f9fafc;
+              "
+            ></i
+          ></a>
+          <a href="#"
+            ><i
+              class="fab fa-youtube"
+              style="
+                display: flex;
+                width: 40px;
+                height: 40px;
+                justify-content: center;
+                align-items: center;
+                /* gap: 8px; */
+                border-radius: 10px;
+                border: 1px solid #d7d7d7;
+                background: #f9fafc;
+              "
+            ></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="footer-bottom">
+        <p>&copy; 2023 Lander. Designed by <a href="#">TemplatesJungle</a>.</p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Sep 30, 2024 23:59:59").getTime();
+
+    // Update the count down every 1 second
+    var countdownFunction = setInterval(function () {
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in the respective element IDs
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+      }
+    }, 1000);
+
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains("active");
+
+      // Close all FAQ items
+      const allItems = document.querySelectorAll(".faq-item");
+      allItems.forEach((item) => {
+        item.classList.remove("active");
+        item.querySelector(".toggle-btn").textContent = "+";
+      });
+
+      // Toggle the current one
+      if (!isActive) {
+        faqItem.classList.add("active");
+        element.querySelector(".toggle-btn").textContent = "-";
+      }
+    }
+  </script>
+</html>
