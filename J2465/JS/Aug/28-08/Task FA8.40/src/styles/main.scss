@@ -1,0 +1,52 @@
+$discount-threshold: 80; // Ngưỡng giảm giá
+$product-list-price: 27, 70, 100;
+
+@mixin apply-prices($price-list) {
+  $index: 0;
+
+  @each $price in ($price-list) {
+    $index: $index + 1;
+
+    $discounted-price: discount-price(($price));
+
+    &:nth-child(#{$index}):after {
+      content: " - $" + round-price($discounted-price);
+    }
+  }
+}
+
+@function discount-price($price) {
+  @if ($price > $discount-threshold) {
+    @return $price * 0.9;
+  } @else {
+    @return $price;
+  }
+}
+
+@function round-price($price) {
+  @return round($price);
+}
+
+.product-catalog {
+  max-width: 600px;
+  margin: 50px auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .products {
+    list-style: none;
+    padding: 0;
+
+    .product {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      @include apply-prices($product-list-price);
+    }
+  }
+}

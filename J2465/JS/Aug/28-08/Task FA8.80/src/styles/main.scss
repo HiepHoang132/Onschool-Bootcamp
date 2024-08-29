@@ -1,0 +1,32 @@
+.product-catalog {
+  max-width: 600px;
+  margin: 50px auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .products {
+    list-style: none;
+    padding: 0;
+
+    .product {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease; // Thêm hiệu ứng chuyển đổi màu nền
+
+      // Hàm Sass để tạo ra hiệu ứng hover
+      @function hover-effect($color) {
+        @return mix(white, $color, 30%); // Kết hợp màu trắng với màu của sản phẩm
+      }
+
+      // Áp dụng hiệu ứng hover khi con trỏ di chuyển qua sản phẩm
+      &:hover {
+        background-color: hover-effect(lightblue); // Sử dụng màu lightblue làm màu nền khi hover
+      }
+    }
+  }
+}

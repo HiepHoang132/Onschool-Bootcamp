@@ -1,0 +1,50 @@
+$product-highlight-color: #f39c12; // Màu sắc cho sản phẩm có giá trị cao
+
+$product_info_list: 50, 70, 100;
+
+// Hàm để thêm mã giảm giá vào phía sau thông tin mỗi sản phẩm
+@mixin apply-prices($price-list) {
+  $index: 0;
+
+  @each $price in $price-list {
+    $index: $index + 1;
+
+    &:nth-child(#{$index}) {
+      // Áp dụng màu sắc cho sản phẩm dựa trên giá
+      background-color: product-color($price);
+    }
+  }
+}
+
+// Hàm chuyển đổi màu sắc của sản phẩm dựa trên giá
+@function product-color($price) {
+  @if $price > 80 {
+    @return $product-highlight-color; // Chuyển sang màu sắc đặc biệt cho sản phẩm có giá trị cao
+  } @else {
+    @return inherit; // Giữ nguyên màu sắc nếu không vượt qua ngưỡng
+  }
+}
+
+.product-catalog {
+  max-width: 600px;
+  margin: 50px auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .products {
+    list-style: none;
+    padding: 0;
+
+    .product {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      @include apply-prices($product_info_list);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+$discount: 0.2; // Giảm giá 20%
+
+$product_info_list: 27, 70, 100;
+
+// Hàm để thêm mã giảm giá vào phía sau thông tin mỗi sản phẩm
+@mixin apply-prices($price-list) {
+  $index: 0;
+
+  @each $price in $price-list {
+    $index: $index + 1;
+
+    $discounted-price: discounted-price($price);
+
+    &:nth-child(#{$index}):after {
+      content: " - $" + round-price($discounted-price);
+    }
+  }
+}
+
+// Hàm tính toán giá sau khi áp dụng giảm giá
+@function discounted-price($price) {
+  @return $price - ($price * $discount);
+}
+// Hàm làm tròn giá trị xuống số gần nhất
+@function round-price($price) {
+  @return round($price);
+}
+
+.product-catalog {
+  max-width: 600px;
+  margin: 50px auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .products {
+    list-style: none;
+    padding: 0;
+
+    .product {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      @include apply-prices($product_info_list);
+    }
+  }
+}

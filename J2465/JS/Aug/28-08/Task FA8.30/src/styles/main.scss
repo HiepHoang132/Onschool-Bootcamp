@@ -1,0 +1,16 @@
+.box-base {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.box-1 {
+  @extend .box-base;
+  background-color: lightblue;
+}
+
+.box-2 {
+  @extend .box-base;
+  background-color: lightgreen;
+}

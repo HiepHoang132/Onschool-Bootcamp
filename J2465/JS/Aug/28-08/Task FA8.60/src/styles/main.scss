@@ -1,0 +1,25 @@
+%basic-format {
+  padding: 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+.header {
+  @extend %basic-format;
+  font-size: 24px;
+}
+
+.nav {
+  @extend %basic-format;
+}
+
+.main {
+  @extend %basic-format;
+  font-size: 18px;
+}
+
+.footer {
+  @extend %basic-format;
+  text-align: center;
+}

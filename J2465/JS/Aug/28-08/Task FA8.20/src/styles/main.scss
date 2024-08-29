@@ -1,0 +1,82 @@
+@import "variables";
+$discount: 0.2; // Giảm giá 20%
+
+$product_info_list: 27, 70, 100;
+
+$text-color: white;
+
+// Hàm để thêm mã giảm giá vào phía sau thông tin mỗi sản phẩm
+@mixin apply-prices($price-list) {
+  $index: 0;
+
+  @each $price in $price-list {
+    $index: $index + 1;
+
+    $discounted-price: discounted-price($price);
+
+    &:nth-child(#{$index}):after {
+      content: " - $" + round-price($discounted-price);
+    }
+  }
+}
+
+// Hàm tính toán giá sau khi áp dụng giảm giá
+@function discounted-price($price) {
+  @return $price - ($price * $discount);
+}
+
+// Hàm làm tròn giá trị xuống số gần nhất
+@function round-price($price) {
+  @return round($price);
+}
+
+body {
+  background-color: $primary-color;
+}
+
+.button {
+  background-color: $secondary-color;
+  color: $text-color;
+}
+
+.product-catalog {
+  max-width: 600px;
+  margin: 50px auto;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: $text-color;
+  }
+
+  .products {
+    list-style: none;
+    padding: 0;
+
+    .product {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      color: $text-color;
+      @include apply-prices($product_info_list);
+    }
+  }
+}
+
+.box-base {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+.box1 {
+  @extend .box-base;
+  background-color: lightblue;
+}
+
+.box2 {
+  @extend .box-base;
+  background-color: lightgreen;
+}
