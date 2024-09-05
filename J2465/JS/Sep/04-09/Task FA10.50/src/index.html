@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToDo List</title>
+    <title>Contact Manager</title>
   </head>
 
   <body>
-    <h1>ToDo List</h1>
-    <form id="add-todo-form">
-      <input type="text" id="new-todo" placeholder="New task" />
-      <button type="submit">Add</button>
+    <h1>Contact Manager</h1>
+
+    <form id="contact-form">
+      <input type="text" id="contact-name" placeholder="Name" required />
+      <input type="text" id="contact-phone" placeholder="Phone" required />
+      <button type="submit">Add Contact</button>
     </form>
-    <ul id="todo-list"></ul>
+
+    <ul id="contact-list"></ul>
   </body>
 </html>
