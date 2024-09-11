@@ -1,3 +1,7 @@
 {
-  "liveServer.settings.port": 5502
+  "liveServer.settings.port": 5502,
+  "java.project.sourcePaths": [
+    "JS/Sep/09-09/Task 52A.10",
+    "JS/Sep/09-09/Task 52A.20"
+  ]
 }
