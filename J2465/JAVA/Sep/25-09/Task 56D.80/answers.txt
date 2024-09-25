@@ -1,0 +1,43 @@
+=== SUBTASK 1 ===
+    public final static void main(String[] args) {
+        double d = 10.0 / -0;
+        if (d == Double.POSITIVE_INFINITY) {
+            System.out.println("Positive infinity");
+        } else {
+            System.out.println("Negative infinity");
+        }
+    }
+
+    answer: Positive infinity
+
+=== SUBTASK 2 ===
+public class A {
+        int add(int i, int j) {
+            return i + j;
+        }
+    }
+
+    public class B extends A {
+        public static void main(String[] args) {
+            short s = 9;
+            System.out.println(add(s, 6));
+        }
+    }
+
+    answer: error, cannot make a static reference to the non-static method add(int, int) from the type A
+
+=== SUBTASK 3 ===
+    class Priorities {
+        public static void main(String[] args) {
+            PriorityQueue toDo = new PriorityQueue<>();
+            toDo.add("dishes");
+            toDo.add("laundry");
+            toDo.add("bills");
+            toDo.offer("bills");
+            System.out.println(toDo.size() + " " + toDo.poll());
+            System.out.println(" " + toDo.peek() + " " + toDo.poll());
+            System.out.println(" " + toDo.poll() + " " + toDo.poll());
+        }
+    }
+
+    answer: 4 bills | bills bills | dishes laundry
