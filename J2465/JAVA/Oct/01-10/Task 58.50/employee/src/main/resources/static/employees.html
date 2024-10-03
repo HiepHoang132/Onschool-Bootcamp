@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 58.50</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="text-center my-5">Danh sách employee</h2>
+      <table
+        class="table table-bordered table-hover table-striped"
+        id="employee-table"
+      >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Update date</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <script>
+      $(document).ready(() => {
+        var columns = [
+          "id",
+          "firstName",
+          "lastName",
+          "email",
+          "age",
+          "updateDate",
+        ];
+
+        var table = $("#employee-table").DataTable({
+          columns: columns.map((col) => ({ data: col })),
+        });
+
+        $.ajax({
+          url: "http://localhost:8080/employees",
+          type: "GET",
+          dataType: "json",
+          success: (data) => {
+            const formattedData = data.map((item) => ({
+              ...item,
+              updateDate: formattedDate(item.updateDate),
+            }));
+
+            table.clear();
+            table.rows.add(formattedData);
+            table.draw();
+          },
+          error: (error) => {
+            console.log(`Error fetching employees: ${error.responseText}`);
+          },
+        });
+      });
+
+      function formattedDate(timestamp) {
+        var date = new Date(timestamp * 1000);
+        return date.toLocaleDateString("vi-VN");
+      }
+    </script>
+  </body>
+</html>

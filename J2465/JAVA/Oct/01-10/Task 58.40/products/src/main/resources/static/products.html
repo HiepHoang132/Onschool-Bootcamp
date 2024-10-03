@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 58.30</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="text-center my-5">Danh sách product</h2>
+      <table
+        class="table table-striped table-bordered table-hover"
+        id="products-table"
+      >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Mã sản phẩm</th>
+            <th>Giá tiền</th>
+            <th>Ngày tạo</th>
+            <th>Ngày cập nhật</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(() => {
+      var columns = [
+        "id",
+        "tenSanPham",
+        "maSanPham",
+        "giaTien",
+        "ngayTao",
+        "ngayCapNhat",
+      ];
+
+      var table = $("#products-table").DataTable({
+        columns: columns.map((col) => ({ data: col })),
+      });
+
+      const formattedDate = (timestamp) => {
+        const date = new Date(timestamp * 1000);
+        return date.toLocaleDateString("vi-VN");
+      };
+
+      $.ajax({
+        url: "http://localhost:8080/products",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          const formattedData = data.map((item) => ({
+            ...item,
+            ngayTao: formattedDate(item.ngayTao),
+            ngayCapNhat: formattedDate(item.ngayCapNhat),
+          }));
+          table.clear();
+          table.rows.add(formattedData);
+          table.draw();
+        },
+        error: (error) => {
+          console.log(`Erorr fetching products : ${error.responseText}`);
+        },
+      });
+    });
+  </script>
+</html>

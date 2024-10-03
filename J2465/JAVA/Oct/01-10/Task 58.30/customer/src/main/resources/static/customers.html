@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 58.30</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="text-center my-5">Danh sách customer</h2>
+      <table
+        class="table table-bordered table-striped table-hover"
+        id="customers-table"
+      >
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Ngày tạo</th>
+            <th>Ngày cập nhật</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(() => {
+      var columns = [
+        "id",
+        "hoTen",
+        "email",
+        "soDienThoai",
+        "diaChi",
+        "ngayTao",
+        "ngayCapNhat",
+      ];
+      var table = $("#customers-table").DataTable({
+        columns: columns.map((col) => ({ data: col })),
+        columnDefs: [
+          { width: "150px", targets: 1 },
+          { width: "300px", targets: 4 },
+        ],
+      });
+
+      $.ajax({
+        url: "http://localhost:8080/customers",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          table.clear();
+          table.rows.add(data);
+          table.draw();
+        },
+        error: function (error) {
+          console.log(`Error fetching customers: ${error.responseText}`);
+        },
+      });
+    });
+  </script>
+</html>
