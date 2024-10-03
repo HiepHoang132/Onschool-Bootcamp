@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 59.20</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 class="text-center my-5">Danh sách Orders</h2>
+      <table
+        class="table table-striped table-bordered table-hover"
+        id="order-table"
+      >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Order code</th>
+            <th>Customer id</th>
+            <th>Product id</th>
+            <th>Pizza Size</th>
+            <th>Pizza Type</th>
+            <th>Voucher Code</th>
+            <th>Price</th>
+            <th>Paid</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(() => {
+      var columns = [
+        "id",
+        "orderCode",
+        "customerId",
+        "productId",
+        "pizzaSize",
+        "pizzaType",
+        "voucherCode",
+        "price",
+        "paid",
+      ];
+
+      var table = $("#order-table").DataTable({
+        columns: columns.map((col) => ({ data: col })),
+        columnDefs: [
+          {
+            targets: 6,
+            render: (data) => {
+              return data ? data : "N/A";
+            },
+          },
+        ],
+      });
+
+      $.ajax({
+        url: "http://localhost:8080/orders",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          table.clear();
+          table.rows.add(data);
+          table.draw();
+        },
+        error: (error) => {
+          console.log(`Error fetching orders: ${error.responseText}`);
+        },
+      });
+    });
+  </script>
+</html>
