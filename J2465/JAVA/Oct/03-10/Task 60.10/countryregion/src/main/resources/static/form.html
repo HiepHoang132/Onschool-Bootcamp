@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 60.10</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container-fluid jumbotron my-5">
+        <div class="form-group row mx-3">
+          <div class="col-3 col-form-label">
+            <label for="input-fname">First name</label>
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="input-fname"
+              placeholder="Your name..."
+            />
+          </div>
+        </div>
+
+        <div class="form-group row mx-3">
+          <div class="col-3 col-form-label">
+            <label for="input-lname">Last name</label>
+          </div>
+          <div class="col-9">
+            <input
+              type="text"
+              class="form-control"
+              id="input-lname"
+              placeholder="Your last name..."
+            />
+          </div>
+        </div>
+
+        <div class="row mx-3">
+          <div class="col-6">
+            <div class="form-group row">
+              <div class="col-3 col-form-label">
+                <label for="select-country">Country</label>
+              </div>
+              <div class="col-9">
+                <select
+                  name="country"
+                  id="select-country"
+                  class="custom-select"
+                >
+                  <option value="0">Choose country</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-3 col-form-label">
+                <label for="select-region">Region</label>
+              </div>
+              <div class="col-9">
+                <select
+                  name="region"
+                  id="select-region"
+                  class="custom-select"
+                  disabled
+                >
+                  <option value="0">Choose region</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mr-3">
+          <div class="col-12 text-right">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(() => {
+      getData();
+    });
+
+    function getData() {
+      $.ajax({
+        url: "http://localhost:8080/countries",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          loadDataToCountrySelect(data);
+        },
+        error: (error) => {
+          console.log(`Error fetching countries: ${error.responseText}`);
+        },
+      });
+    }
+
+    function loadDataToCountrySelect(data) {
+      data.forEach((country) => {
+        var option = $("<option/>");
+        option.text(country.countryName);
+        option.attr("value", country.countryCode);
+        $("#select-country").append(option);
+      });
+    }
+
+    $("#select-country").change(() => {
+      var countryCode = $("#select-country").val();
+      $.ajax({
+        url: `http://localhost:8080/${countryCode}/regions`,
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          loadDataToRegionSelect(data);
+        },
+        error: (error) => {
+          $("#select-region").attr("disabled", "disabled");
+          console.log(`Error fetching regions: ${error.status}`);
+        },
+      });
+
+      function loadDataToRegionSelect(data) {
+        $("#select-region").removeAttr("disabled");
+        $("#select-region").html("<option value=''>Choose region</option>");
+        data.forEach((region) => {
+          var option = $("<option/>");
+          option.text(region.regionName);
+          option.attr("value", region.countryCode);
+          $("#select-region").append(option);
+        });
+      }
+    });
+  </script>
+</html>
