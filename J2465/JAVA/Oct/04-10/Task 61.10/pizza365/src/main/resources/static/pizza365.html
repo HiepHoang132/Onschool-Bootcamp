@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza 365</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container-fluid">
+        <div class="col-sm-12">
+          <div class="row" id="menus"></div>
+        </div>
+      </div>
+
+      <div id="type" class="row">
+        <div class="col-sm-12 text-center p-4 mt-4">
+          <h2><b class="p-2 border-bottom">Đồ uống</b></h2>
+        </div>
+        <select class="form-control" name="drinks" id="select-drink">
+          <option value="0">Chọn đồ uống</option>
+        </select>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(() => {
+      getMenuData();
+      getDrinkData();
+      getVoucherData();
+      getCustomerData();
+      getOrderData();
+    });
+
+    function getMenuData() {
+      $.ajax({
+        url: "http://localhost:8080/menus",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          loadMenu(data);
+        },
+        error: (error) => {
+          console.log(`Error fetching menus: ${error.responseText}`);
+        },
+      });
+    }
+
+    function loadMenu(data) {
+      var html = "";
+      data.forEach((menu) => {
+        html += `
+            <div class="col-sm-4 pizza-size">
+                  <div class="card">
+                    <div
+                      class="card-header bg-primary text-white text-center"
+                    >
+                      <h3>${
+                        menu.size === "S"
+                          ? "S (Small size)"
+                          : menu.size === "M"
+                          ? "M (Medium size)"
+                          : menu.size === "L"
+                          ? "L (Large size)"
+                          : menu.size
+                      }</h3>
+                    </div>
+                    <div class="card-body text-center">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Đường kính <b>${
+                          menu.duongKinh
+                        } cm</b></li>
+                        <li class="list-group-item">Sườn nướng <b>${
+                          menu.suonNuong
+                        }</b></li>
+                        <li class="list-group-item">Salad <b> ${
+                          menu.salad
+                        } gr</b></li>
+                        <li class="list-group-item">Nước ngọt <b>${
+                          menu.soLuongNuocNgot
+                        }</b></li>
+                        <li class="list-group-item">
+                          <h1>VND <b>${menu.donGia}</b></h1>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                      <button
+                        class="btn-green"
+                        id="btn-size-small"
+                        data-is-selected="N"
+                        onclick="onBtnChooseSizeClick(BTN_SMALL_ID)"
+                      >
+                        Chọn
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            `;
+      });
+
+      $("#menus").append(html);
+    }
+
+    function getDrinkData() {
+      $.ajax({
+        url: "http://localhost:8080/drinks",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          loadDrink(data);
+        },
+        error: (error) => {
+          console.log(`Error fetching menus: ${error.responseText}`);
+        },
+      });
+    }
+
+    function loadDrink(data) {
+      data.forEach((drink) => {
+        var $option = $("<option/>");
+        $option.text(drink.tenNuocUong);
+        $option.val(drink.maNuocUong);
+        $("#select-drink").append($option);
+      });
+    }
+
+    function getVoucherData() {
+      $.ajax({
+        url: "http://localhost:8080/vouchers",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(`Error fetching menus: ${error.responseText}`);
+        },
+      });
+    }
+
+    function getCustomerData() {
+      $.ajax({
+        url: "http://localhost:8080/customers",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(`Error fetching menus: ${error.responseText}`);
+        },
+      });
+    }
+
+    function getOrderData() {
+      $.ajax({
+        url: "http://localhost:8080/orders",
+        type: "GET",
+        dataType: "json",
+        success: (data) => {
+          console.log(data);
+        },
+        error: (error) => {
+          console.log(`Error fetching menus: ${error.responseText}`);
+        },
+      });
+    }
+  </script>
+</html>
