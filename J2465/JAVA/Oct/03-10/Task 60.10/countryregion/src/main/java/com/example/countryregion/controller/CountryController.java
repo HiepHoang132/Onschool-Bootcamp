@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.countryregion.CountryService;
 import com.example.countryregion.model.Country;
 import com.example.countryregion.model.Region;
 import com.example.countryregion.repository.RegionRepository;
+import com.example.countryregion.service.CountryService;
 
 @RestController
 @CrossOrigin
