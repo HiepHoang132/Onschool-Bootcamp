@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>District dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Import Datatable sau jquery -->
+    <!-- Import them style bootstrap cho datatable -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="district.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mb-2">
+        <h1 class="mt-5">Quản trị Quận huyện</h1>
+        <a href="index.html" class="btn btn-primary">Go back</a>
+      </div>
+
+      <div class="jumbotron container">
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="input-quan">Quận Huyện</label>
+          </div>
+          <div class="col-sm-9">
+            <input
+              type="text"
+              id="input-quan"
+              placeholder="Quận Huyện"
+              class="form-control mb-1"
+            />
+            <span id="quanError" class="text-danger"></span>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="select-prefix">Prefix</label>
+          </div>
+          <div class="col-sm-9">
+            <select class="custom-select" name="prefix" id="select-prefix">
+              <option value="">Chọn quận huyện</option>
+              <option value="Quận">Quận</option>
+              <option value="Huyện">Huyện</option>
+            </select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <div class="col-sm-3">
+            <label for="select-province">Tỉnh thành</label>
+          </div>
+          <div class="col-sm-9">
+            <select class="custom-select" name="province" id="select-province">
+              <option value="0">Chọn tỉnh thành</option>
+            </select>
+            <span id="provinceError" class="text-danger"></span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <button id="save_data" class="btn btn-info">Save Data</button>
+            <button id="btn-create" class="btn btn-success">
+              Create District
+            </button>
+            <button id="btn-delete-one" class="btn btn-warning">
+              Delete District
+            </button>
+            <button id="btn-delete-all" class="btn btn-danger">
+              Delete All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <table
+        class="table table-bordered table-striped table-hover"
+        id="district-table"
+      >
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên quận huyện</th>
+            <th>Quận - Huyện</th>
+            <th>Tên thành phố</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+</html>
