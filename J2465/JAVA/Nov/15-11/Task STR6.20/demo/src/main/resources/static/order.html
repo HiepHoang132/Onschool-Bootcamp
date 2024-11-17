@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallel Stream Demo</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Order Management with Parallel Stream</h2>
+      <!-- Tổng giá trị đơn hàng -->
+      <button id="totalValueBtn" class="btn btn-info">
+        Get Total Order Value
+      </button>
+      <p id="totalValueResult"></p>
+
+      <!-- Đếm số lượng đơn hàng lớn -->
+      <input
+        type="number"
+        id="threshold"
+        class="form-control"
+        placeholder="Enter threshold"
+      />
+      <button id="countLargeOrdersBtn" class="btn btn-primary mt-2">
+        Count Large Orders
+      </button>
+      <p id="countLargeOrdersResult"></p>
+
+      <!-- Tìm đơn hàng có giá trị cao nhất -->
+      <button id="highestOrderBtn" class="btn btn-warning mt-3">
+        Get Highest Order
+      </button>
+      <p id="highestOrderResult"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Tổng giá trị đơn hàng
+        $("#totalValueBtn").click(function () {
+          $.ajax({
+            url: "/api/orders/total-value",
+            method: "GET",
+            success: function (data) {
+              $("#totalValueResult").text(`Total Order Value: $${data}`);
+            },
+          });
+        });
+
+        // Đếm số lượng đơn hàng lớn
+        $("#countLargeOrdersBtn").click(function () {
+          const threshold = $("#threshold").val();
+          $.ajax({
+            url: `/api/orders/count-large-orders?threshold=${threshold}`,
+            method: "GET",
+            success: function (data) {
+              $("#countLargeOrdersResult").text(`Large Orders Count: ${data}`);
+            },
+          });
+        });
+
+        // Tìm đơn hàng có giá trị cao nhất
+        $("#highestOrderBtn").click(function () {
+          $.ajax({
+            url: "/api/orders/highest-order",
+            method: "GET",
+            success: function (data) {
+              $("#highestOrderResult").text(
+                `Highest Order: ${data.customerName} - $${data.totalPrice}`
+              );
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
