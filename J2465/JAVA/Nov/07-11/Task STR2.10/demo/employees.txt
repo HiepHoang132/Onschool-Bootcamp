@@ -1,0 +1,4 @@
+John, IT, 30, 6000
+Jane, HR, 28, 5500
+Jack, Finance, 35, 7000
+Jill, IT, 40, 8000
