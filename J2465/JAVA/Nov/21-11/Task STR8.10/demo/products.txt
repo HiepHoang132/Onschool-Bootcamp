@@ -1,0 +1,5 @@
+Laptop,Electronics,800
+Phone,Electronics,500
+Chair,Furniture,100
+Table,Furniture,200
+Headphones,Electronics,150
