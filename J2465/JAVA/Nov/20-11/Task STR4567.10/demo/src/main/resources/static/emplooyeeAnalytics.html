@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Department Analytics</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+   <div class="container mt-5">
+       <h2 class="text-center">Employee Department Analytics</h2>
+
+       <!-- Count Employees by Department Section -->
+       <div class="mt-4">
+           <h4>Employee Count by Department</h4>
+           <button id="countByDepartmentBtn" class="btn btn-info">Get Counts</button>
+           <ul id="countByDepartmentResult"></ul>
+       </div>
+
+       <!-- Average Salary Section -->
+       <div class="mt-4">
+           <h4>Average Salary</h4>
+           <button id="averageSalaryBtn" class="btn btn-info">Calculate Average</button>
+           <p id="averageSalaryResult"></p>
+       </div>
+
+       <!-- Max Salary Employee by Department Section -->
+       <div class="mt-4">
+           <h4>Employee with Max Salary by Department</h4>
+           <button id="maxSalaryEmployeeBtn" class="btn btn-info">Find Max Salary</button>
+           <ul id="maxSalaryEmployeeResult"></ul>
+       </div>
+   </div>
+
+   <!-- Scripts -->
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   <script>
+       $(document).ready(function() {
+           // Count Employees by Department
+           $('#countByDepartmentBtn').click(function() {
+               $.ajax({
+                   url: '/api/employees/statistics',
+                   method: 'GET',
+                   success: function(data) {
+                       $('#countByDepartmentResult').empty();
+                       $.each(data.countByDepartment, function(department, count) {
+                           $('#countByDepartmentResult').append(`<li>${department}: ${count} employees</li>`);
+                       });
+                   },
+                   error: function(error) {
+                       console.log("Error fetching department counts:", error);
+                   }
+               });
+           });
+
+           // Calculate Average Salary
+           $('#averageSalaryBtn').click(function() {
+               $.ajax({
+                   url: '/api/employees/average-salary',
+                   method: 'GET',
+                   success: function(data) {
+                       $('#averageSalaryResult').text(`Average Salary: $${data}`);
+                   },
+                   error: function(error) {
+                       console.log("Error fetching average salary:", error);
+                   }
+               });
+           });
+
+           // Employee with Max Salary by Department
+           $('#maxSalaryEmployeeBtn').click(function() {
+               $.ajax({
+                   url: '/api/employees/max-salary-by-department',
+                   method: 'GET',
+                   success: function(data) {
+                       $('#maxSalaryEmployeeResult').empty();
+                       $.each(data, function(department, employee) {
+                           $('#maxSalaryEmployeeResult').append(`<li>${department}: ${employee.name} - $${employee.salary}</li>`);
+                       });
+                   },
+                   error: function(error) {
+                       console.log("Error fetching max salary employees:", error);
+                   }
+               });
+           });
+       });
+   </script>
+</body>
+</html>
+
+

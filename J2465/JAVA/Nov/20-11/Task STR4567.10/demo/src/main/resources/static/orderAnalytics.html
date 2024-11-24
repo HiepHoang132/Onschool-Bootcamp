@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order and Employee Analytics</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center">Order Analytics</h2>
+
+      <!-- Total Order Amount Section -->
+      <div class="mt-4">
+        <h4>Total Order Amount</h4>
+        <button id="totalOrderAmountBtn" class="btn btn-info">
+          Calculate Total
+        </button>
+        <p id="totalOrderAmountResult"></p>
+      </div>
+
+      <!-- Partition Orders by Amount Section -->
+      <div class="mt-4">
+        <h4>Partition Orders by Amount</h4>
+        <button id="partitionOrdersBtn" class="btn btn-info">
+          Partition Orders
+        </button>
+        <div id="partitionOrdersResult">
+          <h5>Orders Above 500</h5>
+          <ul id="ordersAbove500"></ul>
+          <h5>Orders 500 and Below</h5>
+          <ul id="ordersBelow500"></ul>
+        </div>
+      </div>
+
+      <!-- Group Orders by Customer Section -->
+      <div class="mt-4">
+        <h4>Group Orders by Customer</h4>
+        <button id="groupOrdersByCustomerBtn" class="btn btn-info">
+          Group by Customer
+        </button>
+        <div id="groupOrdersByCustomerResult"></div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Calculate Total Order Amount
+        $("#totalOrderAmountBtn").click(function () {
+          $.ajax({
+            url: "/api/orders/total-amount",
+            method: "GET",
+            success: function (data) {
+              $("#totalOrderAmountResult").text(`Total Order Amount: $${data}`);
+            },
+            error: function (error) {
+              console.log("Error fetching total amount:", error);
+            },
+          });
+        });
+
+        // Partition Orders by Amount
+        $("#partitionOrdersBtn").click(function () {
+          $.ajax({
+            url: "/api/orders/partition-by-amount",
+            method: "GET",
+            success: function (data) {
+              $("#ordersAbove500").empty();
+              $("#ordersBelow500").empty();
+              data.true.forEach((order) => {
+                $("#ordersAbove500").append(
+                  `<li>Order ID: ${order.id}, Amount: ${order.amount}</li>`
+                );
+              });
+              data.false.forEach((order) => {
+                $("#ordersBelow500").append(
+                  `<li>Order ID: ${order.id}, Amount: ${order.amount}</li>`
+                );
+              });
+            },
+            error: function (error) {
+              console.log("Error partitioning orders:", error);
+            },
+          });
+        });
+
+        // Group Orders by Customer
+        $("#groupOrdersByCustomerBtn").click(function () {
+          $.ajax({
+            url: "/api/orders/group-by-customer",
+            method: "GET",
+            success: function (data) {
+              $("#groupOrdersByCustomerResult").empty();
+              $.each(data, function (customer, orders) {
+                $("#groupOrdersByCustomerResult").append(
+                  `<h5>Customer: ${customer}</h5><ul id="orderList${customer}"></ul>`
+                );
+                orders.forEach((order) => {
+                  $(`#orderList${customer}`).append(
+                    `<li>Order ID: ${order.id}, Amount: ${order.amount}</li>`
+                  );
+                });
+              });
+            },
+            error: function (error) {
+              console.log("Error grouping orders:", error);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
