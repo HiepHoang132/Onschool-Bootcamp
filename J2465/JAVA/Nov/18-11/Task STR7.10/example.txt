@@ -1,0 +1,4 @@
+stream IO
+stream error
+stream IO2
+stream2 error
