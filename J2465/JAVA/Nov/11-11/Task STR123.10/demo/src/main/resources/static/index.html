@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2 class="text-center">Employee Management System</h2>
+      <!-- Filter Section -->
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <input
+            type="text"
+            id="departmentFilter"
+            class="form-control"
+            placeholder="Department"
+          />
+        </div>
+        <div class="col-md-3">
+          <input
+            type="number"
+            id="minSalaryFilter"
+            class="form-control"
+            placeholder="Min Salary"
+          />
+        </div>
+        <div class="col-md-3">
+          <input
+            type="number"
+            id="minAgeFilter"
+            class="form-control"
+            placeholder="Min Age"
+          />
+        </div>
+        <div class="col-md-3">
+          <button id="filterBtn" class="btn btn-primary btn-block">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Employee Table -->
+      <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Age</th>
+              <th>Salary</th>
+              <th>Projects</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Buttons -->
+      <div class="d-flex justify-content-between mt-3">
+        <button id="prevPageBtn" class="btn btn-secondary">Previous</button>
+        <button id="nextPageBtn" class="btn btn-secondary">Next</button>
+      </div>
+
+      <!-- Statistics Section -->
+      <div class="mt-5">
+        <h3>Employee Statistics</h3>
+        <p id="countByDepartment"></p>
+        <p id="averageSalary"></p>
+        <p id="maxSalaryEmployee"></p>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="scripts.js">
+              let currentPage = 0;
+      const pageSize = 10;
+
+      $(document).ready(function () {
+         // Load initial data
+         loadEmployees();
+         loadStatistics();
+
+         // Apply filters
+         $('#filterBtn').click(function () {
+             loadEmployees();
+         });
+
+         // Pagination
+         $('#prevPageBtn').click(function () {
+             if (currentPage > 0) {
+                 currentPage--;
+                 loadEmployees();
+             }
+         });
+         $('#nextPageBtn').click(function () {
+             currentPage++;
+             loadEmployees();
+         });
+      });
+
+      // Function to load employees with optional filters
+      function loadEmployees() {
+         const department = $('#departmentFilter').val();
+         const minSalary = $('#minSalaryFilter').val();
+         const minAge = $('#minAgeFilter').val();
+
+         $.ajax({
+             url: `/api/employees/filter`,
+             method: 'GET',
+             data: {
+                 department: department,
+                 minSalary: minSalary,
+                 minAge: minAge,
+                 page: currentPage,
+                 size: pageSize
+             },
+             success: function (employees) {
+                 $('#employeeTableBody').empty();
+                 employees.forEach(emp => {
+                     $('#employeeTableBody').append(`
+                         <tr>
+                             <td>${emp.name}</td>
+                             <td>${emp.department}</td>
+                             <td>${emp.age}</td>
+                             <td>${emp.salary}</td>
+                             <td>${emp.projects.join(', ')}</td>
+                         </tr>
+                     `);
+                 });
+             },
+             error: function (error) {
+                 console.log("Error fetching employees:", error);
+             }
+         });
+      }
+
+      // Function to load statistics
+      function loadStatistics() {
+         $.ajax({
+             url: `/api/employees/statistics`,
+             method: 'GET',
+             success: function (data) {
+                 $('#countByDepartment').text(`Employees by Department: ${JSON.stringify(data.countByDepartment)}`);
+                 $('#averageSalary').text(`Average Salary: ${data.averageSalary}`);
+                 $('#maxSalaryEmployee').text(`Employee with Max Salary: ${data.maxSalaryEmployee.name} - ${data.maxSalaryEmployee.salary}`);
+             },
+             error: function (error) {
+                 console.log("Error fetching statistics:", error);
+             }
+         });
+      }
+    </script>
+  </body>
+</html>
