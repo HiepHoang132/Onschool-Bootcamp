@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Management with Pipeline and Async</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Product Management with Pipeline and Async</h2>
+
+      <!-- Pipeline Search -->
+      <div class="mt-4">
+        <input
+          type="text"
+          id="pipelineCategory"
+          class="form-control"
+          placeholder="Category"
+        />
+        <input
+          type="text"
+          id="pipelineSortBy"
+          class="form-control mt-2"
+          placeholder="Sort By (price/stock)"
+        />
+        <button id="pipelineSearchBtn" class="btn btn-primary mt-2">
+          Search with Pipeline
+        </button>
+        <ul id="pipelineSearchResult"></ul>
+      </div>
+
+      <!-- Async Order Search -->
+      <div class="mt-4">
+        <button id="asyncOrdersBtn" class="btn btn-info">
+          Load High Value Orders
+        </button>
+        <ul id="asyncOrdersResult"></ul>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      const BASE_URL = "http://localhost:8080";
+      $(document).ready(function () {
+        // Pipeline Search
+        $("#pipelineSearchBtn").click(function () {
+          const category = $("#pipelineCategory").val();
+          const sortBy = $("#pipelineSortBy").val();
+          const page = 0; // Example page
+          const size = 10;
+
+          $.ajax({
+            url: `${BASE_URL}/api/products/pipeline?category=${category}&sortBy=${sortBy}&page=${page}&size=${size}`,
+            method: "GET",
+            success: function (data) {
+              $("#pipelineSearchResult").empty();
+              data.forEach((product) => {
+                $("#pipelineSearchResult").append(
+                  `<li>${product.name} - $${product.price}</li>`
+                );
+              });
+            },
+          });
+        });
+
+        // Async High Value Orders
+        $("#asyncOrdersBtn").click(function () {
+          $.ajax({
+            url: `${BASE_URL}/api/orders/async`,
+            method: "GET",
+            success: function (data) {
+              $("#asyncOrdersResult").empty();
+              data.forEach((order) => {
+                $("#asyncOrdersResult").append(
+                  `<li>Order #${order.id} - $${order.total_price}</li>`
+                );
+              });
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

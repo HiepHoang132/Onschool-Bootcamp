@@ -1,0 +1,1001 @@
+id,name,category,price,stock
+1,"Product 1",Electronics,622,56
+2,"Product 2","Home Appliances",959,13
+3,"Product 3",Furniture,762,39
+4,"Product 4",Electronics,651,5
+5,"Product 5","Home Appliances",314,29
+6,"Product 6",Furniture,599,5
+7,"Product 7",Electronics,512,31
+8,"Product 8","Home Appliances",84,29
+9,"Product 9",Furniture,331,65
+10,"Product 10",Electronics,338,61
+11,"Product 11","Home Appliances",137,67
+12,"Product 12",Furniture,54,7
+13,"Product 13",Electronics,305,18
+14,"Product 14","Home Appliances",105,78
+15,"Product 15",Furniture,694,9
+16,"Product 16",Electronics,386,55
+17,"Product 17","Home Appliances",635,48
+18,"Product 18",Furniture,541,18
+19,"Product 19",Electronics,319,93
+20,"Product 20","Home Appliances",741,90
+21,"Product 21",Furniture,314,72
+22,"Product 22",Electronics,752,56
+23,"Product 23","Home Appliances",563,6
+24,"Product 24",Furniture,633,94
+25,"Product 25",Electronics,809,22
+26,"Product 26","Home Appliances",674,66
+27,"Product 27",Furniture,322,49
+28,"Product 28",Electronics,551,21
+29,"Product 29","Home Appliances",466,59
+30,"Product 30",Furniture,598,16
+31,"Product 31",Electronics,76,69
+32,"Product 32","Home Appliances",354,57
+33,"Product 33",Furniture,847,53
+34,"Product 34",Electronics,113,79
+35,"Product 35","Home Appliances",722,20
+36,"Product 36",Furniture,857,68
+37,"Product 37",Electronics,788,90
+38,"Product 38","Home Appliances",161,93
+39,"Product 39",Furniture,267,40
+40,"Product 40",Electronics,321,25
+41,"Product 41","Home Appliances",389,7
+42,"Product 42",Furniture,253,91
+43,"Product 43",Electronics,862,59
+44,"Product 44","Home Appliances",347,85
+45,"Product 45",Furniture,278,70
+46,"Product 46",Electronics,758,66
+47,"Product 47","Home Appliances",1000,7
+48,"Product 48",Furniture,324,28
+49,"Product 49",Electronics,510,62
+50,"Product 50","Home Appliances",620,18
+51,"Product 51",Furniture,95,74
+52,"Product 52",Electronics,529,34
+53,"Product 53","Home Appliances",184,73
+54,"Product 54",Furniture,197,64
+55,"Product 55",Electronics,685,47
+56,"Product 56","Home Appliances",348,19
+57,"Product 57",Furniture,950,22
+58,"Product 58",Electronics,223,31
+59,"Product 59","Home Appliances",942,81
+60,"Product 60",Furniture,230,56
+61,"Product 61",Electronics,199,16
+62,"Product 62","Home Appliances",317,96
+63,"Product 63",Furniture,926,76
+64,"Product 64",Electronics,991,71
+65,"Product 65","Home Appliances",539,49
+66,"Product 66",Furniture,877,92
+67,"Product 67",Electronics,919,87
+68,"Product 68","Home Appliances",558,12
+69,"Product 69",Furniture,929,32
+70,"Product 70",Electronics,772,89
+71,"Product 71","Home Appliances",168,99
+72,"Product 72",Furniture,532,62
+73,"Product 73",Electronics,548,80
+74,"Product 74","Home Appliances",431,63
+75,"Product 75",Furniture,895,60
+76,"Product 76",Electronics,329,70
+77,"Product 77","Home Appliances",589,78
+78,"Product 78",Furniture,188,43
+79,"Product 79",Electronics,670,2
+80,"Product 80","Home Appliances",140,45
+81,"Product 81",Furniture,934,33
+82,"Product 82",Electronics,829,15
+83,"Product 83","Home Appliances",256,69
+84,"Product 84",Furniture,754,68
+85,"Product 85",Electronics,163,60
+86,"Product 86","Home Appliances",614,21
+87,"Product 87",Furniture,256,50
+88,"Product 88",Electronics,791,45
+89,"Product 89","Home Appliances",864,98
+90,"Product 90",Furniture,298,42
+91,"Product 91",Electronics,296,8
+92,"Product 92","Home Appliances",584,62
+93,"Product 93",Furniture,389,97
+94,"Product 94",Electronics,733,73
+95,"Product 95","Home Appliances",484,12
+96,"Product 96",Furniture,239,66
+97,"Product 97",Electronics,689,41
+98,"Product 98","Home Appliances",984,72
+99,"Product 99",Furniture,642,98
+100,"Product 100",Electronics,986,2
+101,"Product 101","Home Appliances",151,51
+102,"Product 102",Furniture,201,32
+103,"Product 103",Electronics,107,39
+104,"Product 104","Home Appliances",720,41
+105,"Product 105",Furniture,871,14
+106,"Product 106",Electronics,120,98
+107,"Product 107","Home Appliances",638,20
+108,"Product 108",Furniture,138,91
+109,"Product 109",Electronics,241,33
+110,"Product 110","Home Appliances",978,95
+111,"Product 111",Furniture,771,99
+112,"Product 112",Electronics,652,23
+113,"Product 113","Home Appliances",238,34
+114,"Product 114",Furniture,117,36
+115,"Product 115",Electronics,571,70
+116,"Product 116","Home Appliances",797,88
+117,"Product 117",Furniture,998,39
+118,"Product 118",Electronics,891,31
+119,"Product 119","Home Appliances",849,32
+120,"Product 120",Furniture,54,12
+121,"Product 121",Electronics,539,27
+122,"Product 122","Home Appliances",759,97
+123,"Product 123",Furniture,572,89
+124,"Product 124",Electronics,743,3
+125,"Product 125","Home Appliances",919,52
+126,"Product 126",Furniture,829,57
+127,"Product 127",Electronics,374,4
+128,"Product 128","Home Appliances",153,47
+129,"Product 129",Furniture,994,59
+130,"Product 130",Electronics,900,76
+131,"Product 131","Home Appliances",115,10
+132,"Product 132",Furniture,275,93
+133,"Product 133",Electronics,899,71
+134,"Product 134","Home Appliances",845,8
+135,"Product 135",Furniture,865,8
+136,"Product 136",Electronics,777,63
+137,"Product 137","Home Appliances",835,27
+138,"Product 138",Furniture,812,25
+139,"Product 139",Electronics,813,30
+140,"Product 140","Home Appliances",98,39
+141,"Product 141",Furniture,744,54
+142,"Product 142",Electronics,461,60
+143,"Product 143","Home Appliances",652,42
+144,"Product 144",Furniture,189,51
+145,"Product 145",Electronics,129,91
+146,"Product 146","Home Appliances",296,60
+147,"Product 147",Furniture,210,8
+148,"Product 148",Electronics,873,12
+149,"Product 149","Home Appliances",951,42
+150,"Product 150",Furniture,264,89
+151,"Product 151",Electronics,757,8
+152,"Product 152","Home Appliances",165,40
+153,"Product 153",Furniture,621,84
+154,"Product 154",Electronics,366,19
+155,"Product 155","Home Appliances",919,4
+156,"Product 156",Furniture,417,86
+157,"Product 157",Electronics,153,99
+158,"Product 158","Home Appliances",607,99
+159,"Product 159",Furniture,203,86
+160,"Product 160",Electronics,786,33
+161,"Product 161","Home Appliances",302,38
+162,"Product 162",Furniture,117,24
+163,"Product 163",Electronics,961,10
+164,"Product 164","Home Appliances",599,63
+165,"Product 165",Furniture,378,89
+166,"Product 166",Electronics,386,15
+167,"Product 167","Home Appliances",635,68
+168,"Product 168",Furniture,547,60
+169,"Product 169",Electronics,420,18
+170,"Product 170","Home Appliances",714,98
+171,"Product 171",Furniture,788,97
+172,"Product 172",Electronics,490,45
+173,"Product 173","Home Appliances",824,76
+174,"Product 174",Furniture,349,33
+175,"Product 175",Electronics,659,26
+176,"Product 176","Home Appliances",380,99
+177,"Product 177",Furniture,849,28
+178,"Product 178",Electronics,849,40
+179,"Product 179","Home Appliances",444,92
+180,"Product 180",Furniture,336,79
+181,"Product 181",Electronics,992,63
+182,"Product 182","Home Appliances",176,81
+183,"Product 183",Furniture,622,62
+184,"Product 184",Electronics,273,36
+185,"Product 185","Home Appliances",95,19
+186,"Product 186",Furniture,792,36
+187,"Product 187",Electronics,442,2
+188,"Product 188","Home Appliances",813,100
+189,"Product 189",Furniture,575,80
+190,"Product 190",Electronics,307,101
+191,"Product 191","Home Appliances",208,86
+192,"Product 192",Furniture,744,13
+193,"Product 193",Electronics,420,61
+194,"Product 194","Home Appliances",825,30
+195,"Product 195",Furniture,998,13
+196,"Product 196",Electronics,632,71
+197,"Product 197","Home Appliances",671,18
+198,"Product 198",Furniture,911,2
+199,"Product 199",Electronics,380,71
+200,"Product 200","Home Appliances",466,11
+201,"Product 201",Furniture,229,65
+202,"Product 202",Electronics,651,26
+203,"Product 203","Home Appliances",371,96
+204,"Product 204",Furniture,734,77
+205,"Product 205",Electronics,662,95
+206,"Product 206","Home Appliances",777,2
+207,"Product 207",Furniture,757,71
+208,"Product 208",Electronics,286,16
+209,"Product 209","Home Appliances",75,68
+210,"Product 210",Furniture,301,33
+211,"Product 211",Electronics,798,100
+212,"Product 212","Home Appliances",608,98
+213,"Product 213",Furniture,112,44
+214,"Product 214",Electronics,963,52
+215,"Product 215","Home Appliances",690,84
+216,"Product 216",Furniture,188,23
+217,"Product 217",Electronics,706,79
+218,"Product 218","Home Appliances",820,73
+219,"Product 219",Furniture,221,75
+220,"Product 220",Electronics,179,48
+221,"Product 221","Home Appliances",964,40
+222,"Product 222",Furniture,96,9
+223,"Product 223",Electronics,300,8
+224,"Product 224","Home Appliances",594,66
+225,"Product 225",Furniture,533,62
+226,"Product 226",Electronics,531,72
+227,"Product 227","Home Appliances",101,13
+228,"Product 228",Furniture,483,92
+229,"Product 229",Electronics,215,15
+230,"Product 230","Home Appliances",233,54
+231,"Product 231",Furniture,137,87
+232,"Product 232",Electronics,60,49
+233,"Product 233","Home Appliances",415,48
+234,"Product 234",Furniture,249,64
+235,"Product 235",Electronics,543,71
+236,"Product 236","Home Appliances",966,72
+237,"Product 237",Furniture,680,19
+238,"Product 238",Electronics,928,8
+239,"Product 239","Home Appliances",606,72
+240,"Product 240",Furniture,808,87
+241,"Product 241",Electronics,900,91
+242,"Product 242","Home Appliances",831,41
+243,"Product 243",Furniture,582,59
+244,"Product 244",Electronics,276,45
+245,"Product 245","Home Appliances",513,12
+246,"Product 246",Furniture,156,23
+247,"Product 247",Electronics,758,9
+248,"Product 248","Home Appliances",198,55
+249,"Product 249",Furniture,282,61
+250,"Product 250",Electronics,286,46
+251,"Product 251","Home Appliances",544,25
+252,"Product 252",Furniture,657,49
+253,"Product 253",Electronics,497,93
+254,"Product 254","Home Appliances",227,18
+255,"Product 255",Furniture,335,100
+256,"Product 256",Electronics,74,18
+257,"Product 257","Home Appliances",799,43
+258,"Product 258",Furniture,769,52
+259,"Product 259",Electronics,309,85
+260,"Product 260","Home Appliances",410,39
+261,"Product 261",Furniture,754,59
+262,"Product 262",Electronics,690,64
+263,"Product 263","Home Appliances",169,75
+264,"Product 264",Furniture,360,42
+265,"Product 265",Electronics,110,10
+266,"Product 266","Home Appliances",310,10
+267,"Product 267",Furniture,638,84
+268,"Product 268",Electronics,330,100
+269,"Product 269","Home Appliances",88,26
+270,"Product 270",Furniture,154,82
+271,"Product 271",Electronics,740,21
+272,"Product 272","Home Appliances",812,43
+273,"Product 273",Furniture,727,30
+274,"Product 274",Electronics,348,71
+275,"Product 275","Home Appliances",572,66
+276,"Product 276",Furniture,638,15
+277,"Product 277",Electronics,829,70
+278,"Product 278","Home Appliances",62,99
+279,"Product 279",Furniture,856,32
+280,"Product 280",Electronics,60,13
+281,"Product 281","Home Appliances",578,44
+282,"Product 282",Furniture,495,7
+283,"Product 283",Electronics,911,35
+284,"Product 284","Home Appliances",53,99
+285,"Product 285",Furniture,914,60
+286,"Product 286",Electronics,278,43
+287,"Product 287","Home Appliances",400,60
+288,"Product 288",Furniture,862,51
+289,"Product 289",Electronics,920,10
+290,"Product 290","Home Appliances",725,29
+291,"Product 291",Furniture,291,45
+292,"Product 292",Electronics,450,81
+293,"Product 293","Home Appliances",735,22
+294,"Product 294",Furniture,913,91
+295,"Product 295",Electronics,789,20
+296,"Product 296","Home Appliances",622,46
+297,"Product 297",Furniture,475,90
+298,"Product 298",Electronics,128,77
+299,"Product 299","Home Appliances",555,40
+300,"Product 300",Furniture,390,63
+301,"Product 301",Electronics,72,27
+302,"Product 302","Home Appliances",251,30
+303,"Product 303",Furniture,824,21
+304,"Product 304",Electronics,590,25
+305,"Product 305","Home Appliances",505,69
+306,"Product 306",Furniture,984,88
+307,"Product 307",Electronics,407,29
+308,"Product 308","Home Appliances",324,60
+309,"Product 309",Furniture,137,69
+310,"Product 310",Electronics,186,68
+311,"Product 311","Home Appliances",905,51
+312,"Product 312",Furniture,827,59
+313,"Product 313",Electronics,462,45
+314,"Product 314","Home Appliances",888,11
+315,"Product 315",Furniture,855,95
+316,"Product 316",Electronics,201,99
+317,"Product 317","Home Appliances",433,10
+318,"Product 318",Furniture,271,91
+319,"Product 319",Electronics,806,29
+320,"Product 320","Home Appliances",75,29
+321,"Product 321",Furniture,369,84
+322,"Product 322",Electronics,193,27
+323,"Product 323","Home Appliances",834,37
+324,"Product 324",Furniture,366,59
+325,"Product 325",Electronics,894,72
+326,"Product 326","Home Appliances",891,31
+327,"Product 327",Furniture,832,24
+328,"Product 328",Electronics,691,70
+329,"Product 329","Home Appliances",438,99
+330,"Product 330",Furniture,709,53
+331,"Product 331",Electronics,524,96
+332,"Product 332","Home Appliances",279,37
+333,"Product 333",Furniture,136,37
+334,"Product 334",Electronics,575,68
+335,"Product 335","Home Appliances",703,44
+336,"Product 336",Furniture,133,16
+337,"Product 337",Electronics,497,92
+338,"Product 338","Home Appliances",201,6
+339,"Product 339",Furniture,790,75
+340,"Product 340",Electronics,412,68
+341,"Product 341","Home Appliances",258,9
+342,"Product 342",Furniture,746,44
+343,"Product 343",Electronics,958,50
+344,"Product 344","Home Appliances",593,40
+345,"Product 345",Furniture,283,6
+346,"Product 346",Electronics,539,43
+347,"Product 347","Home Appliances",594,60
+348,"Product 348",Furniture,289,49
+349,"Product 349",Electronics,653,75
+350,"Product 350","Home Appliances",795,72
+351,"Product 351",Furniture,223,80
+352,"Product 352",Electronics,429,64
+353,"Product 353","Home Appliances",953,87
+354,"Product 354",Furniture,491,74
+355,"Product 355",Electronics,307,16
+356,"Product 356","Home Appliances",954,31
+357,"Product 357",Furniture,660,32
+358,"Product 358",Electronics,661,28
+359,"Product 359","Home Appliances",462,36
+360,"Product 360",Furniture,484,24
+361,"Product 361",Electronics,795,24
+362,"Product 362","Home Appliances",791,23
+363,"Product 363",Furniture,778,18
+364,"Product 364",Electronics,558,18
+365,"Product 365","Home Appliances",304,82
+366,"Product 366",Furniture,305,91
+367,"Product 367",Electronics,710,78
+368,"Product 368","Home Appliances",786,57
+369,"Product 369",Furniture,493,67
+370,"Product 370",Electronics,896,49
+371,"Product 371","Home Appliances",728,15
+372,"Product 372",Furniture,577,37
+373,"Product 373",Electronics,156,50
+374,"Product 374","Home Appliances",171,17
+375,"Product 375",Furniture,438,58
+376,"Product 376",Electronics,633,37
+377,"Product 377","Home Appliances",978,80
+378,"Product 378",Furniture,82,80
+379,"Product 379",Electronics,862,91
+380,"Product 380","Home Appliances",933,96
+381,"Product 381",Furniture,974,2
+382,"Product 382",Electronics,160,57
+383,"Product 383","Home Appliances",476,57
+384,"Product 384",Furniture,503,70
+385,"Product 385",Electronics,79,9
+386,"Product 386","Home Appliances",328,24
+387,"Product 387",Furniture,317,72
+388,"Product 388",Electronics,724,42
+389,"Product 389","Home Appliances",947,49
+390,"Product 390",Furniture,586,39
+391,"Product 391",Electronics,262,98
+392,"Product 392","Home Appliances",210,95
+393,"Product 393",Furniture,236,17
+394,"Product 394",Electronics,242,55
+395,"Product 395","Home Appliances",131,82
+396,"Product 396",Furniture,803,55
+397,"Product 397",Electronics,336,91
+398,"Product 398","Home Appliances",597,20
+399,"Product 399",Furniture,279,63
+400,"Product 400",Electronics,426,12
+401,"Product 401","Home Appliances",387,46
+402,"Product 402",Furniture,226,58
+403,"Product 403",Electronics,353,88
+404,"Product 404","Home Appliances",426,38
+405,"Product 405",Furniture,660,13
+406,"Product 406",Electronics,666,91
+407,"Product 407","Home Appliances",559,100
+408,"Product 408",Furniture,373,74
+409,"Product 409",Electronics,653,99
+410,"Product 410","Home Appliances",998,6
+411,"Product 411",Furniture,285,10
+412,"Product 412",Electronics,732,33
+413,"Product 413","Home Appliances",453,18
+414,"Product 414",Furniture,607,43
+415,"Product 415",Electronics,365,41
+416,"Product 416","Home Appliances",73,92
+417,"Product 417",Furniture,497,64
+418,"Product 418",Electronics,730,71
+419,"Product 419","Home Appliances",402,75
+420,"Product 420",Furniture,624,80
+421,"Product 421",Electronics,192,38
+422,"Product 422","Home Appliances",431,90
+423,"Product 423",Furniture,304,67
+424,"Product 424",Electronics,502,42
+425,"Product 425","Home Appliances",656,96
+426,"Product 426",Furniture,839,32
+427,"Product 427",Electronics,96,33
+428,"Product 428","Home Appliances",467,26
+429,"Product 429",Furniture,918,84
+430,"Product 430",Electronics,443,59
+431,"Product 431","Home Appliances",657,48
+432,"Product 432",Furniture,451,72
+433,"Product 433",Electronics,307,24
+434,"Product 434","Home Appliances",376,3
+435,"Product 435",Furniture,126,35
+436,"Product 436",Electronics,469,21
+437,"Product 437","Home Appliances",671,69
+438,"Product 438",Furniture,470,18
+439,"Product 439",Electronics,548,12
+440,"Product 440","Home Appliances",975,55
+441,"Product 441",Furniture,793,30
+442,"Product 442",Electronics,151,67
+443,"Product 443","Home Appliances",973,89
+444,"Product 444",Furniture,533,90
+445,"Product 445",Electronics,922,93
+446,"Product 446","Home Appliances",869,55
+447,"Product 447",Furniture,171,2
+448,"Product 448",Electronics,669,25
+449,"Product 449","Home Appliances",277,49
+450,"Product 450",Furniture,686,93
+451,"Product 451",Electronics,591,11
+452,"Product 452","Home Appliances",806,69
+453,"Product 453",Furniture,990,93
+454,"Product 454",Electronics,659,45
+455,"Product 455","Home Appliances",314,8
+456,"Product 456",Furniture,525,31
+457,"Product 457",Electronics,998,10
+458,"Product 458","Home Appliances",487,4
+459,"Product 459",Furniture,769,71
+460,"Product 460",Electronics,274,9
+461,"Product 461","Home Appliances",690,15
+462,"Product 462",Furniture,694,98
+463,"Product 463",Electronics,818,15
+464,"Product 464","Home Appliances",309,95
+465,"Product 465",Furniture,899,65
+466,"Product 466",Electronics,557,75
+467,"Product 467","Home Appliances",149,31
+468,"Product 468",Furniture,213,98
+469,"Product 469",Electronics,359,73
+470,"Product 470","Home Appliances",660,5
+471,"Product 471",Furniture,304,23
+472,"Product 472",Electronics,338,86
+473,"Product 473","Home Appliances",389,23
+474,"Product 474",Furniture,98,59
+475,"Product 475",Electronics,756,99
+476,"Product 476","Home Appliances",684,41
+477,"Product 477",Furniture,995,79
+478,"Product 478",Electronics,900,15
+479,"Product 479","Home Appliances",88,78
+480,"Product 480",Furniture,723,25
+481,"Product 481",Electronics,137,74
+482,"Product 482","Home Appliances",408,70
+483,"Product 483",Furniture,357,55
+484,"Product 484",Electronics,757,10
+485,"Product 485","Home Appliances",269,88
+486,"Product 486",Furniture,692,77
+487,"Product 487",Electronics,790,62
+488,"Product 488","Home Appliances",730,76
+489,"Product 489",Furniture,615,74
+490,"Product 490",Electronics,863,11
+491,"Product 491","Home Appliances",914,27
+492,"Product 492",Furniture,599,12
+493,"Product 493",Electronics,812,70
+494,"Product 494","Home Appliances",89,15
+495,"Product 495",Furniture,577,38
+496,"Product 496",Electronics,214,77
+497,"Product 497","Home Appliances",319,15
+498,"Product 498",Furniture,843,77
+499,"Product 499",Electronics,335,23
+500,"Product 500","Home Appliances",231,31
+501,"Product 501",Furniture,915,68
+502,"Product 502",Electronics,617,99
+503,"Product 503","Home Appliances",178,73
+504,"Product 504",Furniture,233,82
+505,"Product 505",Electronics,475,83
+506,"Product 506","Home Appliances",783,40
+507,"Product 507",Furniture,657,3
+508,"Product 508",Electronics,229,89
+509,"Product 509","Home Appliances",842,54
+510,"Product 510",Furniture,192,17
+511,"Product 511",Electronics,373,24
+512,"Product 512","Home Appliances",153,87
+513,"Product 513",Furniture,995,39
+514,"Product 514",Electronics,932,50
+515,"Product 515","Home Appliances",700,95
+516,"Product 516",Furniture,665,42
+517,"Product 517",Electronics,176,43
+518,"Product 518","Home Appliances",721,28
+519,"Product 519",Furniture,269,35
+520,"Product 520",Electronics,66,7
+521,"Product 521","Home Appliances",288,8
+522,"Product 522",Furniture,619,80
+523,"Product 523",Electronics,176,31
+524,"Product 524","Home Appliances",170,73
+525,"Product 525",Furniture,253,92
+526,"Product 526",Electronics,918,84
+527,"Product 527","Home Appliances",461,67
+528,"Product 528",Furniture,52,4
+529,"Product 529",Electronics,185,63
+530,"Product 530","Home Appliances",700,56
+531,"Product 531",Furniture,734,95
+532,"Product 532",Electronics,542,79
+533,"Product 533","Home Appliances",399,49
+534,"Product 534",Furniture,343,10
+535,"Product 535",Electronics,571,47
+536,"Product 536","Home Appliances",667,88
+537,"Product 537",Furniture,439,44
+538,"Product 538",Electronics,941,40
+539,"Product 539","Home Appliances",174,50
+540,"Product 540",Furniture,87,75
+541,"Product 541",Electronics,582,60
+542,"Product 542","Home Appliances",324,67
+543,"Product 543",Furniture,462,20
+544,"Product 544",Electronics,667,69
+545,"Product 545","Home Appliances",472,20
+546,"Product 546",Furniture,620,45
+547,"Product 547",Electronics,432,70
+548,"Product 548","Home Appliances",273,12
+549,"Product 549",Furniture,856,92
+550,"Product 550",Electronics,54,30
+551,"Product 551","Home Appliances",463,32
+552,"Product 552",Furniture,265,22
+553,"Product 553",Electronics,420,32
+554,"Product 554","Home Appliances",397,92
+555,"Product 555",Furniture,464,47
+556,"Product 556",Electronics,997,61
+557,"Product 557","Home Appliances",56,24
+558,"Product 558",Furniture,191,5
+559,"Product 559",Electronics,777,71
+560,"Product 560","Home Appliances",242,92
+561,"Product 561",Furniture,951,2
+562,"Product 562",Electronics,237,97
+563,"Product 563","Home Appliances",244,16
+564,"Product 564",Furniture,160,15
+565,"Product 565",Electronics,384,35
+566,"Product 566","Home Appliances",652,17
+567,"Product 567",Furniture,893,97
+568,"Product 568",Electronics,193,87
+569,"Product 569","Home Appliances",876,77
+570,"Product 570",Furniture,214,60
+571,"Product 571",Electronics,474,47
+572,"Product 572","Home Appliances",938,32
+573,"Product 573",Furniture,763,83
+574,"Product 574",Electronics,845,74
+575,"Product 575","Home Appliances",198,59
+576,"Product 576",Furniture,460,43
+577,"Product 577",Electronics,807,74
+578,"Product 578","Home Appliances",284,6
+579,"Product 579",Furniture,536,42
+580,"Product 580",Electronics,529,31
+581,"Product 581","Home Appliances",969,96
+582,"Product 582",Furniture,862,43
+583,"Product 583",Electronics,561,44
+584,"Product 584","Home Appliances",539,31
+585,"Product 585",Furniture,947,84
+586,"Product 586",Electronics,337,4
+587,"Product 587","Home Appliances",275,11
+588,"Product 588",Furniture,788,60
+589,"Product 589",Electronics,652,40
+590,"Product 590","Home Appliances",97,9
+591,"Product 591",Furniture,268,93
+592,"Product 592",Electronics,926,85
+593,"Product 593","Home Appliances",475,72
+594,"Product 594",Furniture,248,92
+595,"Product 595",Electronics,930,91
+596,"Product 596","Home Appliances",740,94
+597,"Product 597",Furniture,482,50
+598,"Product 598",Electronics,149,5
+599,"Product 599","Home Appliances",897,35
+600,"Product 600",Furniture,59,5
+601,"Product 601",Electronics,197,67
+602,"Product 602","Home Appliances",863,29
+603,"Product 603",Furniture,865,45
+604,"Product 604",Electronics,624,72
+605,"Product 605","Home Appliances",769,65
+606,"Product 606",Furniture,942,78
+607,"Product 607",Electronics,77,85
+608,"Product 608","Home Appliances",137,96
+609,"Product 609",Furniture,511,58
+610,"Product 610",Electronics,427,28
+611,"Product 611","Home Appliances",211,4
+612,"Product 612",Furniture,664,15
+613,"Product 613",Electronics,766,36
+614,"Product 614","Home Appliances",523,45
+615,"Product 615",Furniture,700,12
+616,"Product 616",Electronics,539,24
+617,"Product 617","Home Appliances",641,42
+618,"Product 618",Furniture,235,75
+619,"Product 619",Electronics,142,29
+620,"Product 620","Home Appliances",139,65
+621,"Product 621",Furniture,906,61
+622,"Product 622",Electronics,318,63
+623,"Product 623","Home Appliances",279,36
+624,"Product 624",Furniture,97,19
+625,"Product 625",Electronics,772,27
+626,"Product 626","Home Appliances",54,26
+627,"Product 627",Furniture,270,42
+628,"Product 628",Electronics,388,56
+629,"Product 629","Home Appliances",705,80
+630,"Product 630",Furniture,890,6
+631,"Product 631",Electronics,622,87
+632,"Product 632","Home Appliances",510,86
+633,"Product 633",Furniture,792,37
+634,"Product 634",Electronics,501,30
+635,"Product 635","Home Appliances",51,16
+636,"Product 636",Furniture,759,29
+637,"Product 637",Electronics,207,99
+638,"Product 638","Home Appliances",448,16
+639,"Product 639",Furniture,497,92
+640,"Product 640",Electronics,206,9
+641,"Product 641","Home Appliances",892,21
+642,"Product 642",Furniture,395,21
+643,"Product 643",Electronics,924,101
+644,"Product 644","Home Appliances",260,13
+645,"Product 645",Furniture,926,27
+646,"Product 646",Electronics,542,83
+647,"Product 647","Home Appliances",571,29
+648,"Product 648",Furniture,768,95
+649,"Product 649",Electronics,462,36
+650,"Product 650","Home Appliances",465,15
+651,"Product 651",Furniture,420,54
+652,"Product 652",Electronics,493,76
+653,"Product 653","Home Appliances",394,57
+654,"Product 654",Furniture,704,78
+655,"Product 655",Electronics,819,73
+656,"Product 656","Home Appliances",227,77
+657,"Product 657",Furniture,287,97
+658,"Product 658",Electronics,119,48
+659,"Product 659","Home Appliances",166,22
+660,"Product 660",Furniture,691,76
+661,"Product 661",Electronics,737,38
+662,"Product 662","Home Appliances",680,23
+663,"Product 663",Furniture,141,84
+664,"Product 664",Electronics,850,74
+665,"Product 665","Home Appliances",186,53
+666,"Product 666",Furniture,190,20
+667,"Product 667",Electronics,539,101
+668,"Product 668","Home Appliances",482,28
+669,"Product 669",Furniture,998,18
+670,"Product 670",Electronics,881,86
+671,"Product 671","Home Appliances",654,63
+672,"Product 672",Furniture,249,19
+673,"Product 673",Electronics,292,75
+674,"Product 674","Home Appliances",961,57
+675,"Product 675",Furniture,938,99
+676,"Product 676",Electronics,162,65
+677,"Product 677","Home Appliances",838,25
+678,"Product 678",Furniture,722,83
+679,"Product 679",Electronics,974,42
+680,"Product 680","Home Appliances",154,34
+681,"Product 681",Furniture,357,63
+682,"Product 682",Electronics,193,89
+683,"Product 683","Home Appliances",951,11
+684,"Product 684",Furniture,691,7
+685,"Product 685",Electronics,322,26
+686,"Product 686","Home Appliances",404,13
+687,"Product 687",Furniture,529,16
+688,"Product 688",Electronics,258,67
+689,"Product 689","Home Appliances",641,15
+690,"Product 690",Furniture,855,82
+691,"Product 691",Electronics,522,7
+692,"Product 692","Home Appliances",823,90
+693,"Product 693",Furniture,988,29
+694,"Product 694",Electronics,461,34
+695,"Product 695","Home Appliances",370,71
+696,"Product 696",Furniture,528,42
+697,"Product 697",Electronics,545,40
+698,"Product 698","Home Appliances",408,73
+699,"Product 699",Furniture,493,18
+700,"Product 700",Electronics,490,81
+701,"Product 701","Home Appliances",621,62
+702,"Product 702",Furniture,285,42
+703,"Product 703",Electronics,333,28
+704,"Product 704","Home Appliances",469,41
+705,"Product 705",Furniture,709,27
+706,"Product 706",Electronics,246,27
+707,"Product 707","Home Appliances",688,59
+708,"Product 708",Furniture,912,79
+709,"Product 709",Electronics,232,62
+710,"Product 710","Home Appliances",509,59
+711,"Product 711",Furniture,472,50
+712,"Product 712",Electronics,138,2
+713,"Product 713","Home Appliances",780,82
+714,"Product 714",Furniture,767,35
+715,"Product 715",Electronics,463,16
+716,"Product 716","Home Appliances",496,89
+717,"Product 717",Furniture,57,40
+718,"Product 718",Electronics,914,40
+719,"Product 719","Home Appliances",253,91
+720,"Product 720",Furniture,878,66
+721,"Product 721",Electronics,653,23
+722,"Product 722","Home Appliances",249,39
+723,"Product 723",Furniture,303,20
+724,"Product 724",Electronics,209,27
+725,"Product 725","Home Appliances",808,22
+726,"Product 726",Furniture,662,61
+727,"Product 727",Electronics,110,53
+728,"Product 728","Home Appliances",439,50
+729,"Product 729",Furniture,253,61
+730,"Product 730",Electronics,398,4
+731,"Product 731","Home Appliances",79,9
+732,"Product 732",Furniture,331,26
+733,"Product 733",Electronics,375,98
+734,"Product 734","Home Appliances",837,24
+735,"Product 735",Furniture,674,61
+736,"Product 736",Electronics,78,36
+737,"Product 737","Home Appliances",668,22
+738,"Product 738",Furniture,139,85
+739,"Product 739",Electronics,927,10
+740,"Product 740","Home Appliances",714,23
+741,"Product 741",Furniture,980,26
+742,"Product 742",Electronics,346,82
+743,"Product 743","Home Appliances",158,15
+744,"Product 744",Furniture,387,37
+745,"Product 745",Electronics,731,53
+746,"Product 746","Home Appliances",461,62
+747,"Product 747",Furniture,784,3
+748,"Product 748",Electronics,793,86
+749,"Product 749","Home Appliances",902,95
+750,"Product 750",Furniture,64,26
+751,"Product 751",Electronics,249,31
+752,"Product 752","Home Appliances",858,38
+753,"Product 753",Furniture,317,31
+754,"Product 754",Electronics,693,48
+755,"Product 755","Home Appliances",359,22
+756,"Product 756",Furniture,139,84
+757,"Product 757",Electronics,855,77
+758,"Product 758","Home Appliances",292,101
+759,"Product 759",Furniture,264,14
+760,"Product 760",Electronics,981,52
+761,"Product 761","Home Appliances",617,47
+762,"Product 762",Furniture,544,23
+763,"Product 763",Electronics,539,94
+764,"Product 764","Home Appliances",149,74
+765,"Product 765",Furniture,381,55
+766,"Product 766",Electronics,689,74
+767,"Product 767","Home Appliances",670,7
+768,"Product 768",Furniture,379,56
+769,"Product 769",Electronics,722,90
+770,"Product 770","Home Appliances",361,98
+771,"Product 771",Furniture,852,34
+772,"Product 772",Electronics,141,51
+773,"Product 773","Home Appliances",265,63
+774,"Product 774",Furniture,456,28
+775,"Product 775",Electronics,128,60
+776,"Product 776","Home Appliances",724,79
+777,"Product 777",Furniture,764,44
+778,"Product 778",Electronics,891,15
+779,"Product 779","Home Appliances",106,88
+780,"Product 780",Furniture,193,17
+781,"Product 781",Electronics,364,19
+782,"Product 782","Home Appliances",920,5
+783,"Product 783",Furniture,464,8
+784,"Product 784",Electronics,87,100
+785,"Product 785","Home Appliances",820,11
+786,"Product 786",Furniture,93,95
+787,"Product 787",Electronics,596,6
+788,"Product 788","Home Appliances",543,46
+789,"Product 789",Furniture,692,5
+790,"Product 790",Electronics,223,79
+791,"Product 791","Home Appliances",401,51
+792,"Product 792",Furniture,409,41
+793,"Product 793",Electronics,862,9
+794,"Product 794","Home Appliances",843,94
+795,"Product 795",Furniture,209,5
+796,"Product 796",Electronics,689,27
+797,"Product 797","Home Appliances",311,61
+798,"Product 798",Furniture,199,101
+799,"Product 799",Electronics,531,56
+800,"Product 800","Home Appliances",254,44
+801,"Product 801",Furniture,540,29
+802,"Product 802",Electronics,871,49
+803,"Product 803","Home Appliances",799,52
+804,"Product 804",Furniture,247,50
+805,"Product 805",Electronics,845,72
+806,"Product 806","Home Appliances",83,6
+807,"Product 807",Furniture,174,52
+808,"Product 808",Electronics,202,28
+809,"Product 809","Home Appliances",883,58
+810,"Product 810",Furniture,254,38
+811,"Product 811",Electronics,224,83
+812,"Product 812","Home Appliances",571,30
+813,"Product 813",Furniture,792,6
+814,"Product 814",Electronics,913,40
+815,"Product 815","Home Appliances",269,99
+816,"Product 816",Furniture,240,8
+817,"Product 817",Electronics,739,44
+818,"Product 818","Home Appliances",990,66
+819,"Product 819",Furniture,306,42
+820,"Product 820",Electronics,256,88
+821,"Product 821","Home Appliances",700,83
+822,"Product 822",Furniture,103,82
+823,"Product 823",Electronics,898,4
+824,"Product 824","Home Appliances",484,21
+825,"Product 825",Furniture,659,61
+826,"Product 826",Electronics,113,55
+827,"Product 827","Home Appliances",527,90
+828,"Product 828",Furniture,939,2
+829,"Product 829",Electronics,298,27
+830,"Product 830","Home Appliances",563,91
+831,"Product 831",Furniture,907,81
+832,"Product 832",Electronics,311,100
+833,"Product 833","Home Appliances",151,58
+834,"Product 834",Furniture,573,4
+835,"Product 835",Electronics,519,39
+836,"Product 836","Home Appliances",461,2
+837,"Product 837",Furniture,783,83
+838,"Product 838",Electronics,785,42
+839,"Product 839","Home Appliances",759,50
+840,"Product 840",Furniture,258,63
+841,"Product 841",Electronics,476,39
+842,"Product 842","Home Appliances",571,62
+843,"Product 843",Furniture,419,13
+844,"Product 844",Electronics,462,82
+845,"Product 845","Home Appliances",758,31
+846,"Product 846",Furniture,300,43
+847,"Product 847",Electronics,333,24
+848,"Product 848","Home Appliances",315,70
+849,"Product 849",Furniture,649,8
+850,"Product 850",Electronics,490,11
+851,"Product 851","Home Appliances",168,32
+852,"Product 852",Furniture,225,100
+853,"Product 853",Electronics,421,100
+854,"Product 854","Home Appliances",778,88
+855,"Product 855",Furniture,84,59
+856,"Product 856",Electronics,795,20
+857,"Product 857","Home Appliances",607,38
+858,"Product 858",Furniture,130,32
+859,"Product 859",Electronics,349,64
+860,"Product 860","Home Appliances",257,20
+861,"Product 861",Furniture,348,100
+862,"Product 862",Electronics,991,101
+863,"Product 863","Home Appliances",57,6
+864,"Product 864",Furniture,262,98
+865,"Product 865",Electronics,214,97
+866,"Product 866","Home Appliances",303,47
+867,"Product 867",Furniture,534,17
+868,"Product 868",Electronics,316,93
+869,"Product 869","Home Appliances",757,98
+870,"Product 870",Furniture,639,20
+871,"Product 871",Electronics,123,83
+872,"Product 872","Home Appliances",882,92
+873,"Product 873",Furniture,947,99
+874,"Product 874",Electronics,108,38
+875,"Product 875","Home Appliances",675,19
+876,"Product 876",Furniture,952,20
+877,"Product 877",Electronics,164,3
+878,"Product 878","Home Appliances",743,60
+879,"Product 879",Furniture,786,11
+880,"Product 880",Electronics,207,54
+881,"Product 881","Home Appliances",206,24
+882,"Product 882",Furniture,658,53
+883,"Product 883",Electronics,697,85
+884,"Product 884","Home Appliances",220,37
+885,"Product 885",Furniture,313,30
+886,"Product 886",Electronics,655,32
+887,"Product 887","Home Appliances",634,17
+888,"Product 888",Furniture,948,26
+889,"Product 889",Electronics,463,42
+890,"Product 890","Home Appliances",766,54
+891,"Product 891",Furniture,440,46
+892,"Product 892",Electronics,66,75
+893,"Product 893","Home Appliances",648,95
+894,"Product 894",Furniture,822,25
+895,"Product 895",Electronics,792,18
+896,"Product 896","Home Appliances",546,10
+897,"Product 897",Furniture,890,16
+898,"Product 898",Electronics,154,10
+899,"Product 899","Home Appliances",154,30
+900,"Product 900",Furniture,151,68
+901,"Product 901",Electronics,83,17
+902,"Product 902","Home Appliances",719,4
+903,"Product 903",Furniture,105,20
+904,"Product 904",Electronics,777,27
+905,"Product 905","Home Appliances",74,34
+906,"Product 906",Furniture,614,98
+907,"Product 907",Electronics,101,38
+908,"Product 908","Home Appliances",695,30
+909,"Product 909",Furniture,451,24
+910,"Product 910",Electronics,903,80
+911,"Product 911","Home Appliances",299,95
+912,"Product 912",Furniture,913,73
+913,"Product 913",Electronics,903,33
+914,"Product 914","Home Appliances",894,50
+915,"Product 915",Furniture,807,52
+916,"Product 916",Electronics,192,23
+917,"Product 917","Home Appliances",684,68
+918,"Product 918",Furniture,376,72
+919,"Product 919",Electronics,532,42
+920,"Product 920","Home Appliances",574,52
+921,"Product 921",Furniture,922,5
+922,"Product 922",Electronics,495,22
+923,"Product 923","Home Appliances",666,62
+924,"Product 924",Furniture,144,68
+925,"Product 925",Electronics,89,21
+926,"Product 926","Home Appliances",904,89
+927,"Product 927",Furniture,716,88
+928,"Product 928",Electronics,269,56
+929,"Product 929","Home Appliances",111,68
+930,"Product 930",Furniture,200,79
+931,"Product 931",Electronics,439,73
+932,"Product 932","Home Appliances",399,69
+933,"Product 933",Furniture,327,43
+934,"Product 934",Electronics,268,90
+935,"Product 935","Home Appliances",752,5
+936,"Product 936",Furniture,974,76
+937,"Product 937",Electronics,832,88
+938,"Product 938","Home Appliances",894,84
+939,"Product 939",Furniture,496,88
+940,"Product 940",Electronics,933,6
+941,"Product 941","Home Appliances",467,7
+942,"Product 942",Furniture,980,73
+943,"Product 943",Electronics,671,12
+944,"Product 944","Home Appliances",622,68
+945,"Product 945",Furniture,584,80
+946,"Product 946",Electronics,299,95
+947,"Product 947","Home Appliances",924,78
+948,"Product 948",Furniture,157,25
+949,"Product 949",Electronics,879,65
+950,"Product 950","Home Appliances",583,91
+951,"Product 951",Furniture,820,36
+952,"Product 952",Electronics,377,66
+953,"Product 953","Home Appliances",278,25
+954,"Product 954",Furniture,490,62
+955,"Product 955",Electronics,668,44
+956,"Product 956","Home Appliances",222,63
+957,"Product 957",Furniture,601,4
+958,"Product 958",Electronics,426,91
+959,"Product 959","Home Appliances",331,80
+960,"Product 960",Furniture,98,90
+961,"Product 961",Electronics,334,83
+962,"Product 962","Home Appliances",260,65
+963,"Product 963",Furniture,542,69
+964,"Product 964",Electronics,853,20
+965,"Product 965","Home Appliances",438,48
+966,"Product 966",Furniture,184,30
+967,"Product 967",Electronics,62,21
+968,"Product 968","Home Appliances",968,24
+969,"Product 969",Furniture,278,53
+970,"Product 970",Electronics,877,81
+971,"Product 971","Home Appliances",415,53
+972,"Product 972",Furniture,491,76
+973,"Product 973",Electronics,398,58
+974,"Product 974","Home Appliances",781,14
+975,"Product 975",Furniture,370,30
+976,"Product 976",Electronics,490,44
+977,"Product 977","Home Appliances",790,60
+978,"Product 978",Furniture,650,39
+979,"Product 979",Electronics,989,82
+980,"Product 980","Home Appliances",137,4
+981,"Product 981",Furniture,858,19
+982,"Product 982",Electronics,372,17
+983,"Product 983","Home Appliances",785,41
+984,"Product 984",Furniture,676,11
+985,"Product 985",Electronics,570,43
+986,"Product 986","Home Appliances",497,10
+987,"Product 987",Furniture,71,86
+988,"Product 988",Electronics,217,34
+989,"Product 989","Home Appliances",182,71
+990,"Product 990",Furniture,111,24
+991,"Product 991",Electronics,966,14
+992,"Product 992","Home Appliances",757,35
+993,"Product 993",Furniture,497,34
+994,"Product 994",Electronics,282,24
+995,"Product 995","Home Appliances",429,33
+996,"Product 996",Furniture,415,98
+997,"Product 997",Electronics,731,67
+998,"Product 998","Home Appliances",197,80
+999,"Product 999",Furniture,512,7
+1000,"Product 1000",Electronics,864,10
